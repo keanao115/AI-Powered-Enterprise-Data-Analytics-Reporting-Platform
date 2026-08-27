@@ -1,0 +1,1801 @@
+hadm_id,subject_id,seq_num,icd_code,icd_title,category
+20000782,10000244,1,I10,Essential (primary) hypertension,Circulatory
+20000790,10000258,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000749,10000127,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000367,10000188,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000569,10000400,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000382,10000067,6,A419,"Sepsis, unspecified organism",Infectious
+20000786,10000385,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000605,10000369,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000618,10000465,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000786,10000187,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000772,10000357,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000610,10000339,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000052,10000040,1,I10,Essential (primary) hypertension,Circulatory
+20000481,10000084,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000386,10000140,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000732,10000248,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000138,10000242,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000029,10000037,6,A419,"Sepsis, unspecified organism",Infectious
+20000380,10000040,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000580,10000158,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000004,10000425,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000372,10000098,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000771,10000124,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000703,10000014,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000089,10000387,1,I10,Essential (primary) hypertension,Circulatory
+20000171,10000137,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000765,10000153,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000749,10000489,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000386,10000209,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000698,10000377,6,A419,"Sepsis, unspecified organism",Infectious
+20000610,10000417,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000592,10000161,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000039,10000033,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000379,10000272,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000143,10000296,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000015,10000335,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000173,10000127,1,I10,Essential (primary) hypertension,Circulatory
+20000067,10000017,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000434,10000448,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000694,10000155,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000051,10000140,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000749,10000294,6,A419,"Sepsis, unspecified organism",Infectious
+20000485,10000014,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000256,10000464,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000444,10000278,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000771,10000399,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000069,10000272,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000688,10000025,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000145,10000149,1,I10,Essential (primary) hypertension,Circulatory
+20000583,10000200,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000654,10000044,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000292,10000404,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000343,10000350,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000515,10000429,6,A419,"Sepsis, unspecified organism",Infectious
+20000403,10000147,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000449,10000127,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000653,10000207,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000463,10000445,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000309,10000486,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000742,10000436,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000192,10000000,1,I10,Essential (primary) hypertension,Circulatory
+20000520,10000393,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000121,10000133,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000085,10000403,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000573,10000499,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000364,10000358,6,A419,"Sepsis, unspecified organism",Infectious
+20000127,10000221,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000687,10000102,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000148,10000072,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000328,10000000,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000710,10000325,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000753,10000396,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000771,10000450,1,I10,Essential (primary) hypertension,Circulatory
+20000289,10000491,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000232,10000138,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000089,10000373,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000438,10000243,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000297,10000433,6,A419,"Sepsis, unspecified organism",Infectious
+20000767,10000069,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000012,10000135,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000404,10000127,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000007,10000421,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000421,10000175,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000753,10000002,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000711,10000230,1,I10,Essential (primary) hypertension,Circulatory
+20000695,10000189,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000510,10000389,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000087,10000355,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000508,10000360,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000492,10000244,6,A419,"Sepsis, unspecified organism",Infectious
+20000002,10000310,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000678,10000009,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000237,10000352,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000011,10000394,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000759,10000114,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000378,10000348,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000743,10000485,1,I10,Essential (primary) hypertension,Circulatory
+20000377,10000286,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000785,10000061,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000024,10000410,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000635,10000037,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000117,10000073,6,A419,"Sepsis, unspecified organism",Infectious
+20000391,10000113,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000513,10000158,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000529,10000144,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000107,10000079,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000032,10000277,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000567,10000076,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000024,10000366,1,I10,Essential (primary) hypertension,Circulatory
+20000337,10000051,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000713,10000104,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000170,10000007,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000263,10000007,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000627,10000227,6,A419,"Sepsis, unspecified organism",Infectious
+20000104,10000457,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000433,10000229,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000774,10000300,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000657,10000450,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000590,10000043,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000382,10000059,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000633,10000246,1,I10,Essential (primary) hypertension,Circulatory
+20000666,10000369,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000277,10000071,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000511,10000216,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000760,10000003,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000060,10000034,6,A419,"Sepsis, unspecified organism",Infectious
+20000144,10000484,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000402,10000421,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000747,10000098,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000644,10000448,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000784,10000497,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000616,10000225,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000738,10000419,1,I10,Essential (primary) hypertension,Circulatory
+20000511,10000103,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000093,10000378,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000435,10000102,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000228,10000073,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000283,10000179,6,A419,"Sepsis, unspecified organism",Infectious
+20000708,10000347,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000189,10000349,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000779,10000120,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000311,10000298,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000145,10000004,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000296,10000299,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000170,10000092,1,I10,Essential (primary) hypertension,Circulatory
+20000042,10000135,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000012,10000097,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000125,10000029,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000070,10000156,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000340,10000232,6,A419,"Sepsis, unspecified organism",Infectious
+20000613,10000379,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000448,10000261,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000438,10000430,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000628,10000083,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000298,10000110,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000162,10000252,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000540,10000202,1,I10,Essential (primary) hypertension,Circulatory
+20000704,10000380,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000072,10000362,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000487,10000002,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000332,10000306,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000140,10000460,6,A419,"Sepsis, unspecified organism",Infectious
+20000574,10000070,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000659,10000061,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000241,10000426,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000023,10000107,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000026,10000445,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000486,10000081,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000109,10000051,1,I10,Essential (primary) hypertension,Circulatory
+20000092,10000088,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000299,10000141,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000466,10000372,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000771,10000224,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000546,10000013,6,A419,"Sepsis, unspecified organism",Infectious
+20000391,10000218,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000654,10000432,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000542,10000474,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000179,10000091,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000368,10000233,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000379,10000461,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000640,10000037,1,I10,Essential (primary) hypertension,Circulatory
+20000603,10000393,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000644,10000304,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000097,10000157,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000387,10000266,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000120,10000477,6,A419,"Sepsis, unspecified organism",Infectious
+20000036,10000187,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000162,10000411,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000600,10000057,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000120,10000136,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000547,10000377,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000172,10000125,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000570,10000422,1,I10,Essential (primary) hypertension,Circulatory
+20000130,10000083,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000199,10000143,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000416,10000135,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000471,10000187,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000135,10000332,6,A419,"Sepsis, unspecified organism",Infectious
+20000357,10000366,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000249,10000376,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000302,10000172,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000645,10000159,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000469,10000300,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000584,10000142,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000558,10000163,1,I10,Essential (primary) hypertension,Circulatory
+20000370,10000433,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000508,10000384,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000537,10000401,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000713,10000209,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000506,10000144,6,A419,"Sepsis, unspecified organism",Infectious
+20000403,10000160,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000382,10000061,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000127,10000236,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000584,10000357,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000002,10000055,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000298,10000426,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000785,10000116,1,I10,Essential (primary) hypertension,Circulatory
+20000772,10000465,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000286,10000260,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000624,10000242,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000040,10000010,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000499,10000476,6,A419,"Sepsis, unspecified organism",Infectious
+20000017,10000042,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000546,10000296,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000231,10000251,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000330,10000353,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000528,10000406,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000538,10000497,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000569,10000326,1,I10,Essential (primary) hypertension,Circulatory
+20000190,10000353,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000397,10000073,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000739,10000069,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000337,10000226,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000729,10000221,6,A419,"Sepsis, unspecified organism",Infectious
+20000156,10000018,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000037,10000213,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000511,10000296,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000767,10000374,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000291,10000271,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000797,10000215,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000725,10000403,1,I10,Essential (primary) hypertension,Circulatory
+20000440,10000141,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000791,10000032,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000799,10000131,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000188,10000305,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000296,10000482,6,A419,"Sepsis, unspecified organism",Infectious
+20000151,10000238,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000375,10000285,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000568,10000102,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000448,10000409,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000360,10000254,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000343,10000421,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000144,10000150,1,I10,Essential (primary) hypertension,Circulatory
+20000604,10000236,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000169,10000159,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000624,10000163,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000554,10000443,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000414,10000332,6,A419,"Sepsis, unspecified organism",Infectious
+20000661,10000447,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000628,10000407,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000110,10000491,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000150,10000210,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000271,10000024,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000475,10000070,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000280,10000189,1,I10,Essential (primary) hypertension,Circulatory
+20000571,10000350,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000744,10000237,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000498,10000267,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000776,10000186,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000711,10000236,6,A419,"Sepsis, unspecified organism",Infectious
+20000013,10000398,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000693,10000355,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000777,10000480,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000569,10000469,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000651,10000409,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000338,10000420,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000269,10000207,1,I10,Essential (primary) hypertension,Circulatory
+20000641,10000086,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000771,10000136,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000532,10000336,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000026,10000267,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000594,10000290,6,A419,"Sepsis, unspecified organism",Infectious
+20000775,10000485,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000426,10000062,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000144,10000183,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000033,10000273,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000636,10000451,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000642,10000186,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000436,10000473,1,I10,Essential (primary) hypertension,Circulatory
+20000392,10000386,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000530,10000175,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000751,10000117,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000201,10000493,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000015,10000043,6,A419,"Sepsis, unspecified organism",Infectious
+20000014,10000312,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000765,10000115,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000224,10000125,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000059,10000023,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000690,10000082,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000270,10000352,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000371,10000178,1,I10,Essential (primary) hypertension,Circulatory
+20000669,10000248,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000681,10000301,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000107,10000282,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000683,10000428,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000795,10000114,6,A419,"Sepsis, unspecified organism",Infectious
+20000000,10000218,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000494,10000375,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000660,10000485,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000506,10000152,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000733,10000008,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000597,10000136,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000235,10000336,1,I10,Essential (primary) hypertension,Circulatory
+20000714,10000164,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000263,10000054,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000041,10000371,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000689,10000482,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000526,10000496,6,A419,"Sepsis, unspecified organism",Infectious
+20000376,10000193,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000402,10000205,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000633,10000234,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000600,10000176,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000002,10000160,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000391,10000178,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000440,10000495,1,I10,Essential (primary) hypertension,Circulatory
+20000722,10000297,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000437,10000300,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000286,10000155,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000152,10000320,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000113,10000063,6,A419,"Sepsis, unspecified organism",Infectious
+20000233,10000366,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000239,10000312,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000260,10000244,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000708,10000482,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000217,10000274,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000445,10000449,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000632,10000319,1,I10,Essential (primary) hypertension,Circulatory
+20000149,10000075,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000425,10000202,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000167,10000429,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000296,10000246,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000185,10000352,6,A419,"Sepsis, unspecified organism",Infectious
+20000212,10000445,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000268,10000201,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000648,10000095,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000200,10000205,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000369,10000493,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000111,10000253,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000050,10000306,1,I10,Essential (primary) hypertension,Circulatory
+20000796,10000457,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000272,10000106,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000090,10000061,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000058,10000102,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000745,10000434,6,A419,"Sepsis, unspecified organism",Infectious
+20000594,10000309,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000080,10000342,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000032,10000297,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000262,10000495,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000100,10000078,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000388,10000391,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000020,10000053,1,I10,Essential (primary) hypertension,Circulatory
+20000205,10000429,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000618,10000006,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000725,10000161,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000033,10000416,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000334,10000373,6,A419,"Sepsis, unspecified organism",Infectious
+20000301,10000403,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000208,10000197,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000382,10000393,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000726,10000200,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000127,10000078,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000388,10000336,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000616,10000212,1,I10,Essential (primary) hypertension,Circulatory
+20000553,10000316,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000776,10000028,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000043,10000217,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000033,10000158,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000186,10000064,6,A419,"Sepsis, unspecified organism",Infectious
+20000284,10000474,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000193,10000268,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000481,10000479,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000406,10000198,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000249,10000097,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000786,10000057,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000596,10000104,1,I10,Essential (primary) hypertension,Circulatory
+20000748,10000035,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000507,10000458,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000738,10000107,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000241,10000029,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000010,10000184,6,A419,"Sepsis, unspecified organism",Infectious
+20000440,10000286,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000627,10000391,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000117,10000425,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000261,10000333,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000494,10000095,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000513,10000101,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000049,10000089,1,I10,Essential (primary) hypertension,Circulatory
+20000451,10000248,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000206,10000197,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000282,10000305,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000393,10000099,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000480,10000465,6,A419,"Sepsis, unspecified organism",Infectious
+20000334,10000201,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000266,10000153,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000185,10000460,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000187,10000045,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000436,10000244,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000555,10000034,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000467,10000019,1,I10,Essential (primary) hypertension,Circulatory
+20000166,10000215,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000530,10000111,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000456,10000270,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000347,10000025,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000762,10000011,6,A419,"Sepsis, unspecified organism",Infectious
+20000708,10000404,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000481,10000122,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000404,10000250,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000648,10000389,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000780,10000016,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000415,10000389,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000196,10000495,1,I10,Essential (primary) hypertension,Circulatory
+20000669,10000358,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000329,10000371,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000415,10000051,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000046,10000297,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000066,10000222,6,A419,"Sepsis, unspecified organism",Infectious
+20000359,10000372,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000267,10000094,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000621,10000214,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000155,10000136,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000354,10000191,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000663,10000282,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000335,10000370,1,I10,Essential (primary) hypertension,Circulatory
+20000333,10000219,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000503,10000078,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000327,10000371,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000132,10000225,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000652,10000163,6,A419,"Sepsis, unspecified organism",Infectious
+20000000,10000414,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000343,10000391,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000655,10000313,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000248,10000471,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000180,10000011,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000257,10000005,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000779,10000343,1,I10,Essential (primary) hypertension,Circulatory
+20000300,10000208,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000088,10000340,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000726,10000014,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000556,10000248,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000494,10000449,6,A419,"Sepsis, unspecified organism",Infectious
+20000594,10000462,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000660,10000162,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000052,10000024,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000379,10000202,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000000,10000185,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000282,10000194,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000791,10000124,1,I10,Essential (primary) hypertension,Circulatory
+20000781,10000483,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000785,10000228,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000418,10000286,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000663,10000378,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000452,10000246,6,A419,"Sepsis, unspecified organism",Infectious
+20000641,10000458,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000469,10000060,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000214,10000411,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000040,10000415,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000259,10000194,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000423,10000488,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000698,10000073,1,I10,Essential (primary) hypertension,Circulatory
+20000203,10000068,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000038,10000266,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000383,10000252,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000721,10000332,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000768,10000056,6,A419,"Sepsis, unspecified organism",Infectious
+20000012,10000261,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000240,10000068,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000791,10000142,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000042,10000219,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000459,10000496,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000157,10000079,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000037,10000228,1,I10,Essential (primary) hypertension,Circulatory
+20000677,10000344,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000398,10000320,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000714,10000337,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000614,10000124,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000092,10000397,6,A419,"Sepsis, unspecified organism",Infectious
+20000218,10000495,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000297,10000347,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000775,10000080,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000105,10000117,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000176,10000397,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000760,10000474,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000747,10000403,1,I10,Essential (primary) hypertension,Circulatory
+20000343,10000350,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000713,10000095,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000533,10000356,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000151,10000496,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000286,10000429,6,A419,"Sepsis, unspecified organism",Infectious
+20000180,10000347,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000100,10000163,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000795,10000466,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000433,10000462,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000353,10000229,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000217,10000496,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000732,10000041,1,I10,Essential (primary) hypertension,Circulatory
+20000186,10000275,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000041,10000466,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000102,10000396,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000324,10000155,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000479,10000103,6,A419,"Sepsis, unspecified organism",Infectious
+20000089,10000360,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000715,10000007,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000011,10000234,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000617,10000369,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000361,10000464,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000589,10000159,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000216,10000309,1,I10,Essential (primary) hypertension,Circulatory
+20000271,10000113,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000460,10000015,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000796,10000273,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000696,10000482,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000074,10000466,6,A419,"Sepsis, unspecified organism",Infectious
+20000012,10000180,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000315,10000077,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000453,10000343,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000742,10000420,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000463,10000059,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000580,10000455,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000160,10000164,1,I10,Essential (primary) hypertension,Circulatory
+20000158,10000131,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000237,10000141,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000664,10000367,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000172,10000270,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000647,10000420,6,A419,"Sepsis, unspecified organism",Infectious
+20000599,10000378,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000603,10000279,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000358,10000260,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000768,10000428,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000750,10000429,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000788,10000188,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000237,10000456,1,I10,Essential (primary) hypertension,Circulatory
+20000795,10000050,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000198,10000076,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000694,10000368,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000119,10000324,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000256,10000062,6,A419,"Sepsis, unspecified organism",Infectious
+20000498,10000285,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000671,10000339,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000030,10000042,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000765,10000451,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000222,10000061,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000394,10000405,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000507,10000205,1,I10,Essential (primary) hypertension,Circulatory
+20000564,10000277,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000756,10000498,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000542,10000150,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000605,10000105,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000294,10000096,6,A419,"Sepsis, unspecified organism",Infectious
+20000294,10000347,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000612,10000045,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000315,10000133,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000668,10000266,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000350,10000371,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000566,10000258,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000183,10000252,1,I10,Essential (primary) hypertension,Circulatory
+20000312,10000487,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000582,10000270,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000403,10000437,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000361,10000145,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000340,10000178,6,A419,"Sepsis, unspecified organism",Infectious
+20000565,10000369,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000443,10000153,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000131,10000314,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000187,10000119,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000200,10000212,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000013,10000295,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000679,10000016,1,I10,Essential (primary) hypertension,Circulatory
+20000065,10000246,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000279,10000355,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000044,10000498,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000216,10000461,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000403,10000103,6,A419,"Sepsis, unspecified organism",Infectious
+20000506,10000466,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000292,10000055,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000261,10000268,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000441,10000262,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000791,10000206,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000194,10000040,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000172,10000441,1,I10,Essential (primary) hypertension,Circulatory
+20000444,10000372,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000443,10000011,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000042,10000116,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000709,10000481,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000280,10000023,6,A419,"Sepsis, unspecified organism",Infectious
+20000296,10000134,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000231,10000492,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000296,10000113,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000243,10000197,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000716,10000256,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000303,10000188,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000090,10000015,1,I10,Essential (primary) hypertension,Circulatory
+20000003,10000371,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000793,10000285,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000641,10000346,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000516,10000227,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000668,10000105,6,A419,"Sepsis, unspecified organism",Infectious
+20000622,10000113,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000034,10000175,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000746,10000007,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000262,10000011,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000741,10000053,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000002,10000184,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000772,10000050,1,I10,Essential (primary) hypertension,Circulatory
+20000588,10000472,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000702,10000418,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000060,10000075,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000739,10000016,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000105,10000032,6,A419,"Sepsis, unspecified organism",Infectious
+20000043,10000306,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000667,10000380,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000608,10000118,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000363,10000144,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000350,10000132,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000307,10000389,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000604,10000433,1,I10,Essential (primary) hypertension,Circulatory
+20000197,10000361,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000596,10000063,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000609,10000355,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000248,10000381,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000781,10000155,6,A419,"Sepsis, unspecified organism",Infectious
+20000767,10000225,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000538,10000127,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000770,10000413,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000308,10000183,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000135,10000302,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000773,10000206,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000017,10000020,1,I10,Essential (primary) hypertension,Circulatory
+20000515,10000199,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000723,10000429,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000736,10000461,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000589,10000360,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000375,10000373,6,A419,"Sepsis, unspecified organism",Infectious
+20000163,10000050,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000388,10000360,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000161,10000311,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000212,10000117,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000087,10000207,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000129,10000469,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000516,10000101,1,I10,Essential (primary) hypertension,Circulatory
+20000041,10000270,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000138,10000470,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000775,10000373,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000204,10000303,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000064,10000495,6,A419,"Sepsis, unspecified organism",Infectious
+20000548,10000016,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000394,10000063,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000079,10000298,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000059,10000255,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000063,10000356,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000287,10000060,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000441,10000429,1,I10,Essential (primary) hypertension,Circulatory
+20000574,10000141,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000129,10000046,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000459,10000031,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000795,10000493,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000285,10000050,6,A419,"Sepsis, unspecified organism",Infectious
+20000026,10000348,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000500,10000287,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000471,10000069,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000549,10000465,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000574,10000049,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000634,10000404,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000449,10000089,1,I10,Essential (primary) hypertension,Circulatory
+20000024,10000274,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000012,10000150,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000695,10000272,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000587,10000314,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000724,10000047,6,A419,"Sepsis, unspecified organism",Infectious
+20000141,10000101,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000495,10000184,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000110,10000357,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000510,10000127,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000362,10000184,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000112,10000353,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000270,10000237,1,I10,Essential (primary) hypertension,Circulatory
+20000232,10000455,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000622,10000320,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000493,10000206,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000576,10000045,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000755,10000064,6,A419,"Sepsis, unspecified organism",Infectious
+20000155,10000263,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000356,10000311,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000724,10000089,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000336,10000499,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000558,10000291,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000534,10000231,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000705,10000304,1,I10,Essential (primary) hypertension,Circulatory
+20000499,10000290,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000083,10000335,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000659,10000195,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000500,10000079,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000475,10000256,6,A419,"Sepsis, unspecified organism",Infectious
+20000636,10000103,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000753,10000001,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000595,10000378,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000247,10000135,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000085,10000118,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000608,10000216,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000120,10000425,1,I10,Essential (primary) hypertension,Circulatory
+20000760,10000474,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000098,10000478,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000185,10000411,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000165,10000029,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000073,10000225,6,A419,"Sepsis, unspecified organism",Infectious
+20000798,10000039,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000304,10000361,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000055,10000122,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000520,10000098,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000539,10000470,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000183,10000236,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000115,10000401,1,I10,Essential (primary) hypertension,Circulatory
+20000162,10000337,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000408,10000177,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000083,10000465,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000103,10000477,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000745,10000054,6,A419,"Sepsis, unspecified organism",Infectious
+20000176,10000095,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000661,10000425,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000291,10000362,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000786,10000339,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000408,10000288,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000331,10000294,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000700,10000481,1,I10,Essential (primary) hypertension,Circulatory
+20000737,10000050,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000753,10000486,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000011,10000033,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000610,10000273,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000261,10000030,6,A419,"Sepsis, unspecified organism",Infectious
+20000481,10000205,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000488,10000490,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000595,10000106,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000750,10000443,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000088,10000288,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000239,10000064,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000509,10000223,1,I10,Essential (primary) hypertension,Circulatory
+20000458,10000431,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000749,10000323,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000752,10000030,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000231,10000388,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000449,10000144,6,A419,"Sepsis, unspecified organism",Infectious
+20000060,10000312,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000520,10000152,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000384,10000408,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000555,10000160,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000289,10000451,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000333,10000335,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000429,10000253,1,I10,Essential (primary) hypertension,Circulatory
+20000407,10000085,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000503,10000244,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000323,10000068,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000051,10000034,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000026,10000323,6,A419,"Sepsis, unspecified organism",Infectious
+20000210,10000460,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000357,10000392,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000758,10000367,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000424,10000177,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000638,10000207,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000638,10000138,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000483,10000326,1,I10,Essential (primary) hypertension,Circulatory
+20000571,10000192,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000094,10000190,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000072,10000322,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000786,10000480,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000454,10000106,6,A419,"Sepsis, unspecified organism",Infectious
+20000378,10000254,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000292,10000392,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000347,10000297,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000065,10000026,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000121,10000082,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000600,10000286,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000261,10000130,1,I10,Essential (primary) hypertension,Circulatory
+20000043,10000283,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000363,10000387,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000745,10000494,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000297,10000355,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000623,10000090,6,A419,"Sepsis, unspecified organism",Infectious
+20000362,10000047,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000519,10000272,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000295,10000065,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000674,10000290,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000088,10000228,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000624,10000072,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000188,10000145,1,I10,Essential (primary) hypertension,Circulatory
+20000644,10000298,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000081,10000241,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000266,10000071,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000176,10000483,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000070,10000282,6,A419,"Sepsis, unspecified organism",Infectious
+20000696,10000068,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000188,10000165,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000555,10000471,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000211,10000410,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000503,10000479,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000258,10000172,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000131,10000122,1,I10,Essential (primary) hypertension,Circulatory
+20000268,10000019,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000713,10000467,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000320,10000198,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000622,10000225,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000546,10000111,6,A419,"Sepsis, unspecified organism",Infectious
+20000212,10000305,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000161,10000209,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000099,10000149,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000147,10000270,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000659,10000085,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000303,10000019,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000210,10000465,1,I10,Essential (primary) hypertension,Circulatory
+20000015,10000128,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000006,10000203,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000201,10000428,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000217,10000227,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000289,10000464,6,A419,"Sepsis, unspecified organism",Infectious
+20000726,10000022,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000336,10000330,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000160,10000165,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000153,10000107,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000597,10000241,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000344,10000135,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000326,10000469,1,I10,Essential (primary) hypertension,Circulatory
+20000065,10000104,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000058,10000298,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000502,10000241,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000364,10000297,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000344,10000385,6,A419,"Sepsis, unspecified organism",Infectious
+20000797,10000470,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000496,10000263,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000252,10000334,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000294,10000203,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000218,10000390,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000121,10000380,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000611,10000115,1,I10,Essential (primary) hypertension,Circulatory
+20000525,10000075,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000601,10000068,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000207,10000167,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000608,10000334,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000193,10000360,6,A419,"Sepsis, unspecified organism",Infectious
+20000287,10000471,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000488,10000481,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000792,10000035,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000297,10000465,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000280,10000463,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000516,10000138,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000227,10000488,1,I10,Essential (primary) hypertension,Circulatory
+20000374,10000294,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000326,10000149,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000531,10000443,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000171,10000278,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000209,10000384,6,A419,"Sepsis, unspecified organism",Infectious
+20000690,10000187,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000606,10000495,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000003,10000414,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000594,10000246,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000173,10000335,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000462,10000475,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000653,10000042,1,I10,Essential (primary) hypertension,Circulatory
+20000764,10000291,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000276,10000383,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000142,10000470,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000348,10000135,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000735,10000080,6,A419,"Sepsis, unspecified organism",Infectious
+20000189,10000377,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000736,10000325,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000705,10000384,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000368,10000251,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000130,10000214,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000307,10000109,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000364,10000161,1,I10,Essential (primary) hypertension,Circulatory
+20000344,10000102,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000559,10000128,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000107,10000045,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000589,10000184,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000140,10000186,6,A419,"Sepsis, unspecified organism",Infectious
+20000044,10000025,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000758,10000466,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000793,10000427,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000652,10000473,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000482,10000309,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000529,10000062,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000792,10000447,1,I10,Essential (primary) hypertension,Circulatory
+20000024,10000242,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000472,10000299,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000667,10000043,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000022,10000095,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000381,10000097,6,A419,"Sepsis, unspecified organism",Infectious
+20000283,10000109,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000125,10000175,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000495,10000390,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000212,10000398,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000727,10000494,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000229,10000075,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000663,10000130,1,I10,Essential (primary) hypertension,Circulatory
+20000449,10000258,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000164,10000096,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000115,10000190,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000640,10000095,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000145,10000452,6,A419,"Sepsis, unspecified organism",Infectious
+20000287,10000205,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000647,10000070,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000666,10000112,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000721,10000266,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000768,10000254,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000569,10000252,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000608,10000160,1,I10,Essential (primary) hypertension,Circulatory
+20000078,10000367,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000223,10000321,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000452,10000212,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000144,10000326,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000215,10000484,6,A419,"Sepsis, unspecified organism",Infectious
+20000538,10000280,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000637,10000002,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000589,10000098,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000345,10000040,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000092,10000479,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000511,10000348,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000558,10000190,1,I10,Essential (primary) hypertension,Circulatory
+20000480,10000055,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000207,10000377,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000035,10000373,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000637,10000045,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000745,10000291,6,A419,"Sepsis, unspecified organism",Infectious
+20000707,10000250,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000155,10000185,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000326,10000045,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000123,10000398,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000723,10000127,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000761,10000253,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000175,10000081,1,I10,Essential (primary) hypertension,Circulatory
+20000460,10000418,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000486,10000098,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000307,10000122,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000259,10000245,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000397,10000482,6,A419,"Sepsis, unspecified organism",Infectious
+20000750,10000254,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000788,10000271,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000758,10000098,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000563,10000124,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000661,10000387,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000501,10000345,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000035,10000302,1,I10,Essential (primary) hypertension,Circulatory
+20000312,10000104,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000437,10000326,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000330,10000280,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000116,10000392,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000797,10000287,6,A419,"Sepsis, unspecified organism",Infectious
+20000722,10000305,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000538,10000210,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000664,10000231,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000405,10000278,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000602,10000353,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000301,10000450,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000249,10000012,1,I10,Essential (primary) hypertension,Circulatory
+20000632,10000370,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000750,10000220,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000255,10000002,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000192,10000177,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000390,10000360,6,A419,"Sepsis, unspecified organism",Infectious
+20000669,10000380,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000225,10000451,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000297,10000104,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000602,10000317,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000096,10000221,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000208,10000464,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000478,10000447,1,I10,Essential (primary) hypertension,Circulatory
+20000379,10000415,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000675,10000372,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000072,10000471,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000552,10000178,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000062,10000424,6,A419,"Sepsis, unspecified organism",Infectious
+20000640,10000106,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000429,10000261,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000619,10000127,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000044,10000472,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000347,10000030,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000489,10000036,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000266,10000444,1,I10,Essential (primary) hypertension,Circulatory
+20000021,10000222,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000124,10000265,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000740,10000236,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000048,10000436,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000334,10000039,6,A419,"Sepsis, unspecified organism",Infectious
+20000240,10000080,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000686,10000221,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000200,10000127,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000507,10000355,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000784,10000262,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000155,10000389,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000363,10000142,1,I10,Essential (primary) hypertension,Circulatory
+20000038,10000296,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000233,10000028,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000102,10000014,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000326,10000300,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000111,10000321,6,A419,"Sepsis, unspecified organism",Infectious
+20000059,10000265,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000674,10000289,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000574,10000268,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000094,10000392,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000390,10000251,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000477,10000360,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000636,10000410,1,I10,Essential (primary) hypertension,Circulatory
+20000634,10000340,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000405,10000381,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000460,10000392,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000566,10000417,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000646,10000360,6,A419,"Sepsis, unspecified organism",Infectious
+20000793,10000053,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000768,10000022,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000369,10000277,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000070,10000183,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000363,10000151,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000274,10000261,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000665,10000269,1,I10,Essential (primary) hypertension,Circulatory
+20000543,10000187,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000408,10000312,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000706,10000083,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000681,10000350,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000223,10000224,6,A419,"Sepsis, unspecified organism",Infectious
+20000242,10000054,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000100,10000217,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000227,10000051,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000563,10000181,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000743,10000026,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000593,10000150,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000540,10000475,1,I10,Essential (primary) hypertension,Circulatory
+20000220,10000469,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000520,10000243,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000596,10000215,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000391,10000000,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000630,10000128,6,A419,"Sepsis, unspecified organism",Infectious
+20000191,10000210,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000699,10000108,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000534,10000122,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000511,10000393,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000490,10000366,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000574,10000375,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000594,10000279,1,I10,Essential (primary) hypertension,Circulatory
+20000122,10000412,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000441,10000105,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000782,10000356,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000273,10000165,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000304,10000411,6,A419,"Sepsis, unspecified organism",Infectious
+20000790,10000466,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000124,10000443,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000207,10000325,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000074,10000152,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000207,10000032,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000659,10000427,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000317,10000107,1,I10,Essential (primary) hypertension,Circulatory
+20000454,10000220,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000395,10000116,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000165,10000417,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000060,10000137,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000731,10000160,6,A419,"Sepsis, unspecified organism",Infectious
+20000434,10000392,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000150,10000012,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000459,10000190,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000788,10000462,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000325,10000238,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000579,10000159,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000163,10000191,1,I10,Essential (primary) hypertension,Circulatory
+20000306,10000382,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000130,10000141,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000644,10000090,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000111,10000425,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000404,10000470,6,A419,"Sepsis, unspecified organism",Infectious
+20000485,10000037,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000041,10000397,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000076,10000103,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000144,10000152,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000114,10000096,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000403,10000443,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000349,10000016,1,I10,Essential (primary) hypertension,Circulatory
+20000422,10000128,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000425,10000253,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000591,10000274,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000673,10000459,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000352,10000303,6,A419,"Sepsis, unspecified organism",Infectious
+20000149,10000047,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000795,10000421,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000518,10000419,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000561,10000301,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000006,10000436,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000000,10000052,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000305,10000406,1,I10,Essential (primary) hypertension,Circulatory
+20000635,10000481,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000205,10000203,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000373,10000145,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000462,10000073,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000363,10000099,6,A419,"Sepsis, unspecified organism",Infectious
+20000394,10000101,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000242,10000143,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000637,10000241,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000375,10000026,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000737,10000357,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000702,10000076,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000592,10000309,1,I10,Essential (primary) hypertension,Circulatory
+20000342,10000101,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000765,10000060,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000062,10000247,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000664,10000006,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000148,10000354,6,A419,"Sepsis, unspecified organism",Infectious
+20000346,10000202,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000445,10000423,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000676,10000138,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000694,10000283,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000480,10000218,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000219,10000139,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000449,10000240,1,I10,Essential (primary) hypertension,Circulatory
+20000603,10000499,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000509,10000387,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000520,10000168,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000503,10000031,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000743,10000402,6,A419,"Sepsis, unspecified organism",Infectious
+20000383,10000424,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000449,10000186,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000770,10000429,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000260,10000277,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000287,10000142,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000291,10000090,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000075,10000496,1,I10,Essential (primary) hypertension,Circulatory
+20000453,10000347,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000021,10000446,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000084,10000343,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000567,10000039,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000717,10000324,6,A419,"Sepsis, unspecified organism",Infectious
+20000617,10000083,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000071,10000151,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000518,10000212,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000445,10000063,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000477,10000248,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000504,10000172,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000712,10000369,1,I10,Essential (primary) hypertension,Circulatory
+20000738,10000465,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000121,10000158,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000183,10000409,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000097,10000087,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000772,10000464,6,A419,"Sepsis, unspecified organism",Infectious
+20000780,10000012,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000622,10000140,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000442,10000165,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000544,10000347,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000002,10000092,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000587,10000264,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000693,10000251,1,I10,Essential (primary) hypertension,Circulatory
+20000619,10000473,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000222,10000321,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000686,10000264,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000038,10000464,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000088,10000218,6,A419,"Sepsis, unspecified organism",Infectious
+20000255,10000173,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000720,10000253,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000585,10000029,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000528,10000207,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000533,10000010,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000690,10000278,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000399,10000168,1,I10,Essential (primary) hypertension,Circulatory
+20000560,10000462,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000094,10000433,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000741,10000151,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000403,10000407,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000320,10000055,6,A419,"Sepsis, unspecified organism",Infectious
+20000730,10000114,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000607,10000044,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000473,10000474,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000782,10000370,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000572,10000096,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000336,10000177,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000714,10000416,1,I10,Essential (primary) hypertension,Circulatory
+20000189,10000108,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000118,10000147,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000133,10000481,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000129,10000403,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000029,10000280,6,A419,"Sepsis, unspecified organism",Infectious
+20000193,10000012,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000357,10000450,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000073,10000429,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000658,10000053,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000125,10000006,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000770,10000483,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000347,10000403,1,I10,Essential (primary) hypertension,Circulatory
+20000757,10000091,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000571,10000389,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000336,10000152,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000082,10000294,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000517,10000436,6,A419,"Sepsis, unspecified organism",Infectious
+20000585,10000154,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000250,10000251,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000429,10000006,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000624,10000472,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000503,10000267,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000268,10000408,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000697,10000001,1,I10,Essential (primary) hypertension,Circulatory
+20000395,10000278,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000177,10000413,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000786,10000465,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000016,10000464,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000415,10000442,6,A419,"Sepsis, unspecified organism",Infectious
+20000152,10000056,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000100,10000133,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000358,10000135,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000076,10000046,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000176,10000020,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000776,10000320,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000261,10000381,1,I10,Essential (primary) hypertension,Circulatory
+20000461,10000138,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000389,10000174,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000386,10000478,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000372,10000491,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000589,10000282,6,A419,"Sepsis, unspecified organism",Infectious
+20000070,10000103,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000479,10000199,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000482,10000478,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000270,10000443,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000436,10000213,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000707,10000095,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000784,10000004,1,I10,Essential (primary) hypertension,Circulatory
+20000553,10000434,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000354,10000402,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000143,10000242,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000252,10000152,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000772,10000435,6,A419,"Sepsis, unspecified organism",Infectious
+20000600,10000259,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000224,10000199,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000200,10000234,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000487,10000079,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000523,10000070,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000327,10000147,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000524,10000246,1,I10,Essential (primary) hypertension,Circulatory
+20000075,10000272,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000663,10000315,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000301,10000269,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000022,10000487,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000079,10000102,6,A419,"Sepsis, unspecified organism",Infectious
+20000628,10000417,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000368,10000371,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000016,10000330,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000317,10000114,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000448,10000228,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000786,10000194,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000435,10000431,1,I10,Essential (primary) hypertension,Circulatory
+20000779,10000393,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000774,10000229,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000586,10000010,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000663,10000488,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000169,10000040,6,A419,"Sepsis, unspecified organism",Infectious
+20000455,10000114,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000329,10000178,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000128,10000435,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000458,10000062,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000549,10000017,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000288,10000201,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000538,10000388,1,I10,Essential (primary) hypertension,Circulatory
+20000528,10000388,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000646,10000435,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000303,10000170,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000319,10000228,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000397,10000453,6,A419,"Sepsis, unspecified organism",Infectious
+20000032,10000386,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000789,10000199,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000292,10000027,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000732,10000369,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000724,10000256,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000406,10000290,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000418,10000063,1,I10,Essential (primary) hypertension,Circulatory
+20000687,10000364,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000680,10000170,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000296,10000042,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000006,10000038,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000301,10000395,6,A419,"Sepsis, unspecified organism",Infectious
+20000787,10000452,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000590,10000101,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000709,10000200,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000151,10000363,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000322,10000027,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000673,10000345,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000738,10000461,1,I10,Essential (primary) hypertension,Circulatory
+20000025,10000302,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000659,10000087,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000363,10000248,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000698,10000206,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000371,10000180,6,A419,"Sepsis, unspecified organism",Infectious
+20000552,10000261,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000439,10000135,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000034,10000183,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000688,10000442,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000228,10000241,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000490,10000024,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000494,10000320,1,I10,Essential (primary) hypertension,Circulatory
+20000770,10000164,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000532,10000110,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000375,10000307,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000329,10000167,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000394,10000238,6,A419,"Sepsis, unspecified organism",Infectious
+20000440,10000342,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000763,10000323,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000593,10000229,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000045,10000112,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000628,10000188,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000296,10000131,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000483,10000219,1,I10,Essential (primary) hypertension,Circulatory
+20000727,10000346,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000546,10000095,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000785,10000189,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000552,10000101,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000688,10000113,6,A419,"Sepsis, unspecified organism",Infectious
+20000066,10000142,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000436,10000326,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000473,10000243,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000511,10000415,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000621,10000157,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000315,10000427,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000720,10000476,1,I10,Essential (primary) hypertension,Circulatory
+20000383,10000157,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000267,10000021,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000181,10000175,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000786,10000375,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000210,10000169,6,A419,"Sepsis, unspecified organism",Infectious
+20000221,10000446,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000286,10000248,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000230,10000173,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000706,10000389,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000128,10000225,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000741,10000067,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000455,10000412,1,I10,Essential (primary) hypertension,Circulatory
+20000046,10000171,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000393,10000334,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000522,10000419,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000374,10000298,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000260,10000076,6,A419,"Sepsis, unspecified organism",Infectious
+20000162,10000370,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000320,10000227,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000793,10000262,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000613,10000258,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000438,10000096,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000699,10000386,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000447,10000296,1,I10,Essential (primary) hypertension,Circulatory
+20000597,10000131,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000323,10000417,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000651,10000422,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000161,10000014,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000730,10000421,6,A419,"Sepsis, unspecified organism",Infectious
+20000306,10000106,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000460,10000400,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000098,10000084,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000356,10000378,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000542,10000134,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000762,10000384,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000608,10000301,1,I10,Essential (primary) hypertension,Circulatory
+20000336,10000247,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000799,10000479,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000249,10000285,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000403,10000291,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000596,10000095,6,A419,"Sepsis, unspecified organism",Infectious
+20000507,10000059,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000010,10000118,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000773,10000223,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000463,10000052,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000595,10000219,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000607,10000316,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000084,10000077,1,I10,Essential (primary) hypertension,Circulatory
+20000736,10000314,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000544,10000287,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000046,10000420,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000015,10000060,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000604,10000242,6,A419,"Sepsis, unspecified organism",Infectious
+20000620,10000094,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000034,10000306,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000492,10000291,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000752,10000247,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000017,10000322,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000719,10000070,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000323,10000475,1,I10,Essential (primary) hypertension,Circulatory
+20000540,10000298,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000172,10000277,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000213,10000346,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000196,10000273,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000527,10000495,6,A419,"Sepsis, unspecified organism",Infectious
+20000221,10000390,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000358,10000215,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000116,10000454,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000122,10000144,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000071,10000410,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000722,10000095,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000596,10000129,1,I10,Essential (primary) hypertension,Circulatory
+20000500,10000373,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000300,10000155,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000402,10000164,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000121,10000352,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000304,10000344,6,A419,"Sepsis, unspecified organism",Infectious
+20000385,10000407,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000444,10000217,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000076,10000230,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000660,10000121,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000678,10000388,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000529,10000482,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000450,10000150,1,I10,Essential (primary) hypertension,Circulatory
+20000196,10000015,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000603,10000494,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000651,10000034,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000326,10000359,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000067,10000069,6,A419,"Sepsis, unspecified organism",Infectious
+20000110,10000446,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000363,10000198,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000645,10000017,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000018,10000413,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000121,10000430,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000472,10000156,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000089,10000246,1,I10,Essential (primary) hypertension,Circulatory
+20000580,10000318,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000749,10000192,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000590,10000110,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000401,10000420,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000433,10000290,6,A419,"Sepsis, unspecified organism",Infectious
+20000022,10000260,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000129,10000354,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000299,10000489,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000180,10000386,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000099,10000461,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000086,10000392,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000744,10000070,1,I10,Essential (primary) hypertension,Circulatory
+20000092,10000421,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000716,10000044,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000146,10000402,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000583,10000035,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000147,10000227,6,A419,"Sepsis, unspecified organism",Infectious
+20000513,10000078,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000071,10000358,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000344,10000221,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000769,10000421,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000162,10000229,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000727,10000404,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000364,10000437,1,I10,Essential (primary) hypertension,Circulatory
+20000067,10000134,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000389,10000319,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000712,10000468,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000012,10000004,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000469,10000495,6,A419,"Sepsis, unspecified organism",Infectious
+20000432,10000271,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000348,10000055,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000540,10000375,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000696,10000349,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000031,10000465,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000695,10000060,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000308,10000341,1,I10,Essential (primary) hypertension,Circulatory
+20000402,10000305,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000692,10000372,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000710,10000403,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000503,10000323,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000598,10000125,6,A419,"Sepsis, unspecified organism",Infectious
+20000524,10000003,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000587,10000350,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000688,10000112,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000603,10000007,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000235,10000478,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000625,10000435,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000555,10000002,1,I10,Essential (primary) hypertension,Circulatory
+20000694,10000474,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000096,10000069,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000031,10000281,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000585,10000205,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000365,10000496,6,A419,"Sepsis, unspecified organism",Infectious
+20000513,10000456,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000025,10000234,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000018,10000239,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000031,10000305,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000642,10000310,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000528,10000031,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000704,10000124,1,I10,Essential (primary) hypertension,Circulatory
+20000520,10000247,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000740,10000046,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000370,10000398,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000245,10000402,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000009,10000386,6,A419,"Sepsis, unspecified organism",Infectious
+20000670,10000235,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000616,10000288,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000796,10000412,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000225,10000436,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000572,10000051,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000254,10000155,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000731,10000151,1,I10,Essential (primary) hypertension,Circulatory
+20000366,10000150,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000351,10000446,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000312,10000488,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000344,10000289,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000694,10000058,6,A419,"Sepsis, unspecified organism",Infectious
+20000762,10000387,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000276,10000411,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000271,10000016,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000459,10000446,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000708,10000372,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000605,10000296,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000714,10000357,1,I10,Essential (primary) hypertension,Circulatory
+20000322,10000168,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000067,10000099,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000071,10000359,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000037,10000101,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000213,10000439,6,A419,"Sepsis, unspecified organism",Infectious
+20000427,10000143,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000089,10000195,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000231,10000444,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000421,10000286,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000613,10000493,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000537,10000254,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000003,10000083,1,I10,Essential (primary) hypertension,Circulatory
+20000054,10000062,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000367,10000433,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000184,10000395,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000458,10000414,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000567,10000199,6,A419,"Sepsis, unspecified organism",Infectious
+20000632,10000155,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000638,10000015,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000424,10000097,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000533,10000154,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000109,10000114,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000253,10000077,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000352,10000150,1,I10,Essential (primary) hypertension,Circulatory
+20000147,10000128,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000752,10000366,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000631,10000290,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000598,10000263,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000698,10000087,6,A419,"Sepsis, unspecified organism",Infectious
+20000727,10000454,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000793,10000284,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000444,10000150,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000207,10000141,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000287,10000187,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000748,10000010,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000127,10000260,1,I10,Essential (primary) hypertension,Circulatory
+20000039,10000341,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000359,10000478,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000576,10000449,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000169,10000242,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000345,10000183,6,A419,"Sepsis, unspecified organism",Infectious
+20000462,10000445,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000365,10000275,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000652,10000234,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000404,10000331,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000513,10000127,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000034,10000289,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000226,10000040,1,I10,Essential (primary) hypertension,Circulatory
+20000421,10000392,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000790,10000363,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000074,10000278,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000544,10000197,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000518,10000190,6,A419,"Sepsis, unspecified organism",Infectious
+20000051,10000165,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000656,10000009,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000535,10000298,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000552,10000429,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000646,10000489,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000332,10000172,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000077,10000142,1,I10,Essential (primary) hypertension,Circulatory
+20000556,10000398,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000548,10000160,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000262,10000455,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000635,10000229,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000257,10000096,6,A419,"Sepsis, unspecified organism",Infectious
+20000135,10000275,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000371,10000333,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000047,10000132,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000533,10000423,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000310,10000481,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000025,10000094,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000240,10000203,1,I10,Essential (primary) hypertension,Circulatory
+20000692,10000149,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000697,10000040,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000629,10000256,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000471,10000275,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000650,10000435,6,A419,"Sepsis, unspecified organism",Infectious
+20000002,10000311,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000427,10000150,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000266,10000206,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000322,10000239,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000623,10000452,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000542,10000356,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000551,10000399,1,I10,Essential (primary) hypertension,Circulatory
+20000063,10000481,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000271,10000031,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000297,10000108,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000780,10000381,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000191,10000042,6,A419,"Sepsis, unspecified organism",Infectious
+20000440,10000114,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000706,10000299,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000439,10000364,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000068,10000149,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000057,10000117,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000482,10000106,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000386,10000363,1,I10,Essential (primary) hypertension,Circulatory
+20000724,10000326,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000399,10000446,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000688,10000078,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000548,10000494,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000449,10000061,6,A419,"Sepsis, unspecified organism",Infectious
+20000594,10000384,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000411,10000289,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000118,10000272,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000402,10000171,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000470,10000038,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000067,10000107,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000185,10000286,1,I10,Essential (primary) hypertension,Circulatory
+20000010,10000469,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000647,10000449,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000129,10000391,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000075,10000421,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000535,10000053,6,A419,"Sepsis, unspecified organism",Infectious
+20000229,10000064,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000169,10000138,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000089,10000044,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000241,10000182,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000627,10000432,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000050,10000094,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000110,10000243,1,I10,Essential (primary) hypertension,Circulatory
+20000514,10000057,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000655,10000464,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000649,10000367,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000764,10000085,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000382,10000228,6,A419,"Sepsis, unspecified organism",Infectious
+20000047,10000493,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000253,10000461,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000560,10000167,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000700,10000375,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000645,10000085,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000389,10000075,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000689,10000241,1,I10,Essential (primary) hypertension,Circulatory
+20000073,10000170,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000120,10000267,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000168,10000244,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000677,10000298,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000206,10000493,6,A419,"Sepsis, unspecified organism",Infectious
+20000258,10000289,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000140,10000173,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000515,10000226,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000287,10000205,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000534,10000031,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000689,10000275,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000384,10000412,1,I10,Essential (primary) hypertension,Circulatory
+20000732,10000174,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000210,10000147,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000418,10000049,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000280,10000261,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000303,10000392,6,A419,"Sepsis, unspecified organism",Infectious
+20000232,10000420,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000668,10000162,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000428,10000164,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000536,10000364,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000631,10000467,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000636,10000259,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000043,10000455,1,I10,Essential (primary) hypertension,Circulatory
+20000519,10000407,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000430,10000436,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000212,10000267,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000404,10000361,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000740,10000124,6,A419,"Sepsis, unspecified organism",Infectious
+20000637,10000071,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000415,10000383,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000130,10000198,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000380,10000070,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000760,10000479,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000066,10000466,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000337,10000357,1,I10,Essential (primary) hypertension,Circulatory
+20000708,10000239,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000276,10000403,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000002,10000016,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000046,10000042,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000733,10000177,6,A419,"Sepsis, unspecified organism",Infectious
+20000653,10000338,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000575,10000395,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000320,10000325,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000627,10000362,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000736,10000332,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000081,10000322,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000129,10000071,1,I10,Essential (primary) hypertension,Circulatory
+20000432,10000268,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000349,10000401,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000510,10000453,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000026,10000051,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000708,10000088,6,A419,"Sepsis, unspecified organism",Infectious
+20000414,10000099,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000639,10000452,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000787,10000427,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000637,10000498,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000727,10000481,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000393,10000215,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000792,10000219,1,I10,Essential (primary) hypertension,Circulatory
+20000740,10000390,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000212,10000246,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000089,10000055,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000553,10000148,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000455,10000458,6,A419,"Sepsis, unspecified organism",Infectious
+20000182,10000297,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000389,10000167,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000099,10000202,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000305,10000421,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000527,10000356,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000244,10000404,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000230,10000381,1,I10,Essential (primary) hypertension,Circulatory
+20000511,10000104,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000361,10000337,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000776,10000241,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000215,10000307,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000047,10000117,6,A419,"Sepsis, unspecified organism",Infectious
+20000197,10000054,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000375,10000318,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000776,10000051,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000576,10000022,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000238,10000480,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000576,10000255,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000450,10000472,1,I10,Essential (primary) hypertension,Circulatory
+20000654,10000469,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000384,10000210,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000716,10000037,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000038,10000162,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000464,10000318,6,A419,"Sepsis, unspecified organism",Infectious
+20000486,10000489,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000222,10000264,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000266,10000376,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000387,10000343,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000503,10000027,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000029,10000073,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000671,10000093,1,I10,Essential (primary) hypertension,Circulatory
+20000197,10000399,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000528,10000055,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000287,10000392,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000158,10000235,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000775,10000162,6,A419,"Sepsis, unspecified organism",Infectious
+20000351,10000209,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000508,10000492,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000400,10000415,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000023,10000133,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000195,10000473,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000173,10000177,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000247,10000418,1,I10,Essential (primary) hypertension,Circulatory
+20000462,10000276,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000370,10000413,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000574,10000251,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000686,10000316,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000051,10000217,6,A419,"Sepsis, unspecified organism",Infectious
+20000030,10000370,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000480,10000148,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000363,10000277,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000540,10000379,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000512,10000052,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000611,10000391,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000268,10000018,1,I10,Essential (primary) hypertension,Circulatory
+20000203,10000324,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000768,10000294,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000784,10000055,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000699,10000282,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000625,10000071,6,A419,"Sepsis, unspecified organism",Infectious
+20000291,10000116,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000777,10000176,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000363,10000338,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000762,10000330,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000021,10000055,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000113,10000294,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000566,10000163,1,I10,Essential (primary) hypertension,Circulatory
+20000740,10000099,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000707,10000347,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000097,10000260,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000098,10000399,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000305,10000394,6,A419,"Sepsis, unspecified organism",Infectious
+20000360,10000075,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000445,10000248,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000691,10000015,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000283,10000209,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000203,10000422,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000354,10000231,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000459,10000264,1,I10,Essential (primary) hypertension,Circulatory
+20000293,10000080,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000483,10000183,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000419,10000395,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000015,10000159,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000037,10000148,6,A419,"Sepsis, unspecified organism",Infectious
+20000409,10000252,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000094,10000259,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000372,10000480,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000245,10000113,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000044,10000025,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000047,10000104,6,Z7901,Long term (current) use of anticoagulants,Supplementary
+20000557,10000459,1,I10,Essential (primary) hypertension,Circulatory
+20000434,10000495,2,E119,Type 2 diabetes mellitus without complications,Endocrine
+20000276,10000027,3,I2510,Atherosclerotic heart disease of native coronary artery,Circulatory
+20000633,10000396,4,J189,"Pneumonia, unspecified organism",Respiratory
+20000598,10000079,5,N179,"Acute kidney failure, unspecified",Genitourinary
+20000262,10000133,6,A419,"Sepsis, unspecified organism",Infectious
+20000065,10000062,1,K219,Gastro-esophageal reflux disease without esophagitis,Digestive
+20000034,10000012,2,F329,"Major depressive disorder, single episode, unspecified",Mental
+20000728,10000421,3,I480,Paroxysmal atrial fibrillation,Circulatory
+20000680,10000105,4,J449,"Chronic obstructive pulmonary disease, unspecified",Respiratory
+20000648,10000365,5,E785,"Hyperlipidemia, unspecified",Endocrine
+20000223,10000411,6,Z7901,Long term (current) use of anticoagulants,Supplementary

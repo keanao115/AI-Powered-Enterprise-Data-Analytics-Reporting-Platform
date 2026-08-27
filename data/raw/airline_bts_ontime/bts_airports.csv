@@ -1,0 +1,26 @@
+airport_code,airport_name,city,state,region
+ATL,Hartsfield-Jackson Atlanta International,Atlanta,GA,South
+ORD,Chicago O'Hare International,Chicago,IL,Midwest
+DFW,Dallas/Fort Worth International,Dallas,TX,South
+DEN,Denver International,Denver,CO,West
+LAX,Los Angeles International,Los Angeles,CA,West
+JFK,John F. Kennedy International,New York,NY,Northeast
+SFO,San Francisco International,San Francisco,CA,West
+SEA,Seattle-Tacoma International,Seattle,WA,West
+LAS,Harry Reid International,Las Vegas,NV,West
+MCO,Orlando International,Orlando,FL,South
+EWR,Newark Liberty International,Newark,NJ,Northeast
+CLT,Charlotte Douglas International,Charlotte,NC,South
+PHX,Phoenix Sky Harbor International,Phoenix,AZ,West
+IAH,George Bush Intercontinental,Houston,TX,South
+MIA,Miami International,Miami,FL,South
+BOS,Boston Logan International,Boston,MA,Northeast
+MSP,Minneapolis-St Paul International,Minneapolis,MN,Midwest
+DTW,Detroit Metropolitan Wayne County,Detroit,MI,Midwest
+FLL,Fort Lauderdale-Hollywood International,Fort Lauderdale,FL,South
+PHL,Philadelphia International,Philadelphia,PA,Northeast
+LGA,LaGuardia Airport,New York,NY,Northeast
+BWI,Baltimore/Washington International,Baltimore,MD,Northeast
+SLC,Salt Lake City International,Salt Lake City,UT,West
+SAN,San Diego International,San Diego,CA,West
+IAD,Washington Dulles International,Dulles,VA,South

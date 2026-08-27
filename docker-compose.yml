@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ai_analytics_postgres
+    environment:
+      POSTGRES_DB: app_db
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: app_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app_user -d app_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: ai_analytics_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - DATABASE_URL=sqlite+aiosqlite:///./app.db
+      - ANALYTICS_DATABASE_URL=duckdb:///./analytics_demo.duckdb
+      - LLM_PROVIDER=gemini
+      - LLM_MODEL=gemini-3.6-flash
+      - GEMINI_API_KEY=AQ.Ab8RN6Lvapi3koHifCNG3P7CgIpsUgih4bgMPRaoPoONcVSLTw
+      - GEMINI_MODEL=gemini-3.6-flash
+      - ALLOW_EXTERNAL_LLM_DATA=true
+      - SECRET_KEY=docker-compose-secret-key-change-for-prod
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: ai_analytics_frontend
+    ports:
+      - "3300:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

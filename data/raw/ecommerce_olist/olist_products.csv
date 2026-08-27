@@ -1,0 +1,501 @@
+product_id,product_category_name,product_category_name_english,product_weight_g,product_length_cm,product_height_cm,product_width_cm
+prod_00001,beleza_saude,Health & Beauty,1153,30,26,39
+prod_00002,relogios_presentes,Watches & Gifts,10808,73,55,17
+prod_00003,cama_mesa_banho,"Bed, Bath & Table",7654,35,33,27
+prod_00004,esporte_lazer,Sports & Leisure,2616,26,20,31
+prod_00005,informatica_acessorios,Computers & Accessories,10280,30,35,27
+prod_00006,moveis_decoracao,Furniture & Decor,2089,28,43,18
+prod_00007,utilidades_domesticas,Housewares,1785,75,37,25
+prod_00008,automotivo,Automotive,10040,60,12,37
+prod_00009,telefonia,Telephony,8245,46,20,37
+prod_00010,brinquedos,Toys,6415,29,47,25
+prod_00011,ferramentas_jardim,Garden Tools,12869,58,23,18
+prod_00012,perfumaria,Perfumery,10433,31,35,44
+prod_00013,bebes,Baby,2045,55,57,37
+prod_00014,eletronicos,Electronics,14381,68,30,31
+prod_00015,papelaria,Stationery,13778,58,48,14
+prod_00016,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,6674,19,39,15
+prod_00017,beleza_saude,Health & Beauty,12582,41,17,37
+prod_00018,relogios_presentes,Watches & Gifts,11740,57,29,22
+prod_00019,cama_mesa_banho,"Bed, Bath & Table",14848,45,57,13
+prod_00020,esporte_lazer,Sports & Leisure,1223,31,41,25
+prod_00021,informatica_acessorios,Computers & Accessories,5334,68,31,41
+prod_00022,moveis_decoracao,Furniture & Decor,2552,76,16,23
+prod_00023,utilidades_domesticas,Housewares,5045,46,18,37
+prod_00024,automotivo,Automotive,7481,54,54,44
+prod_00025,telefonia,Telephony,11554,27,10,24
+prod_00026,brinquedos,Toys,12379,49,38,25
+prod_00027,ferramentas_jardim,Garden Tools,9493,19,17,35
+prod_00028,perfumaria,Perfumery,10787,43,13,45
+prod_00029,bebes,Baby,2106,39,44,37
+prod_00030,eletronicos,Electronics,7173,36,12,32
+prod_00031,papelaria,Stationery,12900,59,54,39
+prod_00032,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,14212,15,49,47
+prod_00033,beleza_saude,Health & Beauty,14483,58,16,13
+prod_00034,relogios_presentes,Watches & Gifts,4057,53,36,20
+prod_00035,cama_mesa_banho,"Bed, Bath & Table",957,68,10,34
+prod_00036,esporte_lazer,Sports & Leisure,8528,43,36,26
+prod_00037,informatica_acessorios,Computers & Accessories,14181,68,25,24
+prod_00038,moveis_decoracao,Furniture & Decor,4977,30,47,34
+prod_00039,utilidades_domesticas,Housewares,14373,34,16,28
+prod_00040,automotivo,Automotive,13651,60,53,13
+prod_00041,telefonia,Telephony,13849,79,32,31
+prod_00042,brinquedos,Toys,4674,72,50,31
+prod_00043,ferramentas_jardim,Garden Tools,9649,67,20,14
+prod_00044,perfumaria,Perfumery,2434,15,51,23
+prod_00045,bebes,Baby,5463,43,42,13
+prod_00046,eletronicos,Electronics,13748,22,59,47
+prod_00047,papelaria,Stationery,13208,43,45,25
+prod_00048,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,907,65,46,27
+prod_00049,beleza_saude,Health & Beauty,12573,47,50,30
+prod_00050,relogios_presentes,Watches & Gifts,5037,17,26,45
+prod_00051,cama_mesa_banho,"Bed, Bath & Table",4004,74,44,17
+prod_00052,esporte_lazer,Sports & Leisure,12608,49,57,24
+prod_00053,informatica_acessorios,Computers & Accessories,10548,34,14,47
+prod_00054,moveis_decoracao,Furniture & Decor,14686,53,57,33
+prod_00055,utilidades_domesticas,Housewares,3708,18,41,29
+prod_00056,automotivo,Automotive,9922,33,12,23
+prod_00057,telefonia,Telephony,1111,59,56,41
+prod_00058,brinquedos,Toys,3997,57,44,18
+prod_00059,ferramentas_jardim,Garden Tools,6876,27,23,43
+prod_00060,perfumaria,Perfumery,3725,27,57,30
+prod_00061,bebes,Baby,9217,74,40,17
+prod_00062,eletronicos,Electronics,2568,71,40,31
+prod_00063,papelaria,Stationery,4348,66,26,38
+prod_00064,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,1151,67,33,48
+prod_00065,beleza_saude,Health & Beauty,5394,57,32,18
+prod_00066,relogios_presentes,Watches & Gifts,11726,56,27,16
+prod_00067,cama_mesa_banho,"Bed, Bath & Table",7269,40,59,22
+prod_00068,esporte_lazer,Sports & Leisure,4216,37,23,26
+prod_00069,informatica_acessorios,Computers & Accessories,2995,57,59,14
+prod_00070,moveis_decoracao,Furniture & Decor,9823,42,24,16
+prod_00071,utilidades_domesticas,Housewares,11643,23,24,34
+prod_00072,automotivo,Automotive,8999,34,15,48
+prod_00073,telefonia,Telephony,5466,70,36,20
+prod_00074,brinquedos,Toys,11122,53,24,26
+prod_00075,ferramentas_jardim,Garden Tools,572,65,59,14
+prod_00076,perfumaria,Perfumery,6865,26,45,40
+prod_00077,bebes,Baby,12023,69,17,17
+prod_00078,eletronicos,Electronics,4416,25,24,28
+prod_00079,papelaria,Stationery,7699,40,12,37
+prod_00080,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,6466,56,56,32
+prod_00081,beleza_saude,Health & Beauty,2860,41,22,19
+prod_00082,relogios_presentes,Watches & Gifts,8794,25,50,32
+prod_00083,cama_mesa_banho,"Bed, Bath & Table",10739,52,43,22
+prod_00084,esporte_lazer,Sports & Leisure,8219,57,33,49
+prod_00085,informatica_acessorios,Computers & Accessories,10317,33,49,19
+prod_00086,moveis_decoracao,Furniture & Decor,1807,78,41,35
+prod_00087,utilidades_domesticas,Housewares,2691,20,41,46
+prod_00088,automotivo,Automotive,6913,60,39,25
+prod_00089,telefonia,Telephony,3225,56,58,25
+prod_00090,brinquedos,Toys,3314,79,22,21
+prod_00091,ferramentas_jardim,Garden Tools,11308,73,10,23
+prod_00092,perfumaria,Perfumery,2203,66,43,49
+prod_00093,bebes,Baby,8629,61,24,45
+prod_00094,eletronicos,Electronics,5887,21,53,21
+prod_00095,papelaria,Stationery,3367,25,23,28
+prod_00096,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,12196,75,38,28
+prod_00097,beleza_saude,Health & Beauty,1597,39,43,14
+prod_00098,relogios_presentes,Watches & Gifts,6159,26,27,42
+prod_00099,cama_mesa_banho,"Bed, Bath & Table",757,40,16,12
+prod_00100,esporte_lazer,Sports & Leisure,4702,26,38,23
+prod_00101,informatica_acessorios,Computers & Accessories,1914,57,40,15
+prod_00102,moveis_decoracao,Furniture & Decor,9567,65,34,24
+prod_00103,utilidades_domesticas,Housewares,9577,51,47,45
+prod_00104,automotivo,Automotive,9371,60,23,32
+prod_00105,telefonia,Telephony,2821,67,17,33
+prod_00106,brinquedos,Toys,6669,27,36,15
+prod_00107,ferramentas_jardim,Garden Tools,4112,68,11,29
+prod_00108,perfumaria,Perfumery,12884,71,26,16
+prod_00109,bebes,Baby,13272,18,46,30
+prod_00110,eletronicos,Electronics,3327,63,23,13
+prod_00111,papelaria,Stationery,3872,21,34,23
+prod_00112,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,5056,25,39,28
+prod_00113,beleza_saude,Health & Beauty,13862,68,38,21
+prod_00114,relogios_presentes,Watches & Gifts,7413,59,29,45
+prod_00115,cama_mesa_banho,"Bed, Bath & Table",13849,37,30,17
+prod_00116,esporte_lazer,Sports & Leisure,5204,42,31,19
+prod_00117,informatica_acessorios,Computers & Accessories,9817,71,44,22
+prod_00118,moveis_decoracao,Furniture & Decor,11238,40,46,23
+prod_00119,utilidades_domesticas,Housewares,958,39,25,20
+prod_00120,automotivo,Automotive,9320,68,59,13
+prod_00121,telefonia,Telephony,10805,43,58,19
+prod_00122,brinquedos,Toys,875,50,52,22
+prod_00123,ferramentas_jardim,Garden Tools,10843,28,26,47
+prod_00124,perfumaria,Perfumery,11704,49,25,21
+prod_00125,bebes,Baby,7851,44,11,32
+prod_00126,eletronicos,Electronics,1366,31,13,31
+prod_00127,papelaria,Stationery,4201,44,30,19
+prod_00128,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,2347,59,48,47
+prod_00129,beleza_saude,Health & Beauty,14341,65,43,40
+prod_00130,relogios_presentes,Watches & Gifts,2956,61,39,23
+prod_00131,cama_mesa_banho,"Bed, Bath & Table",9120,67,15,25
+prod_00132,esporte_lazer,Sports & Leisure,1122,78,26,32
+prod_00133,informatica_acessorios,Computers & Accessories,11152,52,48,33
+prod_00134,moveis_decoracao,Furniture & Decor,5784,78,34,32
+prod_00135,utilidades_domesticas,Housewares,13854,21,14,41
+prod_00136,automotivo,Automotive,7633,36,14,31
+prod_00137,telefonia,Telephony,2273,55,29,35
+prod_00138,brinquedos,Toys,8940,24,25,34
+prod_00139,ferramentas_jardim,Garden Tools,11683,71,50,18
+prod_00140,perfumaria,Perfumery,374,21,46,20
+prod_00141,bebes,Baby,13991,64,49,12
+prod_00142,eletronicos,Electronics,14598,66,18,37
+prod_00143,papelaria,Stationery,14736,47,14,49
+prod_00144,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,9182,15,51,49
+prod_00145,beleza_saude,Health & Beauty,1964,67,11,33
+prod_00146,relogios_presentes,Watches & Gifts,13151,74,18,21
+prod_00147,cama_mesa_banho,"Bed, Bath & Table",1256,48,52,17
+prod_00148,esporte_lazer,Sports & Leisure,274,18,45,28
+prod_00149,informatica_acessorios,Computers & Accessories,3396,31,31,49
+prod_00150,moveis_decoracao,Furniture & Decor,13530,18,31,35
+prod_00151,utilidades_domesticas,Housewares,3081,57,31,21
+prod_00152,automotivo,Automotive,13717,18,43,19
+prod_00153,telefonia,Telephony,14188,15,38,32
+prod_00154,brinquedos,Toys,12467,64,47,17
+prod_00155,ferramentas_jardim,Garden Tools,14766,75,55,32
+prod_00156,perfumaria,Perfumery,3121,49,42,35
+prod_00157,bebes,Baby,2167,22,27,44
+prod_00158,eletronicos,Electronics,7565,38,16,29
+prod_00159,papelaria,Stationery,2565,50,10,39
+prod_00160,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,12932,64,42,43
+prod_00161,beleza_saude,Health & Beauty,3246,57,10,23
+prod_00162,relogios_presentes,Watches & Gifts,1759,41,33,38
+prod_00163,cama_mesa_banho,"Bed, Bath & Table",867,46,13,21
+prod_00164,esporte_lazer,Sports & Leisure,3711,32,13,43
+prod_00165,informatica_acessorios,Computers & Accessories,9358,42,27,37
+prod_00166,moveis_decoracao,Furniture & Decor,11907,43,36,36
+prod_00167,utilidades_domesticas,Housewares,13775,30,52,22
+prod_00168,automotivo,Automotive,13043,61,41,34
+prod_00169,telefonia,Telephony,12812,73,42,45
+prod_00170,brinquedos,Toys,6932,45,37,34
+prod_00171,ferramentas_jardim,Garden Tools,10302,18,51,40
+prod_00172,perfumaria,Perfumery,1198,51,50,42
+prod_00173,bebes,Baby,9699,31,45,18
+prod_00174,eletronicos,Electronics,11768,53,15,44
+prod_00175,papelaria,Stationery,8457,62,25,32
+prod_00176,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,10437,60,43,13
+prod_00177,beleza_saude,Health & Beauty,8055,62,32,29
+prod_00178,relogios_presentes,Watches & Gifts,10143,53,59,44
+prod_00179,cama_mesa_banho,"Bed, Bath & Table",10488,18,51,48
+prod_00180,esporte_lazer,Sports & Leisure,5728,44,33,45
+prod_00181,informatica_acessorios,Computers & Accessories,13984,44,58,31
+prod_00182,moveis_decoracao,Furniture & Decor,1770,36,22,46
+prod_00183,utilidades_domesticas,Housewares,6698,26,27,29
+prod_00184,automotivo,Automotive,7531,50,22,35
+prod_00185,telefonia,Telephony,4930,32,58,19
+prod_00186,brinquedos,Toys,11292,67,46,41
+prod_00187,ferramentas_jardim,Garden Tools,14988,15,52,21
+prod_00188,perfumaria,Perfumery,3942,72,48,34
+prod_00189,bebes,Baby,13909,20,51,22
+prod_00190,eletronicos,Electronics,3091,58,26,13
+prod_00191,papelaria,Stationery,5845,38,24,37
+prod_00192,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,6551,33,27,47
+prod_00193,beleza_saude,Health & Beauty,14606,32,32,44
+prod_00194,relogios_presentes,Watches & Gifts,13247,44,39,24
+prod_00195,cama_mesa_banho,"Bed, Bath & Table",9319,56,43,36
+prod_00196,esporte_lazer,Sports & Leisure,6347,47,13,15
+prod_00197,informatica_acessorios,Computers & Accessories,11408,26,12,30
+prod_00198,moveis_decoracao,Furniture & Decor,5600,41,16,29
+prod_00199,utilidades_domesticas,Housewares,9125,53,27,48
+prod_00200,automotivo,Automotive,8582,23,51,41
+prod_00201,telefonia,Telephony,6024,35,16,30
+prod_00202,brinquedos,Toys,1703,43,49,34
+prod_00203,ferramentas_jardim,Garden Tools,12920,47,15,27
+prod_00204,perfumaria,Perfumery,1162,76,31,12
+prod_00205,bebes,Baby,8528,29,10,23
+prod_00206,eletronicos,Electronics,2031,16,13,35
+prod_00207,papelaria,Stationery,6949,66,55,45
+prod_00208,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,14747,58,58,19
+prod_00209,beleza_saude,Health & Beauty,13390,68,59,29
+prod_00210,relogios_presentes,Watches & Gifts,13825,32,52,16
+prod_00211,cama_mesa_banho,"Bed, Bath & Table",4736,17,38,37
+prod_00212,esporte_lazer,Sports & Leisure,8772,21,30,41
+prod_00213,informatica_acessorios,Computers & Accessories,8580,57,35,24
+prod_00214,moveis_decoracao,Furniture & Decor,6597,52,23,30
+prod_00215,utilidades_domesticas,Housewares,2495,51,18,40
+prod_00216,automotivo,Automotive,225,72,56,14
+prod_00217,telefonia,Telephony,9698,47,21,37
+prod_00218,brinquedos,Toys,14361,73,51,23
+prod_00219,ferramentas_jardim,Garden Tools,6027,25,15,13
+prod_00220,perfumaria,Perfumery,6935,36,29,22
+prod_00221,bebes,Baby,5072,58,33,39
+prod_00222,eletronicos,Electronics,8240,20,36,29
+prod_00223,papelaria,Stationery,2480,56,47,24
+prod_00224,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,4836,39,17,48
+prod_00225,beleza_saude,Health & Beauty,14557,71,10,33
+prod_00226,relogios_presentes,Watches & Gifts,2052,69,58,23
+prod_00227,cama_mesa_banho,"Bed, Bath & Table",14348,30,58,13
+prod_00228,esporte_lazer,Sports & Leisure,12355,28,33,48
+prod_00229,informatica_acessorios,Computers & Accessories,4820,53,56,18
+prod_00230,moveis_decoracao,Furniture & Decor,7293,42,16,37
+prod_00231,utilidades_domesticas,Housewares,13329,65,28,37
+prod_00232,automotivo,Automotive,2209,63,31,35
+prod_00233,telefonia,Telephony,290,23,44,23
+prod_00234,brinquedos,Toys,1939,72,39,27
+prod_00235,ferramentas_jardim,Garden Tools,11968,59,38,34
+prod_00236,perfumaria,Perfumery,166,36,31,20
+prod_00237,bebes,Baby,13524,46,20,43
+prod_00238,eletronicos,Electronics,12690,56,29,26
+prod_00239,papelaria,Stationery,614,67,38,48
+prod_00240,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,4621,73,50,24
+prod_00241,beleza_saude,Health & Beauty,1977,53,51,16
+prod_00242,relogios_presentes,Watches & Gifts,11370,29,43,22
+prod_00243,cama_mesa_banho,"Bed, Bath & Table",8861,43,10,21
+prod_00244,esporte_lazer,Sports & Leisure,6106,17,40,24
+prod_00245,informatica_acessorios,Computers & Accessories,239,24,39,26
+prod_00246,moveis_decoracao,Furniture & Decor,4965,43,57,18
+prod_00247,utilidades_domesticas,Housewares,3001,49,27,39
+prod_00248,automotivo,Automotive,2993,20,26,43
+prod_00249,telefonia,Telephony,13067,26,47,46
+prod_00250,brinquedos,Toys,10226,52,23,26
+prod_00251,ferramentas_jardim,Garden Tools,12513,33,32,47
+prod_00252,perfumaria,Perfumery,9267,22,34,32
+prod_00253,bebes,Baby,12076,22,24,17
+prod_00254,eletronicos,Electronics,6693,61,55,12
+prod_00255,papelaria,Stationery,6051,18,31,15
+prod_00256,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,1119,65,12,22
+prod_00257,beleza_saude,Health & Beauty,1244,59,28,37
+prod_00258,relogios_presentes,Watches & Gifts,6274,22,53,48
+prod_00259,cama_mesa_banho,"Bed, Bath & Table",7497,30,43,34
+prod_00260,esporte_lazer,Sports & Leisure,3345,23,44,40
+prod_00261,informatica_acessorios,Computers & Accessories,1554,74,59,32
+prod_00262,moveis_decoracao,Furniture & Decor,11706,29,10,38
+prod_00263,utilidades_domesticas,Housewares,7090,55,30,24
+prod_00264,automotivo,Automotive,4440,36,38,34
+prod_00265,telefonia,Telephony,4132,38,15,27
+prod_00266,brinquedos,Toys,12665,58,46,41
+prod_00267,ferramentas_jardim,Garden Tools,12355,15,10,15
+prod_00268,perfumaria,Perfumery,5705,24,10,27
+prod_00269,bebes,Baby,8104,70,36,42
+prod_00270,eletronicos,Electronics,12898,64,30,36
+prod_00271,papelaria,Stationery,4863,26,25,23
+prod_00272,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,3242,74,53,37
+prod_00273,beleza_saude,Health & Beauty,4309,40,49,48
+prod_00274,relogios_presentes,Watches & Gifts,6458,55,35,44
+prod_00275,cama_mesa_banho,"Bed, Bath & Table",10416,50,25,39
+prod_00276,esporte_lazer,Sports & Leisure,7628,37,37,20
+prod_00277,informatica_acessorios,Computers & Accessories,8626,57,10,23
+prod_00278,moveis_decoracao,Furniture & Decor,14121,20,45,16
+prod_00279,utilidades_domesticas,Housewares,14766,57,19,39
+prod_00280,automotivo,Automotive,5083,39,52,46
+prod_00281,telefonia,Telephony,5076,32,26,16
+prod_00282,brinquedos,Toys,9529,76,32,45
+prod_00283,ferramentas_jardim,Garden Tools,4119,27,16,45
+prod_00284,perfumaria,Perfumery,3115,57,53,24
+prod_00285,bebes,Baby,4469,42,16,25
+prod_00286,eletronicos,Electronics,9125,32,53,22
+prod_00287,papelaria,Stationery,7258,73,24,49
+prod_00288,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,9291,74,43,15
+prod_00289,beleza_saude,Health & Beauty,4089,77,55,44
+prod_00290,relogios_presentes,Watches & Gifts,194,71,54,18
+prod_00291,cama_mesa_banho,"Bed, Bath & Table",1960,65,13,19
+prod_00292,esporte_lazer,Sports & Leisure,4716,70,23,48
+prod_00293,informatica_acessorios,Computers & Accessories,10423,41,23,21
+prod_00294,moveis_decoracao,Furniture & Decor,11840,46,25,26
+prod_00295,utilidades_domesticas,Housewares,9171,23,16,49
+prod_00296,automotivo,Automotive,2059,60,41,26
+prod_00297,telefonia,Telephony,6514,40,28,16
+prod_00298,brinquedos,Toys,14329,22,11,40
+prod_00299,ferramentas_jardim,Garden Tools,2731,20,19,30
+prod_00300,perfumaria,Perfumery,841,38,59,21
+prod_00301,bebes,Baby,12361,62,26,23
+prod_00302,eletronicos,Electronics,13828,59,46,15
+prod_00303,papelaria,Stationery,1081,27,21,42
+prod_00304,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,13278,39,15,29
+prod_00305,beleza_saude,Health & Beauty,8060,34,31,27
+prod_00306,relogios_presentes,Watches & Gifts,14376,59,41,47
+prod_00307,cama_mesa_banho,"Bed, Bath & Table",14011,61,50,36
+prod_00308,esporte_lazer,Sports & Leisure,6532,77,29,34
+prod_00309,informatica_acessorios,Computers & Accessories,3556,69,10,23
+prod_00310,moveis_decoracao,Furniture & Decor,14926,33,56,45
+prod_00311,utilidades_domesticas,Housewares,8489,49,15,47
+prod_00312,automotivo,Automotive,1182,67,28,48
+prod_00313,telefonia,Telephony,1461,40,27,14
+prod_00314,brinquedos,Toys,8729,28,15,20
+prod_00315,ferramentas_jardim,Garden Tools,3271,59,54,29
+prod_00316,perfumaria,Perfumery,2023,58,42,46
+prod_00317,bebes,Baby,11930,79,32,45
+prod_00318,eletronicos,Electronics,9257,65,32,25
+prod_00319,papelaria,Stationery,10220,57,35,15
+prod_00320,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,6931,37,22,40
+prod_00321,beleza_saude,Health & Beauty,3898,70,16,26
+prod_00322,relogios_presentes,Watches & Gifts,427,33,24,39
+prod_00323,cama_mesa_banho,"Bed, Bath & Table",10319,69,53,27
+prod_00324,esporte_lazer,Sports & Leisure,2009,74,36,23
+prod_00325,informatica_acessorios,Computers & Accessories,11378,73,35,16
+prod_00326,moveis_decoracao,Furniture & Decor,11713,47,42,45
+prod_00327,utilidades_domesticas,Housewares,14263,33,24,12
+prod_00328,automotivo,Automotive,6079,42,45,43
+prod_00329,telefonia,Telephony,6942,66,54,37
+prod_00330,brinquedos,Toys,4863,63,36,28
+prod_00331,ferramentas_jardim,Garden Tools,14068,51,14,38
+prod_00332,perfumaria,Perfumery,10524,40,11,35
+prod_00333,bebes,Baby,4825,54,42,46
+prod_00334,eletronicos,Electronics,1320,52,25,37
+prod_00335,papelaria,Stationery,8831,68,32,49
+prod_00336,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,10867,36,47,34
+prod_00337,beleza_saude,Health & Beauty,9524,30,25,33
+prod_00338,relogios_presentes,Watches & Gifts,12821,42,23,15
+prod_00339,cama_mesa_banho,"Bed, Bath & Table",12600,49,38,20
+prod_00340,esporte_lazer,Sports & Leisure,10830,74,35,15
+prod_00341,informatica_acessorios,Computers & Accessories,10218,59,44,18
+prod_00342,moveis_decoracao,Furniture & Decor,5458,60,24,34
+prod_00343,utilidades_domesticas,Housewares,2612,69,12,13
+prod_00344,automotivo,Automotive,13800,40,32,35
+prod_00345,telefonia,Telephony,9972,39,38,42
+prod_00346,brinquedos,Toys,13642,79,43,42
+prod_00347,ferramentas_jardim,Garden Tools,437,20,42,45
+prod_00348,perfumaria,Perfumery,6103,37,50,35
+prod_00349,bebes,Baby,4432,78,50,37
+prod_00350,eletronicos,Electronics,2057,57,32,27
+prod_00351,papelaria,Stationery,1311,37,16,24
+prod_00352,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,279,44,12,26
+prod_00353,beleza_saude,Health & Beauty,6487,32,41,38
+prod_00354,relogios_presentes,Watches & Gifts,2513,35,40,15
+prod_00355,cama_mesa_banho,"Bed, Bath & Table",8301,71,27,27
+prod_00356,esporte_lazer,Sports & Leisure,6133,37,52,41
+prod_00357,informatica_acessorios,Computers & Accessories,293,59,16,41
+prod_00358,moveis_decoracao,Furniture & Decor,8357,58,50,47
+prod_00359,utilidades_domesticas,Housewares,7619,61,10,14
+prod_00360,automotivo,Automotive,14908,54,23,33
+prod_00361,telefonia,Telephony,394,65,41,33
+prod_00362,brinquedos,Toys,1076,56,15,23
+prod_00363,ferramentas_jardim,Garden Tools,3328,21,48,32
+prod_00364,perfumaria,Perfumery,2326,64,19,15
+prod_00365,bebes,Baby,5152,62,16,42
+prod_00366,eletronicos,Electronics,1036,20,35,42
+prod_00367,papelaria,Stationery,8682,23,43,34
+prod_00368,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,10393,71,39,31
+prod_00369,beleza_saude,Health & Beauty,3548,45,45,26
+prod_00370,relogios_presentes,Watches & Gifts,13871,35,30,34
+prod_00371,cama_mesa_banho,"Bed, Bath & Table",12292,54,26,39
+prod_00372,esporte_lazer,Sports & Leisure,8647,59,42,27
+prod_00373,informatica_acessorios,Computers & Accessories,9249,63,19,48
+prod_00374,moveis_decoracao,Furniture & Decor,2804,34,56,32
+prod_00375,utilidades_domesticas,Housewares,12134,31,51,26
+prod_00376,automotivo,Automotive,7542,42,21,28
+prod_00377,telefonia,Telephony,12384,55,25,48
+prod_00378,brinquedos,Toys,1521,39,50,24
+prod_00379,ferramentas_jardim,Garden Tools,7285,72,41,30
+prod_00380,perfumaria,Perfumery,470,55,24,41
+prod_00381,bebes,Baby,4804,20,36,29
+prod_00382,eletronicos,Electronics,12401,52,37,25
+prod_00383,papelaria,Stationery,5450,20,26,47
+prod_00384,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,6911,59,55,47
+prod_00385,beleza_saude,Health & Beauty,7004,28,59,31
+prod_00386,relogios_presentes,Watches & Gifts,5655,54,11,30
+prod_00387,cama_mesa_banho,"Bed, Bath & Table",14079,17,45,18
+prod_00388,esporte_lazer,Sports & Leisure,9473,38,59,15
+prod_00389,informatica_acessorios,Computers & Accessories,10920,33,16,45
+prod_00390,moveis_decoracao,Furniture & Decor,6703,32,22,13
+prod_00391,utilidades_domesticas,Housewares,4192,78,24,16
+prod_00392,automotivo,Automotive,11709,49,34,21
+prod_00393,telefonia,Telephony,9159,76,32,43
+prod_00394,brinquedos,Toys,13632,15,31,24
+prod_00395,ferramentas_jardim,Garden Tools,7648,39,35,16
+prod_00396,perfumaria,Perfumery,6786,59,42,21
+prod_00397,bebes,Baby,7512,63,20,21
+prod_00398,eletronicos,Electronics,161,30,19,49
+prod_00399,papelaria,Stationery,344,33,34,38
+prod_00400,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,2687,37,46,32
+prod_00401,beleza_saude,Health & Beauty,2992,39,57,19
+prod_00402,relogios_presentes,Watches & Gifts,2379,30,52,12
+prod_00403,cama_mesa_banho,"Bed, Bath & Table",3159,68,47,39
+prod_00404,esporte_lazer,Sports & Leisure,8134,15,50,25
+prod_00405,informatica_acessorios,Computers & Accessories,13093,56,54,32
+prod_00406,moveis_decoracao,Furniture & Decor,14359,33,33,41
+prod_00407,utilidades_domesticas,Housewares,2227,48,49,32
+prod_00408,automotivo,Automotive,14057,69,55,20
+prod_00409,telefonia,Telephony,7995,32,42,28
+prod_00410,brinquedos,Toys,4017,48,26,16
+prod_00411,ferramentas_jardim,Garden Tools,13557,59,33,42
+prod_00412,perfumaria,Perfumery,5023,20,46,49
+prod_00413,bebes,Baby,8785,35,11,30
+prod_00414,eletronicos,Electronics,447,62,41,47
+prod_00415,papelaria,Stationery,13245,53,33,44
+prod_00416,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,6006,45,18,24
+prod_00417,beleza_saude,Health & Beauty,9186,24,13,25
+prod_00418,relogios_presentes,Watches & Gifts,1165,44,26,44
+prod_00419,cama_mesa_banho,"Bed, Bath & Table",1534,32,26,40
+prod_00420,esporte_lazer,Sports & Leisure,9739,74,59,47
+prod_00421,informatica_acessorios,Computers & Accessories,8895,29,57,21
+prod_00422,moveis_decoracao,Furniture & Decor,2500,18,39,42
+prod_00423,utilidades_domesticas,Housewares,12858,77,49,17
+prod_00424,automotivo,Automotive,1419,54,20,12
+prod_00425,telefonia,Telephony,1410,23,30,18
+prod_00426,brinquedos,Toys,7851,23,30,38
+prod_00427,ferramentas_jardim,Garden Tools,8526,40,27,32
+prod_00428,perfumaria,Perfumery,4713,18,38,39
+prod_00429,bebes,Baby,7047,30,33,27
+prod_00430,eletronicos,Electronics,10752,29,19,34
+prod_00431,papelaria,Stationery,13744,66,54,31
+prod_00432,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,5822,19,26,49
+prod_00433,beleza_saude,Health & Beauty,12773,34,27,36
+prod_00434,relogios_presentes,Watches & Gifts,10551,32,51,39
+prod_00435,cama_mesa_banho,"Bed, Bath & Table",5743,16,57,16
+prod_00436,esporte_lazer,Sports & Leisure,12014,27,29,32
+prod_00437,informatica_acessorios,Computers & Accessories,6305,18,46,29
+prod_00438,moveis_decoracao,Furniture & Decor,5693,56,54,17
+prod_00439,utilidades_domesticas,Housewares,7390,75,27,40
+prod_00440,automotivo,Automotive,4833,22,26,30
+prod_00441,telefonia,Telephony,2031,77,18,44
+prod_00442,brinquedos,Toys,12638,23,23,12
+prod_00443,ferramentas_jardim,Garden Tools,8863,25,58,14
+prod_00444,perfumaria,Perfumery,10229,56,38,32
+prod_00445,bebes,Baby,10894,27,40,46
+prod_00446,eletronicos,Electronics,3959,50,13,14
+prod_00447,papelaria,Stationery,5957,27,27,36
+prod_00448,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,5033,26,29,49
+prod_00449,beleza_saude,Health & Beauty,7356,51,56,31
+prod_00450,relogios_presentes,Watches & Gifts,4305,66,52,45
+prod_00451,cama_mesa_banho,"Bed, Bath & Table",4823,16,53,32
+prod_00452,esporte_lazer,Sports & Leisure,12758,70,18,34
+prod_00453,informatica_acessorios,Computers & Accessories,13896,74,22,17
+prod_00454,moveis_decoracao,Furniture & Decor,11821,37,24,24
+prod_00455,utilidades_domesticas,Housewares,14475,54,36,34
+prod_00456,automotivo,Automotive,13360,78,24,20
+prod_00457,telefonia,Telephony,1559,37,37,28
+prod_00458,brinquedos,Toys,10036,43,46,13
+prod_00459,ferramentas_jardim,Garden Tools,13006,65,28,30
+prod_00460,perfumaria,Perfumery,5347,45,35,30
+prod_00461,bebes,Baby,7602,64,35,18
+prod_00462,eletronicos,Electronics,8868,34,34,31
+prod_00463,papelaria,Stationery,11002,69,35,20
+prod_00464,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,2322,16,35,28
+prod_00465,beleza_saude,Health & Beauty,13308,39,55,38
+prod_00466,relogios_presentes,Watches & Gifts,429,27,37,13
+prod_00467,cama_mesa_banho,"Bed, Bath & Table",11306,72,58,47
+prod_00468,esporte_lazer,Sports & Leisure,4127,78,27,30
+prod_00469,informatica_acessorios,Computers & Accessories,2819,73,41,28
+prod_00470,moveis_decoracao,Furniture & Decor,11235,74,12,16
+prod_00471,utilidades_domesticas,Housewares,14330,76,11,29
+prod_00472,automotivo,Automotive,7975,30,42,18
+prod_00473,telefonia,Telephony,10093,29,51,28
+prod_00474,brinquedos,Toys,4131,69,28,47
+prod_00475,ferramentas_jardim,Garden Tools,4919,49,26,15
+prod_00476,perfumaria,Perfumery,5397,69,53,49
+prod_00477,bebes,Baby,10703,28,42,36
+prod_00478,eletronicos,Electronics,4577,63,21,16
+prod_00479,papelaria,Stationery,13611,21,58,41
+prod_00480,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,6285,44,12,23
+prod_00481,beleza_saude,Health & Beauty,5723,63,52,15
+prod_00482,relogios_presentes,Watches & Gifts,4281,30,58,35
+prod_00483,cama_mesa_banho,"Bed, Bath & Table",10050,65,35,40
+prod_00484,esporte_lazer,Sports & Leisure,13881,56,44,20
+prod_00485,informatica_acessorios,Computers & Accessories,7339,31,17,15
+prod_00486,moveis_decoracao,Furniture & Decor,14691,77,45,35
+prod_00487,utilidades_domesticas,Housewares,11028,59,16,25
+prod_00488,automotivo,Automotive,11237,21,55,16
+prod_00489,telefonia,Telephony,13817,41,55,29
+prod_00490,brinquedos,Toys,4685,24,45,30
+prod_00491,ferramentas_jardim,Garden Tools,2926,48,25,23
+prod_00492,perfumaria,Perfumery,9461,50,33,29
+prod_00493,bebes,Baby,11330,39,10,28
+prod_00494,eletronicos,Electronics,12601,20,58,41
+prod_00495,papelaria,Stationery,12585,38,34,35
+prod_00496,fashion_bolsas_e_acessorios,Fashion Bags & Accessories,7847,32,19,22
+prod_00497,beleza_saude,Health & Beauty,14779,20,25,46
+prod_00498,relogios_presentes,Watches & Gifts,8536,43,25,34
+prod_00499,cama_mesa_banho,"Bed, Bath & Table",812,39,17,28
+prod_00500,esporte_lazer,Sports & Leisure,8821,69,38,12

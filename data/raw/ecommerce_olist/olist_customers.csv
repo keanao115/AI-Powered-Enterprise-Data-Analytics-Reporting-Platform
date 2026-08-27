@@ -1,0 +1,1501 @@
+customer_id,customer_unique_id,customer_zip_code_prefix,customer_city,customer_state
+c_000001,cu_000111,45631,sao paulo,SP
+c_000002,cu_000508,41348,goiania,GO
+c_000003,cu_000295,74732,curitiba,PR
+c_000004,cu_000904,11177,belo horizonte,MG
+c_000005,cu_000974,14760,sao paulo,SP
+c_000006,cu_000632,42779,sao paulo,SP
+c_000007,cu_001051,31636,sao paulo,SP
+c_000008,cu_000733,91889,recife,PE
+c_000009,cu_000321,63551,belo horizonte,MG
+c_000010,cu_000913,21556,porto alegre,RS
+c_000011,cu_000437,37598,sao paulo,SP
+c_000012,cu_000781,21563,goiania,GO
+c_000013,cu_001077,56819,florianopolis,SC
+c_000014,cu_000726,83770,sao paulo,SP
+c_000015,cu_000031,36966,sao paulo,SP
+c_000016,cu_000337,91709,sao paulo,SP
+c_000017,cu_000183,69889,sao paulo,SP
+c_000018,cu_001047,36987,rio de janeiro,RJ
+c_000019,cu_000544,88714,rio de janeiro,RJ
+c_000020,cu_001098,68348,sao paulo,SP
+c_000021,cu_001034,34596,belo horizonte,MG
+c_000022,cu_000660,43174,sao paulo,SP
+c_000023,cu_000160,74106,sao paulo,SP
+c_000024,cu_001038,79967,sao paulo,SP
+c_000025,cu_000412,69182,rio de janeiro,RJ
+c_000026,cu_001012,97163,salvador,BA
+c_000027,cu_000053,49310,sao paulo,SP
+c_000028,cu_000408,66088,rio de janeiro,RJ
+c_000029,cu_000847,18906,belo horizonte,MG
+c_000030,cu_001046,46914,sao paulo,SP
+c_000031,cu_001054,55379,belo horizonte,MG
+c_000032,cu_000703,88612,sao paulo,SP
+c_000033,cu_000260,47650,sao paulo,SP
+c_000034,cu_001083,56881,brasilia,DF
+c_000035,cu_000776,56413,goiania,GO
+c_000036,cu_001036,16012,salvador,BA
+c_000037,cu_000850,60115,sao paulo,SP
+c_000038,cu_000354,17151,sao paulo,SP
+c_000039,cu_001099,67716,porto alegre,RS
+c_000040,cu_000873,46378,rio de janeiro,RJ
+c_000041,cu_000991,52652,sao paulo,SP
+c_000042,cu_001018,82430,rio de janeiro,RJ
+c_000043,cu_001178,23467,sao paulo,SP
+c_000044,cu_001120,41010,fortaleza,CE
+c_000045,cu_000294,64691,sao paulo,SP
+c_000046,cu_000209,74157,belo horizonte,MG
+c_000047,cu_001112,22289,sao paulo,SP
+c_000048,cu_000818,54976,rio de janeiro,RJ
+c_000049,cu_000390,53596,rio de janeiro,RJ
+c_000050,cu_000325,33171,sao paulo,SP
+c_000051,cu_000940,96365,goiania,GO
+c_000052,cu_000889,54139,curitiba,PR
+c_000053,cu_001181,58713,brasilia,DF
+c_000054,cu_000668,39734,fortaleza,CE
+c_000055,cu_000633,82588,belo horizonte,MG
+c_000056,cu_000577,73646,brasilia,DF
+c_000057,cu_000137,13654,sao paulo,SP
+c_000058,cu_000428,99022,sao paulo,SP
+c_000059,cu_000612,28743,sao paulo,SP
+c_000060,cu_000911,58368,sao paulo,SP
+c_000061,cu_000819,84172,sao paulo,SP
+c_000062,cu_000141,16441,sao paulo,SP
+c_000063,cu_001107,34611,florianopolis,SC
+c_000064,cu_000177,22149,sao paulo,SP
+c_000065,cu_000198,69189,sao paulo,SP
+c_000066,cu_000624,31675,rio de janeiro,RJ
+c_000067,cu_000691,81031,sao paulo,SP
+c_000068,cu_000401,52668,salvador,BA
+c_000069,cu_000471,23673,sao paulo,SP
+c_000070,cu_000218,86666,vitoria,ES
+c_000071,cu_000929,98204,curitiba,PR
+c_000072,cu_000632,90758,sao paulo,SP
+c_000073,cu_000951,75429,sao paulo,SP
+c_000074,cu_000906,33669,salvador,BA
+c_000075,cu_000175,44068,porto alegre,RS
+c_000076,cu_000023,98789,porto alegre,RS
+c_000077,cu_000235,19435,curitiba,PR
+c_000078,cu_001037,62249,sao paulo,SP
+c_000079,cu_001125,47384,sao paulo,SP
+c_000080,cu_000929,91929,sao paulo,SP
+c_000081,cu_000523,86153,recife,PE
+c_000082,cu_000431,85388,belo horizonte,MG
+c_000083,cu_000793,41401,sao paulo,SP
+c_000084,cu_000533,81831,sao paulo,SP
+c_000085,cu_000979,44084,sao paulo,SP
+c_000086,cu_000810,65826,sao paulo,SP
+c_000087,cu_000913,46451,porto alegre,RS
+c_000088,cu_001125,17227,belo horizonte,MG
+c_000089,cu_000871,41910,recife,PE
+c_000090,cu_000540,46041,rio de janeiro,RJ
+c_000091,cu_001024,98920,sao paulo,SP
+c_000092,cu_000227,75681,porto alegre,RS
+c_000093,cu_000873,91571,curitiba,PR
+c_000094,cu_000892,75481,belo horizonte,MG
+c_000095,cu_001037,78576,curitiba,PR
+c_000096,cu_000210,74174,rio de janeiro,RJ
+c_000097,cu_000741,36160,rio de janeiro,RJ
+c_000098,cu_000397,27633,rio de janeiro,RJ
+c_000099,cu_001124,27014,sao paulo,SP
+c_000100,cu_000031,90532,sao paulo,SP
+c_000101,cu_000898,59104,sao paulo,SP
+c_000102,cu_000649,51621,belo horizonte,MG
+c_000103,cu_000329,87231,sao paulo,SP
+c_000104,cu_001190,78388,rio de janeiro,RJ
+c_000105,cu_000952,26014,fortaleza,CE
+c_000106,cu_001124,43755,sao paulo,SP
+c_000107,cu_000621,50390,sao paulo,SP
+c_000108,cu_001197,33711,curitiba,PR
+c_000109,cu_000162,67993,sao paulo,SP
+c_000110,cu_000776,84696,sao paulo,SP
+c_000111,cu_000274,37213,sao paulo,SP
+c_000112,cu_001027,67784,sao paulo,SP
+c_000113,cu_001052,17421,brasilia,DF
+c_000114,cu_000326,96936,salvador,BA
+c_000115,cu_000940,27727,belo horizonte,MG
+c_000116,cu_001173,14358,recife,PE
+c_000117,cu_000540,75108,salvador,BA
+c_000118,cu_000488,42117,sao paulo,SP
+c_000119,cu_000822,98700,fortaleza,CE
+c_000120,cu_001089,41910,rio de janeiro,RJ
+c_000121,cu_000356,65754,salvador,BA
+c_000122,cu_000235,72438,fortaleza,CE
+c_000123,cu_000227,39371,sao paulo,SP
+c_000124,cu_000049,61501,sao paulo,SP
+c_000125,cu_000118,70946,sao paulo,SP
+c_000126,cu_000054,48467,rio de janeiro,RJ
+c_000127,cu_000565,27625,salvador,BA
+c_000128,cu_001068,43893,recife,PE
+c_000129,cu_000053,86329,sao paulo,SP
+c_000130,cu_000558,41007,rio de janeiro,RJ
+c_000131,cu_001126,49532,sao paulo,SP
+c_000132,cu_000868,64253,sao paulo,SP
+c_000133,cu_000398,22323,sao paulo,SP
+c_000134,cu_001162,83379,sao paulo,SP
+c_000135,cu_000675,24210,brasilia,DF
+c_000136,cu_000387,26456,sao paulo,SP
+c_000137,cu_000111,41367,rio de janeiro,RJ
+c_000138,cu_000614,64624,porto alegre,RS
+c_000139,cu_000017,20106,sao paulo,SP
+c_000140,cu_000884,78008,goiania,GO
+c_000141,cu_000541,82240,goiania,GO
+c_000142,cu_000171,74315,sao paulo,SP
+c_000143,cu_000409,79249,rio de janeiro,RJ
+c_000144,cu_000740,80587,sao paulo,SP
+c_000145,cu_000858,20756,sao paulo,SP
+c_000146,cu_000230,78011,sao paulo,SP
+c_000147,cu_000119,46378,belo horizonte,MG
+c_000148,cu_001180,14255,rio de janeiro,RJ
+c_000149,cu_000784,24484,sao paulo,SP
+c_000150,cu_000465,66549,sao paulo,SP
+c_000151,cu_000104,44503,fortaleza,CE
+c_000152,cu_000698,83794,sao paulo,SP
+c_000153,cu_000175,55113,sao paulo,SP
+c_000154,cu_000745,84069,rio de janeiro,RJ
+c_000155,cu_001158,15249,vitoria,ES
+c_000156,cu_000665,29201,sao paulo,SP
+c_000157,cu_000033,68576,porto alegre,RS
+c_000158,cu_000055,19686,curitiba,PR
+c_000159,cu_000519,63363,sao paulo,SP
+c_000160,cu_000756,10661,porto alegre,RS
+c_000161,cu_000012,54843,sao paulo,SP
+c_000162,cu_000720,70963,belo horizonte,MG
+c_000163,cu_000555,52828,belo horizonte,MG
+c_000164,cu_000373,58604,rio de janeiro,RJ
+c_000165,cu_000484,20526,sao paulo,SP
+c_000166,cu_000973,78910,florianopolis,SC
+c_000167,cu_000623,35592,sao paulo,SP
+c_000168,cu_000307,38982,sao paulo,SP
+c_000169,cu_000457,10207,sao paulo,SP
+c_000170,cu_000160,98733,belo horizonte,MG
+c_000171,cu_000331,78619,porto alegre,RS
+c_000172,cu_000776,39328,sao paulo,SP
+c_000173,cu_000225,56479,rio de janeiro,RJ
+c_000174,cu_000983,30103,sao paulo,SP
+c_000175,cu_000729,49891,belo horizonte,MG
+c_000176,cu_001069,20754,sao paulo,SP
+c_000177,cu_001083,91437,porto alegre,RS
+c_000178,cu_000644,82982,sao paulo,SP
+c_000179,cu_000616,65922,brasilia,DF
+c_000180,cu_000195,58231,sao paulo,SP
+c_000181,cu_000489,39301,sao paulo,SP
+c_000182,cu_000157,72711,sao paulo,SP
+c_000183,cu_000610,51323,brasilia,DF
+c_000184,cu_000412,28752,recife,PE
+c_000185,cu_001103,92205,sao paulo,SP
+c_000186,cu_001148,23395,belo horizonte,MG
+c_000187,cu_000471,95957,salvador,BA
+c_000188,cu_000516,66273,belo horizonte,MG
+c_000189,cu_001128,14895,rio de janeiro,RJ
+c_000190,cu_000393,86559,sao paulo,SP
+c_000191,cu_000631,20699,sao paulo,SP
+c_000192,cu_000608,75061,fortaleza,CE
+c_000193,cu_000980,19715,fortaleza,CE
+c_000194,cu_000434,29169,belo horizonte,MG
+c_000195,cu_001167,26163,sao paulo,SP
+c_000196,cu_000540,15782,sao paulo,SP
+c_000197,cu_000278,98177,porto alegre,RS
+c_000198,cu_000233,94328,fortaleza,CE
+c_000199,cu_001114,45585,recife,PE
+c_000200,cu_000362,40682,curitiba,PR
+c_000201,cu_000026,57864,belo horizonte,MG
+c_000202,cu_001049,94416,sao paulo,SP
+c_000203,cu_000507,65114,sao paulo,SP
+c_000204,cu_000267,48067,fortaleza,CE
+c_000205,cu_000461,52685,belo horizonte,MG
+c_000206,cu_000456,28073,sao paulo,SP
+c_000207,cu_001092,46035,sao paulo,SP
+c_000208,cu_001007,74977,belo horizonte,MG
+c_000209,cu_000863,93362,sao paulo,SP
+c_000210,cu_000491,75450,sao paulo,SP
+c_000211,cu_001073,20382,rio de janeiro,RJ
+c_000212,cu_000564,14437,porto alegre,RS
+c_000213,cu_001126,80971,belo horizonte,MG
+c_000214,cu_000216,74612,sao paulo,SP
+c_000215,cu_000559,71929,porto alegre,RS
+c_000216,cu_000159,22329,sao paulo,SP
+c_000217,cu_000489,35169,sao paulo,SP
+c_000218,cu_000686,97468,curitiba,PR
+c_000219,cu_000794,44594,belo horizonte,MG
+c_000220,cu_000005,86957,florianopolis,SC
+c_000221,cu_000361,70631,belo horizonte,MG
+c_000222,cu_000459,55033,belo horizonte,MG
+c_000223,cu_000248,73133,sao paulo,SP
+c_000224,cu_000946,83165,sao paulo,SP
+c_000225,cu_000422,83861,sao paulo,SP
+c_000226,cu_000015,62290,sao paulo,SP
+c_000227,cu_000736,41750,goiania,GO
+c_000228,cu_001146,50461,sao paulo,SP
+c_000229,cu_000277,83800,fortaleza,CE
+c_000230,cu_000453,88222,belo horizonte,MG
+c_000231,cu_000598,34226,salvador,BA
+c_000232,cu_000446,16721,rio de janeiro,RJ
+c_000233,cu_000210,66154,belo horizonte,MG
+c_000234,cu_000714,30609,rio de janeiro,RJ
+c_000235,cu_000302,62130,sao paulo,SP
+c_000236,cu_000003,82909,porto alegre,RS
+c_000237,cu_000990,65249,sao paulo,SP
+c_000238,cu_001117,58895,sao paulo,SP
+c_000239,cu_000520,15656,belo horizonte,MG
+c_000240,cu_000493,84520,sao paulo,SP
+c_000241,cu_000620,73740,brasilia,DF
+c_000242,cu_001185,74309,goiania,GO
+c_000243,cu_000331,39984,fortaleza,CE
+c_000244,cu_000333,83822,sao paulo,SP
+c_000245,cu_000050,15901,sao paulo,SP
+c_000246,cu_000863,41552,brasilia,DF
+c_000247,cu_000272,41055,rio de janeiro,RJ
+c_000248,cu_000580,47685,goiania,GO
+c_000249,cu_000560,83965,goiania,GO
+c_000250,cu_000696,24716,florianopolis,SC
+c_000251,cu_001114,21138,sao paulo,SP
+c_000252,cu_000446,45298,sao paulo,SP
+c_000253,cu_001017,61112,florianopolis,SC
+c_000254,cu_001163,33429,sao paulo,SP
+c_000255,cu_000357,60200,sao paulo,SP
+c_000256,cu_000274,81308,belo horizonte,MG
+c_000257,cu_001043,58244,brasilia,DF
+c_000258,cu_000311,27347,porto alegre,RS
+c_000259,cu_000870,26920,belo horizonte,MG
+c_000260,cu_000886,41822,sao paulo,SP
+c_000261,cu_000154,56659,belo horizonte,MG
+c_000262,cu_000620,50108,vitoria,ES
+c_000263,cu_000883,99099,sao paulo,SP
+c_000264,cu_000797,17967,rio de janeiro,RJ
+c_000265,cu_000125,21871,recife,PE
+c_000266,cu_000619,87452,curitiba,PR
+c_000267,cu_000245,84270,porto alegre,RS
+c_000268,cu_000848,43613,porto alegre,RS
+c_000269,cu_000450,38179,sao paulo,SP
+c_000270,cu_000930,62188,sao paulo,SP
+c_000271,cu_000520,65099,salvador,BA
+c_000272,cu_001165,45262,salvador,BA
+c_000273,cu_000362,88213,recife,PE
+c_000274,cu_000008,28268,fortaleza,CE
+c_000275,cu_000478,87866,rio de janeiro,RJ
+c_000276,cu_000495,96269,rio de janeiro,RJ
+c_000277,cu_000833,70545,salvador,BA
+c_000278,cu_001063,82146,belo horizonte,MG
+c_000279,cu_000593,81966,porto alegre,RS
+c_000280,cu_000187,49922,salvador,BA
+c_000281,cu_000754,89364,fortaleza,CE
+c_000282,cu_000093,52913,sao paulo,SP
+c_000283,cu_000086,65677,sao paulo,SP
+c_000284,cu_001068,59841,sao paulo,SP
+c_000285,cu_000137,56332,belo horizonte,MG
+c_000286,cu_000421,35032,sao paulo,SP
+c_000287,cu_000074,47846,rio de janeiro,RJ
+c_000288,cu_001180,69474,rio de janeiro,RJ
+c_000289,cu_000171,54936,sao paulo,SP
+c_000290,cu_000170,39794,belo horizonte,MG
+c_000291,cu_000872,71588,sao paulo,SP
+c_000292,cu_000322,80984,sao paulo,SP
+c_000293,cu_000456,60331,florianopolis,SC
+c_000294,cu_000944,38141,sao paulo,SP
+c_000295,cu_000790,19074,sao paulo,SP
+c_000296,cu_000613,16406,rio de janeiro,RJ
+c_000297,cu_001179,33291,curitiba,PR
+c_000298,cu_000889,51568,sao paulo,SP
+c_000299,cu_000349,56851,belo horizonte,MG
+c_000300,cu_001197,64823,sao paulo,SP
+c_000301,cu_000010,33312,sao paulo,SP
+c_000302,cu_000740,53108,rio de janeiro,RJ
+c_000303,cu_000667,76918,rio de janeiro,RJ
+c_000304,cu_000546,44171,belo horizonte,MG
+c_000305,cu_000129,51779,porto alegre,RS
+c_000306,cu_000601,78828,goiania,GO
+c_000307,cu_000605,22411,rio de janeiro,RJ
+c_000308,cu_000327,67009,sao paulo,SP
+c_000309,cu_000980,25422,salvador,BA
+c_000310,cu_000404,52468,sao paulo,SP
+c_000311,cu_000629,42371,rio de janeiro,RJ
+c_000312,cu_000718,67022,sao paulo,SP
+c_000313,cu_001041,81229,sao paulo,SP
+c_000314,cu_000274,61196,goiania,GO
+c_000315,cu_000685,90354,florianopolis,SC
+c_000316,cu_000116,36715,porto alegre,RS
+c_000317,cu_000861,37605,sao paulo,SP
+c_000318,cu_000693,41174,sao paulo,SP
+c_000319,cu_001115,19956,sao paulo,SP
+c_000320,cu_001106,86373,sao paulo,SP
+c_000321,cu_000324,79252,rio de janeiro,RJ
+c_000322,cu_000961,71949,porto alegre,RS
+c_000323,cu_000114,72646,belo horizonte,MG
+c_000324,cu_001082,80017,sao paulo,SP
+c_000325,cu_000154,73037,goiania,GO
+c_000326,cu_000315,99818,curitiba,PR
+c_000327,cu_001065,16548,belo horizonte,MG
+c_000328,cu_000105,83294,belo horizonte,MG
+c_000329,cu_000354,33177,sao paulo,SP
+c_000330,cu_001016,34022,sao paulo,SP
+c_000331,cu_000733,15542,sao paulo,SP
+c_000332,cu_000709,70428,curitiba,PR
+c_000333,cu_000651,32740,sao paulo,SP
+c_000334,cu_000824,69353,sao paulo,SP
+c_000335,cu_000947,66532,sao paulo,SP
+c_000336,cu_000661,26052,sao paulo,SP
+c_000337,cu_000099,57076,florianopolis,SC
+c_000338,cu_000588,63420,porto alegre,RS
+c_000339,cu_000282,10671,rio de janeiro,RJ
+c_000340,cu_000403,10163,sao paulo,SP
+c_000341,cu_001133,51424,rio de janeiro,RJ
+c_000342,cu_000700,63744,rio de janeiro,RJ
+c_000343,cu_000199,80331,sao paulo,SP
+c_000344,cu_000327,20634,rio de janeiro,RJ
+c_000345,cu_000154,14798,sao paulo,SP
+c_000346,cu_000552,32420,belo horizonte,MG
+c_000347,cu_000405,39300,belo horizonte,MG
+c_000348,cu_000462,99881,sao paulo,SP
+c_000349,cu_000132,20749,sao paulo,SP
+c_000350,cu_000791,35121,belo horizonte,MG
+c_000351,cu_000874,47487,rio de janeiro,RJ
+c_000352,cu_000084,43361,florianopolis,SC
+c_000353,cu_000754,31223,belo horizonte,MG
+c_000354,cu_000628,82930,sao paulo,SP
+c_000355,cu_001133,24056,sao paulo,SP
+c_000356,cu_000221,38380,belo horizonte,MG
+c_000357,cu_000553,36035,sao paulo,SP
+c_000358,cu_001171,40620,belo horizonte,MG
+c_000359,cu_000112,29877,brasilia,DF
+c_000360,cu_000615,65316,belo horizonte,MG
+c_000361,cu_000924,74041,sao paulo,SP
+c_000362,cu_000475,63352,belo horizonte,MG
+c_000363,cu_000836,40911,rio de janeiro,RJ
+c_000364,cu_000271,42784,rio de janeiro,RJ
+c_000365,cu_000421,13191,brasilia,DF
+c_000366,cu_000707,43160,sao paulo,SP
+c_000367,cu_000040,74641,goiania,GO
+c_000368,cu_000189,59723,fortaleza,CE
+c_000369,cu_001188,13631,sao paulo,SP
+c_000370,cu_000994,16172,sao paulo,SP
+c_000371,cu_000536,52080,sao paulo,SP
+c_000372,cu_001028,99097,sao paulo,SP
+c_000373,cu_000290,30281,sao paulo,SP
+c_000374,cu_000433,38671,porto alegre,RS
+c_000375,cu_000471,61431,sao paulo,SP
+c_000376,cu_000628,38602,sao paulo,SP
+c_000377,cu_000279,98789,florianopolis,SC
+c_000378,cu_000877,61399,sao paulo,SP
+c_000379,cu_000581,33472,salvador,BA
+c_000380,cu_000863,59230,sao paulo,SP
+c_000381,cu_000254,83616,sao paulo,SP
+c_000382,cu_000181,17099,porto alegre,RS
+c_000383,cu_000681,35431,belo horizonte,MG
+c_000384,cu_000825,66492,recife,PE
+c_000385,cu_000700,57684,curitiba,PR
+c_000386,cu_000566,40111,salvador,BA
+c_000387,cu_000680,73936,sao paulo,SP
+c_000388,cu_000391,32614,sao paulo,SP
+c_000389,cu_001109,51991,curitiba,PR
+c_000390,cu_000212,80476,salvador,BA
+c_000391,cu_000384,70920,vitoria,ES
+c_000392,cu_000342,73530,sao paulo,SP
+c_000393,cu_000844,46224,sao paulo,SP
+c_000394,cu_001062,17788,curitiba,PR
+c_000395,cu_000420,38082,sao paulo,SP
+c_000396,cu_000751,99570,brasilia,DF
+c_000397,cu_001193,86816,florianopolis,SC
+c_000398,cu_000306,93588,rio de janeiro,RJ
+c_000399,cu_000702,26531,curitiba,PR
+c_000400,cu_000869,98340,curitiba,PR
+c_000401,cu_000537,54857,sao paulo,SP
+c_000402,cu_001136,20142,fortaleza,CE
+c_000403,cu_000206,58355,rio de janeiro,RJ
+c_000404,cu_000496,19866,florianopolis,SC
+c_000405,cu_001071,80067,sao paulo,SP
+c_000406,cu_000504,74027,fortaleza,CE
+c_000407,cu_001046,67906,sao paulo,SP
+c_000408,cu_000213,38138,sao paulo,SP
+c_000409,cu_000310,39956,fortaleza,CE
+c_000410,cu_000661,86295,sao paulo,SP
+c_000411,cu_000753,15439,sao paulo,SP
+c_000412,cu_000272,57241,goiania,GO
+c_000413,cu_000938,52533,goiania,GO
+c_000414,cu_000032,38270,belo horizonte,MG
+c_000415,cu_000443,88815,belo horizonte,MG
+c_000416,cu_000162,49279,rio de janeiro,RJ
+c_000417,cu_000767,33888,sao paulo,SP
+c_000418,cu_000254,27630,sao paulo,SP
+c_000419,cu_000521,71063,porto alegre,RS
+c_000420,cu_000977,45144,curitiba,PR
+c_000421,cu_000010,62161,salvador,BA
+c_000422,cu_000726,87360,salvador,BA
+c_000423,cu_000505,60979,sao paulo,SP
+c_000424,cu_000785,16979,rio de janeiro,RJ
+c_000425,cu_000436,36189,sao paulo,SP
+c_000426,cu_001135,52600,rio de janeiro,RJ
+c_000427,cu_000153,69560,rio de janeiro,RJ
+c_000428,cu_000917,88040,recife,PE
+c_000429,cu_000869,71558,sao paulo,SP
+c_000430,cu_001126,96205,sao paulo,SP
+c_000431,cu_000753,16910,sao paulo,SP
+c_000432,cu_000563,67713,curitiba,PR
+c_000433,cu_001105,56857,belo horizonte,MG
+c_000434,cu_000489,44964,sao paulo,SP
+c_000435,cu_000895,95667,sao paulo,SP
+c_000436,cu_001112,35227,porto alegre,RS
+c_000437,cu_000104,15978,sao paulo,SP
+c_000438,cu_001120,97527,florianopolis,SC
+c_000439,cu_001025,27153,porto alegre,RS
+c_000440,cu_001007,69765,sao paulo,SP
+c_000441,cu_000407,49071,sao paulo,SP
+c_000442,cu_000167,79519,vitoria,ES
+c_000443,cu_000509,19503,sao paulo,SP
+c_000444,cu_000313,70703,sao paulo,SP
+c_000445,cu_000763,74379,salvador,BA
+c_000446,cu_000681,67866,brasilia,DF
+c_000447,cu_000477,26905,vitoria,ES
+c_000448,cu_000073,55838,curitiba,PR
+c_000449,cu_001165,68279,sao paulo,SP
+c_000450,cu_000582,99489,sao paulo,SP
+c_000451,cu_000262,36806,curitiba,PR
+c_000452,cu_000245,55000,belo horizonte,MG
+c_000453,cu_000561,32168,rio de janeiro,RJ
+c_000454,cu_001100,80119,fortaleza,CE
+c_000455,cu_000175,48714,sao paulo,SP
+c_000456,cu_000109,64093,rio de janeiro,RJ
+c_000457,cu_000183,65419,sao paulo,SP
+c_000458,cu_000192,59145,rio de janeiro,RJ
+c_000459,cu_000065,87425,sao paulo,SP
+c_000460,cu_000963,87811,sao paulo,SP
+c_000461,cu_001124,12461,sao paulo,SP
+c_000462,cu_000864,24291,belo horizonte,MG
+c_000463,cu_001152,56804,curitiba,PR
+c_000464,cu_000369,86971,belo horizonte,MG
+c_000465,cu_000851,74946,goiania,GO
+c_000466,cu_000043,94080,sao paulo,SP
+c_000467,cu_000488,71332,sao paulo,SP
+c_000468,cu_000078,87794,recife,PE
+c_000469,cu_000826,40841,sao paulo,SP
+c_000470,cu_000674,58758,goiania,GO
+c_000471,cu_000701,86272,sao paulo,SP
+c_000472,cu_000759,47643,goiania,GO
+c_000473,cu_000728,60408,sao paulo,SP
+c_000474,cu_000925,53950,fortaleza,CE
+c_000475,cu_000902,66849,rio de janeiro,RJ
+c_000476,cu_000889,38044,vitoria,ES
+c_000477,cu_000993,25997,sao paulo,SP
+c_000478,cu_001192,89751,belo horizonte,MG
+c_000479,cu_000339,33911,goiania,GO
+c_000480,cu_000193,65533,rio de janeiro,RJ
+c_000481,cu_000283,92566,belo horizonte,MG
+c_000482,cu_000390,24571,porto alegre,RS
+c_000483,cu_001000,67941,rio de janeiro,RJ
+c_000484,cu_000525,68005,belo horizonte,MG
+c_000485,cu_000659,96250,belo horizonte,MG
+c_000486,cu_000716,68712,fortaleza,CE
+c_000487,cu_000891,53541,sao paulo,SP
+c_000488,cu_001113,33387,sao paulo,SP
+c_000489,cu_001119,58908,goiania,GO
+c_000490,cu_000452,95457,fortaleza,CE
+c_000491,cu_000428,23057,rio de janeiro,RJ
+c_000492,cu_001175,74028,belo horizonte,MG
+c_000493,cu_001046,65731,sao paulo,SP
+c_000494,cu_000883,34858,sao paulo,SP
+c_000495,cu_000313,58689,rio de janeiro,RJ
+c_000496,cu_000840,54638,sao paulo,SP
+c_000497,cu_000519,56486,belo horizonte,MG
+c_000498,cu_000375,30567,sao paulo,SP
+c_000499,cu_000451,39739,goiania,GO
+c_000500,cu_001015,67804,vitoria,ES
+c_000501,cu_000595,13754,porto alegre,RS
+c_000502,cu_000500,37044,rio de janeiro,RJ
+c_000503,cu_000464,77260,sao paulo,SP
+c_000504,cu_001148,76912,salvador,BA
+c_000505,cu_000113,18706,porto alegre,RS
+c_000506,cu_001036,18894,sao paulo,SP
+c_000507,cu_001150,28037,fortaleza,CE
+c_000508,cu_000331,93986,florianopolis,SC
+c_000509,cu_000140,91942,brasilia,DF
+c_000510,cu_000902,61612,porto alegre,RS
+c_000511,cu_001121,39725,belo horizonte,MG
+c_000512,cu_000517,15926,sao paulo,SP
+c_000513,cu_000569,19496,brasilia,DF
+c_000514,cu_000846,66447,recife,PE
+c_000515,cu_001093,39806,sao paulo,SP
+c_000516,cu_000118,98199,sao paulo,SP
+c_000517,cu_000888,51321,sao paulo,SP
+c_000518,cu_001083,75095,salvador,BA
+c_000519,cu_001057,32656,vitoria,ES
+c_000520,cu_000050,65147,sao paulo,SP
+c_000521,cu_000019,59666,belo horizonte,MG
+c_000522,cu_000726,92368,sao paulo,SP
+c_000523,cu_000197,48787,goiania,GO
+c_000524,cu_000559,72946,florianopolis,SC
+c_000525,cu_000452,31727,florianopolis,SC
+c_000526,cu_000289,78056,rio de janeiro,RJ
+c_000527,cu_001165,13081,sao paulo,SP
+c_000528,cu_001108,44196,sao paulo,SP
+c_000529,cu_000391,46735,sao paulo,SP
+c_000530,cu_000215,90102,recife,PE
+c_000531,cu_000215,89578,salvador,BA
+c_000532,cu_000128,35498,vitoria,ES
+c_000533,cu_000760,86865,vitoria,ES
+c_000534,cu_000404,41656,belo horizonte,MG
+c_000535,cu_001053,77695,curitiba,PR
+c_000536,cu_000338,47900,brasilia,DF
+c_000537,cu_000831,94899,florianopolis,SC
+c_000538,cu_000714,57701,sao paulo,SP
+c_000539,cu_000361,29033,rio de janeiro,RJ
+c_000540,cu_000569,20805,sao paulo,SP
+c_000541,cu_000218,45851,goiania,GO
+c_000542,cu_000202,36832,belo horizonte,MG
+c_000543,cu_000017,73437,sao paulo,SP
+c_000544,cu_000322,23944,porto alegre,RS
+c_000545,cu_000518,29873,belo horizonte,MG
+c_000546,cu_000681,50372,sao paulo,SP
+c_000547,cu_001106,99464,sao paulo,SP
+c_000548,cu_000425,25379,porto alegre,RS
+c_000549,cu_001019,46751,rio de janeiro,RJ
+c_000550,cu_000387,99822,curitiba,PR
+c_000551,cu_000778,15110,rio de janeiro,RJ
+c_000552,cu_000098,64341,florianopolis,SC
+c_000553,cu_000208,22087,belo horizonte,MG
+c_000554,cu_000586,33762,belo horizonte,MG
+c_000555,cu_000166,92617,recife,PE
+c_000556,cu_000022,19596,sao paulo,SP
+c_000557,cu_000154,28313,sao paulo,SP
+c_000558,cu_000219,76549,sao paulo,SP
+c_000559,cu_000669,33705,curitiba,PR
+c_000560,cu_000230,77364,belo horizonte,MG
+c_000561,cu_000020,83445,porto alegre,RS
+c_000562,cu_000553,88645,sao paulo,SP
+c_000563,cu_000950,12023,sao paulo,SP
+c_000564,cu_000148,69796,sao paulo,SP
+c_000565,cu_001132,90073,sao paulo,SP
+c_000566,cu_000403,74429,belo horizonte,MG
+c_000567,cu_000596,71627,sao paulo,SP
+c_000568,cu_000367,43848,rio de janeiro,RJ
+c_000569,cu_000802,47804,fortaleza,CE
+c_000570,cu_000918,25379,sao paulo,SP
+c_000571,cu_001158,69664,rio de janeiro,RJ
+c_000572,cu_000073,37766,salvador,BA
+c_000573,cu_000481,78099,sao paulo,SP
+c_000574,cu_000560,46060,belo horizonte,MG
+c_000575,cu_000745,79122,recife,PE
+c_000576,cu_000100,26087,brasilia,DF
+c_000577,cu_001083,58868,sao paulo,SP
+c_000578,cu_000508,33225,brasilia,DF
+c_000579,cu_000258,16643,rio de janeiro,RJ
+c_000580,cu_000413,46727,sao paulo,SP
+c_000581,cu_001089,21005,rio de janeiro,RJ
+c_000582,cu_000595,75697,vitoria,ES
+c_000583,cu_001178,26029,rio de janeiro,RJ
+c_000584,cu_000266,24226,sao paulo,SP
+c_000585,cu_000821,73646,belo horizonte,MG
+c_000586,cu_001103,70603,sao paulo,SP
+c_000587,cu_000662,38731,sao paulo,SP
+c_000588,cu_000947,78926,sao paulo,SP
+c_000589,cu_000560,15997,sao paulo,SP
+c_000590,cu_000917,65506,sao paulo,SP
+c_000591,cu_000891,88229,sao paulo,SP
+c_000592,cu_000868,59815,belo horizonte,MG
+c_000593,cu_000610,52092,sao paulo,SP
+c_000594,cu_000414,72539,sao paulo,SP
+c_000595,cu_000025,76077,fortaleza,CE
+c_000596,cu_000284,31817,rio de janeiro,RJ
+c_000597,cu_000881,47861,belo horizonte,MG
+c_000598,cu_000301,23428,sao paulo,SP
+c_000599,cu_001092,53934,sao paulo,SP
+c_000600,cu_001031,20258,sao paulo,SP
+c_000601,cu_000817,67775,sao paulo,SP
+c_000602,cu_001161,91580,sao paulo,SP
+c_000603,cu_001188,15469,sao paulo,SP
+c_000604,cu_000083,38854,sao paulo,SP
+c_000605,cu_001097,16256,sao paulo,SP
+c_000606,cu_000046,86256,rio de janeiro,RJ
+c_000607,cu_000618,43937,sao paulo,SP
+c_000608,cu_000928,11651,sao paulo,SP
+c_000609,cu_000262,60288,rio de janeiro,RJ
+c_000610,cu_000176,94730,porto alegre,RS
+c_000611,cu_001190,35051,sao paulo,SP
+c_000612,cu_000657,37386,salvador,BA
+c_000613,cu_000842,85054,belo horizonte,MG
+c_000614,cu_000370,26184,sao paulo,SP
+c_000615,cu_000054,43787,recife,PE
+c_000616,cu_000690,31621,brasilia,DF
+c_000617,cu_001151,85564,sao paulo,SP
+c_000618,cu_000367,87984,sao paulo,SP
+c_000619,cu_000644,69792,salvador,BA
+c_000620,cu_000379,55253,curitiba,PR
+c_000621,cu_000073,44051,sao paulo,SP
+c_000622,cu_000915,59811,sao paulo,SP
+c_000623,cu_000860,40447,sao paulo,SP
+c_000624,cu_000043,93930,rio de janeiro,RJ
+c_000625,cu_000377,40254,belo horizonte,MG
+c_000626,cu_001065,94045,sao paulo,SP
+c_000627,cu_000170,67418,rio de janeiro,RJ
+c_000628,cu_000212,24472,curitiba,PR
+c_000629,cu_000039,13471,sao paulo,SP
+c_000630,cu_000369,18329,sao paulo,SP
+c_000631,cu_000757,44865,porto alegre,RS
+c_000632,cu_000151,56850,fortaleza,CE
+c_000633,cu_001135,64220,rio de janeiro,RJ
+c_000634,cu_001071,16397,rio de janeiro,RJ
+c_000635,cu_001024,45525,sao paulo,SP
+c_000636,cu_000737,63072,rio de janeiro,RJ
+c_000637,cu_000069,93820,rio de janeiro,RJ
+c_000638,cu_000299,94530,sao paulo,SP
+c_000639,cu_000944,33284,sao paulo,SP
+c_000640,cu_000802,71330,sao paulo,SP
+c_000641,cu_000296,93369,sao paulo,SP
+c_000642,cu_000203,35122,sao paulo,SP
+c_000643,cu_000061,80553,sao paulo,SP
+c_000644,cu_000946,91906,sao paulo,SP
+c_000645,cu_000963,72812,sao paulo,SP
+c_000646,cu_001185,17999,fortaleza,CE
+c_000647,cu_000331,32436,belo horizonte,MG
+c_000648,cu_000338,52963,porto alegre,RS
+c_000649,cu_000639,12096,salvador,BA
+c_000650,cu_000275,35279,rio de janeiro,RJ
+c_000651,cu_001188,36201,sao paulo,SP
+c_000652,cu_000319,29715,rio de janeiro,RJ
+c_000653,cu_000589,39309,belo horizonte,MG
+c_000654,cu_000504,25078,curitiba,PR
+c_000655,cu_000387,66614,rio de janeiro,RJ
+c_000656,cu_000870,15105,sao paulo,SP
+c_000657,cu_000833,12839,sao paulo,SP
+c_000658,cu_001015,78920,sao paulo,SP
+c_000659,cu_000603,53619,belo horizonte,MG
+c_000660,cu_000691,52821,belo horizonte,MG
+c_000661,cu_000494,23493,sao paulo,SP
+c_000662,cu_000490,27069,vitoria,ES
+c_000663,cu_000721,17531,belo horizonte,MG
+c_000664,cu_001097,47051,sao paulo,SP
+c_000665,cu_000509,17736,sao paulo,SP
+c_000666,cu_000390,17710,sao paulo,SP
+c_000667,cu_000295,77155,sao paulo,SP
+c_000668,cu_000796,23975,sao paulo,SP
+c_000669,cu_000865,72424,sao paulo,SP
+c_000670,cu_000549,55603,sao paulo,SP
+c_000671,cu_000649,33252,sao paulo,SP
+c_000672,cu_000568,90797,fortaleza,CE
+c_000673,cu_000853,11431,sao paulo,SP
+c_000674,cu_000770,84603,rio de janeiro,RJ
+c_000675,cu_000445,47481,sao paulo,SP
+c_000676,cu_000363,19557,vitoria,ES
+c_000677,cu_000123,84971,sao paulo,SP
+c_000678,cu_000742,10162,sao paulo,SP
+c_000679,cu_000680,44742,goiania,GO
+c_000680,cu_000420,29675,recife,PE
+c_000681,cu_000092,83997,salvador,BA
+c_000682,cu_000063,27015,sao paulo,SP
+c_000683,cu_000512,60057,sao paulo,SP
+c_000684,cu_001163,42591,belo horizonte,MG
+c_000685,cu_000772,19833,brasilia,DF
+c_000686,cu_000256,17896,belo horizonte,MG
+c_000687,cu_000135,42972,belo horizonte,MG
+c_000688,cu_000875,59733,sao paulo,SP
+c_000689,cu_000822,51800,curitiba,PR
+c_000690,cu_000088,15347,sao paulo,SP
+c_000691,cu_000988,69063,sao paulo,SP
+c_000692,cu_001153,12643,rio de janeiro,RJ
+c_000693,cu_000823,50785,rio de janeiro,RJ
+c_000694,cu_001027,28681,sao paulo,SP
+c_000695,cu_000974,60026,sao paulo,SP
+c_000696,cu_000934,25892,belo horizonte,MG
+c_000697,cu_000121,57299,sao paulo,SP
+c_000698,cu_001062,27073,belo horizonte,MG
+c_000699,cu_001008,40682,sao paulo,SP
+c_000700,cu_000925,24289,rio de janeiro,RJ
+c_000701,cu_000645,17927,rio de janeiro,RJ
+c_000702,cu_000714,58330,sao paulo,SP
+c_000703,cu_000860,76707,sao paulo,SP
+c_000704,cu_000021,87454,sao paulo,SP
+c_000705,cu_000242,75428,sao paulo,SP
+c_000706,cu_000455,60601,vitoria,ES
+c_000707,cu_000963,87465,sao paulo,SP
+c_000708,cu_000621,12539,salvador,BA
+c_000709,cu_000303,32669,sao paulo,SP
+c_000710,cu_000803,80968,porto alegre,RS
+c_000711,cu_000964,30644,curitiba,PR
+c_000712,cu_000069,28745,belo horizonte,MG
+c_000713,cu_001153,38228,rio de janeiro,RJ
+c_000714,cu_000196,44521,sao paulo,SP
+c_000715,cu_000140,36928,sao paulo,SP
+c_000716,cu_000283,28322,brasilia,DF
+c_000717,cu_000312,67714,florianopolis,SC
+c_000718,cu_000746,97896,goiania,GO
+c_000719,cu_000277,72292,sao paulo,SP
+c_000720,cu_000061,39055,curitiba,PR
+c_000721,cu_000052,52891,brasilia,DF
+c_000722,cu_000153,91912,sao paulo,SP
+c_000723,cu_000544,16588,sao paulo,SP
+c_000724,cu_000567,16304,curitiba,PR
+c_000725,cu_000622,17345,belo horizonte,MG
+c_000726,cu_000314,39300,florianopolis,SC
+c_000727,cu_000807,34259,sao paulo,SP
+c_000728,cu_000848,98553,salvador,BA
+c_000729,cu_000097,25352,sao paulo,SP
+c_000730,cu_000881,43365,sao paulo,SP
+c_000731,cu_000829,29446,sao paulo,SP
+c_000732,cu_000137,12336,salvador,BA
+c_000733,cu_001030,72032,belo horizonte,MG
+c_000734,cu_001011,85415,rio de janeiro,RJ
+c_000735,cu_000109,17521,sao paulo,SP
+c_000736,cu_000547,81707,recife,PE
+c_000737,cu_001063,33481,sao paulo,SP
+c_000738,cu_000662,28474,salvador,BA
+c_000739,cu_000425,56760,rio de janeiro,RJ
+c_000740,cu_000630,65718,sao paulo,SP
+c_000741,cu_000261,54629,rio de janeiro,RJ
+c_000742,cu_000087,55232,sao paulo,SP
+c_000743,cu_000465,96544,curitiba,PR
+c_000744,cu_000076,77169,rio de janeiro,RJ
+c_000745,cu_000471,60669,sao paulo,SP
+c_000746,cu_000414,88021,fortaleza,CE
+c_000747,cu_000825,79184,sao paulo,SP
+c_000748,cu_000895,57945,rio de janeiro,RJ
+c_000749,cu_000726,23140,fortaleza,CE
+c_000750,cu_000457,93457,belo horizonte,MG
+c_000751,cu_000653,24357,sao paulo,SP
+c_000752,cu_000672,78673,brasilia,DF
+c_000753,cu_000495,75633,belo horizonte,MG
+c_000754,cu_001069,86943,sao paulo,SP
+c_000755,cu_000597,88258,sao paulo,SP
+c_000756,cu_000450,22924,salvador,BA
+c_000757,cu_000485,79286,belo horizonte,MG
+c_000758,cu_000646,84071,rio de janeiro,RJ
+c_000759,cu_000620,67326,fortaleza,CE
+c_000760,cu_001042,40651,salvador,BA
+c_000761,cu_000662,80202,sao paulo,SP
+c_000762,cu_000758,58777,sao paulo,SP
+c_000763,cu_000289,26994,sao paulo,SP
+c_000764,cu_000721,77263,curitiba,PR
+c_000765,cu_000638,69634,sao paulo,SP
+c_000766,cu_000235,20800,belo horizonte,MG
+c_000767,cu_000416,47823,curitiba,PR
+c_000768,cu_000938,73878,recife,PE
+c_000769,cu_000499,28708,sao paulo,SP
+c_000770,cu_000974,22819,florianopolis,SC
+c_000771,cu_000634,84905,sao paulo,SP
+c_000772,cu_001020,73870,florianopolis,SC
+c_000773,cu_000115,19283,sao paulo,SP
+c_000774,cu_000932,40573,sao paulo,SP
+c_000775,cu_000674,88707,salvador,BA
+c_000776,cu_001035,40933,sao paulo,SP
+c_000777,cu_000206,15774,sao paulo,SP
+c_000778,cu_000247,82055,porto alegre,RS
+c_000779,cu_000758,20983,porto alegre,RS
+c_000780,cu_001151,28133,belo horizonte,MG
+c_000781,cu_000147,24939,porto alegre,RS
+c_000782,cu_000118,10781,rio de janeiro,RJ
+c_000783,cu_000412,66700,sao paulo,SP
+c_000784,cu_000363,37624,sao paulo,SP
+c_000785,cu_000137,16823,sao paulo,SP
+c_000786,cu_001199,28489,fortaleza,CE
+c_000787,cu_000958,49961,belo horizonte,MG
+c_000788,cu_000019,39118,sao paulo,SP
+c_000789,cu_000195,91816,rio de janeiro,RJ
+c_000790,cu_000330,32263,brasilia,DF
+c_000791,cu_000175,23565,sao paulo,SP
+c_000792,cu_001002,30354,belo horizonte,MG
+c_000793,cu_000449,52951,rio de janeiro,RJ
+c_000794,cu_000946,33648,belo horizonte,MG
+c_000795,cu_000141,60729,sao paulo,SP
+c_000796,cu_000758,51971,recife,PE
+c_000797,cu_000930,28658,brasilia,DF
+c_000798,cu_000093,31253,belo horizonte,MG
+c_000799,cu_000239,74166,porto alegre,RS
+c_000800,cu_000205,58563,brasilia,DF
+c_000801,cu_000560,36390,porto alegre,RS
+c_000802,cu_000245,98664,sao paulo,SP
+c_000803,cu_000832,61578,belo horizonte,MG
+c_000804,cu_000925,89025,belo horizonte,MG
+c_000805,cu_000295,42658,rio de janeiro,RJ
+c_000806,cu_000640,16852,curitiba,PR
+c_000807,cu_000856,12551,brasilia,DF
+c_000808,cu_000017,81947,brasilia,DF
+c_000809,cu_000071,71001,rio de janeiro,RJ
+c_000810,cu_000305,59159,sao paulo,SP
+c_000811,cu_001031,61707,vitoria,ES
+c_000812,cu_000817,43243,florianopolis,SC
+c_000813,cu_001127,31800,sao paulo,SP
+c_000814,cu_000821,85939,brasilia,DF
+c_000815,cu_000193,67828,recife,PE
+c_000816,cu_000529,17239,rio de janeiro,RJ
+c_000817,cu_000171,16710,belo horizonte,MG
+c_000818,cu_000251,31384,sao paulo,SP
+c_000819,cu_000541,31038,sao paulo,SP
+c_000820,cu_000416,50846,sao paulo,SP
+c_000821,cu_000794,97983,salvador,BA
+c_000822,cu_001168,77821,sao paulo,SP
+c_000823,cu_000025,47991,sao paulo,SP
+c_000824,cu_000668,89057,sao paulo,SP
+c_000825,cu_001097,16971,rio de janeiro,RJ
+c_000826,cu_000632,39139,fortaleza,CE
+c_000827,cu_001117,95445,sao paulo,SP
+c_000828,cu_000505,87067,sao paulo,SP
+c_000829,cu_000336,90257,curitiba,PR
+c_000830,cu_000425,94742,rio de janeiro,RJ
+c_000831,cu_000499,47711,sao paulo,SP
+c_000832,cu_000947,16530,rio de janeiro,RJ
+c_000833,cu_000630,21116,sao paulo,SP
+c_000834,cu_000718,75794,sao paulo,SP
+c_000835,cu_000339,10282,rio de janeiro,RJ
+c_000836,cu_000659,89473,sao paulo,SP
+c_000837,cu_000962,11898,fortaleza,CE
+c_000838,cu_000429,14135,sao paulo,SP
+c_000839,cu_000899,16629,belo horizonte,MG
+c_000840,cu_000139,95120,belo horizonte,MG
+c_000841,cu_000942,99087,sao paulo,SP
+c_000842,cu_000542,75031,belo horizonte,MG
+c_000843,cu_000057,43380,sao paulo,SP
+c_000844,cu_000658,27071,goiania,GO
+c_000845,cu_000435,30074,sao paulo,SP
+c_000846,cu_000384,77843,sao paulo,SP
+c_000847,cu_000560,49901,sao paulo,SP
+c_000848,cu_000194,21205,vitoria,ES
+c_000849,cu_000534,65661,rio de janeiro,RJ
+c_000850,cu_000518,15906,belo horizonte,MG
+c_000851,cu_000716,12591,sao paulo,SP
+c_000852,cu_000751,72987,curitiba,PR
+c_000853,cu_000185,73370,sao paulo,SP
+c_000854,cu_000292,90685,fortaleza,CE
+c_000855,cu_000732,64400,sao paulo,SP
+c_000856,cu_000116,35150,sao paulo,SP
+c_000857,cu_000825,41852,sao paulo,SP
+c_000858,cu_001073,52870,rio de janeiro,RJ
+c_000859,cu_000685,62756,belo horizonte,MG
+c_000860,cu_000082,66481,sao paulo,SP
+c_000861,cu_000834,11283,curitiba,PR
+c_000862,cu_000333,43691,rio de janeiro,RJ
+c_000863,cu_000557,11125,rio de janeiro,RJ
+c_000864,cu_000335,77065,rio de janeiro,RJ
+c_000865,cu_000532,36170,sao paulo,SP
+c_000866,cu_000221,18438,belo horizonte,MG
+c_000867,cu_000635,30095,sao paulo,SP
+c_000868,cu_000323,26154,sao paulo,SP
+c_000869,cu_000003,18004,recife,PE
+c_000870,cu_000206,19752,brasilia,DF
+c_000871,cu_000040,65426,sao paulo,SP
+c_000872,cu_000059,36819,sao paulo,SP
+c_000873,cu_000951,34217,belo horizonte,MG
+c_000874,cu_000574,98708,sao paulo,SP
+c_000875,cu_000644,42994,sao paulo,SP
+c_000876,cu_000843,25036,sao paulo,SP
+c_000877,cu_001146,87275,porto alegre,RS
+c_000878,cu_000619,59416,belo horizonte,MG
+c_000879,cu_000096,19587,sao paulo,SP
+c_000880,cu_000898,10645,sao paulo,SP
+c_000881,cu_001086,40930,sao paulo,SP
+c_000882,cu_000561,91835,porto alegre,RS
+c_000883,cu_000905,40090,sao paulo,SP
+c_000884,cu_000348,97489,sao paulo,SP
+c_000885,cu_000671,62142,salvador,BA
+c_000886,cu_001148,36475,sao paulo,SP
+c_000887,cu_000317,28888,belo horizonte,MG
+c_000888,cu_000719,53732,sao paulo,SP
+c_000889,cu_001072,91623,sao paulo,SP
+c_000890,cu_001160,56305,sao paulo,SP
+c_000891,cu_000250,56037,porto alegre,RS
+c_000892,cu_000314,19346,florianopolis,SC
+c_000893,cu_000807,10587,florianopolis,SC
+c_000894,cu_000485,22763,sao paulo,SP
+c_000895,cu_000044,69165,belo horizonte,MG
+c_000896,cu_000571,79615,sao paulo,SP
+c_000897,cu_000583,46116,sao paulo,SP
+c_000898,cu_001116,95751,fortaleza,CE
+c_000899,cu_000895,35556,sao paulo,SP
+c_000900,cu_000220,69042,sao paulo,SP
+c_000901,cu_000925,28099,sao paulo,SP
+c_000902,cu_000401,55096,sao paulo,SP
+c_000903,cu_000727,81986,sao paulo,SP
+c_000904,cu_000991,23230,belo horizonte,MG
+c_000905,cu_000899,39009,rio de janeiro,RJ
+c_000906,cu_000858,80969,fortaleza,CE
+c_000907,cu_000804,43866,salvador,BA
+c_000908,cu_000490,94246,sao paulo,SP
+c_000909,cu_000938,86975,sao paulo,SP
+c_000910,cu_000844,51855,sao paulo,SP
+c_000911,cu_000267,91557,belo horizonte,MG
+c_000912,cu_000054,16416,sao paulo,SP
+c_000913,cu_000528,82516,belo horizonte,MG
+c_000914,cu_000616,65915,sao paulo,SP
+c_000915,cu_001083,28058,belo horizonte,MG
+c_000916,cu_001064,86637,rio de janeiro,RJ
+c_000917,cu_000955,50718,sao paulo,SP
+c_000918,cu_000386,42602,brasilia,DF
+c_000919,cu_000734,84658,curitiba,PR
+c_000920,cu_000716,88112,sao paulo,SP
+c_000921,cu_000650,68067,recife,PE
+c_000922,cu_000300,37516,rio de janeiro,RJ
+c_000923,cu_000395,97969,fortaleza,CE
+c_000924,cu_000593,11089,salvador,BA
+c_000925,cu_000514,47346,rio de janeiro,RJ
+c_000926,cu_000396,84663,sao paulo,SP
+c_000927,cu_000371,20487,sao paulo,SP
+c_000928,cu_000858,10155,rio de janeiro,RJ
+c_000929,cu_000791,77494,belo horizonte,MG
+c_000930,cu_000658,86229,sao paulo,SP
+c_000931,cu_000736,48547,sao paulo,SP
+c_000932,cu_000384,38795,florianopolis,SC
+c_000933,cu_000062,65296,vitoria,ES
+c_000934,cu_000505,31447,rio de janeiro,RJ
+c_000935,cu_000239,46598,sao paulo,SP
+c_000936,cu_000195,51814,sao paulo,SP
+c_000937,cu_000678,85330,sao paulo,SP
+c_000938,cu_000061,97960,fortaleza,CE
+c_000939,cu_001153,73278,sao paulo,SP
+c_000940,cu_000990,65077,belo horizonte,MG
+c_000941,cu_000685,81906,sao paulo,SP
+c_000942,cu_000156,19528,belo horizonte,MG
+c_000943,cu_000923,60100,belo horizonte,MG
+c_000944,cu_000868,18179,florianopolis,SC
+c_000945,cu_000903,58781,sao paulo,SP
+c_000946,cu_000999,65267,sao paulo,SP
+c_000947,cu_000975,92379,sao paulo,SP
+c_000948,cu_000388,33952,fortaleza,CE
+c_000949,cu_000887,63798,recife,PE
+c_000950,cu_000838,60939,belo horizonte,MG
+c_000951,cu_000340,39516,belo horizonte,MG
+c_000952,cu_000204,66526,belo horizonte,MG
+c_000953,cu_000161,20449,sao paulo,SP
+c_000954,cu_000392,60290,fortaleza,CE
+c_000955,cu_000769,96661,sao paulo,SP
+c_000956,cu_000575,82954,sao paulo,SP
+c_000957,cu_000534,32746,rio de janeiro,RJ
+c_000958,cu_001094,77990,sao paulo,SP
+c_000959,cu_000893,68810,sao paulo,SP
+c_000960,cu_000405,93297,curitiba,PR
+c_000961,cu_000608,25223,sao paulo,SP
+c_000962,cu_000828,82237,belo horizonte,MG
+c_000963,cu_001144,12597,sao paulo,SP
+c_000964,cu_000690,75677,sao paulo,SP
+c_000965,cu_000902,12659,sao paulo,SP
+c_000966,cu_000056,96516,sao paulo,SP
+c_000967,cu_000366,84567,porto alegre,RS
+c_000968,cu_000455,25037,sao paulo,SP
+c_000969,cu_000104,56738,belo horizonte,MG
+c_000970,cu_000077,81678,rio de janeiro,RJ
+c_000971,cu_000230,22109,belo horizonte,MG
+c_000972,cu_000331,32010,brasilia,DF
+c_000973,cu_000893,18787,curitiba,PR
+c_000974,cu_000688,18472,sao paulo,SP
+c_000975,cu_000027,33383,sao paulo,SP
+c_000976,cu_000299,71709,sao paulo,SP
+c_000977,cu_000957,79785,belo horizonte,MG
+c_000978,cu_000799,44518,sao paulo,SP
+c_000979,cu_001115,63909,rio de janeiro,RJ
+c_000980,cu_000480,28351,belo horizonte,MG
+c_000981,cu_000573,79624,sao paulo,SP
+c_000982,cu_000458,63330,curitiba,PR
+c_000983,cu_000365,25282,sao paulo,SP
+c_000984,cu_000859,94866,sao paulo,SP
+c_000985,cu_000351,31778,porto alegre,RS
+c_000986,cu_000253,34264,rio de janeiro,RJ
+c_000987,cu_000781,69675,porto alegre,RS
+c_000988,cu_000803,15075,rio de janeiro,RJ
+c_000989,cu_001012,85948,sao paulo,SP
+c_000990,cu_000459,58454,salvador,BA
+c_000991,cu_000917,38365,salvador,BA
+c_000992,cu_000499,82766,porto alegre,RS
+c_000993,cu_000950,58200,sao paulo,SP
+c_000994,cu_000508,21002,belo horizonte,MG
+c_000995,cu_000501,23947,sao paulo,SP
+c_000996,cu_000803,89222,sao paulo,SP
+c_000997,cu_000598,88610,fortaleza,CE
+c_000998,cu_000166,62142,sao paulo,SP
+c_000999,cu_000462,66307,goiania,GO
+c_001000,cu_000920,14493,rio de janeiro,RJ
+c_001001,cu_000114,60085,sao paulo,SP
+c_001002,cu_000992,44228,rio de janeiro,RJ
+c_001003,cu_000207,89676,recife,PE
+c_001004,cu_000515,61875,curitiba,PR
+c_001005,cu_000709,41655,salvador,BA
+c_001006,cu_001149,53472,belo horizonte,MG
+c_001007,cu_000138,59437,porto alegre,RS
+c_001008,cu_000339,59416,florianopolis,SC
+c_001009,cu_000537,69711,sao paulo,SP
+c_001010,cu_000068,16816,rio de janeiro,RJ
+c_001011,cu_000383,87175,sao paulo,SP
+c_001012,cu_000019,74307,vitoria,ES
+c_001013,cu_000683,56733,brasilia,DF
+c_001014,cu_000074,21240,sao paulo,SP
+c_001015,cu_000573,81363,porto alegre,RS
+c_001016,cu_000939,42762,brasilia,DF
+c_001017,cu_001072,18259,sao paulo,SP
+c_001018,cu_000211,60139,belo horizonte,MG
+c_001019,cu_000855,24849,fortaleza,CE
+c_001020,cu_000651,91768,sao paulo,SP
+c_001021,cu_000994,99709,porto alegre,RS
+c_001022,cu_000695,64869,sao paulo,SP
+c_001023,cu_000540,73095,brasilia,DF
+c_001024,cu_000901,80910,goiania,GO
+c_001025,cu_000780,96710,brasilia,DF
+c_001026,cu_001137,33567,rio de janeiro,RJ
+c_001027,cu_000170,45292,recife,PE
+c_001028,cu_001038,84813,florianopolis,SC
+c_001029,cu_000288,61631,sao paulo,SP
+c_001030,cu_000189,19885,florianopolis,SC
+c_001031,cu_000914,69659,sao paulo,SP
+c_001032,cu_001179,64306,belo horizonte,MG
+c_001033,cu_000694,76314,sao paulo,SP
+c_001034,cu_000888,75087,sao paulo,SP
+c_001035,cu_000471,39165,sao paulo,SP
+c_001036,cu_001099,68929,porto alegre,RS
+c_001037,cu_000277,77028,sao paulo,SP
+c_001038,cu_000940,59812,porto alegre,RS
+c_001039,cu_000571,60500,sao paulo,SP
+c_001040,cu_000857,89151,sao paulo,SP
+c_001041,cu_001001,68643,rio de janeiro,RJ
+c_001042,cu_000458,54900,salvador,BA
+c_001043,cu_000918,52946,sao paulo,SP
+c_001044,cu_000833,17851,belo horizonte,MG
+c_001045,cu_001088,26288,recife,PE
+c_001046,cu_000839,82692,belo horizonte,MG
+c_001047,cu_000193,77580,sao paulo,SP
+c_001048,cu_000616,17368,sao paulo,SP
+c_001049,cu_000406,95436,recife,PE
+c_001050,cu_000943,56403,sao paulo,SP
+c_001051,cu_000721,19168,recife,PE
+c_001052,cu_000093,96497,rio de janeiro,RJ
+c_001053,cu_000430,59879,brasilia,DF
+c_001054,cu_000654,69871,salvador,BA
+c_001055,cu_000434,99388,vitoria,ES
+c_001056,cu_001136,42174,sao paulo,SP
+c_001057,cu_000375,16581,curitiba,PR
+c_001058,cu_001083,81853,sao paulo,SP
+c_001059,cu_001067,74046,rio de janeiro,RJ
+c_001060,cu_000207,59678,belo horizonte,MG
+c_001061,cu_000780,36649,recife,PE
+c_001062,cu_001142,98668,vitoria,ES
+c_001063,cu_000532,92325,curitiba,PR
+c_001064,cu_000166,24567,sao paulo,SP
+c_001065,cu_000643,90404,rio de janeiro,RJ
+c_001066,cu_001180,99906,curitiba,PR
+c_001067,cu_000090,71944,sao paulo,SP
+c_001068,cu_001118,88002,sao paulo,SP
+c_001069,cu_000013,38803,sao paulo,SP
+c_001070,cu_000973,28230,sao paulo,SP
+c_001071,cu_000805,27862,sao paulo,SP
+c_001072,cu_000945,53355,sao paulo,SP
+c_001073,cu_000742,41259,sao paulo,SP
+c_001074,cu_000876,97445,sao paulo,SP
+c_001075,cu_001174,40795,vitoria,ES
+c_001076,cu_000660,18770,rio de janeiro,RJ
+c_001077,cu_001032,21093,sao paulo,SP
+c_001078,cu_001053,56571,porto alegre,RS
+c_001079,cu_000296,10193,sao paulo,SP
+c_001080,cu_000986,27569,brasilia,DF
+c_001081,cu_000926,21190,salvador,BA
+c_001082,cu_000640,72824,sao paulo,SP
+c_001083,cu_000340,52752,sao paulo,SP
+c_001084,cu_000628,42327,recife,PE
+c_001085,cu_000439,52070,brasilia,DF
+c_001086,cu_001168,95925,rio de janeiro,RJ
+c_001087,cu_000942,50197,belo horizonte,MG
+c_001088,cu_000830,12261,sao paulo,SP
+c_001089,cu_000519,36512,vitoria,ES
+c_001090,cu_000976,16716,sao paulo,SP
+c_001091,cu_001069,96795,brasilia,DF
+c_001092,cu_000955,38933,belo horizonte,MG
+c_001093,cu_000952,14378,belo horizonte,MG
+c_001094,cu_000944,50583,rio de janeiro,RJ
+c_001095,cu_000155,95371,sao paulo,SP
+c_001096,cu_000088,39033,sao paulo,SP
+c_001097,cu_001097,34000,sao paulo,SP
+c_001098,cu_000931,85868,sao paulo,SP
+c_001099,cu_000179,52604,curitiba,PR
+c_001100,cu_000212,78336,sao paulo,SP
+c_001101,cu_000465,83869,sao paulo,SP
+c_001102,cu_000631,15410,goiania,GO
+c_001103,cu_000825,93375,recife,PE
+c_001104,cu_000607,66044,brasilia,DF
+c_001105,cu_000885,73315,vitoria,ES
+c_001106,cu_000366,81344,sao paulo,SP
+c_001107,cu_000276,16796,sao paulo,SP
+c_001108,cu_000380,96716,curitiba,PR
+c_001109,cu_000945,64245,porto alegre,RS
+c_001110,cu_001088,53056,sao paulo,SP
+c_001111,cu_000810,27709,salvador,BA
+c_001112,cu_000925,68557,sao paulo,SP
+c_001113,cu_000494,27543,sao paulo,SP
+c_001114,cu_001122,47418,rio de janeiro,RJ
+c_001115,cu_001095,26724,belo horizonte,MG
+c_001116,cu_000364,13828,belo horizonte,MG
+c_001117,cu_000570,27087,sao paulo,SP
+c_001118,cu_000763,22605,recife,PE
+c_001119,cu_000276,41337,sao paulo,SP
+c_001120,cu_000050,15482,sao paulo,SP
+c_001121,cu_000728,75333,recife,PE
+c_001122,cu_000906,98296,goiania,GO
+c_001123,cu_000928,60952,recife,PE
+c_001124,cu_000564,15463,salvador,BA
+c_001125,cu_000783,80448,belo horizonte,MG
+c_001126,cu_000485,14648,belo horizonte,MG
+c_001127,cu_001108,43623,sao paulo,SP
+c_001128,cu_000584,69156,sao paulo,SP
+c_001129,cu_000236,45634,sao paulo,SP
+c_001130,cu_000056,54602,sao paulo,SP
+c_001131,cu_000360,59334,porto alegre,RS
+c_001132,cu_000110,78648,rio de janeiro,RJ
+c_001133,cu_000192,32054,sao paulo,SP
+c_001134,cu_000904,80028,sao paulo,SP
+c_001135,cu_001117,32207,porto alegre,RS
+c_001136,cu_000862,90650,sao paulo,SP
+c_001137,cu_000568,91554,florianopolis,SC
+c_001138,cu_001084,31386,rio de janeiro,RJ
+c_001139,cu_000650,93276,rio de janeiro,RJ
+c_001140,cu_000039,69518,belo horizonte,MG
+c_001141,cu_001073,62781,florianopolis,SC
+c_001142,cu_000637,62780,sao paulo,SP
+c_001143,cu_001037,71440,porto alegre,RS
+c_001144,cu_000036,54199,belo horizonte,MG
+c_001145,cu_000101,71035,sao paulo,SP
+c_001146,cu_001110,18210,recife,PE
+c_001147,cu_000166,54363,salvador,BA
+c_001148,cu_000383,88279,belo horizonte,MG
+c_001149,cu_000790,70348,florianopolis,SC
+c_001150,cu_000031,65284,recife,PE
+c_001151,cu_000011,82124,porto alegre,RS
+c_001152,cu_000096,78847,florianopolis,SC
+c_001153,cu_000453,32432,porto alegre,RS
+c_001154,cu_000192,74089,porto alegre,RS
+c_001155,cu_000486,65398,belo horizonte,MG
+c_001156,cu_001152,13321,curitiba,PR
+c_001157,cu_000238,91348,sao paulo,SP
+c_001158,cu_001136,47383,recife,PE
+c_001159,cu_001169,88682,recife,PE
+c_001160,cu_001089,89190,sao paulo,SP
+c_001161,cu_000735,62893,florianopolis,SC
+c_001162,cu_000991,45820,sao paulo,SP
+c_001163,cu_000825,76262,sao paulo,SP
+c_001164,cu_000106,13760,curitiba,PR
+c_001165,cu_000181,32190,sao paulo,SP
+c_001166,cu_000184,77411,salvador,BA
+c_001167,cu_000226,33377,florianopolis,SC
+c_001168,cu_000777,56737,rio de janeiro,RJ
+c_001169,cu_000790,79569,sao paulo,SP
+c_001170,cu_001113,48211,sao paulo,SP
+c_001171,cu_000688,92909,belo horizonte,MG
+c_001172,cu_000530,13744,vitoria,ES
+c_001173,cu_000972,34995,belo horizonte,MG
+c_001174,cu_000936,26977,sao paulo,SP
+c_001175,cu_000106,44542,belo horizonte,MG
+c_001176,cu_000831,20651,rio de janeiro,RJ
+c_001177,cu_000679,88931,curitiba,PR
+c_001178,cu_000849,26715,sao paulo,SP
+c_001179,cu_001056,54409,curitiba,PR
+c_001180,cu_000393,34306,rio de janeiro,RJ
+c_001181,cu_000040,29086,goiania,GO
+c_001182,cu_000660,24376,sao paulo,SP
+c_001183,cu_000981,71350,belo horizonte,MG
+c_001184,cu_001106,81425,brasilia,DF
+c_001185,cu_000845,46636,sao paulo,SP
+c_001186,cu_000201,96120,brasilia,DF
+c_001187,cu_000447,61649,porto alegre,RS
+c_001188,cu_001062,44610,sao paulo,SP
+c_001189,cu_000444,20058,sao paulo,SP
+c_001190,cu_000761,84637,porto alegre,RS
+c_001191,cu_000227,88033,sao paulo,SP
+c_001192,cu_000048,80194,belo horizonte,MG
+c_001193,cu_001042,86917,sao paulo,SP
+c_001194,cu_000912,74200,belo horizonte,MG
+c_001195,cu_000187,56619,sao paulo,SP
+c_001196,cu_000345,27154,recife,PE
+c_001197,cu_000224,29539,goiania,GO
+c_001198,cu_000830,70058,goiania,GO
+c_001199,cu_000488,72068,curitiba,PR
+c_001200,cu_000877,87313,sao paulo,SP
+c_001201,cu_000849,40373,curitiba,PR
+c_001202,cu_000979,43154,sao paulo,SP
+c_001203,cu_001017,16031,sao paulo,SP
+c_001204,cu_000188,81975,sao paulo,SP
+c_001205,cu_000270,32785,rio de janeiro,RJ
+c_001206,cu_000310,88928,curitiba,PR
+c_001207,cu_001156,38669,porto alegre,RS
+c_001208,cu_001096,12282,rio de janeiro,RJ
+c_001209,cu_000845,44624,sao paulo,SP
+c_001210,cu_000486,58438,vitoria,ES
+c_001211,cu_000120,99900,rio de janeiro,RJ
+c_001212,cu_000220,77534,rio de janeiro,RJ
+c_001213,cu_000053,41705,sao paulo,SP
+c_001214,cu_000758,48244,salvador,BA
+c_001215,cu_000738,84964,porto alegre,RS
+c_001216,cu_000720,47437,sao paulo,SP
+c_001217,cu_000406,87872,sao paulo,SP
+c_001218,cu_000608,84878,porto alegre,RS
+c_001219,cu_001021,82982,belo horizonte,MG
+c_001220,cu_000422,60583,sao paulo,SP
+c_001221,cu_000712,48392,goiania,GO
+c_001222,cu_000247,17461,sao paulo,SP
+c_001223,cu_000072,20516,rio de janeiro,RJ
+c_001224,cu_000185,89285,brasilia,DF
+c_001225,cu_000006,27514,sao paulo,SP
+c_001226,cu_000906,46268,belo horizonte,MG
+c_001227,cu_000387,46788,sao paulo,SP
+c_001228,cu_000699,85749,sao paulo,SP
+c_001229,cu_001100,71049,vitoria,ES
+c_001230,cu_000827,72493,sao paulo,SP
+c_001231,cu_000349,46027,fortaleza,CE
+c_001232,cu_000308,52849,sao paulo,SP
+c_001233,cu_001151,27858,sao paulo,SP
+c_001234,cu_000287,94162,sao paulo,SP
+c_001235,cu_000766,89003,belo horizonte,MG
+c_001236,cu_000725,62395,sao paulo,SP
+c_001237,cu_000762,49758,recife,PE
+c_001238,cu_000383,64312,rio de janeiro,RJ
+c_001239,cu_000388,78670,goiania,GO
+c_001240,cu_000525,92279,sao paulo,SP
+c_001241,cu_000639,25434,recife,PE
+c_001242,cu_000938,74047,curitiba,PR
+c_001243,cu_000276,57775,curitiba,PR
+c_001244,cu_000500,85769,florianopolis,SC
+c_001245,cu_000717,76677,curitiba,PR
+c_001246,cu_000337,93555,belo horizonte,MG
+c_001247,cu_000932,95920,sao paulo,SP
+c_001248,cu_000481,55734,sao paulo,SP
+c_001249,cu_000911,98503,brasilia,DF
+c_001250,cu_001082,50603,belo horizonte,MG
+c_001251,cu_000109,86708,salvador,BA
+c_001252,cu_000328,91926,rio de janeiro,RJ
+c_001253,cu_000315,78803,sao paulo,SP
+c_001254,cu_001135,49332,sao paulo,SP
+c_001255,cu_000699,31312,porto alegre,RS
+c_001256,cu_000781,94526,rio de janeiro,RJ
+c_001257,cu_000156,54179,sao paulo,SP
+c_001258,cu_000887,81442,rio de janeiro,RJ
+c_001259,cu_001026,50379,sao paulo,SP
+c_001260,cu_000758,27297,belo horizonte,MG
+c_001261,cu_000722,12011,sao paulo,SP
+c_001262,cu_000913,54014,salvador,BA
+c_001263,cu_000871,21738,sao paulo,SP
+c_001264,cu_000013,57498,rio de janeiro,RJ
+c_001265,cu_000608,21120,sao paulo,SP
+c_001266,cu_000498,18767,sao paulo,SP
+c_001267,cu_000238,32852,sao paulo,SP
+c_001268,cu_001118,89239,rio de janeiro,RJ
+c_001269,cu_000781,10929,belo horizonte,MG
+c_001270,cu_001195,87487,sao paulo,SP
+c_001271,cu_000606,27438,porto alegre,RS
+c_001272,cu_000661,58515,recife,PE
+c_001273,cu_000849,15744,curitiba,PR
+c_001274,cu_000936,93820,sao paulo,SP
+c_001275,cu_000628,52417,rio de janeiro,RJ
+c_001276,cu_000143,17069,sao paulo,SP
+c_001277,cu_000714,52359,sao paulo,SP
+c_001278,cu_000479,29799,vitoria,ES
+c_001279,cu_000565,80188,sao paulo,SP
+c_001280,cu_000471,99859,rio de janeiro,RJ
+c_001281,cu_000384,17597,belo horizonte,MG
+c_001282,cu_000926,57093,porto alegre,RS
+c_001283,cu_000417,47226,belo horizonte,MG
+c_001284,cu_000308,82127,sao paulo,SP
+c_001285,cu_000649,87362,sao paulo,SP
+c_001286,cu_001025,36417,rio de janeiro,RJ
+c_001287,cu_001068,28693,sao paulo,SP
+c_001288,cu_000739,89674,sao paulo,SP
+c_001289,cu_001122,63161,sao paulo,SP
+c_001290,cu_000140,12169,sao paulo,SP
+c_001291,cu_000974,94092,sao paulo,SP
+c_001292,cu_001017,32052,sao paulo,SP
+c_001293,cu_000953,81849,belo horizonte,MG
+c_001294,cu_000904,83851,porto alegre,RS
+c_001295,cu_000072,18036,salvador,BA
+c_001296,cu_000107,41778,sao paulo,SP
+c_001297,cu_001066,37734,sao paulo,SP
+c_001298,cu_000883,33173,sao paulo,SP
+c_001299,cu_000139,40403,belo horizonte,MG
+c_001300,cu_000615,76321,porto alegre,RS
+c_001301,cu_000863,81675,sao paulo,SP
+c_001302,cu_000273,16344,brasilia,DF
+c_001303,cu_000416,28800,sao paulo,SP
+c_001304,cu_000506,35372,rio de janeiro,RJ
+c_001305,cu_000733,71516,porto alegre,RS
+c_001306,cu_000424,30538,recife,PE
+c_001307,cu_000390,73918,porto alegre,RS
+c_001308,cu_000342,24973,salvador,BA
+c_001309,cu_000946,81155,sao paulo,SP
+c_001310,cu_000614,69500,salvador,BA
+c_001311,cu_000493,46575,sao paulo,SP
+c_001312,cu_000192,52261,fortaleza,CE
+c_001313,cu_000499,37716,rio de janeiro,RJ
+c_001314,cu_000822,13236,salvador,BA
+c_001315,cu_000227,25848,rio de janeiro,RJ
+c_001316,cu_000139,12352,belo horizonte,MG
+c_001317,cu_000856,11932,rio de janeiro,RJ
+c_001318,cu_000817,86449,curitiba,PR
+c_001319,cu_001173,18556,sao paulo,SP
+c_001320,cu_001139,96836,sao paulo,SP
+c_001321,cu_001087,15498,sao paulo,SP
+c_001322,cu_000104,86118,sao paulo,SP
+c_001323,cu_000871,60098,recife,PE
+c_001324,cu_000668,74386,sao paulo,SP
+c_001325,cu_000273,19569,goiania,GO
+c_001326,cu_001030,66882,sao paulo,SP
+c_001327,cu_001171,80393,sao paulo,SP
+c_001328,cu_000184,10340,salvador,BA
+c_001329,cu_001052,53949,belo horizonte,MG
+c_001330,cu_001143,92302,rio de janeiro,RJ
+c_001331,cu_000293,72443,belo horizonte,MG
+c_001332,cu_000177,84027,porto alegre,RS
+c_001333,cu_000058,10138,sao paulo,SP
+c_001334,cu_000308,10358,vitoria,ES
+c_001335,cu_000977,85250,goiania,GO
+c_001336,cu_001129,95376,belo horizonte,MG
+c_001337,cu_000700,40654,sao paulo,SP
+c_001338,cu_000083,35879,porto alegre,RS
+c_001339,cu_000252,91532,sao paulo,SP
+c_001340,cu_000796,65778,sao paulo,SP
+c_001341,cu_000897,47772,sao paulo,SP
+c_001342,cu_000210,68478,rio de janeiro,RJ
+c_001343,cu_000816,74353,recife,PE
+c_001344,cu_000609,36762,porto alegre,RS
+c_001345,cu_000447,23283,curitiba,PR
+c_001346,cu_000460,73922,rio de janeiro,RJ
+c_001347,cu_000968,49420,sao paulo,SP
+c_001348,cu_000472,65568,sao paulo,SP
+c_001349,cu_000370,95090,vitoria,ES
+c_001350,cu_000900,30219,sao paulo,SP
+c_001351,cu_000923,67169,recife,PE
+c_001352,cu_000137,84965,belo horizonte,MG
+c_001353,cu_000367,56840,rio de janeiro,RJ
+c_001354,cu_000912,54695,porto alegre,RS
+c_001355,cu_000184,94754,rio de janeiro,RJ
+c_001356,cu_000472,87988,recife,PE
+c_001357,cu_000654,68342,fortaleza,CE
+c_001358,cu_000749,28951,rio de janeiro,RJ
+c_001359,cu_000537,11307,sao paulo,SP
+c_001360,cu_000802,90388,belo horizonte,MG
+c_001361,cu_000920,45428,fortaleza,CE
+c_001362,cu_000510,85774,sao paulo,SP
+c_001363,cu_000630,48975,belo horizonte,MG
+c_001364,cu_001002,11140,belo horizonte,MG
+c_001365,cu_001097,34842,curitiba,PR
+c_001366,cu_000916,36421,sao paulo,SP
+c_001367,cu_001034,11708,porto alegre,RS
+c_001368,cu_000152,13630,fortaleza,CE
+c_001369,cu_001029,29595,sao paulo,SP
+c_001370,cu_000464,86021,sao paulo,SP
+c_001371,cu_001137,38308,goiania,GO
+c_001372,cu_000271,54789,sao paulo,SP
+c_001373,cu_001187,65690,florianopolis,SC
+c_001374,cu_000460,36086,rio de janeiro,RJ
+c_001375,cu_000105,26859,sao paulo,SP
+c_001376,cu_000162,17684,recife,PE
+c_001377,cu_000351,11207,rio de janeiro,RJ
+c_001378,cu_000434,56099,rio de janeiro,RJ
+c_001379,cu_000852,77496,sao paulo,SP
+c_001380,cu_000140,76093,belo horizonte,MG
+c_001381,cu_001156,39689,sao paulo,SP
+c_001382,cu_000087,58651,sao paulo,SP
+c_001383,cu_000183,23893,goiania,GO
+c_001384,cu_000368,76418,sao paulo,SP
+c_001385,cu_000129,70011,belo horizonte,MG
+c_001386,cu_000670,48635,sao paulo,SP
+c_001387,cu_000149,66115,curitiba,PR
+c_001388,cu_000985,88405,sao paulo,SP
+c_001389,cu_000852,82702,goiania,GO
+c_001390,cu_000628,88518,rio de janeiro,RJ
+c_001391,cu_000446,82805,sao paulo,SP
+c_001392,cu_000884,68954,sao paulo,SP
+c_001393,cu_000294,38064,sao paulo,SP
+c_001394,cu_001167,89063,rio de janeiro,RJ
+c_001395,cu_000250,12454,sao paulo,SP
+c_001396,cu_000878,30878,florianopolis,SC
+c_001397,cu_000948,61098,rio de janeiro,RJ
+c_001398,cu_000975,72154,sao paulo,SP
+c_001399,cu_001049,22991,belo horizonte,MG
+c_001400,cu_000789,78344,porto alegre,RS
+c_001401,cu_000984,46593,sao paulo,SP
+c_001402,cu_000889,46304,sao paulo,SP
+c_001403,cu_000890,40386,sao paulo,SP
+c_001404,cu_000070,65220,curitiba,PR
+c_001405,cu_000625,79338,belo horizonte,MG
+c_001406,cu_000875,31083,rio de janeiro,RJ
+c_001407,cu_001136,28354,florianopolis,SC
+c_001408,cu_000471,32190,salvador,BA
+c_001409,cu_000091,16142,belo horizonte,MG
+c_001410,cu_000530,38398,recife,PE
+c_001411,cu_000661,61971,sao paulo,SP
+c_001412,cu_000739,51862,sao paulo,SP
+c_001413,cu_000726,63410,sao paulo,SP
+c_001414,cu_000872,29503,sao paulo,SP
+c_001415,cu_000192,58456,rio de janeiro,RJ
+c_001416,cu_000138,92035,brasilia,DF
+c_001417,cu_000345,18016,sao paulo,SP
+c_001418,cu_001009,12384,sao paulo,SP
+c_001419,cu_000503,72320,rio de janeiro,RJ
+c_001420,cu_000203,25072,brasilia,DF
+c_001421,cu_000573,90018,sao paulo,SP
+c_001422,cu_000192,50510,rio de janeiro,RJ
+c_001423,cu_000005,58933,sao paulo,SP
+c_001424,cu_000311,31826,sao paulo,SP
+c_001425,cu_000549,78026,vitoria,ES
+c_001426,cu_000056,35518,goiania,GO
+c_001427,cu_000443,34045,sao paulo,SP
+c_001428,cu_000870,60876,goiania,GO
+c_001429,cu_000585,61919,belo horizonte,MG
+c_001430,cu_000752,37103,recife,PE
+c_001431,cu_000360,46188,rio de janeiro,RJ
+c_001432,cu_000819,15845,rio de janeiro,RJ
+c_001433,cu_000030,96698,rio de janeiro,RJ
+c_001434,cu_000108,46674,belo horizonte,MG
+c_001435,cu_000844,29337,sao paulo,SP
+c_001436,cu_000717,32313,sao paulo,SP
+c_001437,cu_000891,36943,sao paulo,SP
+c_001438,cu_000960,87949,porto alegre,RS
+c_001439,cu_000893,10276,sao paulo,SP
+c_001440,cu_000732,61151,porto alegre,RS
+c_001441,cu_000606,27611,goiania,GO
+c_001442,cu_000457,21944,sao paulo,SP
+c_001443,cu_000615,62887,porto alegre,RS
+c_001444,cu_000698,91442,rio de janeiro,RJ
+c_001445,cu_000674,59847,recife,PE
+c_001446,cu_000543,68653,sao paulo,SP
+c_001447,cu_000857,96072,porto alegre,RS
+c_001448,cu_000897,66622,florianopolis,SC
+c_001449,cu_000278,37810,brasilia,DF
+c_001450,cu_000552,87842,porto alegre,RS
+c_001451,cu_000111,20503,rio de janeiro,RJ
+c_001452,cu_000385,94761,belo horizonte,MG
+c_001453,cu_000761,46976,recife,PE
+c_001454,cu_000694,21590,belo horizonte,MG
+c_001455,cu_000405,20886,sao paulo,SP
+c_001456,cu_000022,22866,brasilia,DF
+c_001457,cu_000678,76624,porto alegre,RS
+c_001458,cu_000611,78899,porto alegre,RS
+c_001459,cu_000008,42792,sao paulo,SP
+c_001460,cu_000702,19764,belo horizonte,MG
+c_001461,cu_000529,96156,sao paulo,SP
+c_001462,cu_000602,52727,belo horizonte,MG
+c_001463,cu_000657,88471,sao paulo,SP
+c_001464,cu_000166,18068,belo horizonte,MG
+c_001465,cu_000849,17295,vitoria,ES
+c_001466,cu_000496,51160,sao paulo,SP
+c_001467,cu_000590,21390,goiania,GO
+c_001468,cu_000429,30131,sao paulo,SP
+c_001469,cu_000774,85969,recife,PE
+c_001470,cu_000163,25038,salvador,BA
+c_001471,cu_000366,62327,belo horizonte,MG
+c_001472,cu_000072,87064,curitiba,PR
+c_001473,cu_000655,31281,recife,PE
+c_001474,cu_000269,64189,sao paulo,SP
+c_001475,cu_000415,58511,sao paulo,SP
+c_001476,cu_001016,18605,belo horizonte,MG
+c_001477,cu_000675,11381,salvador,BA
+c_001478,cu_001084,76634,curitiba,PR
+c_001479,cu_000006,29810,salvador,BA
+c_001480,cu_000982,34322,rio de janeiro,RJ
+c_001481,cu_000570,51869,salvador,BA
+c_001482,cu_000407,42955,sao paulo,SP
+c_001483,cu_000026,71388,rio de janeiro,RJ
+c_001484,cu_001029,20207,sao paulo,SP
+c_001485,cu_000986,97329,sao paulo,SP
+c_001486,cu_000390,77628,sao paulo,SP
+c_001487,cu_000710,38220,sao paulo,SP
+c_001488,cu_000571,94050,porto alegre,RS
+c_001489,cu_000754,84085,sao paulo,SP
+c_001490,cu_000146,32031,rio de janeiro,RJ
+c_001491,cu_000785,80721,sao paulo,SP
+c_001492,cu_000526,90807,sao paulo,SP
+c_001493,cu_000013,81312,sao paulo,SP
+c_001494,cu_000903,69766,sao paulo,SP
+c_001495,cu_000384,22449,belo horizonte,MG
+c_001496,cu_000556,99833,belo horizonte,MG
+c_001497,cu_000887,66699,belo horizonte,MG
+c_001498,cu_000019,91253,rio de janeiro,RJ
+c_001499,cu_000575,56092,sao paulo,SP
+c_001500,cu_000751,73671,recife,PE

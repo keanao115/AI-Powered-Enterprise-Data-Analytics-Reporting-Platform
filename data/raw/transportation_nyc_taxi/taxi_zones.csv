@@ -1,0 +1,39 @@
+location_id,zone_name,borough
+1,Newark Airport,EWR
+48,Clinton East,Manhattan
+50,Clinton West,Manhattan
+68,East Chelsea,Manhattan
+79,East Village,Manhattan
+90,Flatiron,Manhattan
+100,Garment District,Manhattan
+107,Gramercy,Manhattan
+132,JFK Airport,Queens
+138,LaGuardia Airport,Queens
+140,Lenox Hill East,Manhattan
+141,Lenox Hill West,Manhattan
+142,Lincoln Square East,Manhattan
+143,Lincoln Square West,Manhattan
+161,Midtown Center,Manhattan
+162,Midtown East,Manhattan
+163,Midtown North,Manhattan
+164,Midtown South,Manhattan
+170,Murray Hill,Manhattan
+186,Penn Station/Madison Sq West,Manhattan
+230,Times Sq/Theatre District,Manhattan
+231,TriBeCa/Civic Center,Manhattan
+234,Union Sq,Manhattan
+236,Upper East Side North,Manhattan
+237,Upper East Side South,Manhattan
+238,Upper West Side North,Manhattan
+239,Upper West Side South,Manhattan
+249,West Village,Manhattan
+255,Williamsburg (North Side),Brooklyn
+256,Williamsburg (South Side),Brooklyn
+80,East Williamsburg,Brooklyn
+33,Brooklyn Heights,Brooklyn
+61,Crown Heights North,Brooklyn
+7,Astoria,Queens
+145,Long Island City/Hunters Point,Queens
+193,Queensbridge/Ravenswood,Queens
+18,Bedford Park,Bronx
+43,Central Park,Manhattan

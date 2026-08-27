@@ -1,0 +1,13 @@
+ticker,company_name,sector,industry,exchange,cik,market_cap_mil_usd
+AAPL,Apple Inc.,Technology,Consumer Electronics,NASDAQ,0000320193,3450000
+MSFT,Microsoft Corporation,Technology,Software Infrastructure,NASDAQ,0000789019,3120000
+NVDA,NVIDIA Corporation,Technology,Semiconductors,NASDAQ,0001045810,3050000
+AMZN,Amazon.com Inc.,Consumer Cyclical,Internet Retail,NASDAQ,0001018724,1950000
+GOOGL,Alphabet Inc.,Communication Services,Internet Content & Information,NASDAQ,0001652044,2150000
+META,Meta Platforms Inc.,Communication Services,Internet Content & Information,NASDAQ,0001326801,1250000
+TSLA,Tesla Inc.,Consumer Cyclical,Auto Manufacturers,NASDAQ,0001318605,780000
+JPM,JPMorgan Chase & Co.,Financial Services,Banks—Diversified,NYSE,0000019617,580000
+UNH,UnitedHealth Group Inc.,Healthcare,Healthcare Plans,NYSE,0000731766,520000
+XOM,Exxon Mobil Corporation,Energy,Oil & Gas Integrated,NYSE,0000034088,460000
+JNJ,Johnson & Johnson,Healthcare,Drug Manufacturers—General,NYSE,0000200406,390000
+WMT,Walmart Inc.,Consumer Defensive,Discount Stores,NYSE,0000104169,540000
