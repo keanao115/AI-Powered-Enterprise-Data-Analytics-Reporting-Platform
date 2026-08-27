@@ -1,14 +1,20 @@
 import pytest
+import duckdb
 from app.core.tenant import TenantContext
 from app.ai.agent.analyst_agent import analyst_agent
 from app.ai.providers.mock_provider import MockLLMProvider
 from app.security.data_masking import data_masking_engine
 from app.analytics.grounding import grounding_validator
 from app.analytics.data_quality import evaluate_data_quality
-import duckdb
+from app.core.database import get_analytics_db_path
+from seed.seed_data import seed_synthetic_analytics_database
+
+@pytest.fixture(scope="module", autouse=True)
+def setup_demo_db():
+    seed_synthetic_analytics_database(get_analytics_db_path())
 
 def test_duckdb_tables_integrity():
-    conn = duckdb.connect("analytics_demo.duckdb")
+    conn = duckdb.connect(get_analytics_db_path())
     tables = [
         "sales_orders", "customer_churn", "inventory_supply_chain",
         "financial_metrics", "employee_performance", "marketing_campaigns"

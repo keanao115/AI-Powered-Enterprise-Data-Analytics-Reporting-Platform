@@ -2,10 +2,11 @@ import pytest
 from fastapi.testclient import TestClient
 from app.main import app
 from seed.seed_data import seed_synthetic_analytics_database
+from app.core.database import get_analytics_db_path
 
 @pytest.fixture(scope="module", autouse=True)
 def setup_test_db():
-    seed_synthetic_analytics_database("analytics_demo.duckdb")
+    seed_synthetic_analytics_database(get_analytics_db_path())
 
 @pytest.fixture
 def client():

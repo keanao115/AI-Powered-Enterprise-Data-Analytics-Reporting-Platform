@@ -5,6 +5,7 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 from app.core.tenant import TenantContext
+from app.core.database import get_analytics_db_path
 from app.ingestion.run_all_ingestions import run_full_enterprise_ingestion_pipeline
 from app.semantic.dataset_catalog import dataset_catalog, ENTERPRISE_DATASET_CATALOG
 from app.semantic.semantic_layer import semantic_layer
@@ -24,7 +25,7 @@ def seeded_enterprise_db():
 
 def test_enterprise_datasets_ingestion_and_duckdb_tables(seeded_enterprise_db):
     """Verify that all 6 public datasets created their respective curated tables in DuckDB."""
-    db_path = "analytics_demo.duckdb"
+    db_path = get_analytics_db_path()
     conn = duckdb.connect(db_path)
     
     # Check tables existence and row counts
