@@ -93,7 +93,7 @@ class GeminiProvider:
         for m_name in unique_models:
             api_url = f"https://generativelanguage.googleapis.com/v1beta/models/{m_name}:generateContent"
             try:
-                with httpx.Client(timeout=8.0) as client:
+                with httpx.Client(timeout=20.0) as client:
                     resp = client.post(
                         api_url,
                         headers=headers,

@@ -22,7 +22,7 @@ class Settings(BaseSettings):
 
     LLM_PROVIDER: str = "gemini"
     LLM_MODEL: str = "gemini-3.1-flash-lite-preview"
-    GEMINI_API_KEY: Optional[str] = "AQ.Ab8RN6Lvapi3koHifCNG3P7CgIpsUgih4bgMPRaoPoONcVSLTw"
+    GEMINI_API_KEY: Optional[str] = "AQ.Ab8RN6IOC7d2gNcjXr_M98DhMA8dSHCAHdReccgABVc5rJhljw"
     GEMINI_MODEL: str = "gemini-3.1-flash-lite-preview"
     OPENAI_API_KEY: Optional[str] = None
     ANTHROPIC_API_KEY: Optional[str] = None
