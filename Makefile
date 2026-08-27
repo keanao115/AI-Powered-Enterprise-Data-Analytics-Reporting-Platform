@@ -38,11 +38,11 @@ evaluate:
 
 build:
 	@echo "Building Docker containers..."
-	docker-compose build
+	docker compose build
 
 docker-up:
 	@echo "Starting full platform via Docker Compose..."
-	docker-compose up -d
+	docker compose up -d
 
 clean:
 	@echo "Cleaning temporary files..."

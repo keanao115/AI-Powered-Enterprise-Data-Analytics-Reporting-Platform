@@ -228,7 +228,7 @@ The platform comes pre-seeded with **6 curated real-world public enterprise data
 
 2. **Build and Launch Containers**:
    ```bash
-   docker-compose up -d --build
+   docker compose up -d --build
    ```
 
 3. **Access Services**:

@@ -225,9 +225,9 @@ graph TD
    cp .env.example .env
    ```
 
-2. **一鍵編譯並啟動所有服務**：
+2. **構建並啟動所有容器服務**：
    ```bash
-   docker-compose up -d --build
+   docker compose up -d --build
    ```
 
 3. **存取各服務門戶**：

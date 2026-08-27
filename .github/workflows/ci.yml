@@ -37,4 +37,4 @@ jobs:
 
       - name: Build Docker Container Suite
         run: |
-          docker-compose build
+          docker compose build
