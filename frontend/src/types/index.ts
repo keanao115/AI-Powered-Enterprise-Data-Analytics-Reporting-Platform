@@ -1,7 +1,12 @@
 export interface ExecutionStep {
   step: string;
-  status: 'RUNNING' | 'COMPLETED' | 'PASSED' | 'BLOCKED' | 'FAILED' | 'CLARIFICATION_REQUIRED';
+  status: string;
   reason?: string;
+  provider?: string;
+  model?: string;
+  model_name?: string;
+  reviewer?: string;
+  rls_predicates?: string[];
 }
 
 export interface GroundedClaim {
@@ -35,6 +40,10 @@ export interface QueryResponse {
     rows: any[][];
     dataset_id?: string;
     domain_name?: string;
+    collaboration?: {
+      enabled: boolean;
+      participants: CollaborationParticipant[];
+    };
   };
   visualization?: {
     image_b64?: string;
@@ -42,6 +51,10 @@ export interface QueryResponse {
   };
   claims: GroundedClaim[];
   grounding_status: string;
+  collaboration_info?: {
+    enabled: boolean;
+    participants: CollaborationParticipant[];
+  };
 }
 
 export interface AuditLogItem {
@@ -205,4 +218,101 @@ export interface SecurityPreset {
   sql: string;
   description: string;
 }
+
+export interface ProviderOption {
+  id: string;
+  name: string;
+  description: string;
+  default_model: string;
+  models: string[];
+  base_url?: string | null;
+  key_required: boolean;
+  key_field?: string | null;
+}
+
+export interface LLMConfigResponse {
+  provider: string;
+  model: string;
+  gemini_api_key_configured: boolean;
+  gemini_api_key_masked: string | null;
+  openai_api_key_configured: boolean;
+  openai_api_key_masked: string | null;
+  available_providers: ProviderOption[];
+}
+
+export interface UpdateLLMConfigRequest {
+  provider?: string;
+  model?: string;
+  gemini_api_key?: string;
+  openai_api_key?: string;
+  persist_to_env?: boolean;
+}
+
+export interface TestLLMConnectionRequest {
+  provider: string;
+  model?: string;
+  api_key?: string;
+  base_url?: string;
+}
+
+export interface TestLLMConnectionResponse {
+  success: boolean;
+  provider: string;
+  model: string;
+  latency_ms: number;
+  message: string;
+  sample_output?: string | null;
+}
+
+export interface DetectKeyResponse {
+  provider_id: string;
+  provider_name: string;
+  confidence: 'HIGH' | 'MEDIUM' | 'LOW';
+  recommended_models: string[];
+  default_model: string;
+  default_base_url?: string | null;
+  key_format_hint: string;
+  description: string;
+}
+
+export interface VaultKeyItem {
+  id: string;
+  provider: string;
+  name: string;
+  api_key_masked: string;
+  model: string;
+  base_url?: string | null;
+  is_active: boolean;
+  created_at: number;
+}
+
+export interface AddVaultKeyRequest {
+  id?: string;
+  provider: string;
+  name?: string;
+  api_key: string;
+  model: string;
+  base_url?: string | null;
+  is_active?: boolean;
+}
+
+export interface CollaborationParticipant {
+  role: string;
+  provider: string;
+  model: string;
+  name: string;
+}
+
+export interface CollaborationSettings {
+  enabled: boolean;
+  roles: {
+    sql_generator?: string | null;
+    sql_reviewer?: string | null;
+    insight_generator?: string | null;
+  };
+  participants: CollaborationParticipant[];
+  vault_keys: VaultKeyItem[];
+}
+
+
 

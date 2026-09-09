@@ -172,8 +172,15 @@ class AIAnalystAgent:
         }
         state.execution_steps[-1]["status"] = "COMPLETED"
 
-        # Step 4: Text-to-SQL Generation using Google Gemini
-        state.execution_steps.append({"step": "SQL_GENERATION", "status": "RUNNING"})
+        # Step 4: Text-to-SQL Generation using AI Model
+        sql_role_info = llm_gateway.get_provider_info_by_role("sql_generator")
+        state.execution_steps.append({
+            "step": "SQL_GENERATION",
+            "status": "RUNNING",
+            "provider": sql_role_info["provider"],
+            "model": sql_role_info["model"],
+            "model_name": sql_role_info["name"],
+        })
         
         sql_gen_prompt = f"""You are an expert DuckDB Text-to-SQL engineer for an enterprise analytics platform.
 
@@ -195,7 +202,7 @@ User Question: "{question}"
         llm_resp = llm_gateway.generate([
             LLMMessage(role="system", content="You are a strict, read-only DuckDB Text-to-SQL generator. Output raw SQL only."),
             LLMMessage(role="user", content=sql_gen_prompt)
-        ])
+        ], role="sql_generator")
         
         raw_sql = llm_resp.content.strip()
         clean_sql = raw_sql.replace("```sql", "").replace("```", "").strip()
@@ -226,6 +233,46 @@ User Question: "{question}"
         state.generated_sql = candidate_sql
         state.execution_steps[-1]["status"] = "COMPLETED"
 
+        # Step 4b: Multi-Model Collaborative Cross-Review
+        if llm_gateway.is_collaboration_enabled():
+            reviewer_role_info = llm_gateway.get_provider_info_by_role("sql_reviewer")
+            state.execution_steps.append({
+                "step": "SQL_COLLABORATIVE_REVIEW",
+                "status": "RUNNING",
+                "provider": reviewer_role_info["provider"],
+                "model": reviewer_role_info["model"],
+                "model_name": reviewer_role_info["name"],
+            })
+            review_prompt = f"""You are an expert SQL security and optimization reviewer collaborating with another AI model in an enterprise analytics pipeline.
+Model 1 ({sql_role_info['name']}) generated this DuckDB SQL candidate:
+```sql
+{candidate_sql}
+```
+
+Domain Schema:
+{domain_schemas}
+
+Question: "{question}"
+
+Instructions:
+1. Verify that the SQL is valid DuckDB syntax and only uses tables/columns that actually exist in the domain schema.
+2. Check for potential unintentional Cartesian joins or missing join conditions.
+3. If the SQL is accurate and optimal, return it as-is. If it needs fixes, correct it and return the corrected SQL.
+4. Output ONLY the final raw SQL statement. No markdown code blocks, no explanations, no quotes.
+"""
+            try:
+                review_resp = llm_gateway.generate([
+                    LLMMessage(role="system", content="You are a strict SQL review and verification expert. Output raw SQL only."),
+                    LLMMessage(role="user", content=review_prompt)
+                ], role="sql_reviewer")
+                reviewed_sql = review_resp.content.strip().replace("```sql", "").replace("```", "").strip()
+                if reviewed_sql.upper().startswith("SELECT") or reviewed_sql.upper().startswith("WITH"):
+                    candidate_sql = reviewed_sql
+                    state.generated_sql = candidate_sql
+                state.execution_steps[-1]["status"] = f"APPROVED (Cross-verified by {reviewer_role_info['name']})"
+            except Exception as e:
+                state.execution_steps[-1]["status"] = f"SKIPPED ({str(e)[:60]})"
+
         # Step 5: SQL AST Policy & RLS Security Rewriting
         state.execution_steps.append({"step": "SQL_AST_POLICY_AND_RLS", "status": "RUNNING"})
         policy_res = ast_policy_engine.validate(candidate_sql, ctx)
@@ -243,9 +290,20 @@ User Question: "{question}"
             raise Exception(f"SQL Policy Denied: {policy_res['reason']}")
 
         # RLS AST Rewrite
-        rewritten_sql = rls_enforcer.apply_rls_predicates(candidate_sql, ctx)
+        rewritten_sql, injected_rules = rls_enforcer.rewrite_with_persona(
+            sql_query=candidate_sql,
+            tenant_id=ctx.tenant_id,
+            user_role=ctx.user_role,
+            authorized_regions=ctx.authorized_regions,
+            authorized_departments=ctx.authorized_departments,
+        )
         state.validated_sql = rewritten_sql
-        state.execution_steps[-1]["status"] = "PASSED"
+        active_injections = [r for r in injected_rules if r.get("type") != "PUBLIC_DATASET_GOVERNANCE"]
+        if active_injections:
+            state.execution_steps[-1]["rls_predicates"] = [r["predicate"] for r in active_injections]
+            state.execution_steps[-1]["status"] = f"PASSED (Enforced {len(active_injections)} RLS predicates)"
+        else:
+            state.execution_steps[-1]["status"] = "PASSED (Public benchmark domain / verified clean AST)"
 
         # Step 6: Read-only DB Execution & Repair fallback
         state.execution_steps.append({"step": "DATABASE_EXECUTION", "status": "RUNNING"})
@@ -347,13 +405,14 @@ else:
 ## 策略與行動建議 (Recommendations)
 - （基於上述真實數據提出 2~3 項具體、可落地的業務優化策略）
 """
+        insight_role_info = llm_gateway.get_provider_info_by_role("insight_generator")
         insight_resp = llm_gateway.generate([
             LLMMessage(
                 role="system",
                 content="你是一位頂尖的企業級數據分析師與商業決策顧問。你必須嚴格一律使用專業【繁體中文 (Traditional Chinese)】回答使用者問題，並嚴格根據資料庫真實數據進行分析，嚴禁使用英文。"
             ),
             LLMMessage(role="user", content=insight_prompt)
-        ])
+        ], role="insight_generator")
 
         final_summary = insight_resp.content.strip()
         if domain_disclaimer and domain_disclaimer not in final_summary:
@@ -397,6 +456,17 @@ else:
                 "confidence_score": 1.0
             })
 
+        # Build collaboration metadata
+        participants = [sql_role_info]
+        if llm_gateway.is_collaboration_enabled():
+            participants.append(reviewer_role_info)
+            participants.append(insight_role_info)
+        collab_meta = {
+            "enabled": llm_gateway.is_collaboration_enabled(),
+            "participants": participants,
+        }
+        state.collaboration_info = collab_meta
+
         state.claims = dynamic_claims
         state.grounding_status = "PASSED"
         state.analytical_results = {
@@ -406,6 +476,7 @@ else:
             "columns": query_data["columns"],
             "dataset_id": resolved_dataset_id,
             "domain_name": domain_name,
+            "collaboration": collab_meta,
         }
         state.execution_steps[-1]["status"] = "COMPLETED"
 
@@ -420,7 +491,7 @@ else:
             reason="Pipeline executed successfully against curated public dataset",
             ctx=ctx,
             request_id=request_id,
-            details={"query_id": request_id, "sql": rewritten_sql, "dataset_id": resolved_dataset_id},
+            details={"query_id": request_id, "sql": rewritten_sql, "dataset_id": resolved_dataset_id, "collaboration": collab_meta},
         )
         state.execution_steps[-1]["status"] = "COMPLETED"
 

@@ -27,3 +27,4 @@ class AgentState(BaseModel):
     report_id: Optional[str] = None
     errors: List[str] = Field(default_factory=list)
     execution_steps: List[Dict[str, Any]] = Field(default_factory=list)
+    collaboration_info: Optional[Dict[str, Any]] = None

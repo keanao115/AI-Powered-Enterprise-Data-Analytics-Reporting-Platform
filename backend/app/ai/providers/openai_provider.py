@@ -1,14 +1,15 @@
 import time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 import httpx
 from app.core.config import settings
 from app.ai.schemas.llm_schemas import LLMMessage, LLMResponse
 
 
 class OpenAIProvider:
-    def __init__(self, api_key: str = settings.OPENAI_API_KEY, model: str = settings.LLM_MODEL):
-        self.api_key = api_key or "mock-key"
-        self.model = model
+    def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None, base_url: Optional[str] = None):
+        self.api_key = api_key or settings.OPENAI_API_KEY
+        self.model = model or settings.LLM_MODEL
+        self.base_url = base_url
 
     def generate(
         self,
@@ -16,7 +17,7 @@ class OpenAIProvider:
         tools: List[Dict[str, Any]] = None,
         temperature: float = 0.0,
     ) -> LLMResponse:
-        if not settings.OPENAI_API_KEY:
+        if not self.api_key or self.api_key == "mock-key":
             # Fallback gracefully to mock provider if API key not provided
             from app.ai.providers.mock_provider import MockLLMProvider
             return MockLLMProvider(model=self.model).generate(messages, tools, temperature)
@@ -35,8 +36,10 @@ class OpenAIProvider:
         if tools:
             payload["tools"] = tools
 
+        endpoint = f"{self.base_url.rstrip('/')}/chat/completions" if self.base_url else "https://api.openai.com/v1/chat/completions"
+
         with httpx.Client(timeout=30.0) as client:
-            resp = client.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+            resp = client.post(endpoint, headers=headers, json=payload)
             resp.raise_for_status()
             data = resp.json()
 

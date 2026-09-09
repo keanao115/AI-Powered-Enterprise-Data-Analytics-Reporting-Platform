@@ -92,12 +92,15 @@ async def list_sso_providers():
         ),
     ]
 
+from app.security.oidc import oidc_validator
+
 
 @router.post("/sso/oidc/callback", response_model=LoginResponse)
 async def oidc_callback(req: OIDCCallbackRequest):
     """
-    Exchanges / validates an OIDC ID Token from enterprise Identity Provider (IdP),
-    maps enterprise claims (sub, tid, groups) to TenantContext, and issues platform JWT.
+    Exchanges and cryptographically validates an OIDC ID Token from enterprise Identity Provider (IdP),
+    enforces RS256 signature verification, maps enterprise claims (sub, tid, groups) to TenantContext,
+    and issues platform JWT. Remediates Item 2.2 security vulnerability.
     """
     if not settings.ENABLE_OIDC_SSO:
         raise HTTPException(
@@ -105,41 +108,34 @@ async def oidc_callback(req: OIDCCallbackRequest):
             detail="Enterprise SSO / OIDC is disabled by administrator policy.",
         )
 
-    # In production, this verifies signature via IdP JWKS endpoint
-    # Here we support both real tokens and structured demo enterprise tokens
-    import json
-    import base64
+    # Cryptographically verify ID token signature, expiration, and claims
+    payload = oidc_validator.validate_id_token(req.id_token)
 
-    # Extract user claims
-    extracted_email = "sso.analyst@enterprise-corp.com"
+    extracted_email = payload.get("email", "sso.analyst@enterprise-corp.com")
+    groups = payload.get("groups", [])
+    if isinstance(groups, str):
+        groups = [groups]
+
     extracted_role = "ANALYST"
-    extracted_tenant = req.tenant_id or "tenant-enterprise-sso"
+    if any(g.lower() in ["admin", "org_admin", "org_admin_role", "administrators"] for g in groups) or "admin" in extracted_email.lower():
+        extracted_role = "ORG_ADMIN"
 
-    # Try parsing JWT payload if structured
-    try:
-        parts = req.id_token.split(".")
-        if len(parts) >= 2:
-            padded = parts[1] + "=" * ((4 - len(parts[1]) % 4) % 4)
-            payload = json.loads(base64.urlsafe_b64decode(padded))
-            extracted_email = payload.get("email", extracted_email)
-            if "admin" in payload.get("groups", []) or "admin" in extracted_email:
-                extracted_role = "ORG_ADMIN"
-            extracted_tenant = payload.get("tid", payload.get("tenant_id", extracted_tenant))
-    except Exception:
-        pass
+    extracted_tenant = req.tenant_id or payload.get("tid", payload.get("tenant_id", "tenant-enterprise-sso"))
+    raw_sub = payload.get("sub", extracted_email.split("@")[0])
+    user_id = raw_sub if raw_sub.startswith("sso-") else f"sso-{raw_sub}"
 
     token = create_access_token({
-        "sub": f"sso-{extracted_email.split('@')[0]}",
+        "sub": user_id,
         "tenant_id": extracted_tenant,
-        "organization_id": "org-enterprise-sso",
-        "workspace_id": "ws-corporate-analytics",
+        "organization_id": payload.get("organization_id", "org-enterprise-sso"),
+        "workspace_id": payload.get("workspace_id", "ws-corporate-analytics"),
         "role": extracted_role,
         "idp_provider": req.provider,
     })
 
     return LoginResponse(
         access_token=token,
-        user_id=f"sso-{extracted_email.split('@')[0]}",
+        user_id=user_id,
         tenant_id=extracted_tenant,
         role=extracted_role,
         idp_provider=req.provider,

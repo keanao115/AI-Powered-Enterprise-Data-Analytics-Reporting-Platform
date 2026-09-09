@@ -48,3 +48,21 @@ def test_query_replay_anomaly_detection():
     # 6th repeat exceeds threshold
     is_anomaly = manager.detect_query_anomaly(tenant, query, window_seconds=10, max_repeats=5)
     assert is_anomaly is True
+
+
+def test_storage_backend_pluggability_and_redis_adapter():
+    from app.security.token_governance import RedisTokenGovernanceStorage, InMemoryTokenGovernanceStorage
+
+    # 1. Custom InMemory storage
+    in_mem_storage = InMemoryTokenGovernanceStorage()
+    mgr1 = TokenGovernanceManager(rpm_limit=5, storage_backend=in_mem_storage)
+    allowed, count = mgr1.check_rate_limit("t-custom-mem")
+    assert allowed is True
+    assert count == 1
+
+    # 2. Redis adapter initialization and graceful local fallback
+    redis_storage = RedisTokenGovernanceStorage("redis://non-existent-host:6379/0")
+    mgr2 = TokenGovernanceManager(rpm_limit=5, storage_backend=redis_storage)
+    allowed2, count2 = mgr2.check_rate_limit("t-redis-test")
+    assert allowed2 is True
+    assert count2 == 1

@@ -26,11 +26,11 @@ jobs:
 
       - name: Static Code Analysis & Linting (Ruff)
         run: |
-          ruff check backend/ tests/ --exit-non-zero-on-fix || true
+          ruff check backend/ tests/
 
       - name: Software Supply Chain Vulnerability Scan (pip-audit)
         run: |
-          pip-audit -r backend/requirements.txt --desc on --ignore-vuln CVE-2024-5171 || true
+          pip-audit -r backend/requirements.txt --desc on --ignore-vuln CVE-2024-5171
 
   test-and-verify:
     name: Unit, Integration, Security & Benchmarks

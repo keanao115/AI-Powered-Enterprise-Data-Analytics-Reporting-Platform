@@ -14,7 +14,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14.0-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![DuckDB](https://img.shields.io/badge/DuckDB-0.10.0-FFF000?style=flat-square&logo=duckdb&logoColor=black)](https://duckdb.org)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)](https://www.docker.com)
-[![Pytest](https://img.shields.io/badge/Pytest-31%20Passed-brightgreen?style=flat-square&logo=pytest)](https://pytest.org)
+[![Pytest](https://img.shields.io/badge/Pytest-38%20Passed-brightgreen?style=flat-square&logo=pytest)](https://pytest.org)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 ---
@@ -368,18 +368,18 @@ python -m app.evaluation.eval_runner
 ## ⚠️ Known Limitations & Architectural Roadmap (已知限制與架構路線圖)
 
 > 誠實揭露設計權衡與架構邊界，是構建生產級工程可信度的基石。完整架構審查報告與改進藍圖請參見：  
-> 📖 **[Detailed Known Limitations & Improvement Roadmap](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/docs/known-limitations-and-roadmap.md)**
+> 📖 **[Detailed Known Limitations & Improvement Roadmap](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/docs/known-limitations-and-roadmap.md)** | **[Improvement Tracking v3 (Code-Verified)](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/docs/improvement-tracking-v3.md)**
 
 | 維度 (Domain) | 當前設計取捨 (Current POC Trade-off) | 生產環境演進路徑 (Production Scale Evolution) |
 |---|---|---|
 | **1. 數據規模與選型 (Scale & Sizing)** | 預載 6 組真實資料集 (~24,000 列) 作為輕量展示基底與快速 CI/CD 測試集。 | 治理中介層 (AST/RLS/CLS) 完全資料庫無關，直接適配 Snowflake / BigQuery 等分散式雲端倉儲。 |
-| **2. 多租戶隔離強度 (Multi-Tenancy)** | 共享程序之邏輯 RLS 注入 (`WHERE tenant_id = :id`)，極大化單機資源利用率。 | 面對 HIPAA 等強合規場景，提供 Schema-per-tenant 或 Database-per-tenant 隔離演進架構。 |
-| **3. LLM 成本與防濫用治理 (LLM Governance)** | 內建 Token Budget 預算控制器、每分鐘請求速率限制 (RPM) 與滑動窗口防重放機制。 | 接入 Redis 分散式限流與企業級語意快取 (Semantic Caching)。 |
+| **2. 多租戶隔離與 RLS 範圍 (Multi-Tenancy & RLS)** | 共享程序之邏輯 RLS 注入；在 SQL Security Inspector 沙盒 (`orders`, `customers`, `regions`) 完成 RLS 注入驗證。6 組真實資料集為單租戶公開資料，由 AST 確保唯讀安全，並支援動態 Catalog 擴充。 | 面對 HIPAA 等強合規場景，提供 Schema-per-tenant 或 Database-per-tenant 隔離演進架構。 |
+| **3. LLM 成本與防濫用治理 (LLM Governance)** | 內建 Token Budget 預算控制器、RPM 滑動窗口限流與防重放；單機預設 InMemory，抽換層抽象為 `TokenGovernanceStorageBackend`。 | 接入 Redis 分散式限流與企業級語意快取 (Semantic Caching)。 |
 | **4. 外部 API 容錯韌性 (Resilience)** | 實作熔斷器模式 (Circuit Breaker) 與指數退避重試，API 失敗即時平滑降級。 | 支援多雲 LLM (Gemini ↔ Claude ↔ OpenAI ↔ Local vLLM) 動態自動容災切換。 |
-| **5. 軟體供應鏈安全 (SCA)** | CI/CD 整合 `pip-audit` 弱點掃描與 `Dependabot` 自動化補丁機制。 | 容器鏡像 Trivy 漏洞掃描與 SBOM (Software Bill of Materials) 生成。 |
+| **5. 軟體供應鏈安全 (SCA)** | CI/CD 整合 `pip-audit` 弱點掃描與 `Dependabot` 自動化補丁機制，移除 `\|\| true` 確保重大漏洞中斷 Build。 | 容器鏡像 Trivy 漏洞掃描與 SBOM (Software Bill of Materials) 生成。 |
 | **6. 語意層版本管理 (Semantic Layer)** | 指標登錄表 (Metric Registry) 納入版本號、責任人與審計歷程元數據。 | 支援 GitOps 指標即代碼 (Metrics as Code) 與變更審核自動回滾流程。 |
-| **7. 靜態資料加密 (Encryption at Rest)** | 本機 DuckDB 與 SQLite/PostgreSQL 檔案未加密儲存，專注於查詢層 RLS/CLS。 | 儲存卷掛載 Linux LUKS / AWS EBS KMS 磁碟加密，雲端物件儲存啟用 SSE-KMS / CMK 客戶端託管金鑰。 |
-| **8. 企業級 SSO / OIDC (Enterprise IAM)** | 本地 JWT 認證搭配 4 大角色模擬 (`ORG_ADMIN`, `ANALYST`, `VIEWER`, `DPO`)。 | 整合 OIDC / SAML 2.0 (Keycloak / Okta / Azure AD / Auth0) 與 SCIM 2.0 目錄同步。 |
+| **7. 靜態資料加密 (Encryption at Rest)** | 本機 DuckDB 與 SQLite/PostgreSQL 檔案未加密儲存，專注於查詢層 RLS/CLS 防護。 | 儲存卷掛載 Linux LUKS / AWS EBS KMS 磁碟加密，雲端物件儲存啟用 SSE-KMS / CMK 客戶端託管金鑰。 |
+| **8. 企業級 SSO / OIDC (Enterprise IAM)** | 支援 OIDC 回調端點 (`/auth/sso/oidc/callback`)，採用 `python-jose[cryptography]` 進行嚴格 RS256 / JWKS 密碼學簽章與 claims 驗證。 | 整合企業 IdP (Keycloak / Okta / Azure AD / Auth0) 與 SCIM 2.0 目錄同步。 |
 
 ---
 

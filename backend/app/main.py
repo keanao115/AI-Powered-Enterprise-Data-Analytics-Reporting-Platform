@@ -15,6 +15,7 @@ from app.api.v1.evaluation import eval_router
 from app.api.v1.jobs import router as jobs_router
 from app.api.v1.datasets import router as datasets_router
 from app.api.v1.security import router as security_router
+from app.api.v1.settings import router as settings_router
 
 app = FastAPI(
     title="AI-Powered Enterprise Data Analytics & Reporting Platform",
@@ -119,3 +120,4 @@ app.include_router(eval_router, prefix="/api/v1")
 app.include_router(jobs_router, prefix="/api/v1")
 app.include_router(datasets_router, prefix="/api/v1")
 app.include_router(security_router, prefix="/api/v1")
+app.include_router(settings_router, prefix="/api/v1")

@@ -8,7 +8,8 @@ import {
   GitBranch,
   ShieldCheck,
   PlayCircle,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Sliders
 } from 'lucide-react';
 import AIAnalystInterface from '../components/AIAnalystInterface';
 import DatasetExplorer from '../components/DatasetExplorer';
@@ -17,12 +18,13 @@ import DataProvenanceView from '../components/DataProvenanceView';
 import DataDictionary from '../components/DataDictionary';
 import AuditLogViewer from '../components/AuditLogViewer';
 import EvaluationDashboard from '../components/EvaluationDashboard';
+import SettingsManager from '../components/SettingsManager';
 import LanguageSelector from '../components/LanguageSelector';
 import { useTranslation } from '../locales/LanguageContext';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<
-    'analyst' | 'datasets' | 'sql' | 'provenance' | 'dictionary' | 'audit' | 'eval'
+    'analyst' | 'datasets' | 'sql' | 'provenance' | 'dictionary' | 'audit' | 'eval' | 'settings'
   >('analyst');
   const [selectedPrompt, setSelectedPrompt] = useState<string>('');
   const [selectedDataset, setSelectedDataset] = useState<string>('');
@@ -44,6 +46,8 @@ export default function Home() {
         return t.navAudit;
       case 'eval':
         return t.navEval;
+      case 'settings':
+        return t.navSettings;
       default:
         return t.navAnalyst;
     }
@@ -163,6 +167,18 @@ export default function Home() {
               <PlayCircle className="w-4 h-4" />
               {t.navEval}
             </button>
+
+            <button
+              onClick={() => setActiveTab('settings')}
+              className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
+                activeTab === 'settings'
+                  ? 'bg-sky-600/20 text-sky-400 border border-sky-500/30'
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+              }`}
+            >
+              <Sliders className="w-4 h-4" />
+              {t.navSettings}
+            </button>
           </nav>
         </div>
 
@@ -198,7 +214,11 @@ export default function Home() {
         </header>
 
         {activeTab === 'analyst' && (
-          <AIAnalystInterface initialQuestion={selectedPrompt} initialDataset={selectedDataset} />
+          <AIAnalystInterface
+            initialQuestion={selectedPrompt}
+            initialDataset={selectedDataset}
+            onNavigateToSettings={() => setActiveTab('settings')}
+          />
         )}
         {activeTab === 'datasets' && (
           <DatasetExplorer onSelectPromptForAnalyst={handleSelectPromptFromExplorer} />
@@ -208,6 +228,7 @@ export default function Home() {
         {activeTab === 'dictionary' && <DataDictionary />}
         {activeTab === 'audit' && <AuditLogViewer />}
         {activeTab === 'eval' && <EvaluationDashboard />}
+        {activeTab === 'settings' && <SettingsManager />}
       </main>
     </div>
   );

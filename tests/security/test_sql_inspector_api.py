@@ -60,3 +60,31 @@ def test_cost_estimator_and_guardrails():
     cart_res = cost_estimator.estimate_cost(cartesian_sql)
     assert cart_res["has_cartesian_product"] is True
     assert cart_res["cost_rating"] == "CRITICAL_OVERHEAD"
+
+
+def test_dynamic_catalog_rls_and_public_dataset_tracking():
+    # 1. Dynamic Catalog Registration & Active Policies
+    policies = rls_enforcer.get_active_policies()
+    assert "orders" in policies["tenant_scoped"]
+    assert "employee_performance" in policies["department_scoped"]
+
+    # 2. Departmental RLS injection
+    dept_sql = "SELECT department, SUM(performance_score) FROM employee_performance GROUP BY department"
+    rewritten_dept, dept_rules = rls_enforcer.rewrite_with_persona(
+        sql_query=dept_sql,
+        tenant_id="tenant-globex",
+        user_role="ANALYST",
+        authorized_departments=["Finance", "Engineering"]
+    )
+    assert "employee_performance.department IN ('Finance', 'Engineering')" in rewritten_dept
+    assert any(r["type"] == "RBAC_DEPARTMENT_SCOPE" for r in dept_rules)
+
+    # 3. Public benchmark dataset governance audit
+    public_sql = "SELECT order_status, COUNT(*) FROM olist_orders GROUP BY order_status"
+    rewritten_public, public_rules = rls_enforcer.rewrite_with_persona(
+        sql_query=public_sql,
+        tenant_id="tenant-acme",
+        user_role="ANALYST"
+    )
+    assert rewritten_public == public_sql
+    assert any(r["type"] == "PUBLIC_DATASET_GOVERNANCE" for r in public_rules)
