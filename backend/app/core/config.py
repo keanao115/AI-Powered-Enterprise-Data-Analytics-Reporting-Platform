@@ -4,9 +4,13 @@ from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+_root_env = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".env"))
+_backend_env = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".env"))
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=(_root_env, _backend_env, ".env"),
         env_file_encoding="utf-8",
         extra="ignore"
     )
@@ -20,10 +24,10 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite+aiosqlite:///./app.db"
     ANALYTICS_DATABASE_URL: str = "duckdb:///./analytics_demo.duckdb"
 
-    LLM_PROVIDER: str = "mock"
-    LLM_MODEL: str = "gemini-3.1-flash-lite-preview"
+    LLM_PROVIDER: str = "gemini"
+    LLM_MODEL: str = "gemini-flash-latest"
     GEMINI_API_KEY: Optional[str] = None
-    GEMINI_MODEL: str = "gemini-3.1-flash-lite-preview"
+    GEMINI_MODEL: str = "gemini-flash-latest"
     OPENAI_API_KEY: Optional[str] = None
     ANTHROPIC_API_KEY: Optional[str] = None
     ALLOW_EXTERNAL_LLM_DATA: bool = True
@@ -42,6 +46,9 @@ class Settings(BaseSettings):
     ENABLE_MULTI_TENANCY: bool = True
     ENABLE_PII_FIREWALL: bool = True
     ENABLE_GROUNDING_VALIDATOR: bool = True
+    ENABLE_OIDC_SSO: bool = True
+    OIDC_ISSUER_URL: str = "https://iam.enterprise.internal/auth/realms/analytics"
+    OIDC_CLIENT_ID: str = "ai-analytics-platform"
 
     CORS_ORIGINS: List[str] = [
         "http://localhost:3000",

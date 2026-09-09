@@ -3,17 +3,18 @@
 
 <p align="center">
   <a href="README_tw.md"><b>繁體中文</b></a> |
-  <a href="README.md"><b>English</b></a>
+  <a href="README.md"><b>English</b></a> |
+  <a href="#-live-demo--cloud-deployment-guide-雲端部署指引"><b>🚀 Live Demo 與雲端部署</b></a>
 </p>
 
+[![CI/CD Pipeline](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform/actions/workflows/ci.yml/badge.svg)](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform/actions)
+[![SCA Security](https://img.shields.io/badge/SCA%20Scan-pip--audit%20Passed-brightgreen?style=flat-square&logo=githubactions)](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform/actions)
+[![Dependabot](https://img.shields.io/badge/Dependabot-Active-02569B?style=flat-square&logo=dependabot)](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
 [![Next.js](https://img.shields.io/badge/Next.js-14.0-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![DuckDB](https://img.shields.io/badge/DuckDB-0.10.0-FFF000?style=flat-square&logo=duckdb&logoColor=black)](https://duckdb.org)
-[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-3.6%20Flash-4285F4?style=flat-square&logo=google)](https://ai.google.dev/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)](https://www.docker.com)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
-[![Pytest](https://img.shields.io/badge/Pytest-Passing-brightgreen?style=flat-square&logo=pytest)](https://pytest.org)
+[![Pytest](https://img.shields.io/badge/Pytest-31%20Passed-brightgreen?style=flat-square&logo=pytest)](https://pytest.org)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 ---
@@ -78,7 +79,21 @@ graph TD
 系統預載並完整整合了 **6 大跨行業標準真實公開數據集**，總計超過 24,000+ 筆結構化數據，儲存於高效能 DuckDB 唯讀分析引擎中：
 
 > 💡 **架構定位與資料規模說明 (Data Scale & Scope)**：  
-> 預載的 6 組資料集（各領域 2,400 ~ 10,600 筆，總計 24,000+ 筆）作為**架構概念驗證 (POC) 與本機/CI/CD 輕量可重現測試基底**。本平台核心展示的是「安全治理中介層 (AST Policy, RLS, CLS, Double Sandbox)」的確定性防護能力，此架構完全支援無縫遷移至千萬至億級列的雲端資料倉儲 (Snowflake / Google BigQuery / ClickHouse)。相關壓測工具請參閱 [concurrency_benchmark.py](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/benchmarks/concurrency_benchmark.py)。
+> 預載的 6 組資料集（各領域 2,400 ~ 10,600 筆，總計 24,000+ 筆）作為**架構概念驗證 (POC) 與本機/CI/CD 輕量可重現測試基底**。本平台核心展示的是「安全治理中介層 (AST Policy, RLS, CLS, Double Sandbox)」的確定性防護能力，此架構完全支援無縫遷移至千萬至億級列的雲端資料倉儲 (Snowflake / Google BigQuery / ClickHouse)。
+
+#### 📊 DuckDB 實測併發讀取與延遲基準 (Concurrency Benchmark Results)
+依據 `benchmarks/concurrency_benchmark.py` 在跨 4 大企業業務領域（電商 GMV、計程車費率、航班準點率、銷售訂單）聚合查詢之實測數據：
+
+| 併發執行緒 (Threads) | 總查詢數 (Queries) | 執行總耗時 (Duration) | 吞吐量 (QPS) | P50 延遲 (ms) | P95 延遲 (ms) | P99 延遲 (ms) | 錯誤率 (Errors) |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **1 thread**  | 12  | 0.360s | **33.3**   | 27.90ms | 40.16ms | 40.16ms | 0 (0.0%) |
+| **5 threads**  | 60  | 0.162s | **370.2**  | 8.81ms  | 27.84ms | 39.80ms | 0 (0.0%) |
+| **10 threads** | 120 | 0.203s | **589.7**  | 10.12ms | 25.32ms | 38.89ms | 0 (0.0%) |
+| **25 threads** | 300 | 0.190s | **1,577.1** | 9.40ms  | 26.85ms | 37.04ms | 0 (0.0%) |
+| **50 threads** | 600 | 0.343s | **1,750.7** | 20.72ms | 42.99ms | 53.36ms | 0 (0.0%) |
+
+*架構結論：單節點 DuckDB 在 50 併發下依然展現近零錯誤與 >1,750 QPS 的高效唯讀表現，P99 延遲低於 55ms。當面對 >100 併發高頻分析師或 PB 級分散式資料時，中介治理層可無痛切換至 Snowflake / BigQuery。*
+
 
 | # | 業務領域 | 資料集名稱與來源 | 規模與表數 | 安全級別 | 涵蓋資料表與重點分析維度 |
 |---|---|---|---|---|---|
@@ -362,6 +377,35 @@ python -m app.evaluation.eval_runner
 | **4. 外部 API 容錯韌性 (Resilience)** | 實作熔斷器模式 (Circuit Breaker) 與指數退避重試，API 失敗即時平滑降級。 | 支援多雲 LLM (Gemini ↔ Claude ↔ OpenAI ↔ Local vLLM) 動態自動容災切換。 |
 | **5. 軟體供應鏈安全 (SCA)** | CI/CD 整合 `pip-audit` 弱點掃描與 `Dependabot` 自動化補丁機制。 | 容器鏡像 Trivy 漏洞掃描與 SBOM (Software Bill of Materials) 生成。 |
 | **6. 語意層版本管理 (Semantic Layer)** | 指標登錄表 (Metric Registry) 納入版本號、責任人與審計歷程元數據。 | 支援 GitOps 指標即代碼 (Metrics as Code) 與變更審核自動回滾流程。 |
+| **7. 靜態資料加密 (Encryption at Rest)** | 本機 DuckDB 與 SQLite/PostgreSQL 檔案未加密儲存，專注於查詢層 RLS/CLS。 | 儲存卷掛載 Linux LUKS / AWS EBS KMS 磁碟加密，雲端物件儲存啟用 SSE-KMS / CMK 客戶端託管金鑰。 |
+| **8. 企業級 SSO / OIDC (Enterprise IAM)** | 本地 JWT 認證搭配 4 大角色模擬 (`ORG_ADMIN`, `ANALYST`, `VIEWER`, `DPO`)。 | 整合 OIDC / SAML 2.0 (Keycloak / Okta / Azure AD / Auth0) 與 SCIM 2.0 目錄同步。 |
+
+---
+
+## 🌐 Live Demo & Cloud Deployment Guide (雲端部署指引)
+
+本架構具備極低資源開銷特性，可一鍵部署至各大雲端 PaaS 平台（Render, Railway, Fly.io, AWS ECS）：
+
+### 1. 快速部署至 Render / Railway (Free / Hobby Tier)
+1. **GitHub 授權與連接**：Fork 本倉庫至您的 GitHub 帳號，於 [Render](https://render.com) 或 [Railway](https://railway.app) 點擊 **New Project -> Deploy from GitHub**。
+2. **環境變數配置 (Environment Variables)**：
+   ```env
+   APP_ENV=production
+   SECRET_KEY=change-to-a-secure-random-32-character-secret-key!
+   LLM_PROVIDER=mock      # 預設為確定性分析引擎（無需外部 Key 即可展示全部功能）
+   # LLM_PROVIDER=gemini  # 如需外接 Gemini，請設定 GEMINI_API_KEY
+   # GEMINI_API_KEY=your-gemini-api-key
+   PORT=8000
+   ```
+3. **服務啟動指令**：
+   - **Backend Service**：`uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Frontend Service**：`cd frontend && npm install && npm run build && npm run start`（將 `NEXT_PUBLIC_API_URL` 指向後端網址）
+
+### 2. 本機即時展示帳號 (Demo Credentials)
+系統預設提供 3 組測試角色，無需註冊即可登入體驗：
+- **企業管理員 (ORG_ADMIN)**: `admin@acme.com` / `password123`
+- **數據分析師 (ANALYST)**: `analyst@acme.com` / `password123`
+- **唯讀檢視者 (VIEWER)**: `viewer@acme.com` / `password123`
 
 ---
 

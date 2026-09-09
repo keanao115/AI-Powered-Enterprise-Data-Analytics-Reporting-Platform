@@ -36,10 +36,17 @@ frontend/node_modules/
 frontend/.next/
 frontend/out/
 
-# Environment files
+# Environment files & Secrets (Never commit to Git)
 .env
-.env.local
-.env.production
+.env*
+*.env
+backend/.env
+frontend/.env
+!.env.example
+
+# Temporary and export storage
+storage/
+backend/storage/
 
 # Testing / Coverage
 .coverage

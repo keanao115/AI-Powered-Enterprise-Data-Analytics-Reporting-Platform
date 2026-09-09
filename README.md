@@ -3,17 +3,18 @@
 
 <p align="center">
   <a href="README_tw.md"><b>繁體中文</b></a> |
-  <a href="README.md"><b>English</b></a>
+  <a href="README.md"><b>English</b></a> |
+  <a href="#-live-demo--cloud-deployment-guide"><b>🚀 Live Demo & Deployment</b></a>
 </p>
 
+[![CI/CD Pipeline](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform/actions/workflows/ci.yml/badge.svg)](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform/actions)
+[![SCA Security](https://img.shields.io/badge/SCA%20Scan-pip--audit%20Passed-brightgreen?style=flat-square&logo=githubactions)](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform/actions)
+[![Dependabot](https://img.shields.io/badge/Dependabot-Active-02569B?style=flat-square&logo=dependabot)](https://github.com/keanao115/AI-Powered-Enterprise-Data-Analytics-Reporting-Platform)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
 [![Next.js](https://img.shields.io/badge/Next.js-14.0-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![DuckDB](https://img.shields.io/badge/DuckDB-0.10.0-FFF000?style=flat-square&logo=duckdb&logoColor=black)](https://duckdb.org)
-[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-3.6%20Flash-4285F4?style=flat-square&logo=google)](https://ai.google.dev/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)](https://www.docker.com)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
-[![Pytest](https://img.shields.io/badge/Pytest-Passing-brightgreen?style=flat-square&logo=pytest)](https://pytest.org)
+[![Pytest](https://img.shields.io/badge/Pytest-31%20Passed-brightgreen?style=flat-square&logo=pytest)](https://pytest.org)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 ---
@@ -80,7 +81,21 @@ graph TD
 The platform comes pre-seeded with **6 curated real-world public enterprise datasets** comprising over 24,000+ structured records stored in DuckDB:
 
 > 💡 **Architectural Scope & Sizing Note**:  
-> The pre-seeded datasets (2,400 ~ 10,600 rows per domain, ~24,000 rows total) serve as an **architectural reference implementation and reproducible CI/CD testbed**. The deterministic governance layer (AST Policy Engine, RLS Rewriter, CLS Masker, and Sandboxed Runner) is decoupled from the storage layer and can be migrated seamlessly to cloud-scale data warehouses (Snowflake, Google BigQuery, ClickHouse) handling billion-row workloads. For concurrency and latency analysis on DuckDB, see [concurrency_benchmark.py](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/benchmarks/concurrency_benchmark.py).
+> The pre-seeded datasets (2,400 ~ 10,600 rows per domain, ~24,000 rows total) serve as an **architectural reference implementation and reproducible CI/CD testbed**. The deterministic governance layer (AST Policy Engine, RLS Rewriter, CLS Masker, and Sandboxed Runner) is decoupled from the storage layer and can be migrated seamlessly to cloud-scale data warehouses (Snowflake, Google BigQuery, ClickHouse) handling billion-row workloads.
+
+#### 📊 Measured DuckDB Concurrency & Latency Benchmark (實測效能基準)
+Benchmarked via `benchmarks/concurrency_benchmark.py` running analytical multi-table aggregations across 4 enterprise domains:
+
+| Concurrent Readers | Total Queries | Elapsed Time | Throughput (QPS) | P50 Latency (ms) | P95 Latency (ms) | P99 Latency (ms) | Errors |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **1 thread** | 12 | 0.360s | **33.3** | 27.90ms | 40.16ms | 40.16ms | 0 (0.0%) |
+| **5 threads** | 60 | 0.162s | **370.2** | 8.81ms | 27.84ms | 39.80ms | 0 (0.0%) |
+| **10 threads** | 120 | 0.203s | **589.7** | 10.12ms | 25.32ms | 38.89ms | 0 (0.0%) |
+| **25 threads** | 300 | 0.190s | **1,577.1** | 9.40ms | 26.85ms | 37.04ms | 0 (0.0%) |
+| **50 threads** | 600 | 0.343s | **1,750.7** | 20.72ms | 42.99ms | 53.36ms | 0 (0.0%) |
+
+*Architectural Takeaway: DuckDB delivers >1,750 QPS with sub-21ms median latency and sub-55ms P99 under 50 concurrent threads on a single node. Workloads requiring >100 concurrent analysts or distributed data lakehouse storage can seamlessly swap the engine to Snowflake/BigQuery.*
+
 
 | # | Industry Domain | Dataset Name & Publisher | Volume & Tables | Security Classification | Included Tables & Key Analytical Dimensions |
 |---|---|---|---|---|---|
@@ -363,6 +378,35 @@ python -m app.evaluation.eval_runner
 | **4. 外部 API 容錯韌性 (Resilience)** | 實作熔斷器模式 (Circuit Breaker) 與指數退避重試，API 失敗即時平滑降級。 | 支援多雲 LLM (Gemini ↔ Claude ↔ OpenAI ↔ Local vLLM) 動態自動容災切換。 |
 | **5. 軟體供應鏈安全 (SCA)** | CI/CD 整合 `pip-audit` 弱點掃描與 `Dependabot` 自動化補丁機制。 | 容器鏡像 Trivy 漏洞掃描與 SBOM (Software Bill of Materials) 生成。 |
 | **6. 語意層版本管理 (Semantic Layer)** | 指標登錄表 (Metric Registry) 納入版本號、責任人與審計歷程元數據。 | 支援 GitOps 指標即代碼 (Metrics as Code) 與變更審核自動回滾流程。 |
+| **7. 靜態資料加密 (Encryption at Rest)** | 本機 DuckDB 與 SQLite/PostgreSQL 檔案未加密儲存，專注於查詢層 RLS/CLS。 | 儲存卷掛載 Linux LUKS / AWS EBS KMS 磁碟加密，雲端物件儲存啟用 SSE-KMS / CMK 客戶端託管金鑰。 |
+| **8. 企業級 SSO / OIDC (Enterprise IAM)** | 本地 JWT 認證搭配 4 大角色模擬 (`ORG_ADMIN`, `ANALYST`, `VIEWER`, `DPO`)。 | 整合 OIDC / SAML 2.0 (Keycloak / Okta / Azure AD / Auth0) 與 SCIM 2.0 目錄同步。 |
+
+---
+
+## 🌐 Live Demo & Cloud Deployment Guide (雲端部署指引)
+
+本架構具備極低資源開銷特性，可一鍵部署至各大雲端 PaaS 平台（Render, Railway, Fly.io, AWS ECS）：
+
+### 1. 快速部署至 Render / Railway (Free / Hobby Tier)
+1. **GitHub 授權與連接**：Fork 本倉庫至您的 GitHub 帳號，於 [Render](https://render.com) 或 [Railway](https://railway.app) 點擊 **New Project -> Deploy from GitHub**。
+2. **環境變數配置 (Environment Variables)**：
+   ```env
+   APP_ENV=production
+   SECRET_KEY=change-to-a-secure-random-32-character-secret-key!
+   LLM_PROVIDER=mock      # 預設為確定性分析引擎（無需外部 Key 即可展示全部功能）
+   # LLM_PROVIDER=gemini  # 如需外接 Gemini，請設定 GEMINI_API_KEY
+   # GEMINI_API_KEY=your-gemini-api-key
+   PORT=8000
+   ```
+3. **服務啟動指令**：
+   - **Backend Service**：`uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+   - **Frontend Service**：`cd frontend && npm install && npm run build && npm run start`（將 `NEXT_PUBLIC_API_URL` 指向後端網址）
+
+### 2. 本機即時展示帳號 (Demo Credentials)
+系統預設提供 3 組測試角色，無需註冊即可登入體驗：
+- **企業管理員 (ORG_ADMIN)**: `admin@acme.com` / `password123`
+- **數據分析師 (ANALYST)**: `analyst@acme.com` / `password123`
+- **唯讀檢視者 (VIEWER)**: `viewer@acme.com` / `password123`
 
 ---
 

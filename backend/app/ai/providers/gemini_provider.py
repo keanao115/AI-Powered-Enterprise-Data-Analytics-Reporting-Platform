@@ -87,9 +87,9 @@ class GeminiProvider:
             "x-goog-api-key": self.api_key,
         }
 
-        # Candidate models to try (limited to top 2 for fast failover)
+        # Candidate models to try (prioritize fast low-latency models)
         clean_target = self.model[7:] if self.model and self.model.startswith("models/") else self.model
-        candidate_models = [clean_target, "gemini-1.5-flash", "gemini-2.0-flash"]
+        candidate_models = ["gemini-flash-lite-latest", clean_target, "gemini-flash-latest"]
         unique_models = []
         for m in candidate_models:
             if m and m not in unique_models:
@@ -99,7 +99,7 @@ class GeminiProvider:
         for m_name in unique_models[:2]:  # Test at most 2 candidate models
             api_url = f"https://generativelanguage.googleapis.com/v1beta/models/{m_name}:generateContent"
             try:
-                with httpx.Client(timeout=8.0) as client:
+                with httpx.Client(timeout=20.0) as client:
                     resp = client.post(
                         api_url,
                         headers=headers,
