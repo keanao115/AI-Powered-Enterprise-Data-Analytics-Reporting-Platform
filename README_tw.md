@@ -1,9 +1,9 @@
 # 🌐 AI-Powered Enterprise Data Analytics & Reporting Platform
-### 企業級 AI 智慧數據分析、決策報告與安全治理平台
+### 架構參考實作：企業級 AI 數據分析、決策報告與安全治理平台 (Architectural Reference Implementation)
 
 <p align="center">
-  <a href="README.md"><b>繁體中文</b></a> |
-  <a href="README_en.md"><b>English</b></a>
+  <a href="README_tw.md"><b>繁體中文</b></a> |
+  <a href="README.md"><b>English</b></a>
 </p>
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
@@ -14,13 +14,13 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
 [![Pytest](https://img.shields.io/badge/Pytest-Passing-brightgreen?style=flat-square&logo=pytest)](https://pytest.org)
-[![License](https://img.shields.io/badge/License-Proprietary%20%2F%20MIT-blue?style=flat-square)](#)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 ---
 
 ## 📖 專案概述 (Project Overview)
 
-**AI-Powered Enterprise Data Analytics & Reporting Platform** 是一套專為現代企業設計的 **高可靠、確定性安全邊界（Deterministic Security Boundaries）與多租戶隔離** 之 AI 智慧數據分析與報告平台。
+**AI-Powered Enterprise Data Analytics & Reporting Platform** 是一套專為企業級安全與資料治理設計的 **架構參考實作 (Architectural Reference Implementation / POC)**，示範如何在多租戶環境下建立 **確定性安全邊界（Deterministic Security Boundaries）**、行級/列級資料隔離與嚴謹的數值事實驗證機制。
 
 傳統 Text-to-SQL 或 AI 數據代理人往往面臨「LLM 幻覺」、「非受控的資料庫寫入/破壞風險」、「租戶數據越權洩漏」以及「未經事實驗證的虛假商業推論」。本平台的核心設計原則為：
 
@@ -77,6 +77,9 @@ graph TD
 
 系統預載並完整整合了 **6 大跨行業標準真實公開數據集**，總計超過 24,000+ 筆結構化數據，儲存於高效能 DuckDB 唯讀分析引擎中：
 
+> 💡 **架構定位與資料規模說明 (Data Scale & Scope)**：  
+> 預載的 6 組資料集（各領域 2,400 ~ 10,600 筆，總計 24,000+ 筆）作為**架構概念驗證 (POC) 與本機/CI/CD 輕量可重現測試基底**。本平台核心展示的是「安全治理中介層 (AST Policy, RLS, CLS, Double Sandbox)」的確定性防護能力，此架構完全支援無縫遷移至千萬至億級列的雲端資料倉儲 (Snowflake / Google BigQuery / ClickHouse)。相關壓測工具請參閱 [concurrency_benchmark.py](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/benchmarks/concurrency_benchmark.py)。
+
 | # | 業務領域 | 資料集名稱與來源 | 規模與表數 | 安全級別 | 涵蓋資料表與重點分析維度 |
 |---|---|---|---|---|---|
 | **01** | **零售與電商** | [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) | 10,600+ 筆<br/>(6 張表) | `PUBLIC` | `olist_orders`, `olist_order_items`, `olist_products`, `olist_customers`, `olist_order_payments`, `olist_order_reviews`<br/>*GMV 營收趨勢、AOV、運費跨州分佈、交付延遲率、滿意度評分* |
@@ -115,7 +118,7 @@ graph TD
 - **數據品質評分 (Data Quality Engine)**：自動檢測查詢結果之空值率 (Null Ratio)、重複資料數 (Duplicates)、時效性與完整性評分。
 
 ### 5. 🎯 數據事實 Grounding 與商業決策報告
-- **100% 數值事實錨定 (Grounded Claims)**：自動將 LLM 產生的每一句推論與資料庫實際返回的數值進行交叉驗證，標註 `SUPPORTED` 或 `UNSUPPORTED`，根絕 AI 幻覺。
+- **數值事實交叉驗證機制 (Empirical Fact Grounding)**：透過正則數值提取與公差比對（±0.5%），將 LLM 產生的量化推論與資料庫底層真實結果集進行逐項核對，標註 `SUPPORTED`、`UNSUPPORTED` 或 `APPROXIMATED`，嚴格抑制 AI 幻覺。
 - **專業全繁體中文輸出**：依據高階商業顧問標準輸出「執行摘要」、「核心數據發現」與「策略行動建議」。
 - **多格式報告導出**：支援產出專業排版的 **PDF 報告 (ReportLab)**、**Excel 試算表 (OpenPyXL)** 與 **CSV 格式**。
 
@@ -343,6 +346,22 @@ python -m app.evaluation.eval_runner
 - **動態 PII 脫敏 (CLS)**：針對 `ssn`, `email`, `phone`, `credit_card` 等機敏欄位，自動於 SQL 查詢層進行雜湊與遮蔽替換。
 - **雙重沙箱防護**：靜態 AST 審查禁用 `os`, `sys`, `subprocess`, `socket`, `eval`, `exec` 等高危模組，並限定執行時間與記憶體。
 - **合規就緒 (Compliance Ready)**：設計嚴格符合 SOC2 Type II（最小權限原則）、ISO 27001（機密隔離）、HIPAA / PCI-DSS（敏感數據脫敏）與 GDPR / CCPA 規範。
+
+---
+
+## ⚠️ 已知限制與架構路線圖 (Known Limitations & Architecture Roadmap)
+
+> 誠實揭露設計權衡與架構邊界，是構建生產級工程可信度的基石。完整架構審查報告與改進藍圖請參見：  
+> 📖 **[已知限制與改進路線圖完整文件](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/docs/known-limitations-and-roadmap.md)**
+
+| 維度 (Domain) | 當前設計取捨 (Current POC Trade-off) | 生產環境演進路徑 (Production Scale Evolution) |
+|---|---|---|
+| **1. 數據規模與選型 (Scale & Sizing)** | 預載 6 組真實資料集 (~24,000 列) 作為輕量展示基底與快速 CI/CD 測試集。 | 治理中介層 (AST/RLS/CLS) 完全資料庫無關，直接適配 Snowflake / BigQuery 等分散式雲端倉儲。 |
+| **2. 多租戶隔離強度 (Multi-Tenancy)** | 共享程序之邏輯 RLS 注入 (`WHERE tenant_id = :id`)，極大化單機資源利用率。 | 面對 HIPAA 等強合規場景，提供 Schema-per-tenant 或 Database-per-tenant 隔離演進架構。 |
+| **3. LLM 成本與防濫用治理 (LLM Governance)** | 內建 Token Budget 預算控制器、每分鐘請求速率限制 (RPM) 與滑動窗口防重放機制。 | 接入 Redis 分散式限流與企業級語意快取 (Semantic Caching)。 |
+| **4. 外部 API 容錯韌性 (Resilience)** | 實作熔斷器模式 (Circuit Breaker) 與指數退避重試，API 失敗即時平滑降級。 | 支援多雲 LLM (Gemini ↔ Claude ↔ OpenAI ↔ Local vLLM) 動態自動容災切換。 |
+| **5. 軟體供應鏈安全 (SCA)** | CI/CD 整合 `pip-audit` 弱點掃描與 `Dependabot` 自動化補丁機制。 | 容器鏡像 Trivy 漏洞掃描與 SBOM (Software Bill of Materials) 生成。 |
+| **6. 語意層版本管理 (Semantic Layer)** | 指標登錄表 (Metric Registry) 納入版本號、責任人與審計歷程元數據。 | 支援 GitOps 指標即代碼 (Metrics as Code) 與變更審核自動回滾流程。 |
 
 ---
 

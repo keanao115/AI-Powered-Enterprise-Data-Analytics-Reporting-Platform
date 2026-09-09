@@ -29,7 +29,7 @@ services:
       - ANALYTICS_DATABASE_URL=duckdb:///./analytics_demo.duckdb
       - LLM_PROVIDER=gemini
       - LLM_MODEL=gemini-3.6-flash
-      - GEMINI_API_KEY=AQ.Ab8RN6Lvapi3koHifCNG3P7CgIpsUgih4bgMPRaoPoONcVSLTw
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
       - GEMINI_MODEL=gemini-3.6-flash
       - ALLOW_EXTERNAL_LLM_DATA=true
       - SECRET_KEY=docker-compose-secret-key-change-for-prod

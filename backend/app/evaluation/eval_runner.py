@@ -328,3 +328,33 @@ class EvaluationRunner:
 
 
 evaluation_runner = EvaluationRunner()
+
+if __name__ == "__main__":
+    import sys
+    from app.core.tenant import TenantContext
+
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+    ctx = TenantContext(
+        tenant_id="tenant-acme",
+        organization_id="org-acme",
+        workspace_id="ws-main",
+        user_id="usr-eval-cli",
+        permissions=["EVALUATION_RUN"],
+    )
+    print("=" * 80)
+    print(" [BENCHMARK] EXECUTING 180-SCENARIO EVALUATION SUITE")
+    print("=" * 80)
+    report = evaluation_runner.run_all_benchmarks(ctx)
+    print(f" Total Scenarios:  {report['total_scenarios']}")
+    print(f" Passed Scenarios: {report['passed_scenarios']}")
+    print(f" Failed Scenarios: {report['failed_scenarios']}")
+    print(f" Accuracy Rate:    {report['accuracy_pct']}%")
+    print(f" Elapsed Time:     {report['duration_seconds']}s")
+    print("-" * 80)
+    print(" Breakdown:")
+    for k, v in report['breakdown'].items():
+        print(f"   - {k:<25}: {v} scenarios")
+    print("=" * 80)
+

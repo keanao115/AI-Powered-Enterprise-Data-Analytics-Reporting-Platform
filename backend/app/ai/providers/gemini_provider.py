@@ -4,6 +4,14 @@ from typing import Any, Dict, List, Optional
 import httpx
 from app.core.config import settings
 from app.ai.schemas.llm_schemas import LLMMessage, LLMResponse
+from app.ai.resilience import CircuitBreaker
+
+# Shared module-level circuit breaker instance for Gemini
+gemini_circuit_breaker = CircuitBreaker(
+    name="GeminiAPI",
+    failure_threshold=2,
+    recovery_timeout=60.0
+)
 
 
 class GeminiProvider:
@@ -23,10 +31,17 @@ class GeminiProvider:
     ) -> LLMResponse:
         start_time = time.time()
 
+        # Fast path: If no API key or circuit breaker is OPEN, instantly use deterministic fallback
         if not self.api_key:
-            # Fallback gracefully to mock provider if API key not provided
             from app.ai.providers.mock_provider import MockLLMProvider
             return MockLLMProvider(model=self.model).generate(messages, tools, temperature)
+
+        if not gemini_circuit_breaker.can_execute():
+            print("[GeminiProvider] Circuit breaker is OPEN. Fast-failing directly to deterministic analysis engine.")
+            from app.ai.providers.mock_provider import MockLLMProvider
+            fallback_res = MockLLMProvider(model=self.model).generate(messages, tools, temperature)
+            fallback_res.latency_ms = (time.time() - start_time) * 1000
+            return fallback_res
 
         # Prepare Gemini payload
         system_instructions = []
@@ -72,34 +87,29 @@ class GeminiProvider:
             "x-goog-api-key": self.api_key,
         }
 
-        # Candidate models to try in order of priority
-        candidate_models = [
-            "gemini-3.1-flash-lite-preview",
-            "gemini-3-flash-preview",
-            "gemini-3.1-flash-lite",
-            "gemini-3.7-flash",
-            "gemini-flash-latest",
-        ]
-        if self.model and self.model not in candidate_models:
-            clean_m = self.model[7:] if self.model.startswith("models/") else self.model
-            candidate_models.insert(0, clean_m)
-
+        # Candidate models to try (limited to top 2 for fast failover)
+        clean_target = self.model[7:] if self.model and self.model.startswith("models/") else self.model
+        candidate_models = [clean_target, "gemini-1.5-flash", "gemini-2.0-flash"]
         unique_models = []
         for m in candidate_models:
-            if m not in unique_models:
+            if m and m not in unique_models:
                 unique_models.append(m)
 
         last_error = None
-        for m_name in unique_models:
+        for m_name in unique_models[:2]:  # Test at most 2 candidate models
             api_url = f"https://generativelanguage.googleapis.com/v1beta/models/{m_name}:generateContent"
             try:
-                with httpx.Client(timeout=20.0) as client:
+                with httpx.Client(timeout=8.0) as client:
                     resp = client.post(
                         api_url,
                         headers=headers,
                         json=payload,
                         params={"key": self.api_key}
                     )
+                    # For auth / permission errors, stop retrying models immediately
+                    if resp.status_code in [400, 401, 403]:
+                        resp.raise_for_status()
+
                     resp.raise_for_status()
                     data = resp.json()
 
@@ -118,6 +128,9 @@ class GeminiProvider:
 
                 estimated_cost = (prompt_tokens * 0.000000075) + (completion_tokens * 0.00000030)
 
+                # Record success to close circuit breaker
+                gemini_circuit_breaker.record_success()
+
                 return LLMResponse(
                     content=content_text.strip(),
                     tool_calls=[],
@@ -128,12 +141,20 @@ class GeminiProvider:
                     estimated_cost_usd=round(estimated_cost, 7),
                     latency_ms=round(latency_ms, 2),
                 )
+            except httpx.HTTPStatusError as e:
+                last_error = e
+                if e.response.status_code in [400, 401, 403]:
+                    # Bad credentials - break immediately to trigger fallback and record failure
+                    break
             except Exception as e:
                 last_error = e
                 continue
 
-        # If all Gemini models fail (e.g. offline or quota), fallback gracefully to MockLLMProvider
-        print(f"[GeminiProvider Warning] All Gemini API models failed ({last_error}). Falling back to deterministic analysis engine.")
+        # Record failure on circuit breaker
+        gemini_circuit_breaker.record_failure(last_error)
+
+        # Fallback gracefully to MockLLMProvider
+        print(f"[GeminiProvider Warning] Gemini API call failed ({last_error}). Gracefully falling back to deterministic analysis engine.")
         from app.ai.providers.mock_provider import MockLLMProvider
         fallback_res = MockLLMProvider(model=self.model).generate(messages, tools, temperature)
         fallback_res.latency_ms = (time.time() - start_time) * 1000

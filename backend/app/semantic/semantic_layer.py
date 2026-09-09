@@ -11,6 +11,13 @@ class MetricDefinition(BaseModel):
     dimensions: List[str]
     allowed_aggregations: List[str]
     governance_rule: Optional[str] = None
+    version: str = "1.0.0"
+    owner: str = "Data Governance Committee"
+    status: str = "APPROVED"
+    last_modified: str = "2026-09-08"
+    change_history: List[Dict[str, Any]] = [
+        {"version": "1.0.0", "author": "System Bootstrap", "date": "2026-09-08", "reason": "Initial verified enterprise baseline"}
+    ]
 
 
 class SemanticLayer:
@@ -192,6 +199,38 @@ class SemanticLayer:
 
     def get_metric(self, name: str) -> Optional[MetricDefinition]:
         return self.metrics.get(name)
+
+    def update_metric_formula(
+        self,
+        metric_key: str,
+        new_formula: str,
+        user_id: str,
+        reason: str,
+        new_version: str,
+    ) -> Optional[MetricDefinition]:
+        """
+        Governed mutation of a metric formula with audit trail and version increment.
+        """
+        metric = self.metrics.get(metric_key)
+        if not metric:
+            return None
+
+        # Record history
+        metric.change_history.append({
+            "version": metric.version,
+            "formula_before": metric.formula,
+            "author": user_id,
+            "date": "2026-09-08",
+            "reason": reason,
+        })
+        metric.formula = new_formula
+        metric.version = new_version
+        metric.last_modified = "2026-09-08"
+        return metric
+
+    def get_metric_history(self, metric_key: str) -> List[Dict[str, Any]]:
+        metric = self.metrics.get(metric_key)
+        return metric.change_history if metric else []
 
 
 semantic_layer = SemanticLayer()

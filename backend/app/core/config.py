@@ -20,9 +20,9 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite+aiosqlite:///./app.db"
     ANALYTICS_DATABASE_URL: str = "duckdb:///./analytics_demo.duckdb"
 
-    LLM_PROVIDER: str = "gemini"
+    LLM_PROVIDER: str = "mock"
     LLM_MODEL: str = "gemini-3.1-flash-lite-preview"
-    GEMINI_API_KEY: Optional[str] = "AQ.Ab8RN6IOC7d2gNcjXr_M98DhMA8dSHCAHdReccgABVc5rJhljw"
+    GEMINI_API_KEY: Optional[str] = None
     GEMINI_MODEL: str = "gemini-3.1-flash-lite-preview"
     OPENAI_API_KEY: Optional[str] = None
     ANTHROPIC_API_KEY: Optional[str] = None
@@ -33,6 +33,8 @@ class Settings(BaseSettings):
     MAX_SANDBOX_SECONDS: int = 15
     MAX_EXPORT_ROWS: int = 50000
     AI_DAILY_BUDGET_USD: float = 50.0
+    PER_TENANT_DAILY_TOKEN_BUDGET: int = 250000
+    PER_TENANT_RATE_LIMIT_RPM: int = 60
 
     ENABLE_SANDBOX: bool = True
     ENABLE_REPORTS: bool = True

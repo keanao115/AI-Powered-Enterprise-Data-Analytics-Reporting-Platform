@@ -1,9 +1,9 @@
 # 🌐 AI-Powered Enterprise Data Analytics & Reporting Platform
-### Enterprise-Grade AI Analyst Agent with Deterministic Security Boundaries & Governed Business Intelligence
+### Architectural Reference Implementation: Enterprise Data Intelligence & Governance Platform with Deterministic Security Boundaries
 
 <p align="center">
-  <a href="README.md"><b>繁體中文</b></a> |
-  <a href="README_en.md"><b>English</b></a>
+  <a href="README_tw.md"><b>繁體中文</b></a> |
+  <a href="README.md"><b>English</b></a>
 </p>
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
@@ -20,7 +20,7 @@
 
 ## 📖 Executive Summary
 
-**AI-Powered Enterprise Data Analytics & Reporting Platform** is a full-stack, enterprise-ready decision intelligence and automated reporting system. It is engineered from the ground up with **deterministic security boundaries**, **multi-tenant isolation**, and **mathematical fact grounding**.
+**AI-Powered Enterprise Data Analytics & Reporting Platform** is an **architectural reference implementation and proof-of-concept (POC)** demonstrating how enterprise-grade security boundaries, multi-tenant isolation, and empirical fact grounding can be applied to LLM-driven analytical reporting.
 
 Traditional Text-to-SQL solutions and LLM data agents suffer from critical enterprise vulnerabilities: prompt injection attacks, accidental schema destructions, cross-tenant data leaks, unmasked PII exposure, and ungrounded hallucinations.
 
@@ -79,6 +79,9 @@ graph TD
 
 The platform comes pre-seeded with **6 curated real-world public enterprise datasets** comprising over 24,000+ structured records stored in DuckDB:
 
+> 💡 **Architectural Scope & Sizing Note**:  
+> The pre-seeded datasets (2,400 ~ 10,600 rows per domain, ~24,000 rows total) serve as an **architectural reference implementation and reproducible CI/CD testbed**. The deterministic governance layer (AST Policy Engine, RLS Rewriter, CLS Masker, and Sandboxed Runner) is decoupled from the storage layer and can be migrated seamlessly to cloud-scale data warehouses (Snowflake, Google BigQuery, ClickHouse) handling billion-row workloads. For concurrency and latency analysis on DuckDB, see [concurrency_benchmark.py](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/benchmarks/concurrency_benchmark.py).
+
 | # | Industry Domain | Dataset Name & Publisher | Volume & Tables | Security Classification | Included Tables & Key Analytical Dimensions |
 |---|---|---|---|---|---|
 | **01** | **E-Commerce & Retail** | [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) | 10,600+ rows<br/>(6 tables) | `PUBLIC` | `olist_orders`, `olist_order_items`, `olist_products`, `olist_customers`, `olist_order_payments`, `olist_order_reviews`<br/>*GMV growth trends, AOV, freight costs across states (SP, RJ, MG), delivery delay rates, customer review scores.* |
@@ -116,7 +119,7 @@ The platform comes pre-seeded with **6 curated real-world public enterprise data
 - **Data Quality Engine**: Evaluates null ratios, duplicate records, data freshness, and structural completeness, assigning an automated quality score.
 
 ### 5. 🎯 Numerical Fact Grounding & Executive Report Export
-- **100% Fact-Checked Claims**: Every numeric claim in the LLM's response is cross-referenced against the raw SQL query result set, flagging unsupported assertions.
+- **Empirical Fact Grounding (數值事實驗證方法論)**: Numerical extraction regex and tolerance matching ($\pm 0.5\%$) cross-references candidate AI assertions against raw database query results, categorizing each statement as `SUPPORTED`, `UNSUPPORTED`, or `APPROXIMATED` with clear audit trails.
 - **Structured Executive Insights**: Formatted in executive-level Markdown with Executive Summary, Key Findings, and Actionable Recommendations.
 - **Multi-Format Export**: Generates professional **PDF Reports (ReportLab)**, **Excel Spreadsheets (OpenPyXL)**, and **CSV Files**.
 
@@ -344,6 +347,22 @@ python -m app.evaluation.eval_runner
 - **Dynamic CLS Redaction**: Sensitive attributes (`ssn`, `email`, `phone`, `credit_card`) are automatically rewritten with dynamic masking expressions.
 - **Double-Sandboxed Python Engine**: Code execution is protected by static AST inspection and process-level isolation.
 - **Compliance-Ready**: Designed in alignment with **SOC2 Type II** (Least Privilege), **ISO 27001** (Credential Isolation), **HIPAA / PCI-DSS** (PII Protection), and **GDPR / CCPA**.
+
+---
+
+## ⚠️ Known Limitations & Architectural Roadmap (已知限制與架構路線圖)
+
+> 誠實揭露設計權衡與架構邊界，是構建生產級工程可信度的基石。完整架構審查報告與改進藍圖請參見：  
+> 📖 **[Detailed Known Limitations & Improvement Roadmap](file:///e:/IT/AI%20Project/AI-Powered%20Enterprise%20Data%20Analytics%20&%20Reporting%20Platform/docs/known-limitations-and-roadmap.md)**
+
+| 維度 (Domain) | 當前設計取捨 (Current POC Trade-off) | 生產環境演進路徑 (Production Scale Evolution) |
+|---|---|---|
+| **1. 數據規模與選型 (Scale & Sizing)** | 預載 6 組真實資料集 (~24,000 列) 作為輕量展示基底與快速 CI/CD 測試集。 | 治理中介層 (AST/RLS/CLS) 完全資料庫無關，直接適配 Snowflake / BigQuery 等分散式雲端倉儲。 |
+| **2. 多租戶隔離強度 (Multi-Tenancy)** | 共享程序之邏輯 RLS 注入 (`WHERE tenant_id = :id`)，極大化單機資源利用率。 | 面對 HIPAA 等強合規場景，提供 Schema-per-tenant 或 Database-per-tenant 隔離演進架構。 |
+| **3. LLM 成本與防濫用治理 (LLM Governance)** | 內建 Token Budget 預算控制器、每分鐘請求速率限制 (RPM) 與滑動窗口防重放機制。 | 接入 Redis 分散式限流與企業級語意快取 (Semantic Caching)。 |
+| **4. 外部 API 容錯韌性 (Resilience)** | 實作熔斷器模式 (Circuit Breaker) 與指數退避重試，API 失敗即時平滑降級。 | 支援多雲 LLM (Gemini ↔ Claude ↔ OpenAI ↔ Local vLLM) 動態自動容災切換。 |
+| **5. 軟體供應鏈安全 (SCA)** | CI/CD 整合 `pip-audit` 弱點掃描與 `Dependabot` 自動化補丁機制。 | 容器鏡像 Trivy 漏洞掃描與 SBOM (Software Bill of Materials) 生成。 |
+| **6. 語意層版本管理 (Semantic Layer)** | 指標登錄表 (Metric Registry) 納入版本號、責任人與審計歷程元數據。 | 支援 GitOps 指標即代碼 (Metrics as Code) 與變更審核自動回滾流程。 |
 
 ---
 
