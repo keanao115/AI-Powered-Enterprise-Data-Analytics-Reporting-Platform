@@ -26,6 +26,7 @@ jobs:
 
       - name: Static Code Analysis & Linting (Ruff)
         run: |
+          ruff format --check backend/ tests/
           ruff check backend/ tests/
 
       - name: Software Supply Chain Vulnerability Scan (pip-audit)
