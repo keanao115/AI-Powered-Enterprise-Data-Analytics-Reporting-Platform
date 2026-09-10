@@ -1,9 +1,9 @@
 import pytest
+from app.core.exceptions import TenantAccessDeniedException
+from app.core.tenant import TenantContext
 from app.sandbox.code_validator import code_validator
 from app.sandbox.runner import sandbox_runner
 from app.security.tenant_isolation import tenant_isolation
-from app.core.tenant import TenantContext
-from app.core.exceptions import TenantAccessDeniedException
 
 
 def test_sandbox_code_validator():
@@ -13,10 +13,10 @@ def test_sandbox_code_validator():
         "import sys; sys.exit(1)",
         "import subprocess; subprocess.run(['ls', '-la'])",
         "import socket; s = socket.socket()",
-        "eval('__import__(\"os\").system(\"id\")')",
+        'eval(\'__import__("os").system("id")\')',
     ]
     for code in dangerous_codes:
-        is_safe, reason = code_validator.validate(code)
+        is_safe, _reason = code_validator.validate(code)
         assert not is_safe, f"Failed to block dangerous Python code: {code}"
 
     # 2. Allow standard pandas / numpy / matplotlib statistical code
@@ -67,8 +67,8 @@ def test_cross_tenant_data_isolation_between_acme_and_globex():
     Remediates Item 2.1: Proves multi-tenant RLS isolation with multiple distinct tenants
     (tenant-acme vs tenant-globex) in synthetic database.
     """
-    from app.query_engine.rls_enforcer import rls_enforcer
     from app.query_engine.executor import query_executor
+    from app.query_engine.rls_enforcer import rls_enforcer
 
     # 1. Verify raw database has total records across all tenants
     raw_cust_res = query_executor.execute("SELECT COUNT(*) AS total FROM customers")
@@ -83,7 +83,7 @@ def test_cross_tenant_data_isolation_between_acme_and_globex():
 
     # 2. Context A: Tenant Acme (All authorized regions)
     query = "SELECT id, name, email FROM customers"
-    rewritten_acme, rules_acme = rls_enforcer.rewrite_with_persona(
+    rewritten_acme, _rules_acme = rls_enforcer.rewrite_with_persona(
         sql_query=query,
         tenant_id="tenant-acme",
         user_role="ANALYST",
@@ -99,7 +99,7 @@ def test_cross_tenant_data_isolation_between_acme_and_globex():
     assert "ops@globex.eu" not in acme_emails  # Zero leakage of Globex data!
 
     # 3. Context B: Tenant Globex (All authorized regions)
-    rewritten_globex, rules_globex = rls_enforcer.rewrite_with_persona(
+    rewritten_globex, _rules_globex = rls_enforcer.rewrite_with_persona(
         sql_query=query,
         tenant_id="tenant-globex",
         user_role="ANALYST",
@@ -116,11 +116,14 @@ def test_cross_tenant_data_isolation_between_acme_and_globex():
 
     # 4. Cross-tenant order counts (using ORG_ADMIN role for unconstrained regional view)
     order_query = "SELECT COUNT(*) as cnt, SUM(amount) as total FROM orders"
-    rewritten_acme_ord, _ = rls_enforcer.rewrite_with_persona(order_query, tenant_id="tenant-acme", user_role="ORG_ADMIN")
+    rewritten_acme_ord, _ = rls_enforcer.rewrite_with_persona(
+        order_query, tenant_id="tenant-acme", user_role="ORG_ADMIN"
+    )
     res_acme_ord = query_executor.execute(rewritten_acme_ord)
     assert int(res_acme_ord["result"]["rows"][0][0]) == 6  # Acme has 6 orders
 
-    rewritten_globex_ord, _ = rls_enforcer.rewrite_with_persona(order_query, tenant_id="tenant-globex", user_role="ORG_ADMIN")
+    rewritten_globex_ord, _ = rls_enforcer.rewrite_with_persona(
+        order_query, tenant_id="tenant-globex", user_role="ORG_ADMIN"
+    )
     res_globex_ord = query_executor.execute(rewritten_globex_ord)
     assert int(res_globex_ord["result"]["rows"][0][0]) == 3  # Globex has 3 orders
-

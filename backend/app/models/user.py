@@ -1,5 +1,7 @@
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, Boolean, DateTime, JSON
+
+from sqlalchemy import JSON, Boolean, Column, DateTime, String
+
 from app.core.database import Base
 
 
@@ -17,4 +19,8 @@ class User(Base):
     authorized_regions = Column(JSON, default=list)
     authorized_departments = Column(JSON, default=list)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
-    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+    updated_at = Column(
+        DateTime,
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
+    )

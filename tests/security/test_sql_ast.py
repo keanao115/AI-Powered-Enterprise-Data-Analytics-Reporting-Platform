@@ -1,7 +1,6 @@
-import pytest
-from app.security.prompt_injection import prompt_security_scanner
-from app.query_engine.ast_policy import ast_policy_engine
 from app.core.tenant import TenantContext
+from app.query_engine.ast_policy import ast_policy_engine
+from app.security.prompt_injection import prompt_security_scanner
 
 
 def test_prompt_injection_scanner():

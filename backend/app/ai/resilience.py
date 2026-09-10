@@ -1,13 +1,14 @@
-import time
-import random
 import logging
-from typing import Any, Callable, Dict, Optional
+import random
+import time
+from typing import Any, Callable, Optional
 
 logger = logging.getLogger(__name__)
 
 
 class CircuitBreakerOpenException(Exception):
     """Raised when circuit breaker is OPEN, short-circuiting calls."""
+
     pass
 
 
@@ -41,7 +42,9 @@ class CircuitBreaker:
 
         if self.state == "OPEN":
             if (now - self.last_failure_time) >= self.recovery_timeout:
-                logger.info(f"[{self.name} CircuitBreaker] Recovery timeout elapsed. Transitioning OPEN -> HALF_OPEN.")
+                logger.info(
+                    f"[{self.name} CircuitBreaker] Recovery timeout elapsed. Transitioning OPEN -> HALF_OPEN."
+                )
                 self.state = "HALF_OPEN"
                 return True
             return False
@@ -53,7 +56,9 @@ class CircuitBreaker:
 
     def record_success(self):
         if self.state != "CLOSED":
-            logger.info(f"[{self.name} CircuitBreaker] Success recorded. Resetting state to CLOSED.")
+            logger.info(
+                f"[{self.name} CircuitBreaker] Success recorded. Resetting state to CLOSED."
+            )
         self.state = "CLOSED"
         self.consecutive_failures = 0
 
@@ -82,7 +87,9 @@ class CircuitBreaker:
         If circuit is OPEN or execution fails, seamlessly invokes fallback.
         """
         if not self.can_execute():
-            logger.warning(f"[{self.name} CircuitBreaker is OPEN] Fast-failing directly to fallback.")
+            logger.warning(
+                f"[{self.name} CircuitBreaker is OPEN] Fast-failing directly to fallback."
+            )
             return fallback_func(*args, **kwargs)
 
         try:
@@ -120,5 +127,7 @@ def retry_with_exponential_backoff(
             if jitter:
                 delay = delay * (0.5 + random.random())
 
-            logger.info(f"Transient failure in {func.__name__}: {exc}. Retrying in {delay:.2f}s (attempt {attempt}/{max_retries})...")
+            logger.info(
+                f"Transient failure in {func.__name__}: {exc}. Retrying in {delay:.2f}s (attempt {attempt}/{max_retries})..."
+            )
             time.sleep(delay)

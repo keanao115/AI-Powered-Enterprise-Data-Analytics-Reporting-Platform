@@ -1,9 +1,9 @@
-import os
 import hashlib
-import json
+import os
 import time
 import uuid
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
+
 import duckdb
 import pandas as pd
 
@@ -79,8 +79,12 @@ class IngestionEngine:
         freshness = 95.0
 
         overall = round(
-            (completeness * 0.3) + (validity * 0.25) + (consistency * 0.2) + (uniqueness * 0.15) + (freshness * 0.1),
-            1
+            (completeness * 0.3)
+            + (validity * 0.25)
+            + (consistency * 0.2)
+            + (uniqueness * 0.15)
+            + (freshness * 0.1),
+            1,
         )
 
         return {
@@ -120,7 +124,7 @@ class IngestionEngine:
         clean_dir = os.path.join(CLEAN_DATA_DIR, dataset_id)
         os.makedirs(clean_dir, exist_ok=True)
         clean_file = os.path.join(clean_dir, f"{table_name}.parquet")
-        
+
         # 3. CURATED Layer: Load into DuckDB analytical warehouse & export clean parquet
         conn = duckdb.connect(self.db_path)
         try:

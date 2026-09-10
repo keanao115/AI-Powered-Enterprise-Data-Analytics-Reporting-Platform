@@ -1,4 +1,5 @@
 from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel
 
 
@@ -16,7 +17,12 @@ class MetricDefinition(BaseModel):
     status: str = "APPROVED"
     last_modified: str = "2026-09-08"
     change_history: List[Dict[str, Any]] = [
-        {"version": "1.0.0", "author": "System Bootstrap", "date": "2026-09-08", "reason": "Initial verified enterprise baseline"}
+        {
+            "version": "1.0.0",
+            "author": "System Bootstrap",
+            "date": "2026-09-08",
+            "reason": "Initial verified enterprise baseline",
+        }
     ]
 
 
@@ -61,7 +67,6 @@ class SemanticLayer:
                 dimensions=["product_category_name_english", "review_creation_date"],
                 allowed_aggregations=["AVG"],
             ),
-
             # --- URBAN TRANSPORTATION (NYC Taxi) ---
             "average_fare_by_hour": MetricDefinition(
                 name="Average Trip Fare by Hour",
@@ -90,7 +95,6 @@ class SemanticLayer:
                 dimensions=["pickup_location_id", "pickup_day_of_week"],
                 allowed_aggregations=["RATIO"],
             ),
-
             # --- AIRLINE OPERATIONS (U.S. BTS) ---
             "on_time_arrival_rate": MetricDefinition(
                 name="On-Time Arrival Rate",
@@ -120,7 +124,6 @@ class SemanticLayer:
                 dimensions=["carrier_code", "origin_airport", "dest_airport"],
                 allowed_aggregations=["AVG"],
             ),
-
             # --- HEALTHCARE (MIMIC-IV) ---
             "icu_length_of_stay_avg": MetricDefinition(
                 name="Average ICU Length of Stay (LOS)",
@@ -141,7 +144,6 @@ class SemanticLayer:
                 dimensions=["admission_type", "insurance", "admission_year"],
                 allowed_aggregations=["COUNT"],
             ),
-
             # --- PUBLIC SAFETY (City of Chicago) ---
             "reported_incident_frequency": MetricDefinition(
                 name="Reported Incident Frequency",
@@ -162,7 +164,6 @@ class SemanticLayer:
                 dimensions=["primary_type", "district", "year"],
                 allowed_aggregations=["WEIGHTED_SUM"],
             ),
-
             # --- FINANCIAL MARKETS (SEC EDGAR) ---
             "trading_volume_daily": MetricDefinition(
                 name="Average Daily Trading Volume",
@@ -216,13 +217,15 @@ class SemanticLayer:
             return None
 
         # Record history
-        metric.change_history.append({
-            "version": metric.version,
-            "formula_before": metric.formula,
-            "author": user_id,
-            "date": "2026-09-08",
-            "reason": reason,
-        })
+        metric.change_history.append(
+            {
+                "version": metric.version,
+                "formula_before": metric.formula,
+                "author": user_id,
+                "date": "2026-09-08",
+                "reason": reason,
+            }
+        )
         metric.formula = new_formula
         metric.version = new_version
         metric.last_modified = "2026-09-08"

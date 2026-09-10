@@ -1,6 +1,7 @@
+from typing import Any, Dict, List, Set, Tuple
+
 import sqlglot
 from sqlglot import exp
-from typing import Dict, Any, List, Tuple, Set
 
 
 class ColumnLevelSecurityMasker:
@@ -43,10 +44,7 @@ class ColumnLevelSecurityMasker:
     }
 
     def apply_column_masking(
-        self,
-        sql_query: str,
-        user_role: str = "ANALYST",
-        bypass_roles: Set[str] = None
+        self, sql_query: str, user_role: str = "ANALYST", bypass_roles: Set[str] = None
     ) -> Tuple[str, List[Dict[str, Any]]]:
         """
         Rewrites the SQL AST to mask sensitive columns in SELECT projection expressions.
@@ -86,19 +84,21 @@ class ColumnLevelSecurityMasker:
             if col_name in self.RESTRICTED_COLUMNS_CONFIG:
                 cfg = self.RESTRICTED_COLUMNS_CONFIG[col_name]
                 raw_expr_str = cfg["replacement"].format(col=col_name)
-                
+
                 # Parse replacement SQL snippet into sqlglot expression
                 mask_ast = sqlglot.parse_one(raw_expr_str)
                 aliased_mask = exp.alias_(mask_ast, alias_name or col_name)
                 new_select_expressions.append(aliased_mask)
 
-                applied_masks.append({
-                    "column": col_name,
-                    "sensitivity": cfg["sensitivity"],
-                    "data_type": cfg["type"],
-                    "mask_applied": raw_expr_str,
-                    "target_alias": alias_name or col_name,
-                })
+                applied_masks.append(
+                    {
+                        "column": col_name,
+                        "sensitivity": cfg["sensitivity"],
+                        "data_type": cfg["type"],
+                        "mask_applied": raw_expr_str,
+                        "target_alias": alias_name or col_name,
+                    }
+                )
             else:
                 new_select_expressions.append(select_expr)
 

@@ -1,21 +1,19 @@
 import pytest
-from fastapi.testclient import TestClient
-
-from app.main import app
-from app.core.config import settings
-from app.core.security import create_access_token
-from app.core.permissions import Role
-from app.core.tenant import TenantContext
-from app.query_engine.secure_gateway import secure_query_gateway
-from app.query_engine.repair import sql_repair_service
-from app.sandbox.runner import sandbox_runner
-from app.security.token_governance import (
-    token_governance,
-    RateLimitExceededException,
-    TokenBudgetExceededException,
-)
 from app.ai.llm_gateway import llm_gateway
 from app.ai.schemas.llm_schemas import LLMMessage
+from app.core.config import settings
+from app.core.permissions import Role
+from app.core.security import create_access_token
+from app.core.tenant import TenantContext
+from app.main import app
+from app.query_engine.repair import sql_repair_service
+from app.query_engine.secure_gateway import secure_query_gateway
+from app.sandbox.runner import sandbox_runner
+from app.security.token_governance import (
+    RateLimitExceededException,
+    token_governance,
+)
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
@@ -136,17 +134,21 @@ def test_settings_control_plane_requires_admin_role():
     Verifies that modifying LLM/Vault configuration requires SETTINGS_MANAGE (ORG_ADMIN).
     Analysts and Viewers receive HTTP 403 Forbidden.
     """
-    analyst_token = create_access_token({
-        "sub": "analyst@acme.com",
-        "tenant_id": "tenant-acme",
-        "role": Role.ANALYST.value,
-    })
+    analyst_token = create_access_token(
+        {
+            "sub": "analyst@acme.com",
+            "tenant_id": "tenant-acme",
+            "role": Role.ANALYST.value,
+        }
+    )
 
-    admin_token = create_access_token({
-        "sub": "admin@acme.com",
-        "tenant_id": "tenant-acme",
-        "role": Role.ORG_ADMIN.value,
-    })
+    admin_token = create_access_token(
+        {
+            "sub": "admin@acme.com",
+            "tenant_id": "tenant-acme",
+            "role": Role.ORG_ADMIN.value,
+        }
+    )
 
     headers_analyst = {"Authorization": f"Bearer {analyst_token}"}
     headers_admin = {"Authorization": f"Bearer {admin_token}"}
@@ -184,11 +186,13 @@ def test_jobs_cross_tenant_access_blocked_with_404():
     """
     Verifies that jobs belonging to another tenant cannot be inspected or enumerated.
     """
-    acme_token = create_access_token({
-        "sub": "analyst@acme.com",
-        "tenant_id": "tenant-acme",
-        "role": Role.ANALYST.value,
-    })
+    acme_token = create_access_token(
+        {
+            "sub": "analyst@acme.com",
+            "tenant_id": "tenant-acme",
+            "role": Role.ANALYST.value,
+        }
+    )
     headers = {"Authorization": f"Bearer {acme_token}"}
 
     # 1. Access own tenant job succeeds
@@ -209,11 +213,13 @@ def test_reports_path_traversal_and_cross_tenant_blocked():
     """
     Verifies that reports endpoint strictly rejects path traversal and cross-tenant access.
     """
-    acme_token = create_access_token({
-        "sub": "analyst@acme.com",
-        "tenant_id": "tenant-acme",
-        "role": Role.ANALYST.value,
-    })
+    acme_token = create_access_token(
+        {
+            "sub": "analyst@acme.com",
+            "tenant_id": "tenant-acme",
+            "role": Role.ANALYST.value,
+        }
+    )
     headers = {"Authorization": f"Bearer {acme_token}"}
 
     # 1. Path traversal characters rejected with 400

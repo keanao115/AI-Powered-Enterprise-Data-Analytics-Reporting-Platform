@@ -1,14 +1,10 @@
-from typing import Any, Dict, List
+from typing import Optional
+
 from pydantic import BaseModel, Field
+
 from app.ai.tools.base import BaseTool
 from app.core.permissions import Permission
 from app.core.tenant import TenantContext
-
-
-from app.ai.tools.visualization_tools import (
-    GenerateVisualizationInput,
-    GenerateVisualizationTool,
-)
 
 
 class GenerateReportInput(BaseModel):
@@ -26,4 +22,5 @@ class GenerateReportTool(BaseTool):
 
     def _execute(self, inputs: GenerateReportInput, ctx: Optional[TenantContext]):
         from app.reporting.report_service import report_service
+
         return report_service.create_report(inputs.query_id, inputs.title, inputs.format, ctx)

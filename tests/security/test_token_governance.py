@@ -1,5 +1,3 @@
-import pytest
-import time
 from app.security.token_governance import TokenGovernanceManager
 
 
@@ -24,12 +22,16 @@ def test_token_budget_quota_enforcement():
     tenant = "tenant-test-budget"
 
     # Request within quota
-    allowed, stats = manager.check_and_deduct_tokens(tenant, estimated_tokens=600, estimated_cost_usd=0.005)
+    allowed, stats = manager.check_and_deduct_tokens(
+        tenant, estimated_tokens=600, estimated_cost_usd=0.005
+    )
     assert allowed is True
     assert stats["used_tokens"] == 600
 
     # Second request that exceeds quota (600 + 500 = 1100 > 1000)
-    allowed, stats = manager.check_and_deduct_tokens(tenant, estimated_tokens=500, estimated_cost_usd=0.004)
+    allowed, stats = manager.check_and_deduct_tokens(
+        tenant, estimated_tokens=500, estimated_cost_usd=0.004
+    )
     assert allowed is False
     assert stats["used_tokens"] == 600
     assert stats["limit_tokens"] == 1000
@@ -51,7 +53,10 @@ def test_query_replay_anomaly_detection():
 
 
 def test_storage_backend_pluggability_and_redis_adapter():
-    from app.security.token_governance import RedisTokenGovernanceStorage, InMemoryTokenGovernanceStorage
+    from app.security.token_governance import (
+        InMemoryTokenGovernanceStorage,
+        RedisTokenGovernanceStorage,
+    )
 
     # 1. Custom InMemory storage
     in_mem_storage = InMemoryTokenGovernanceStorage()

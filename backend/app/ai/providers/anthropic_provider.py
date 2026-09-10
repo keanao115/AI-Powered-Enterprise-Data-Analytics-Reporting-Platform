@@ -1,12 +1,18 @@
 import time
 from typing import Any, Dict, List, Optional
+
 import httpx
-from app.core.config import settings
+
 from app.ai.schemas.llm_schemas import LLMMessage, LLMResponse
 
 
 class AnthropicProvider:
-    def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None, base_url: Optional[str] = None):
+    def __init__(
+        self,
+        api_key: Optional[str] = None,
+        model: Optional[str] = None,
+        base_url: Optional[str] = None,
+    ):
         self.api_key = api_key
         self.model = model or "claude-3-5-sonnet-20241022"
         self.base_url = base_url or "https://api.anthropic.com/v1"
@@ -19,6 +25,7 @@ class AnthropicProvider:
     ) -> LLMResponse:
         if not self.api_key or self.api_key == "mock-key":
             from app.ai.providers.mock_provider import MockLLMProvider
+
             return MockLLMProvider(model=self.model).generate(messages, tools, temperature)
 
         start_time = time.time()
@@ -72,6 +79,7 @@ class AnthropicProvider:
             prompt_tokens=usage.get("input_tokens", 0),
             completion_tokens=usage.get("output_tokens", 0),
             total_tokens=usage.get("input_tokens", 0) + usage.get("output_tokens", 0),
-            estimated_cost_usd=(usage.get("input_tokens", 0) * 0.000003) + (usage.get("output_tokens", 0) * 0.000015),
+            estimated_cost_usd=(usage.get("input_tokens", 0) * 0.000003)
+            + (usage.get("output_tokens", 0) * 0.000015),
             latency_ms=latency_ms,
         )

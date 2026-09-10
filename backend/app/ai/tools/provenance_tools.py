@@ -1,5 +1,7 @@
 from typing import Optional
+
 from pydantic import BaseModel, Field
+
 from app.ai.tools.base import BaseTool
 from app.core.permissions import Permission
 from app.core.tenant import TenantContext
@@ -17,4 +19,5 @@ class GetProvenanceTool(BaseTool):
 
     def _execute(self, inputs: GetProvenanceInput, ctx: Optional[TenantContext]):
         from app.analytics.provenance import provenance_service
+
         return provenance_service.get_lineage(inputs.query_id, ctx)

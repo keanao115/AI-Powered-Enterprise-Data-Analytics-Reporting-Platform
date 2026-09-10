@@ -1,8 +1,9 @@
-from typing import Dict, Any, Optional
-from app.core.tenant import TenantContext
+from typing import Any, Dict
+
 from app.ai.llm_gateway import llm_gateway
-from app.ai.schemas.llm_schemas import LLMMessage
 from app.ai.prompts.prompts import SQL_REPAIR_PROMPT
+from app.ai.schemas.llm_schemas import LLMMessage
+from app.core.tenant import TenantContext
 from app.query_engine.secure_gateway import secure_query_gateway
 
 
@@ -21,10 +22,12 @@ class SQLRepairService:
                 error_message=current_error,
                 schema_catalog="orders, products, returns, regions",
             )
-            llm_resp = llm_gateway.generate([
-                LLMMessage(role="system", content="Fix the SQL query error."),
-                LLMMessage(role="user", content=prompt)
-            ])
+            llm_resp = llm_gateway.generate(
+                [
+                    LLMMessage(role="system", content="Fix the SQL query error."),
+                    LLMMessage(role="user", content=prompt),
+                ]
+            )
 
             # Extract repaired SQL
             repaired_sql = llm_resp.content.strip()

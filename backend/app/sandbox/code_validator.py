@@ -1,5 +1,5 @@
 import ast
-from typing import Tuple, Set
+from typing import Set, Tuple
 
 
 class PythonCodeASTValidator:

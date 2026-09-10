@@ -1,11 +1,12 @@
 import os
 import re
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from app.core.security import get_current_user_context, require_permission
 from app.core.permissions import Permission, Role
+from app.core.security import require_permission
 from app.core.tenant import TenantContext
 from app.reporting.report_service import report_service
 
@@ -44,7 +45,12 @@ async def download_report(
     Guarantees Invariant 2: No report can be downloaded without resource ownership verification.
     """
     # 1. Path Traversal & Identifier Pattern Validation
-    if not SAFE_REPORT_ID_PATTERN.match(report_id) or ".." in report_id or "/" in report_id or "\\" in report_id:
+    if (
+        not SAFE_REPORT_ID_PATTERN.match(report_id)
+        or ".." in report_id
+        or "/" in report_id
+        or "\\" in report_id
+    ):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Invalid report_id format: Path traversal characters are prohibited.",
@@ -84,7 +90,9 @@ async def download_report(
 
     # 4. Safe demo fallback only for explicit demo query IDs
     if report_id.startswith("req-demo") or report_id == "rep-demo-001":
-        res = report_service.create_report(report_id, "Executive Sales & Returns Report", "pdf", ctx)
+        res = report_service.create_report(
+            report_id, "Executive Sales & Returns Report", "pdf", ctx
+        )
         return FileResponse(path=res["file_path"], filename=f"report_{report_id}.pdf")
 
     # If not found, return 404 (do not generate on arbitrary unknown IDs)

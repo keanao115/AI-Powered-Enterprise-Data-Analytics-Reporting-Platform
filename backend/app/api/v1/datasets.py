@@ -1,19 +1,19 @@
-import os
 import csv
 import io
-from typing import List, Dict, Any, Optional
-import duckdb
-from fastapi import APIRouter, HTTPException, Depends, Query
-from fastapi.responses import FileResponse, Response
+import os
+from typing import Any, Dict, List, Optional
+
+from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import Response
 
 from app.core.config import settings
-from app.core.security import require_permission
 from app.core.permissions import Permission
+from app.core.security import require_permission
 from app.core.tenant import TenantContext
-from app.security.audit import audit_logger
-from app.semantic.dataset_catalog import ENTERPRISE_DATASET_CATALOG, dataset_catalog
 from app.query_engine.secure_gateway import secure_query_gateway
+from app.security.audit import audit_logger
 from app.security.data_masking import data_masking_engine
+from app.semantic.dataset_catalog import ENTERPRISE_DATASET_CATALOG, dataset_catalog
 
 router = APIRouter(prefix="/datasets", tags=["Datasets"])
 
@@ -69,17 +69,19 @@ def _query_curated_table_details(
 
     # Apply data masking for restricted PII attributes
     masked_rows = data_masking_engine.mask_result_set(columns, raw_rows)
-    dict_rows = [dict(zip(columns, row)) for row in masked_rows]
+    dict_rows = [dict(zip(columns, row, strict=False)) for row in masked_rows]
 
     # Compute column profiling statistics
     stats = []
     for col in columns:
         sample_vals = [str(r[col]) for r in dict_rows[:3] if col in r and r[col] is not None]
-        stats.append({
-            "column_name": col,
-            "type": "VARCHAR",
-            "sample_values": sample_vals,
-        })
+        stats.append(
+            {
+                "column_name": col,
+                "type": "VARCHAR",
+                "sample_values": sample_vals,
+            }
+        )
 
     return {
         "metadata": dataset,
@@ -93,7 +95,7 @@ def _query_curated_table_details(
 
 @router.get("")
 async def list_datasets(
-    ctx: TenantContext = Depends(require_permission(Permission.DATASOURCE_VIEW))
+    ctx: TenantContext = Depends(require_permission(Permission.DATASOURCE_VIEW)),
 ) -> List[Dict[str, Any]]:
     """List all 6 real-world enterprise datasets with rich provenance metadata."""
     return ENTERPRISE_DATASET_CATALOG
@@ -105,22 +107,23 @@ async def get_dataset_details(
     search: Optional[str] = Query(None),
     limit: int = Query(50, le=200),
     offset: int = Query(0, ge=0),
-    ctx: TenantContext = Depends(require_permission(Permission.DATASOURCE_VIEW))
+    ctx: TenantContext = Depends(require_permission(Permission.DATASOURCE_VIEW)),
 ) -> Dict[str, Any]:
     """Fetch structured data rows, columns, and analytical statistics for a dataset."""
     matched = dataset_catalog.get_dataset(dataset_id)
     if not matched:
         matched = dataset_catalog.get_dataset_by_table(dataset_id)
         if not matched:
-            raise HTTPException(status_code=404, detail=f"Dataset with ID '{dataset_id}' not found.")
+            raise HTTPException(
+                status_code=404, detail=f"Dataset with ID '{dataset_id}' not found."
+            )
 
     return _query_curated_table_details(matched, ctx=ctx, limit=limit, offset=offset, search=search)
 
 
 @router.get("/{dataset_id}/download")
 async def download_dataset_csv(
-    dataset_id: str,
-    ctx: TenantContext = Depends(require_permission(Permission.QUERY_EXPORT))
+    dataset_id: str, ctx: TenantContext = Depends(require_permission(Permission.QUERY_EXPORT))
 ):
     """
     Download curated dataset as CSV through Secure Query Gateway with RLS, CLS, and max row limits.
@@ -155,7 +158,10 @@ async def download_dataset_csv(
 
     # Mask sensitive columns if user lacks unmasked export privileges
     user_perms = set(ctx.permissions)
-    if Permission.DATA_RESTRICTED_READ.value not in user_perms and Permission.DATA_RESTRICTED_READ not in user_perms:
+    if (
+        Permission.DATA_RESTRICTED_READ.value not in user_perms
+        and Permission.DATA_RESTRICTED_READ not in user_perms
+    ):
         rows = data_masking_engine.mask_result_set(columns, rows)
 
     output = io.StringIO()
@@ -175,5 +181,7 @@ async def download_dataset_csv(
     return Response(
         content=output.getvalue(),
         media_type="text/csv",
-        headers={"Content-Disposition": f"attachment; filename={matched['dataset_id']}_{primary_table}.csv"}
+        headers={
+            "Content-Disposition": f"attachment; filename={matched['dataset_id']}_{primary_table}.csv"
+        },
     )

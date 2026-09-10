@@ -1,6 +1,8 @@
-import duckdb
+import os
 from typing import AsyncGenerator
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
+
+import duckdb
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import declarative_base
 
 from app.core.config import settings
@@ -12,12 +14,7 @@ engine_kwargs = {}
 if settings.DATABASE_URL.startswith("sqlite"):
     engine_kwargs["connect_args"] = {"check_same_thread": False}
 
-async_engine = create_async_engine(
-    settings.DATABASE_URL,
-    echo=False,
-    future=True,
-    **engine_kwargs
-)
+async_engine = create_async_engine(settings.DATABASE_URL, echo=False, future=True, **engine_kwargs)
 
 AsyncSessionLocal = async_sessionmaker(
     bind=async_engine,
@@ -38,16 +35,14 @@ async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
             raise
 
 
-import os
-
 def get_analytics_db_path() -> str:
     """Returns absolute path to the active DuckDB analytics database."""
     if "ANALYTICS_DB_PATH" in os.environ and os.environ["ANALYTICS_DB_PATH"]:
         return os.path.abspath(os.environ["ANALYTICS_DB_PATH"])
-    
+
     url = getattr(settings, "ANALYTICS_DATABASE_URL", "duckdb:///./analytics_demo.duckdb")
     clean_name = url.replace("duckdb:///", "").lstrip("./")
-    
+
     candidates = [
         os.path.abspath(clean_name),
         os.path.abspath(os.path.join(os.getcwd(), clean_name)),

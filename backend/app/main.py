@@ -2,20 +2,20 @@ from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from app.api.v1.audit import router as audit_router
+from app.api.v1.auth import router as auth_router
+from app.api.v1.datasets import router as datasets_router
+from app.api.v1.evaluation import eval_router
+from app.api.v1.jobs import router as jobs_router
+from app.api.v1.metrics import metrics_router
+from app.api.v1.queries import router as queries_router
+from app.api.v1.reports import router as reports_router
+from app.api.v1.schemas import router as schemas_router
+from app.api.v1.security import router as security_router
+from app.api.v1.settings import router as settings_router
 from app.core.config import settings
 from app.core.exceptions import PlatformException
 from app.observability.middleware import ObservabilityMiddleware
-from app.api.v1.auth import router as auth_router
-from app.api.v1.queries import router as queries_router
-from app.api.v1.schemas import router as schemas_router
-from app.api.v1.metrics import metrics_router
-from app.api.v1.reports import router as reports_router
-from app.api.v1.audit import router as audit_router
-from app.api.v1.evaluation import eval_router
-from app.api.v1.jobs import router as jobs_router
-from app.api.v1.datasets import router as datasets_router
-from app.api.v1.security import router as security_router
-from app.api.v1.settings import router as settings_router
 
 app = FastAPI(
     title="AI-Powered Enterprise Data Analytics & Reporting Platform",
@@ -72,23 +72,33 @@ async def generic_exception_handler(request: Request, exc: Exception):
 @app.on_event("startup")
 async def startup_event():
     import duckdb
+
     from app.core.database import get_analytics_db_path
-    
+
     db_path = get_analytics_db_path()
     try:
         conn = duckdb.connect(db_path)
         tables = [t[0] for t in conn.execute("SHOW TABLES").fetchall()]
         conn.close()
-        
+
         required_tables = [
-            "nyc_taxi_trips", "olist_orders", "bts_flights",
-            "mimic_icu_stays", "chicago_crimes", "market_securities"
+            "nyc_taxi_trips",
+            "olist_orders",
+            "bts_flights",
+            "mimic_icu_stays",
+            "chicago_crimes",
+            "market_securities",
         ]
         if not all(t in tables for t in required_tables):
-            print(f"[Startup] Missing tables detected. Running complete database seeder on '{db_path}'...")
+            print(
+                f"[Startup] Missing tables detected. Running complete database seeder on '{db_path}'..."
+            )
             from seed.seed_data import seed_synthetic_analytics_database
+
             seed_synthetic_analytics_database(db_path)
-            print(f"[Startup] Successfully seeded all 6 real-world dataset tables into '{db_path}'.")
+            print(
+                f"[Startup] Successfully seeded all 6 real-world dataset tables into '{db_path}'."
+            )
     except Exception as e:
         print(f"[Startup Warning] DuckDB verification or auto-seed encountered: {e}")
 

@@ -2,9 +2,10 @@ import csv
 import os
 import uuid
 from typing import Any, Dict, Optional
+
 from app.core.tenant import TenantContext
-from app.reporting.pdf_generator import generate_pdf_report
 from app.reporting.excel_generator import generate_excel_report
+from app.reporting.pdf_generator import generate_pdf_report
 
 
 class ReportService:
@@ -29,10 +30,16 @@ class ReportService:
 
         data = query_data or {
             "columns": ["region_name", "current_month_revenue", "mom_growth_pct"],
-            "rows": [["US", "$1,250,000", "+14.8%"], ["EU", "$850,000", "+9.2%"], ["APAC", "$310,000", "+5.1%"]],
+            "rows": [
+                ["US", "$1,250,000", "+14.8%"],
+                ["EU", "$850,000", "+9.2%"],
+                ["APAC", "$310,000", "+5.1%"],
+            ],
         }
         insights = [
-            {"text": "Revenue increased by 14.8% Month-over-Month across major enterprise accounts."},
+            {
+                "text": "Revenue increased by 14.8% Month-over-Month across major enterprise accounts."
+            },
             {"text": "The US Region contributed the largest share of net sales ($1.25M)."},
         ]
 

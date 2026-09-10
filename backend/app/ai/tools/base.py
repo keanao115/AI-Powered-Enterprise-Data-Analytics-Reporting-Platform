@@ -1,8 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional, Type
+
 from pydantic import BaseModel
+
+from app.core.permissions import Permission, Role, has_permission
 from app.core.tenant import TenantContext, get_tenant_context
-from app.core.permissions import Permission, has_permission, Role
 
 
 class BaseTool(ABC):

@@ -1,12 +1,19 @@
 import time
 from typing import Any, Dict, List, Optional
+
 import httpx
-from app.core.config import settings
+
 from app.ai.schemas.llm_schemas import LLMMessage, LLMResponse
+from app.core.config import settings
 
 
 class OpenAIProvider:
-    def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None, base_url: Optional[str] = None):
+    def __init__(
+        self,
+        api_key: Optional[str] = None,
+        model: Optional[str] = None,
+        base_url: Optional[str] = None,
+    ):
         self.api_key = api_key or settings.OPENAI_API_KEY
         self.model = model or settings.LLM_MODEL
         self.base_url = base_url
@@ -20,6 +27,7 @@ class OpenAIProvider:
         if not self.api_key or self.api_key == "mock-key":
             # Fallback gracefully to mock provider if API key not provided
             from app.ai.providers.mock_provider import MockLLMProvider
+
             return MockLLMProvider(model=self.model).generate(messages, tools, temperature)
 
         start_time = time.time()
@@ -36,7 +44,11 @@ class OpenAIProvider:
         if tools:
             payload["tools"] = tools
 
-        endpoint = f"{self.base_url.rstrip('/')}/chat/completions" if self.base_url else "https://api.openai.com/v1/chat/completions"
+        endpoint = (
+            f"{self.base_url.rstrip('/')}/chat/completions"
+            if self.base_url
+            else "https://api.openai.com/v1/chat/completions"
+        )
 
         with httpx.Client(timeout=30.0) as client:
             resp = client.post(endpoint, headers=headers, json=payload)
@@ -54,6 +66,7 @@ class OpenAIProvider:
             prompt_tokens=usage.get("prompt_tokens", 0),
             completion_tokens=usage.get("completion_tokens", 0),
             total_tokens=usage.get("total_tokens", 0),
-            estimated_cost_usd=(usage.get("prompt_tokens", 0) * 0.000005) + (usage.get("completion_tokens", 0) * 0.000015),
+            estimated_cost_usd=(usage.get("prompt_tokens", 0) * 0.000005)
+            + (usage.get("completion_tokens", 0) * 0.000015),
             latency_ms=latency_ms,
         )

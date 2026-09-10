@@ -3,7 +3,8 @@ Universal API Key Pattern Detector.
 Automatically detects target AI provider, recommended models, and default base URL from any API key.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
+
 from pydantic import BaseModel
 
 

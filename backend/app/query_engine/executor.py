@@ -1,7 +1,8 @@
 import time
-from typing import Dict, Any, Optional
-from app.core.tenant import TenantContext
+from typing import Any, Dict, Optional
+
 from app.core.database import analytics_adapter
+from app.core.tenant import TenantContext
 
 
 class QueryExecutor:
@@ -13,6 +14,7 @@ class QueryExecutor:
     def execute(self, sql_query: str, ctx: Optional[TenantContext] = None) -> Dict[str, Any]:
         if ctx is not None:
             from app.query_engine.secure_gateway import secure_query_gateway
+
             return secure_query_gateway.execute(sql_query, ctx=ctx, purpose="query_executor")
 
         # Raw internal execution when no tenant context is bound (e.g. initial setup / admin test)

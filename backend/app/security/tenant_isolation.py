@@ -1,6 +1,5 @@
-from typing import Any, Dict, Optional
-from app.core.tenant import TenantContext
 from app.core.exceptions import TenantAccessDeniedException
+from app.core.tenant import TenantContext
 
 
 class TenantIsolationValidator:

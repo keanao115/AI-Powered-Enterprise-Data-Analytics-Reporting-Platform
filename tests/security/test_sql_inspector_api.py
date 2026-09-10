@@ -1,8 +1,7 @@
-import pytest
 from app.query_engine.ast_policy import ast_policy_engine
-from app.query_engine.rls_enforcer import rls_enforcer
 from app.query_engine.column_masker import column_masker
 from app.query_engine.cost_estimator import cost_estimator
+from app.query_engine.rls_enforcer import rls_enforcer
 
 
 def test_ast_policy_deep_inspection():
@@ -23,7 +22,7 @@ def test_ast_policy_deep_inspection():
 def test_column_level_security_masking():
     pii_sql = "SELECT name, email, ssn, phone FROM customers"
     masked_sql, applied_masks = column_masker.apply_column_masking(pii_sql, user_role="ANALYST")
-    
+
     assert len(applied_masks) >= 3
     assert "RIGHT(ssn, 4)" in masked_sql
     assert "***@" in masked_sql
@@ -40,7 +39,7 @@ def test_rls_persona_simulation():
         sql_query=raw_sql,
         tenant_id="tenant-globex",
         user_role="ANALYST",
-        authorized_regions=["EU", "APAC"]
+        authorized_regions=["EU", "APAC"],
     )
 
     assert "tenant_id = 'tenant-globex'" in rewritten_sql
@@ -69,12 +68,14 @@ def test_dynamic_catalog_rls_and_public_dataset_tracking():
     assert "employee_performance" in policies["department_scoped"]
 
     # 2. Departmental RLS injection
-    dept_sql = "SELECT department, SUM(performance_score) FROM employee_performance GROUP BY department"
+    dept_sql = (
+        "SELECT department, SUM(performance_score) FROM employee_performance GROUP BY department"
+    )
     rewritten_dept, dept_rules = rls_enforcer.rewrite_with_persona(
         sql_query=dept_sql,
         tenant_id="tenant-globex",
         user_role="ANALYST",
-        authorized_departments=["Finance", "Engineering"]
+        authorized_departments=["Finance", "Engineering"],
     )
     assert "employee_performance.department IN ('Finance', 'Engineering')" in rewritten_dept
     assert any(r["type"] == "RBAC_DEPARTMENT_SCOPE" for r in dept_rules)
@@ -82,9 +83,7 @@ def test_dynamic_catalog_rls_and_public_dataset_tracking():
     # 3. Public benchmark dataset governance audit
     public_sql = "SELECT order_status, COUNT(*) FROM olist_orders GROUP BY order_status"
     rewritten_public, public_rules = rls_enforcer.rewrite_with_persona(
-        sql_query=public_sql,
-        tenant_id="tenant-acme",
-        user_role="ANALYST"
+        sql_query=public_sql, tenant_id="tenant-acme", user_role="ANALYST"
     )
     assert rewritten_public == public_sql
     assert any(r["type"] == "PUBLIC_DATASET_GOVERNANCE" for r in public_rules)

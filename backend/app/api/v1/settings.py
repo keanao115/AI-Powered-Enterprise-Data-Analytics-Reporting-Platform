@@ -2,16 +2,17 @@ import os
 import time
 import uuid
 from typing import Any, Dict, List, Optional
-from fastapi import APIRouter, HTTPException, status, Depends
+
+from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
-from app.core.config import settings
-from app.core.security import get_current_user_context, require_permission
-from app.core.permissions import Permission
-from app.core.tenant import TenantContext
+from app.ai.key_detector import KNOWN_PROVIDERS, DetectedProviderInfo, detect_provider_from_key
 from app.ai.llm_gateway import llm_gateway
 from app.ai.schemas.llm_schemas import LLMMessage
-from app.ai.key_detector import KNOWN_PROVIDERS, detect_provider_from_key, DetectedProviderInfo
+from app.core.config import settings
+from app.core.permissions import Permission
+from app.core.security import require_permission
+from app.core.tenant import TenantContext
 
 router = APIRouter(prefix="/settings", tags=["Settings & API Configuration"])
 
@@ -93,7 +94,10 @@ class LLMConfigResponse(BaseModel):
 
 
 class UpdateLLMConfigRequest(BaseModel):
-    provider: Optional[str] = Field(None, description="LLM provider: gemini, openai, deepseek, groq, anthropic, openrouter, mock, custom")
+    provider: Optional[str] = Field(
+        None,
+        description="LLM provider: gemini, openai, deepseek, groq, anthropic, openrouter, mock, custom",
+    )
     model: Optional[str] = Field(None, description="Model identifier")
     gemini_api_key: Optional[str] = Field(None, description="Google Gemini API Key")
     openai_api_key: Optional[str] = Field(None, description="OpenAI API Key")
@@ -116,8 +120,12 @@ class VaultKeyRequest(BaseModel):
 
 class CollaborationRoles(BaseModel):
     sql_generator: Optional[str] = Field(None, description="Provider ID or type for SQL generation")
-    sql_reviewer: Optional[str] = Field(None, description="Provider ID or type for SQL review/optimization")
-    insight_generator: Optional[str] = Field(None, description="Provider ID or type for executive insights")
+    sql_reviewer: Optional[str] = Field(
+        None, description="Provider ID or type for SQL review/optimization"
+    )
+    insight_generator: Optional[str] = Field(
+        None, description="Provider ID or type for executive insights"
+    )
 
 
 class CollaborationConfigRequest(BaseModel):
@@ -410,7 +418,10 @@ async def test_llm_connection(
         )
 
         test_msg = [
-            LLMMessage(role="system", content="You are a health check agent. Output 'READY' followed by 1 sentence explaining that DuckDB analytics is online."),
+            LLMMessage(
+                role="system",
+                content="You are a health check agent. Output 'READY' followed by 1 sentence explaining that DuckDB analytics is online.",
+            ),
             LLMMessage(role="user", content="Ping healthcheck"),
         ]
 

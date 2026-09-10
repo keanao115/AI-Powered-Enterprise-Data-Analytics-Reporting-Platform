@@ -1,10 +1,12 @@
-from typing import Any, Dict, Optional
+from typing import Optional
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
-from app.core.security import get_current_user_context, require_permission
-from app.core.permissions import Permission
-from app.core.tenant import TenantContext
+
 from app.ai.agent.analyst_agent import analyst_agent
+from app.core.permissions import Permission
+from app.core.security import require_permission
+from app.core.tenant import TenantContext
 from app.security.data_masking import data_masking_engine
 
 router = APIRouter(prefix="/queries", tags=["Queries"])
@@ -23,7 +25,7 @@ def execute_query(
 ):
     try:
         state = analyst_agent.execute_pipeline(req.question, ctx, dataset_id=req.dataset_id)
-        
+
         # Apply column masking for restricted attributes before UI presentation
         res_data = state.analytical_results
         if "columns" in res_data and "rows" in res_data:
@@ -49,7 +51,7 @@ def execute_query(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail={"message": str(e)},
-        )
+        ) from e
 
 
 @router.get("/history")

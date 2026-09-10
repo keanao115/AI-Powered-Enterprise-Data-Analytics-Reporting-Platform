@@ -1,10 +1,8 @@
 import pytest
-from app.core.tenant import TenantContext
 from app.ai.agent.analyst_agent import analyst_agent
-from seed.seed_data import seed_synthetic_analytics_database
-
-
 from app.core.database import get_analytics_db_path
+from app.core.tenant import TenantContext
+from seed.seed_data import seed_synthetic_analytics_database
 
 
 @pytest.fixture(scope="module", autouse=True)

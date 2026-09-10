@@ -1,5 +1,7 @@
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel, Field
+
 from app.ai.tools.base import BaseTool
 from app.core.permissions import Permission
 from app.core.tenant import TenantContext
@@ -18,6 +20,7 @@ class RunDataQualityCheckTool(BaseTool):
 
     def _execute(self, inputs: RunDataQualityCheckInput, ctx: Optional[TenantContext]):
         from app.analytics.data_quality import evaluate_data_quality
+
         return evaluate_data_quality(inputs.columns, inputs.rows)
 
 
@@ -35,4 +38,5 @@ class RunSandboxAnalysisTool(BaseTool):
 
     def _execute(self, inputs: RunSandboxAnalysisInput, ctx: Optional[TenantContext]):
         from app.sandbox.runner import sandbox_runner
+
         return sandbox_runner.run_code(inputs.python_code, inputs.data)

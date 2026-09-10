@@ -1,6 +1,8 @@
+from typing import Any, Dict, List, Optional
+
 import sqlglot
 from sqlglot import exp
-from typing import Dict, Any, Optional, List, Set
+
 from app.core.tenant import TenantContext
 
 
@@ -21,8 +23,24 @@ class SQLASTPolicyEngine:
         exp.Command,
     )
 
-    PROHIBITED_TABLES = {"users", "passwords", "audit_logs", "ai_budgets", "secrets", "system_tables", "credentials"}
-    PROHIBITED_FUNCTIONS = {"eval", "exec", "system", "pg_read_file", "load_extension", "copy", "read_blob"}
+    PROHIBITED_TABLES = {
+        "users",
+        "passwords",
+        "audit_logs",
+        "ai_budgets",
+        "secrets",
+        "system_tables",
+        "credentials",
+    }
+    PROHIBITED_FUNCTIONS = {
+        "eval",
+        "exec",
+        "system",
+        "pg_read_file",
+        "load_extension",
+        "copy",
+        "read_blob",
+    }
 
     PII_KEYWORDS = {"ssn", "credit_card", "password", "secret", "diagnosis", "medical_record"}
 
@@ -33,7 +51,11 @@ class SQLASTPolicyEngine:
         try:
             parsed = sqlglot.parse_one(sql_query)
         except Exception as e:
-            return {"allowed": False, "reason": f"SQL Syntax Parse Error: {str(e)}", "risk_level": "HIGH"}
+            return {
+                "allowed": False,
+                "reason": f"SQL Syntax Parse Error: {str(e)}",
+                "risk_level": "HIGH",
+            }
 
         # 1. Enforce SELECT / CTE only
         if not isinstance(parsed, exp.Select):
@@ -72,7 +94,9 @@ class SQLASTPolicyEngine:
             "tables_referenced": list(tables_referenced),
         }
 
-    def inspect_ast_structure(self, sql_query: str, compliance_mode: str = "SOC2") -> Dict[str, Any]:
+    def inspect_ast_structure(
+        self, sql_query: str, compliance_mode: str = "SOC2"
+    ) -> Dict[str, Any]:
         """
         Deeply inspects SQL AST nodes, extracts metadata, tables, projections, functions,
         and computes compliance readiness against standard policies (SOC2, HIPAA, PCI-DSS).
@@ -114,7 +138,9 @@ class SQLASTPolicyEngine:
             }
 
         if not is_select:
-            violations.append("Non-SELECT statement blocked: Data modification/DDL statements are forbidden.")
+            violations.append(
+                "Non-SELECT statement blocked: Data modification/DDL statements are forbidden."
+            )
 
         for tbl in parsed.find_all(exp.Table):
             tname = tbl.name.lower()
@@ -154,26 +180,28 @@ class SQLASTPolicyEngine:
                 "standard": "SOC2_TYPE_II",
                 "rule": "Principle of Least Privilege (SELECT-only)",
                 "passed": is_select,
-                "details": "Only analytical read-only queries are authorized."
+                "details": "Only analytical read-only queries are authorized.",
             },
             {
                 "standard": "ISO27001",
                 "rule": "System Credential & Audit Isolation",
                 "passed": not any(t in self.PROHIBITED_TABLES for t in tables),
-                "details": "Restricted authentication tables are safeguarded."
+                "details": "Restricted authentication tables are safeguarded.",
             },
             {
                 "standard": "HIPAA_PCI",
                 "rule": "High-Risk Function & Shell Prevention",
                 "passed": not any(f in self.PROHIBITED_FUNCTIONS for f in functions),
-                "details": "Dangerous server-side command execution functions are blocked."
+                "details": "Dangerous server-side command execution functions are blocked.",
             },
             {
                 "standard": "GDPR_CCPA",
                 "rule": "PII Exposure Verification",
                 "passed": not has_pii,
-                "details": "Unmasked direct PII identifier access detected." if has_pii else "No unmasked direct PII exposed."
-            }
+                "details": "Unmasked direct PII identifier access detected."
+                if has_pii
+                else "No unmasked direct PII exposed.",
+            },
         ]
 
         # Calculate numeric Risk Score (0 to 100)

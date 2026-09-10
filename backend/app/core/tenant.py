@@ -1,6 +1,6 @@
 import contextvars
-from typing import Optional, List
 from dataclasses import dataclass, field
+from typing import List, Optional
 
 
 @dataclass
@@ -11,14 +11,28 @@ class TenantContext:
     user_id: str = "usr-demo-001"
     user_role: str = "Admin"
     authorized_regions: List[str] = field(default_factory=lambda: ["US", "EU", "APAC"])
-    authorized_departments: List[str] = field(default_factory=lambda: ["Sales", "Finance", "Operations"])
+    authorized_departments: List[str] = field(
+        default_factory=lambda: ["Sales", "Finance", "Operations"]
+    )
     roles: List[str] = field(default_factory=lambda: ["Admin"])
-    permissions: List[str] = field(default_factory=lambda: [
-        "query:execute", "query:sql", "query:export", "query:history",
-        "report:create", "report:download", "datasource:view", "datasource:manage",
-        "semantic:view", "semantic:manage", "audit:view", "evaluation:run",
-        "data:restricted:read", "sandbox:execute"
-    ])
+    permissions: List[str] = field(
+        default_factory=lambda: [
+            "query:execute",
+            "query:sql",
+            "query:export",
+            "query:history",
+            "report:create",
+            "report:download",
+            "datasource:view",
+            "datasource:manage",
+            "semantic:view",
+            "semantic:manage",
+            "audit:view",
+            "evaluation:run",
+            "data:restricted:read",
+            "sandbox:execute",
+        ]
+    )
     session_id: str = "sess-demo-local"
 
 

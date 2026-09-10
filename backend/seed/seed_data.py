@@ -4,6 +4,7 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import duckdb
+
 from app.ingestion.run_all_ingestions import run_full_enterprise_ingestion_pipeline
 
 
@@ -125,7 +126,9 @@ def seed_synthetic_analytics_database(db_path: str = "analytics_demo.duckdb"):
     for table_name, csv_file in demo_tables:
         csv_path = os.path.join(demo_dir, csv_file).replace("\\", "/")
         if os.path.exists(csv_path):
-            conn.execute(f"CREATE OR REPLACE TABLE {table_name} AS SELECT * FROM read_csv_auto('{csv_path}');")
+            conn.execute(
+                f"CREATE OR REPLACE TABLE {table_name} AS SELECT * FROM read_csv_auto('{csv_path}');"
+            )
 
     conn.close()
 

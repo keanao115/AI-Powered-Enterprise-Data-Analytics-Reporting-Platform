@@ -1,8 +1,6 @@
-import sys
-import json
 import io
-import traceback
-from typing import Dict, Any
+import json
+import sys
 
 ALLOWED_MODULES = {
     "matplotlib",
@@ -62,7 +60,9 @@ SAFE_BUILTINS = {
 def _restricted_import(name, globals=None, locals=None, fromlist=(), level=0):
     root_mod = name.split(".")[0]
     if root_mod not in ALLOWED_MODULES:
-        raise ImportError(f"Prohibited import: module '{name}' is disallowed by sandbox isolation policy.")
+        raise ImportError(
+            f"Prohibited import: module '{name}' is disallowed by sandbox isolation policy."
+        )
     return __import__(name, globals, locals, fromlist, level)
 
 
@@ -74,7 +74,7 @@ def sanitize_error(err_str: str) -> str:
     lines = err_str.strip().split("\n")
     cleaned = []
     for line in lines:
-        if "File \"" in line:
+        if 'File "' in line:
             # Strip local drive/path details
             cleaned.append('  File "<sandbox>", line in code')
         else:
@@ -104,7 +104,7 @@ def run_worker():
             res = local_scope.get("result")
             if res is None:
                 res = {"output": captured_stdout.getvalue()}
-            
+
             output_payload = {"success": True, "result": res}
             sys.stdout.write(json.dumps(output_payload))
         except Exception as exec_err:
@@ -113,7 +113,7 @@ def run_worker():
             output_payload = {
                 "success": False,
                 "error": f"Execution Error: {sanitized}",
-                "error_code": "SANDBOX_RUNTIME_ERROR"
+                "error_code": "SANDBOX_RUNTIME_ERROR",
             }
             sys.stdout.write(json.dumps(output_payload))
     except Exception as e:

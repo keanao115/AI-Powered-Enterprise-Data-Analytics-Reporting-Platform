@@ -1,6 +1,6 @@
-import re
 import math
-from typing import Any, Dict, List, Optional, Set, Tuple
+import re
+from typing import Any, Dict, List, Optional, Tuple
 
 
 class GroundingValidator:
@@ -16,7 +16,9 @@ class GroundingValidator:
         """
         self.tolerance_ratio = tolerance_pct / 100.0
         # Regex to extract integers, decimals, currency, and percentages
-        self._num_pattern = re.compile(r"[-+]?(?:\$\s*)?(\d+(?:,\d{3})*(?:\.\d+)?|\.\d+)\s*(%|k|m|b|usd)?", re.IGNORECASE)
+        self._num_pattern = re.compile(
+            r"[-+]?(?:\$\s*)?(\d+(?:,\d{3})*(?:\.\d+)?|\.\d+)\s*(%|k|m|b|usd)?", re.IGNORECASE
+        )
 
     def extract_numbers_from_text(self, text: str) -> List[Tuple[float, str]]:
         """
@@ -70,7 +72,9 @@ class GroundingValidator:
                         pass
         return dataset_numbers
 
-    def _is_number_grounded(self, target: float, dataset_numbers: List[float]) -> Tuple[bool, Optional[float], str]:
+    def _is_number_grounded(
+        self, target: float, dataset_numbers: List[float]
+    ) -> Tuple[bool, Optional[float], str]:
         """
         Checks whether target number is present in dataset_numbers,
         either exactly or within the allowed tolerance.
@@ -112,14 +116,16 @@ class GroundingValidator:
 
             # Check benchmark forced unsupported marker
             if "unsupported" in claim_text.lower():
-                validated_claims.append({
-                    "claim_id": claim_id,
-                    "text": claim_text,
-                    "status": "UNSUPPORTED",
-                    "evidence": "Benchmark marker detected: assertion contradicts query facts.",
-                    "confidence_score": 0.15,
-                    "grounded_metrics": [],
-                })
+                validated_claims.append(
+                    {
+                        "claim_id": claim_id,
+                        "text": claim_text,
+                        "status": "UNSUPPORTED",
+                        "evidence": "Benchmark marker detected: assertion contradicts query facts.",
+                        "confidence_score": 0.15,
+                        "grounded_metrics": [],
+                    }
+                )
                 continue
 
             # Extract numbers from claim
@@ -138,24 +144,35 @@ class GroundingValidator:
                     grounded, matched_num, method = self._is_number_grounded(val, dataset_numbers)
                     if grounded:
                         matched_count += 1
-                        evidence_details.append(f"Token '{token}' ({val}) matched dataset value {matched_num} via {method}")
+                        evidence_details.append(
+                            f"Token '{token}' ({val}) matched dataset value {matched_num} via {method}"
+                        )
                     else:
                         evidence_details.append(f"Token '{token}' ({val}) not found in dataset")
 
                 total_nums = len(extracted_numbers)
                 if matched_count == total_nums:
                     status = "SUPPORTED"
-                    evidence = f"All {total_nums} numerical claims cross-verified against query data. " + "; ".join(evidence_details)
+                    evidence = (
+                        f"All {total_nums} numerical claims cross-verified against query data. "
+                        + "; ".join(evidence_details)
+                    )
                     confidence = 0.99
                 elif matched_count > 0:
                     status = "APPROXIMATED"
-                    evidence = f"Partial grounding: {matched_count}/{total_nums} numbers matched. " + "; ".join(evidence_details)
+                    evidence = (
+                        f"Partial grounding: {matched_count}/{total_nums} numbers matched. "
+                        + "; ".join(evidence_details)
+                    )
                     confidence = round(matched_count / total_nums, 2)
                 else:
                     # None matched, check if it's general row count or zero rows
                     if rows_count > 0:
                         status = "UNSUPPORTED"
-                        evidence = f"None of the {total_nums} numerical assertions matched query output values. " + "; ".join(evidence_details)
+                        evidence = (
+                            f"None of the {total_nums} numerical assertions matched query output values. "
+                            + "; ".join(evidence_details)
+                        )
                         confidence = 0.20
                     else:
                         status = "UNSUPPORTED"
@@ -164,21 +181,28 @@ class GroundingValidator:
 
                 grounded_metrics = [t for _, t in extracted_numbers]
 
-            validated_claims.append({
-                "claim_id": claim_id,
-                "text": claim_text,
-                "status": status,
-                "evidence": evidence,
-                "confidence_score": confidence,
-                "grounded_metrics": grounded_metrics,
-            })
+            validated_claims.append(
+                {
+                    "claim_id": claim_id,
+                    "text": claim_text,
+                    "status": status,
+                    "evidence": evidence,
+                    "confidence_score": confidence,
+                    "grounded_metrics": grounded_metrics,
+                }
+            )
 
         return validated_claims
 
     def compute_summary_kpi(self, validated_claims: List[Dict[str, Any]]) -> Dict[str, Any]:
         """Calculates precision and grounding percentage across validated assertions."""
         if not validated_claims:
-            return {"total_claims": 0, "grounding_rate_pct": 100.0, "supported": 0, "unsupported": 0}
+            return {
+                "total_claims": 0,
+                "grounding_rate_pct": 100.0,
+                "supported": 0,
+                "unsupported": 0,
+            }
 
         total = len(validated_claims)
         supported = sum(1 for c in validated_claims if c["status"] in ["SUPPORTED", "APPROXIMATED"])

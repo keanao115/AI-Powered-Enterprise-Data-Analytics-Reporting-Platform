@@ -1,6 +1,5 @@
 from typing import Any, Dict, List, Optional
 
-
 ENTERPRISE_DATASET_CATALOG: List[Dict[str, Any]] = [
     {
         "dataset_id": "ecommerce_olist",
@@ -27,15 +26,19 @@ ENTERPRISE_DATASET_CATALOG: List[Dict[str, Any]] = [
         "citation": "Olist and Kaggle. (2018). Brazilian E-Commerce Public Dataset by Olist.",
         "icon": "ShoppingCart",
         "tables": [
-            "olist_orders", "olist_order_items", "olist_products",
-            "olist_customers", "olist_order_payments", "olist_order_reviews"
+            "olist_orders",
+            "olist_order_items",
+            "olist_products",
+            "olist_customers",
+            "olist_order_payments",
+            "olist_order_reviews",
         ],
         "sample_queries": [
             "What is the total monthly Gross Merchandise Value (GMV) and order volume trend?",
             "Which product categories generate the highest revenue and how do their review scores compare?",
             "What percentage of orders experienced delivery delays past their estimated delivery date?",
-            "Compare customer distribution and freight costs across major states (SP, RJ, MG)."
-        ]
+            "Compare customer distribution and freight costs across major states (SP, RJ, MG).",
+        ],
     },
     {
         "dataset_id": "transportation_nyc_taxi",
@@ -66,8 +69,8 @@ ENTERPRISE_DATASET_CATALOG: List[Dict[str, Any]] = [
             "Which pickup zones experience the highest trip demand and average total fare?",
             "How does average fare and trip duration vary across pickup hours of the day?",
             "What is the trip distance correlation with fare amount for airport trips vs city trips?",
-            "What percentage of rides use Credit Card versus Cash payment methods?"
-        ]
+            "What percentage of rides use Credit Card versus Cash payment methods?",
+        ],
     },
     {
         "dataset_id": "airline_bts_ontime",
@@ -98,8 +101,8 @@ ENTERPRISE_DATASET_CATALOG: List[Dict[str, Any]] = [
             "Which airlines have the highest on-time arrival rate and lowest cancellation rate?",
             "What are the primary delay causes (Weather, Carrier, NAS, Late Aircraft) across major airports?",
             "Which flight routes experience the highest average arrival delays?",
-            "Compare taxi-out times and operational delays across top hub airports (ATL, ORD, DFW, JFK)."
-        ]
+            "Compare taxi-out times and operational delays across top hub airports (ATL, ORD, DFW, JFK).",
+        ],
     },
     {
         "dataset_id": "healthcare_mimic_iv",
@@ -131,8 +134,8 @@ ENTERPRISE_DATASET_CATALOG: List[Dict[str, Any]] = [
             "What is the average hospital and ICU length of stay (LOS) by admission type?",
             "What are the most frequently diagnosed ICD-10 conditions among admitted patients?",
             "How do ICU admissions and length of stay vary across different care units (MICU, SICU, CCU)?",
-            "Analyze patient admission distribution and insurance coverage patterns over time."
-        ]
+            "Analyze patient admission distribution and insurance coverage patterns over time.",
+        ],
     },
     {
         "dataset_id": "safety_chicago_crimes",
@@ -164,8 +167,8 @@ ENTERPRISE_DATASET_CATALOG: List[Dict[str, Any]] = [
             "What are the most frequently reported primary crime categories across Chicago?",
             "How do reported incidents vary by hour of day and day of week?",
             "Which police districts report the highest volume of incidents and what are their arrest rates?",
-            "Analyze month-over-month incident trends and property vs violent crime distributions."
-        ]
+            "Analyze month-over-month incident trends and property vs violent crime distributions.",
+        ],
     },
     {
         "dataset_id": "financial_sec_markets",
@@ -197,15 +200,15 @@ ENTERPRISE_DATASET_CATALOG: List[Dict[str, Any]] = [
             "Compare 30-day realized volatility and 50-day moving averages across major tech securities.",
             "Which securities experienced the highest trading volume and largest daily price changes?",
             "Compare quarterly revenue growth and free cash flow across SEC 10-Q/10-K reported facts.",
-            "Analyze operating margins and gross margins across sectors (Technology, Healthcare, Financials)."
-        ]
-    }
+            "Analyze operating margins and gross margins across sectors (Technology, Healthcare, Financials).",
+        ],
+    },
 ]
 
 
 class DatasetCatalogRegistry:
     """Central Catalog of Governed Production-Grade Public Enterprise Datasets."""
-    
+
     def __init__(self):
         self._catalog = {d["dataset_id"]: d for d in ENTERPRISE_DATASET_CATALOG}
 

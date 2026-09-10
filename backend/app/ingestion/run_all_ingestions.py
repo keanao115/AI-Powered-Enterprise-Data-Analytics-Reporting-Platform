@@ -1,12 +1,12 @@
 import time
-from typing import Dict, Any, List
-from app.ingestion.datasets.olist_ecommerce import ingest_olist_ecommerce_dataset
-from app.ingestion.datasets.nyc_taxi import ingest_nyc_taxi_dataset
+from typing import Any, Dict
+
 from app.ingestion.datasets.bts_airlines import ingest_bts_airlines_dataset
-from app.ingestion.datasets.mimic_healthcare import ingest_mimic_healthcare_dataset
 from app.ingestion.datasets.chicago_safety import ingest_chicago_safety_dataset
+from app.ingestion.datasets.mimic_healthcare import ingest_mimic_healthcare_dataset
+from app.ingestion.datasets.nyc_taxi import ingest_nyc_taxi_dataset
+from app.ingestion.datasets.olist_ecommerce import ingest_olist_ecommerce_dataset
 from app.ingestion.datasets.sec_financial import ingest_sec_financial_dataset
-from app.ingestion.ingestion_engine import ingestion_engine
 
 
 def run_full_enterprise_ingestion_pipeline() -> Dict[str, Any]:
@@ -19,7 +19,7 @@ def run_full_enterprise_ingestion_pipeline() -> Dict[str, Any]:
     results = {}
 
     print("--- Starting Production-Grade Enterprise Data Ingestion ---")
-    
+
     # 1. E-Commerce (Olist)
     print("Ingesting [01/06] Brazilian E-Commerce Public Dataset by Olist...")
     results["ecommerce_olist"] = ingest_olist_ecommerce_dataset()

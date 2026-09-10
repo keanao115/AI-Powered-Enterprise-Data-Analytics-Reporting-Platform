@@ -1,6 +1,8 @@
+from typing import Any, Dict, List, Optional, Tuple
+
 import sqlglot
 from sqlglot import exp
-from typing import Optional, List, Tuple, Dict, Any
+
 from app.core.tenant import TenantContext
 
 
@@ -38,11 +40,26 @@ class RowLevelSecurityEnforcer:
         }
         # Registered Public Benchmark Datasets (Single-Tenant Public Domain)
         self.public_benchmark_tables = {
-            "olist_orders", "olist_order_items", "olist_products", "olist_customers",
-            "olist_order_payments", "olist_order_reviews", "nyc_taxi_trips", "taxi_zones",
-            "bts_flights", "bts_airlines", "bts_airports", "mimic_patients",
-            "mimic_admissions", "mimic_icu_stays", "mimic_diagnoses", "chicago_crimes",
-            "chicago_districts", "market_securities", "market_daily_prices", "market_financial_facts"
+            "olist_orders",
+            "olist_order_items",
+            "olist_products",
+            "olist_customers",
+            "olist_order_payments",
+            "olist_order_reviews",
+            "nyc_taxi_trips",
+            "taxi_zones",
+            "bts_flights",
+            "bts_airlines",
+            "bts_airports",
+            "mimic_patients",
+            "mimic_admissions",
+            "mimic_icu_stays",
+            "mimic_diagnoses",
+            "chicago_crimes",
+            "chicago_districts",
+            "market_securities",
+            "market_daily_prices",
+            "market_financial_facts",
         }
 
     def register_tenant_policy(self, table_name: str, column_name: str = "tenant_id") -> None:
@@ -121,12 +138,14 @@ class RowLevelSecurityEnforcer:
                 else:
                     parsed = parsed.where(tenant_cond)
 
-                injected_rules.append({
-                    "type": "TENANT_ISOLATION",
-                    "table": tbl_name,
-                    "predicate": f"{tbl_identifier}.{col_name} = '{tenant_id}'",
-                    "rationale": "Enforce strict tenant data boundary (Row-Level Security)."
-                })
+                injected_rules.append(
+                    {
+                        "type": "TENANT_ISOLATION",
+                        "table": tbl_name,
+                        "predicate": f"{tbl_identifier}.{col_name} = '{tenant_id}'",
+                        "rationale": "Enforce strict tenant data boundary (Row-Level Security).",
+                    }
+                )
 
             # 2. Role-Based Attribute / Region Scoping (Non-Admin users on region-enabled tables)
             if user_role not in ("ORG_ADMIN", "SYSTEM_SUPERUSER"):
@@ -142,12 +161,14 @@ class RowLevelSecurityEnforcer:
                     else:
                         parsed = parsed.where(region_cond)
 
-                    injected_rules.append({
-                        "type": "RBAC_REGION_SCOPE",
-                        "table": tbl_name,
-                        "predicate": f"{tbl_identifier}.{col_name} IN ({', '.join(repr(r) for r in regions)})",
-                        "rationale": f"User role '{user_role}' is restricted to authorized regions: {regions}."
-                    })
+                    injected_rules.append(
+                        {
+                            "type": "RBAC_REGION_SCOPE",
+                            "table": tbl_name,
+                            "predicate": f"{tbl_identifier}.{col_name} IN ({', '.join(repr(r) for r in regions)})",
+                            "rationale": f"User role '{user_role}' is restricted to authorized regions: {regions}.",
+                        }
+                    )
 
                 # 3. Departmental Scoping
                 if tbl_name in self.department_column_map and authorized_departments:
@@ -162,21 +183,25 @@ class RowLevelSecurityEnforcer:
                     else:
                         parsed = parsed.where(dept_cond)
 
-                    injected_rules.append({
-                        "type": "RBAC_DEPARTMENT_SCOPE",
-                        "table": tbl_name,
-                        "predicate": f"{tbl_identifier}.{dept_col_name} IN ({', '.join(repr(d) for d in authorized_departments)})",
-                        "rationale": f"User role '{user_role}' is restricted to authorized departments: {authorized_departments}."
-                    })
+                    injected_rules.append(
+                        {
+                            "type": "RBAC_DEPARTMENT_SCOPE",
+                            "table": tbl_name,
+                            "predicate": f"{tbl_identifier}.{dept_col_name} IN ({', '.join(repr(d) for d in authorized_departments)})",
+                            "rationale": f"User role '{user_role}' is restricted to authorized departments: {authorized_departments}.",
+                        }
+                    )
 
             # 4. Public Benchmark Dataset Tracking (Audit note for unpartitioned open domains)
             if tbl_name in self.public_benchmark_tables and tbl_name not in self.tenant_column_map:
-                injected_rules.append({
-                    "type": "PUBLIC_DATASET_GOVERNANCE",
-                    "table": tbl_name,
-                    "predicate": "NONE (Public Read-Only Domain)",
-                    "rationale": "Public benchmark dataset verified read-only AST without proprietary tenant partition."
-                })
+                injected_rules.append(
+                    {
+                        "type": "PUBLIC_DATASET_GOVERNANCE",
+                        "table": tbl_name,
+                        "predicate": "NONE (Public Read-Only Domain)",
+                        "rationale": "Public benchmark dataset verified read-only AST without proprietary tenant partition.",
+                    }
+                )
 
         return parsed.sql(), injected_rules
 

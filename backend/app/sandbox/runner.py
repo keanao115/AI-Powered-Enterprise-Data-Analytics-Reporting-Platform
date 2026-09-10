@@ -1,8 +1,7 @@
-import sys
-import os
 import json
+import os
 import subprocess
-import time
+import sys
 from typing import Any, Dict, Optional
 
 from app.core.config import settings
@@ -14,7 +13,7 @@ class SandboxRunner:
     Process-Isolated Python Sandbox Runner.
     Guarantees Invariant 6: No untrusted Python code runs directly inside
     the API main server process.
-    
+
     Security Controls:
     1. Static AST inspection via code_validator (blocks prohibited modules & reflection)
     2. Subprocess execution in an isolated worker process
@@ -67,7 +66,9 @@ class SandboxRunner:
             stdout_data, stderr_data = proc.communicate(input=input_payload, timeout=timeout)
 
             if proc.returncode != 0 and not stdout_data:
-                err_msg = stderr_data.strip() or f"Worker process exited with code {proc.returncode}"
+                err_msg = (
+                    stderr_data.strip() or f"Worker process exited with code {proc.returncode}"
+                )
                 return {
                     "success": False,
                     "error": f"Sandbox execution failure: {err_msg}",

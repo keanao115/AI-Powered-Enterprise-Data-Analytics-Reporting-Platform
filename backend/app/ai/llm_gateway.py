@@ -1,12 +1,13 @@
 import time
 from typing import Any, Dict, List, Optional
-from app.core.config import settings
-from app.ai.schemas.llm_schemas import LLMMessage, LLMResponse
+
+from app.ai.key_detector import KNOWN_PROVIDERS
+from app.ai.providers.anthropic_provider import AnthropicProvider
+from app.ai.providers.gemini_provider import GeminiProvider
 from app.ai.providers.mock_provider import MockLLMProvider
 from app.ai.providers.openai_provider import OpenAIProvider
-from app.ai.providers.gemini_provider import GeminiProvider
-from app.ai.providers.anthropic_provider import AnthropicProvider
-from app.ai.key_detector import KNOWN_PROVIDERS, detect_provider_from_key
+from app.ai.schemas.llm_schemas import LLMMessage, LLMResponse
+from app.core.config import settings
 
 
 class LLMGateway:
@@ -80,7 +81,7 @@ class LLMGateway:
         }
 
         if is_active:
-            for k, v in self.providers_vault.items():
+            for v in self.providers_vault.values():
                 v["is_active"] = False
             self.provider_name = clean_type
             self.model = model
@@ -113,7 +114,7 @@ class LLMGateway:
     def list_vault_keys(self, mask: bool = True) -> List[Dict[str, Any]]:
         """Lists all registered keys with optional masking."""
         result = []
-        for pid, entry in self.providers_vault.items():
+        for entry in self.providers_vault.values():
             masked_key = entry["api_key"]
             if mask and entry["api_key"]:
                 raw = entry["api_key"]
@@ -121,16 +122,18 @@ class LLMGateway:
                     masked_key = f"{raw[:3]}...{raw[-2:]}"
                 else:
                     masked_key = f"{raw[:8]}...{raw[-4:]}"
-            result.append({
-                "id": entry["id"],
-                "provider": entry["provider"],
-                "name": entry["name"],
-                "api_key_masked": masked_key if mask else entry["api_key"],
-                "model": entry["model"],
-                "base_url": entry["base_url"],
-                "is_active": entry.get("is_active", False),
-                "created_at": entry.get("created_at", 0),
-            })
+            result.append(
+                {
+                    "id": entry["id"],
+                    "provider": entry["provider"],
+                    "name": entry["name"],
+                    "api_key_masked": masked_key if mask else entry["api_key"],
+                    "model": entry["model"],
+                    "base_url": entry["base_url"],
+                    "is_active": entry.get("is_active", False),
+                    "created_at": entry.get("created_at", 0),
+                }
+            )
         return result
 
     def get_vault_key(self, provider_id: str) -> Optional[Dict[str, Any]]:
@@ -140,7 +143,7 @@ class LLMGateway:
         if provider_id not in self.providers_vault:
             return False
         for k, v in self.providers_vault.items():
-            v["is_active"] = (k == provider_id)
+            v["is_active"] = k == provider_id
         entry = self.providers_vault[provider_id]
         self.provider_name = entry["provider"]
         self.model = entry["model"]
@@ -171,17 +174,32 @@ class LLMGateway:
         if gemini_api_key is not None:
             settings.GEMINI_API_KEY = gemini_api_key
             if gemini_api_key:
-                self.register_vault_key("gemini_default", "gemini", "Google Gemini", gemini_api_key, self.model or "gemini-flash-latest")
+                self.register_vault_key(
+                    "gemini_default",
+                    "gemini",
+                    "Google Gemini",
+                    gemini_api_key,
+                    self.model or "gemini-flash-latest",
+                )
             else:
                 self.delete_vault_key("gemini_default")
         if openai_api_key is not None:
             settings.OPENAI_API_KEY = openai_api_key
             if openai_api_key:
-                self.register_vault_key("openai_default", "openai", "OpenAI", openai_api_key, self.model or "gpt-4o-mini", "https://api.openai.com/v1")
+                self.register_vault_key(
+                    "openai_default",
+                    "openai",
+                    "OpenAI",
+                    openai_api_key,
+                    self.model or "gpt-4o-mini",
+                    "https://api.openai.com/v1",
+                )
             else:
                 self.delete_vault_key("openai_default")
 
-    def configure_collaboration(self, enabled: bool, roles: Optional[Dict[str, Optional[str]]] = None) -> Dict[str, Any]:
+    def configure_collaboration(
+        self, enabled: bool, roles: Optional[Dict[str, Optional[str]]] = None
+    ) -> Dict[str, Any]:
         """Sets collaboration state and assigned roles."""
         self.collaboration_config["enabled"] = enabled
         if roles:
@@ -276,9 +294,9 @@ class LLMGateway:
         """Generates LLM response, enforcing Token Governance (RPM & budget quota) and routing to provider."""
         from app.core.tenant import get_tenant_context
         from app.security.token_governance import (
-            token_governance,
             RateLimitExceededException,
             TokenBudgetExceededException,
+            token_governance,
         )
 
         t_id = tenant_id

@@ -1,6 +1,8 @@
-import pandas as pd
-import numpy as np
 import datetime
+
+import numpy as np
+import pandas as pd
+
 from app.ingestion.ingestion_engine import ingestion_engine
 
 
@@ -38,7 +40,9 @@ def ingest_bts_airlines_dataset():
         ("HA", "Hawaiian Airlines Inc.", "Honolulu, HI"),
         ("G4", "Allegiant Air", "Las Vegas, NV"),
     ]
-    df_airlines = pd.DataFrame(airlines_list, columns=["carrier_code", "airline_name", "headquarters"])
+    df_airlines = pd.DataFrame(
+        airlines_list, columns=["carrier_code", "airline_name", "headquarters"]
+    )
 
     # 2. bts_airports (25 major hubs)
     airports_list = [
@@ -68,19 +72,27 @@ def ingest_bts_airlines_dataset():
         ("SAN", "San Diego International", "San Diego", "CA", "West"),
         ("IAD", "Washington Dulles International", "Dulles", "VA", "South"),
     ]
-    df_airports = pd.DataFrame(airports_list, columns=["airport_code", "airport_name", "city", "state", "region"])
+    df_airports = pd.DataFrame(
+        airports_list, columns=["airport_code", "airport_name", "city", "state", "region"]
+    )
 
     # 3. bts_flights (2,500 flight operations)
     n_flights = 2500
     carrier_codes = [a[0] for a in airlines_list]
     airport_codes = [a[0] for a in airports_list]
 
-    selected_carriers = np.random.choice(carrier_codes, n_flights, p=[0.20, 0.20, 0.18, 0.18, 0.06, 0.05, 0.05, 0.04, 0.02, 0.02])
+    selected_carriers = np.random.choice(
+        carrier_codes, n_flights, p=[0.20, 0.20, 0.18, 0.18, 0.06, 0.05, 0.05, 0.04, 0.02, 0.02]
+    )
     origins = np.random.choice(airport_codes, n_flights)
-    destinations = [np.random.choice([a for a in airport_codes if a != origins[i]]) for i in range(n_flights)]
+    destinations = [
+        np.random.choice([a for a in airport_codes if a != origins[i]]) for i in range(n_flights)
+    ]
 
     start_date = datetime.date(2024, 1, 1)
-    flight_dates = [start_date + datetime.timedelta(days=int(d)) for d in np.random.randint(0, 180, n_flights)]
+    flight_dates = [
+        start_date + datetime.timedelta(days=int(d)) for d in np.random.randint(0, 180, n_flights)
+    ]
 
     # Scheduled departure hours
     sched_dep_hours = np.random.randint(6, 23, n_flights)
@@ -93,8 +105,10 @@ def ingest_bts_airlines_dataset():
     taxi_ins = np.random.randint(5, 20, n_flights)
 
     # Operational outcomes: 82% On-time, 14% Delayed, 3% Cancelled, 1% Diverted
-    outcomes = np.random.choice(["ON_TIME", "DELAYED", "CANCELLED", "DIVERTED"], n_flights, p=[0.81, 0.15, 0.03, 0.01])
-    
+    outcomes = np.random.choice(
+        ["ON_TIME", "DELAYED", "CANCELLED", "DIVERTED"], n_flights, p=[0.81, 0.15, 0.03, 0.01]
+    )
+
     dep_delays = []
     arr_delays = []
     carrier_delays = []
@@ -109,7 +123,11 @@ def ingest_bts_airlines_dataset():
         out = outcomes[i]
         if out == "CANCELLED":
             cancelled_flags.append(1)
-            cancellation_reasons.append(np.random.choice(["Weather", "Carrier", "NAS", "Security"], p=[0.55, 0.30, 0.12, 0.03]))
+            cancellation_reasons.append(
+                np.random.choice(
+                    ["Weather", "Carrier", "NAS", "Security"], p=[0.55, 0.30, 0.12, 0.03]
+                )
+            )
             dep_delays.append(None)
             arr_delays.append(None)
             carrier_delays.append(0)
@@ -130,7 +148,7 @@ def ingest_bts_airlines_dataset():
         elif out == "DELAYED":
             cancelled_flags.append(0)
             cancellation_reasons.append(None)
-            total_delay = int(np.random.exponential(35) + 16) # >= 16 mins considered delay by BTS
+            total_delay = int(np.random.exponential(35) + 16)  # >= 16 mins considered delay by BTS
             dep_delays.append(total_delay - np.random.randint(0, 10))
             arr_delays.append(total_delay)
             # Break down delay causes
@@ -140,10 +158,10 @@ def ingest_bts_airlines_dataset():
             nas_delays.append(round(splits[2], 1))
             security_delays.append(round(splits[3], 1))
             late_aircraft_delays.append(round(splits[4], 1))
-        else: # ON_TIME
+        else:  # ON_TIME
             cancelled_flags.append(0)
             cancellation_reasons.append(None)
-            d_delay = int(np.random.randint(-15, 14)) # <= 14 min is on-time
+            d_delay = int(np.random.randint(-15, 14))  # <= 14 min is on-time
             a_delay = int(d_delay + np.random.randint(-10, 5))
             dep_delays.append(d_delay)
             arr_delays.append(a_delay)
@@ -154,45 +172,61 @@ def ingest_bts_airlines_dataset():
             late_aircraft_delays.append(0)
 
     # Calculate On-time boolean
-    is_arr_on_time = [1 if (arr_delays[i] is not None and arr_delays[i] <= 14 and cancelled_flags[i] == 0) else 0 for i in range(n_flights)]
-    is_dep_on_time = [1 if (dep_delays[i] is not None and dep_delays[i] <= 14 and cancelled_flags[i] == 0) else 0 for i in range(n_flights)]
+    is_arr_on_time = [
+        1 if (arr_delays[i] is not None and arr_delays[i] <= 14 and cancelled_flags[i] == 0) else 0
+        for i in range(n_flights)
+    ]
+    is_dep_on_time = [
+        1 if (dep_delays[i] is not None and dep_delays[i] <= 14 and cancelled_flags[i] == 0) else 0
+        for i in range(n_flights)
+    ]
 
-    df_flights = pd.DataFrame({
-        "flight_id": [f"fl_{i:07d}" for i in range(1, n_flights + 1)],
-        "flight_date": [d.strftime("%Y-%m-%d") for d in flight_dates],
-        "carrier_code": selected_carriers,
-        "flight_number": np.random.randint(100, 8999, n_flights),
-        "origin_airport": origins,
-        "dest_airport": destinations,
-        "route": [f"{origins[i]}-{destinations[i]}" for i in range(n_flights)],
-        "scheduled_dep_time": [f"{sched_dep_hours[i]:02d}:{sched_dep_mins[i]:02d}" for i in range(n_flights)],
-        "departure_delay_minutes": dep_delays,
-        "arrival_delay_minutes": arr_delays,
-        "is_arr_on_time": is_arr_on_time,
-        "is_dep_on_time": is_dep_on_time,
-        "cancelled": cancelled_flags,
-        "cancellation_reason": cancellation_reasons,
-        "diverted": [1 if outcomes[i] == "DIVERTED" else 0 for i in range(n_flights)],
-        "air_time_minutes": air_times,
-        "distance_miles": distances,
-        "taxi_out_minutes": taxi_outs,
-        "taxi_in_minutes": taxi_ins,
-        "carrier_delay_minutes": carrier_delays,
-        "weather_delay_minutes": weather_delays,
-        "nas_delay_minutes": nas_delays,
-        "security_delay_minutes": security_delays,
-        "late_aircraft_delay_minutes": late_aircraft_delays,
-        "month": [d.month for d in flight_dates],
-        "day_of_week": [d.strftime("%A") for d in flight_dates],
-    })
+    df_flights = pd.DataFrame(
+        {
+            "flight_id": [f"fl_{i:07d}" for i in range(1, n_flights + 1)],
+            "flight_date": [d.strftime("%Y-%m-%d") for d in flight_dates],
+            "carrier_code": selected_carriers,
+            "flight_number": np.random.randint(100, 8999, n_flights),
+            "origin_airport": origins,
+            "dest_airport": destinations,
+            "route": [f"{origins[i]}-{destinations[i]}" for i in range(n_flights)],
+            "scheduled_dep_time": [
+                f"{sched_dep_hours[i]:02d}:{sched_dep_mins[i]:02d}" for i in range(n_flights)
+            ],
+            "departure_delay_minutes": dep_delays,
+            "arrival_delay_minutes": arr_delays,
+            "is_arr_on_time": is_arr_on_time,
+            "is_dep_on_time": is_dep_on_time,
+            "cancelled": cancelled_flags,
+            "cancellation_reason": cancellation_reasons,
+            "diverted": [1 if outcomes[i] == "DIVERTED" else 0 for i in range(n_flights)],
+            "air_time_minutes": air_times,
+            "distance_miles": distances,
+            "taxi_out_minutes": taxi_outs,
+            "taxi_in_minutes": taxi_ins,
+            "carrier_delay_minutes": carrier_delays,
+            "weather_delay_minutes": weather_delays,
+            "nas_delay_minutes": nas_delays,
+            "security_delay_minutes": security_delays,
+            "late_aircraft_delay_minutes": late_aircraft_delays,
+            "month": [d.month for d in flight_dates],
+            "day_of_week": [d.strftime("%A") for d in flight_dates],
+        }
+    )
 
     # Ingest into 3-tier raw/clean/curated and DuckDB
-    res_airlines = ingestion_engine.ingest_table("airline_bts_ontime", "bts_airlines", df_airlines, metadata)
-    res_airports = ingestion_engine.ingest_table("airline_bts_ontime", "bts_airports", df_airports, metadata)
-    res_flights = ingestion_engine.ingest_table("airline_bts_ontime", "bts_flights", df_flights, metadata)
+    res_airlines = ingestion_engine.ingest_table(
+        "airline_bts_ontime", "bts_airlines", df_airlines, metadata
+    )
+    res_airports = ingestion_engine.ingest_table(
+        "airline_bts_ontime", "bts_airports", df_airports, metadata
+    )
+    res_flights = ingestion_engine.ingest_table(
+        "airline_bts_ontime", "bts_flights", df_flights, metadata
+    )
 
     return {
         "dataset_id": "airline_bts_ontime",
         "tables": ["bts_airlines", "bts_airports", "bts_flights"],
-        "records": [res_airlines, res_airports, res_flights]
+        "records": [res_airlines, res_airports, res_flights],
     }

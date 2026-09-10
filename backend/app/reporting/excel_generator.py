@@ -1,6 +1,7 @@
 import os
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
+
 import pandas as pd
 
 
@@ -9,7 +10,7 @@ def generate_excel_report(
     query_data: Dict[str, Any],
     insights: list,
     file_path: str,
-    metadata: Optional[Dict[str, Any]] = None
+    metadata: Optional[Dict[str, Any]] = None,
 ) -> str:
     """
     Generates a production-grade multi-sheet Excel workbook containing:
@@ -41,19 +42,27 @@ def generate_excel_report(
         claims_rows = []
         for i, c in enumerate(insights, 1):
             if isinstance(c, dict):
-                claims_rows.append({
-                    "Index": i,
-                    "Claim Text": c.get("text", ""),
-                    "Metric": c.get("metric", "N/A"),
-                    "Value": c.get("value", "N/A"),
-                    "Status": c.get("status", "SUPPORTED"),
-                    "Confidence": c.get("confidence_score", 1.0),
-                })
+                claims_rows.append(
+                    {
+                        "Index": i,
+                        "Claim Text": c.get("text", ""),
+                        "Metric": c.get("metric", "N/A"),
+                        "Value": c.get("value", "N/A"),
+                        "Status": c.get("status", "SUPPORTED"),
+                        "Confidence": c.get("confidence_score", 1.0),
+                    }
+                )
             else:
                 claims_rows.append({"Index": i, "Claim Text": str(c), "Status": "SUPPORTED"})
-        
+
         if not claims_rows:
-            claims_rows = [{"Index": 1, "Claim Text": "Pipeline completed successfully with 100% data grounding.", "Status": "SUPPORTED"}]
+            claims_rows = [
+                {
+                    "Index": 1,
+                    "Claim Text": "Pipeline completed successfully with 100% data grounding.",
+                    "Status": "SUPPORTED",
+                }
+            ]
         pd.DataFrame(claims_rows).to_excel(writer, sheet_name="KPIs", index=False)
 
         # Sheet 3: Analysis
@@ -84,11 +93,26 @@ def generate_excel_report(
 
         # Sheet 6: Methodology
         methodology_data = [
-            {"Phase": "1. Intent Resolution", "Description": "Classified domain intent and bound to governed catalog schema"},
-            {"Phase": "2. Text-to-SQL", "Description": "Generated schema-bounded aggregate SQL using Google Gemini"},
-            {"Phase": "3. AST Security Policy", "Description": "Enforced read-only syntax tree verification and RLS isolation"},
-            {"Phase": "4. Engine Execution", "Description": "Executed against curated DuckDB analytical tables"},
-            {"Phase": "5. Grounding Verification", "Description": "Verified all AI output assertions directly against query result set"},
+            {
+                "Phase": "1. Intent Resolution",
+                "Description": "Classified domain intent and bound to governed catalog schema",
+            },
+            {
+                "Phase": "2. Text-to-SQL",
+                "Description": "Generated schema-bounded aggregate SQL using Google Gemini",
+            },
+            {
+                "Phase": "3. AST Security Policy",
+                "Description": "Enforced read-only syntax tree verification and RLS isolation",
+            },
+            {
+                "Phase": "4. Engine Execution",
+                "Description": "Executed against curated DuckDB analytical tables",
+            },
+            {
+                "Phase": "5. Grounding Verification",
+                "Description": "Verified all AI output assertions directly against query result set",
+            },
         ]
         pd.DataFrame(methodology_data).to_excel(writer, sheet_name="Methodology", index=False)
 

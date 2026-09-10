@@ -1,12 +1,13 @@
 from typing import Any, Dict, List, Optional
+
+from app.ai.tools.analytics_tools import RunDataQualityCheckTool, RunSandboxAnalysisTool
 from app.ai.tools.base import BaseTool
+from app.ai.tools.provenance_tools import GetProvenanceTool
+from app.ai.tools.reporting_tools import GenerateReportTool
 from app.ai.tools.schema_tools import GetSchemaCatalogTool, GetTableMetadataTool
 from app.ai.tools.semantic_tools import GetSemanticMetricTool
 from app.ai.tools.sql_tools import ExecuteReadOnlyQueryTool
-from app.ai.tools.analytics_tools import RunDataQualityCheckTool, RunSandboxAnalysisTool
 from app.ai.tools.visualization_tools import GenerateVisualizationTool
-from app.ai.tools.reporting_tools import GenerateReportTool
-from app.ai.tools.provenance_tools import GetProvenanceTool
 
 
 class ToolRegistry:
@@ -38,14 +39,16 @@ class ToolRegistry:
     def list_tools(self) -> List[Dict[str, Any]]:
         tool_definitions = []
         for tool in self._tools.values():
-            tool_definitions.append({
-                "type": "function",
-                "function": {
-                    "name": tool.name,
-                    "description": tool.description,
-                    "parameters": tool.input_schema.model_json_schema(),
+            tool_definitions.append(
+                {
+                    "type": "function",
+                    "function": {
+                        "name": tool.name,
+                        "description": tool.description,
+                        "parameters": tool.input_schema.model_json_schema(),
+                    },
                 }
-            })
+            )
         return tool_definitions
 
     def execute_tool(self, name: str, kwargs: Dict[str, Any]) -> Dict[str, Any]:

@@ -1,12 +1,14 @@
-import os
-import io
 import base64
+import io
+import os
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image as ReportLabImage
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from typing import Any, Dict, Optional
+
 from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.platypus import Image as ReportLabImage
+from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 
 def generate_pdf_report(
@@ -15,7 +17,7 @@ def generate_pdf_report(
     insights: list,
     file_path: str,
     metadata: Optional[Dict[str, Any]] = None,
-    image_b64: Optional[str] = None
+    image_b64: Optional[str] = None,
 ) -> str:
     """
     Generates a production-grade Executive PDF report including:
@@ -24,12 +26,7 @@ def generate_pdf_report(
     """
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     doc = SimpleDocTemplate(
-        file_path,
-        pagesize=letter,
-        rightMargin=36,
-        leftMargin=36,
-        topMargin=36,
-        bottomMargin=36
+        file_path, pagesize=letter, rightMargin=36, leftMargin=36, topMargin=36, bottomMargin=36
     )
     styles = getSampleStyleSheet()
     story = []
@@ -67,8 +64,17 @@ def generate_pdf_report(
 
     story.append(Paragraph(title, title_style))
     created_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    dataset_name = metadata.get("domain_name", "Enterprise Analytics Domain") if metadata else "Enterprise Analytics Domain"
-    story.append(Paragraph(f"Domain: {dataset_name} | Created: {created_at} | Verified Grounding: SUPPORTED", meta_style))
+    dataset_name = (
+        metadata.get("domain_name", "Enterprise Analytics Domain")
+        if metadata
+        else "Enterprise Analytics Domain"
+    )
+    story.append(
+        Paragraph(
+            f"Domain: {dataset_name} | Created: {created_at} | Verified Grounding: SUPPORTED",
+            meta_style,
+        )
+    )
     story.append(Spacer(1, 8))
 
     # 1. Executive Summary & KPIs
@@ -94,7 +100,7 @@ def generate_pdf_report(
     story.append(Paragraph("3. Governed Database Execution Sample", h2_style))
     columns = query_data.get("columns", ["Dimension", "Metric"])[:6]
     raw_rows = query_data.get("rows", [])[:8]
-    
+
     # Format table data
     table_data = [columns]
     for r in raw_rows:
@@ -103,15 +109,19 @@ def generate_pdf_report(
 
     if len(table_data) > 1:
         t = Table(table_data, colWidths=[520 / max(len(columns), 1)] * len(columns))
-        t.setStyle(TableStyle([
-            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f8fafc")),
-            ("TEXTCOLOR", (0, 0), (-1, 0), colors.HexColor("#0f172a")),
-            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-            ("FONTSIZE", (0, 0), (-1, -1), 8),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-            ("TOPPADDING", (0, 0), (-1, -1), 4),
-            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
-        ]))
+        t.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f8fafc")),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.HexColor("#0f172a")),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("FONTSIZE", (0, 0), (-1, -1), 8),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                    ("TOPPADDING", (0, 0), (-1, -1), 4),
+                    ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+                ]
+            )
+        )
         story.append(t)
     story.append(Spacer(1, 10))
 
@@ -122,17 +132,21 @@ def generate_pdf_report(
         ["Data Quality Score", "98.5% (Completeness: 99%, Validity: 98%, Freshness: 96%)"],
         ["Grounding Status", "PASSED - Direct AST Execution Grounded"],
         ["RLS Security Filter", "Enforced - Multi-Tenant Isolation & AST Policy Engine"],
-        ["Query Runtime", "DuckDB In-Memory Vectorized Engine (<15ms)"]
+        ["Query Runtime", "DuckDB In-Memory Vectorized Engine (<15ms)"],
     ]
     t_meta = Table(meta_rows, colWidths=[160, 360])
-    t_meta.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f1f5f9")),
-        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-        ("FONTSIZE", (0, 0), (-1, -1), 8),
-        ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
-        ("TOPPADDING", (0, 0), (-1, -1), 3),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
-    ]))
+    t_meta.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f1f5f9")),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("FONTSIZE", (0, 0), (-1, -1), 8),
+                ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+                ("TOPPADDING", (0, 0), (-1, -1), 3),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+            ]
+        )
+    )
     story.append(t_meta)
 
     doc.build(story)

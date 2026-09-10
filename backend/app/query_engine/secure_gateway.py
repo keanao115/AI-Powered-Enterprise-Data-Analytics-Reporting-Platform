@@ -1,17 +1,17 @@
-import time
 import re
-from typing import Dict, Any, Optional, List
-from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
+import time
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as FutureTimeoutError
+from typing import Any, Dict, Optional
 
 from app.core.config import settings
-from app.core.tenant import TenantContext, get_tenant_context
-from app.core.permissions import Permission, Role
 from app.core.database import analytics_adapter
-from app.security.audit import audit_logger
+from app.core.tenant import TenantContext, get_tenant_context
 from app.query_engine.ast_policy import ast_policy_engine
-from app.query_engine.rls_enforcer import rls_enforcer
 from app.query_engine.column_masker import column_masker
 from app.query_engine.cost_estimator import cost_estimator
+from app.query_engine.rls_enforcer import rls_enforcer
+from app.security.audit import audit_logger
 
 
 class SecureQueryGateway:
@@ -19,7 +19,7 @@ class SecureQueryGateway:
     Unified, Authoritative Security Gateway for Analytical SQL Execution.
     Guarantees Invariant 1: No SQL reaches the analytics engine without passing
     through this deterministic security boundary.
-    
+
     Pipeline:
     1. Parse & AST Policy Validation (Blocks DDL/DML, file I/O, system tables, dangerous syntax)
     2. Role & Resource Authorization Check
@@ -32,7 +32,9 @@ class SecureQueryGateway:
     """
 
     def __init__(self):
-        self._executor = ThreadPoolExecutor(max_workers=16, thread_name_prefix="secure_query_worker")
+        self._executor = ThreadPoolExecutor(
+            max_workers=16, thread_name_prefix="secure_query_worker"
+        )
 
     def execute(
         self,
@@ -44,7 +46,7 @@ class SecureQueryGateway:
         request_id: Optional[str] = None,
     ) -> Dict[str, Any]:
         start_time = time.time()
-        
+
         # 0. Resolve or create tenant context
         if ctx is None:
             ctx = get_tenant_context()
@@ -78,15 +80,12 @@ class SecureQueryGateway:
             p.value.lower() if hasattr(p, "value") else str(p).lower().replace("_", ":")
             for p in (ctx.permissions if ctx else [])
         }
-        user_perms.update({
-            str(p).lower() for p in (ctx.permissions if ctx else [])
-        })
+        user_perms.update({str(p).lower() for p in (ctx.permissions if ctx else [])})
 
         admin_roles = {"org_admin", "super_admin", "admin", "security_admin", "compliance_officer"}
         user_role_str = str(getattr(ctx, "user_role", "")).lower()
-        has_admin_role = (
-            user_role_str in admin_roles
-            or any(str(r).lower() in admin_roles for r in getattr(ctx, "roles", []))
+        has_admin_role = user_role_str in admin_roles or any(
+            str(r).lower() in admin_roles for r in getattr(ctx, "roles", [])
         )
 
         has_query_perm = (
@@ -141,7 +140,10 @@ class SecureQueryGateway:
 
         # 5. Cost Estimation & Guardrails
         cost_eval = cost_estimator.estimate_cost(masked_sql)
-        if cost_eval.get("has_cartesian_product", False) and cost_eval.get("cost_rating") == "CRITICAL_OVERHEAD":
+        if (
+            cost_eval.get("has_cartesian_product", False)
+            and cost_eval.get("cost_rating") == "CRITICAL_OVERHEAD"
+        ):
             audit_logger.log_event(
                 action="QUERY_COST_BLOCKED",
                 resource=masked_sql,

@@ -2,6 +2,7 @@ import logging
 import uuid
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
+
 from app.core.tenant import TenantContext
 
 logger = logging.getLogger("audit")

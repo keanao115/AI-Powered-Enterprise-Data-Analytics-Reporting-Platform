@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
-from app.core.security import get_current_user_context, require_permission
+
 from app.core.permissions import Permission
+from app.core.security import require_permission
 from app.core.tenant import TenantContext
 from app.semantic.registry import schema_registry
 from app.semantic.semantic_layer import semantic_layer

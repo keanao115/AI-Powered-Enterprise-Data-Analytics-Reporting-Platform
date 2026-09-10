@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
-from app.core.security import get_current_user_context, require_permission
+
 from app.core.permissions import Permission
+from app.core.security import require_permission
 from app.core.tenant import TenantContext
 
 audit_router = APIRouter(prefix="/audit", tags=["Audit Logs"])
@@ -51,5 +52,6 @@ async def run_evaluation_benchmark(
     ctx: TenantContext = Depends(require_permission(Permission.EVALUATION_RUN)),
 ):
     from app.evaluation.eval_runner import evaluation_runner
+
     res = evaluation_runner.run_all_benchmarks(ctx)
     return res

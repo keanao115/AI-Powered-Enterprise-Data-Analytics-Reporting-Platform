@@ -1,9 +1,9 @@
-import pytest
 import time
-from fastapi.testclient import TestClient
+
+from app.core.config import settings
 from app.main import app
 from app.security.oidc import oidc_validator
-from app.core.config import settings
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
@@ -62,7 +62,9 @@ def test_oidc_callback_cryptographic_verification():
 def test_oidc_callback_rejects_fake_signature():
     # 2. Forged signature vulnerability test (Remediates Item 2.2)
     # Tokens with fabricated payloads or '.fake_signature' must be strictly rejected with HTTP 401
-    parts = oidc_validator.create_signed_test_token({"sub": "attacker", "groups": ["org_admin"]}).split(".")
+    parts = oidc_validator.create_signed_test_token(
+        {"sub": "attacker", "groups": ["org_admin"]}
+    ).split(".")
     tampered_token = f"{parts[0]}.{parts[1]}.fake_signature_unauthorized"
 
     response = client.post(

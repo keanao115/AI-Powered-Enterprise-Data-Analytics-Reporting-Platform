@@ -2,16 +2,17 @@ import abc
 import hashlib
 import time
 from collections import defaultdict
-from typing import Any, Dict, List, Optional, Tuple
-from app.core.config import settings
+from typing import Dict, List, Optional, Tuple
 
-
-from app.core.exceptions import PlatformException
 from fastapi import status
+
+from app.core.config import settings
+from app.core.exceptions import PlatformException
 
 
 class TokenBudgetExceededException(PlatformException):
     """Raised when tenant exceeds assigned token or cost allowance."""
+
     def __init__(self, message: str = "Daily token budget exceeded for tenant."):
         super().__init__(
             code="TOKEN_BUDGET_EXCEEDED",
@@ -22,6 +23,7 @@ class TokenBudgetExceededException(PlatformException):
 
 class RateLimitExceededException(PlatformException):
     """Raised when tenant/user exceeds requests per minute threshold."""
+
     def __init__(self, message: str = "Request rate limit exceeded. Please slow down."):
         super().__init__(
             code="RATE_LIMIT_EXCEEDED",
@@ -170,6 +172,7 @@ class RedisTokenGovernanceStorage(TokenGovernanceStorageBackend):
         if self._redis_client is None:
             try:
                 import redis
+
                 self._redis_client = redis.from_url(self.redis_url)
             except Exception:
                 self._redis_client = None
@@ -212,7 +215,9 @@ class RedisTokenGovernanceStorage(TokenGovernanceStorageBackend):
     ) -> Tuple[bool, Dict[str, float]]:
         client = self._get_client()
         if not client:
-            return self._fallback.check_and_deduct_tokens(tenant_id, estimated_tokens, estimated_cost_usd, daily_limit)
+            return self._fallback.check_and_deduct_tokens(
+                tenant_id, estimated_tokens, estimated_cost_usd, daily_limit
+            )
         try:
             date_str = time.strftime("%Y%m%d")
             key = f"tokenbudget:{tenant_id}:{date_str}"
@@ -234,7 +239,9 @@ class RedisTokenGovernanceStorage(TokenGovernanceStorageBackend):
                 "used_cost_usd": estimated_cost_usd,
             }
         except Exception:
-            return self._fallback.check_and_deduct_tokens(tenant_id, estimated_tokens, estimated_cost_usd, daily_limit)
+            return self._fallback.check_and_deduct_tokens(
+                tenant_id, estimated_tokens, estimated_cost_usd, daily_limit
+            )
 
     def record_query_replay(
         self,
@@ -245,7 +252,9 @@ class RedisTokenGovernanceStorage(TokenGovernanceStorageBackend):
     ) -> int:
         client = self._get_client()
         if not client:
-            return self._fallback.record_query_replay(tenant_id, query_hash, timestamp, window_seconds)
+            return self._fallback.record_query_replay(
+                tenant_id, query_hash, timestamp, window_seconds
+            )
         try:
             key = f"replay:{tenant_id}:{query_hash}"
             window_start = timestamp - window_seconds
@@ -257,7 +266,9 @@ class RedisTokenGovernanceStorage(TokenGovernanceStorageBackend):
             _, _, count, _ = pipe.execute()
             return count
         except Exception:
-            return self._fallback.record_query_replay(tenant_id, query_hash, timestamp, window_seconds)
+            return self._fallback.record_query_replay(
+                tenant_id, query_hash, timestamp, window_seconds
+            )
 
     def get_stats(self, tenant_id: str, daily_limit: int, rpm_limit: int) -> Dict[str, float]:
         client = self._get_client()
@@ -296,7 +307,9 @@ class TokenGovernanceManager:
     ):
         self.daily_token_limit = daily_token_limit or settings.PER_TENANT_DAILY_TOKEN_BUDGET
         self.rpm_limit = rpm_limit or settings.PER_TENANT_RATE_LIMIT_RPM
-        self.storage: TokenGovernanceStorageBackend = storage_backend or InMemoryTokenGovernanceStorage()
+        self.storage: TokenGovernanceStorageBackend = (
+            storage_backend or InMemoryTokenGovernanceStorage()
+        )
 
     def check_rate_limit(self, tenant_id: str, max_rpm: Optional[int] = None) -> Tuple[bool, int]:
         """

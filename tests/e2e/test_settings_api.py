@@ -1,8 +1,7 @@
-import pytest
-from fastapi.testclient import TestClient
-from app.main import app
-from app.core.config import settings
 from app.ai.llm_gateway import llm_gateway
+from app.core.config import settings
+from app.main import app
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
@@ -33,7 +32,7 @@ def test_update_llm_settings():
                 "provider": "mock",
                 "model": "deterministic-v1",
                 "persist_to_env": False,
-            }
+            },
         )
         assert res.status_code == 200
         data = res.json()
@@ -48,7 +47,7 @@ def test_update_llm_settings():
                 "provider": "gemini",
                 "model": "gemini-flash-latest",
                 "persist_to_env": False,
-            }
+            },
         )
         assert res2.status_code == 200
         assert res2.json()["provider"] == "gemini"
@@ -64,7 +63,7 @@ def test_test_llm_connection_mock():
         json={
             "provider": "mock",
             "model": "deterministic-v1",
-        }
+        },
     )
     assert res.status_code == 200
     data = res.json()
@@ -80,7 +79,7 @@ def test_test_llm_connection_missing_key():
             "provider": "openai",
             "model": "gpt-4o",
             "api_key": "",
-        }
+        },
     )
     assert res.status_code == 200
     data = res.json()
@@ -110,7 +109,7 @@ def test_gemini_blank_key_requires_manual_input():
                 "provider": "gemini",
                 "model": "gemini-flash-latest",
                 "api_key": "",
-            }
+            },
         )
         assert res_test.status_code == 200
         test_data = res_test.json()
@@ -124,7 +123,7 @@ def test_gemini_blank_key_requires_manual_input():
                 "provider": "gemini",
                 "gemini_api_key": "AQ.Ab8RN6_manual_key_test",
                 "persist_to_env": False,
-            }
+            },
         )
         assert res_save.status_code == 200
         saved_data = res_save.json()
@@ -138,7 +137,7 @@ def test_gemini_blank_key_requires_manual_input():
                 "provider": "gemini",
                 "gemini_api_key": "",
                 "persist_to_env": False,
-            }
+            },
         )
         assert res_clear.status_code == 200
         assert res_clear.json()["gemini_api_key_configured"] is False
@@ -159,7 +158,7 @@ def test_revoke_openai_and_gemini_api_key():
                 "gemini_api_key": "AQ.Ab8RN6_gem_key",
                 "openai_api_key": "sk-proj-test-oa-key",
                 "persist_to_env": False,
-            }
+            },
         )
         status1 = client.get("/api/v1/settings/llm").json()
         assert status1["gemini_api_key_configured"] is True
@@ -171,7 +170,7 @@ def test_revoke_openai_and_gemini_api_key():
             json={
                 "gemini_api_key": "",
                 "persist_to_env": False,
-            }
+            },
         )
         assert res_rev_gem.status_code == 200
         data_rev_gem = res_rev_gem.json()
@@ -184,7 +183,7 @@ def test_revoke_openai_and_gemini_api_key():
             json={
                 "openai_api_key": "",
                 "persist_to_env": False,
-            }
+            },
         )
         assert res_rev_oa.status_code == 200
         data_rev_oa = res_rev_oa.json()
@@ -198,7 +197,10 @@ def test_revoke_openai_and_gemini_api_key():
 
 def test_auto_detect_api_key_patterns():
     # 1. Gemini (AIzaSy or AQ.)
-    r1 = client.post("/api/v1/settings/detect-key", json={"key": "AQ.Ab8RN6Ikiq5fZP6sWDfLfLo6yVHbtYyMwqVKC5igm_-XALc0rg"})
+    r1 = client.post(
+        "/api/v1/settings/detect-key",
+        json={"key": "AQ.Ab8RN6Ikiq5fZP6sWDfLfLo6yVHbtYyMwqVKC5igm_-XALc0rg"},
+    )
     assert r1.status_code == 200
     d1 = r1.json()
     assert d1["provider_id"] == "gemini"
@@ -259,7 +261,7 @@ def test_vault_crud_and_activation():
             "api_key": "dsk-test-secret-1234567890",
             "model": "deepseek-chat",
             "is_active": False,
-        }
+        },
     )
     assert res_add.status_code == 200
     add_data = res_add.json()
@@ -299,7 +301,7 @@ def test_multi_model_collaboration_settings_and_pipeline():
             "name": "Model A (SQL Gen)",
             "api_key": "mock",
             "model": "deterministic-v1",
-        }
+        },
     )
     client.post(
         "/api/v1/settings/vault",
@@ -309,7 +311,7 @@ def test_multi_model_collaboration_settings_and_pipeline():
             "name": "Model B (SQL Reviewer)",
             "api_key": "mock",
             "model": "deterministic-v1",
-        }
+        },
     )
 
     # 2. Configure collaboration
@@ -321,8 +323,8 @@ def test_multi_model_collaboration_settings_and_pipeline():
                 "sql_generator": "model_a_sql",
                 "sql_reviewer": "model_b_review",
                 "insight_generator": "model_a_sql",
-            }
-        }
+            },
+        },
     )
     assert res_collab.status_code == 200
     collab_data = res_collab.json()
@@ -332,9 +334,12 @@ def test_multi_model_collaboration_settings_and_pipeline():
     # 3. Execute query through analyst agent
     from app.ai.agent.analyst_agent import analyst_agent
     from app.core.tenant import TenantContext
+
     ctx = TenantContext(tenant_id="tenant_collab_test", user_id="u_collab")
 
-    state = analyst_agent.execute_pipeline("分析巴西電商中銷售額最高的前 5 大產品類別", ctx, dataset_id="ecommerce_olist")
+    state = analyst_agent.execute_pipeline(
+        "分析巴西電商中銷售額最高的前 5 大產品類別", ctx, dataset_id="ecommerce_olist"
+    )
     assert state.grounding_status == "PASSED"
     assert state.collaboration_info is not None
     assert state.collaboration_info["enabled"] is True
@@ -346,6 +351,3 @@ def test_multi_model_collaboration_settings_and_pipeline():
 
     # Clean up collaboration
     client.post("/api/v1/settings/collaboration", json={"enabled": False})
-
-
-

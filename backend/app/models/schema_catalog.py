@@ -1,5 +1,7 @@
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, DateTime, JSON
+
+from sqlalchemy import JSON, Column, DateTime, String
+
 from app.core.database import Base
 
 
@@ -11,6 +13,8 @@ class SchemaCatalog(Base):
     workspace_id = Column(String, index=True, nullable=False)
     table_name = Column(String, nullable=False)
     description = Column(String, nullable=True)
-    columns_metadata = Column(JSON, default=list)  # list of column dicts with sensitivity classification
+    columns_metadata = Column(
+        JSON, default=list
+    )  # list of column dicts with sensitivity classification
     row_count_estimate = Column(String, nullable=True)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))

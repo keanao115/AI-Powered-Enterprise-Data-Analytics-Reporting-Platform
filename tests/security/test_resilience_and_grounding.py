@@ -1,5 +1,5 @@
-import pytest
 import time
+
 from app.ai.resilience import CircuitBreaker, retry_with_exponential_backoff
 from app.analytics.grounding import GroundingValidator
 from app.semantic.semantic_layer import semantic_layer
@@ -60,11 +60,7 @@ def test_exponential_backoff_retry():
         return "recovered"
 
     result = retry_with_exponential_backoff(
-        flaky_function,
-        max_retries=2,
-        base_delay=0.05,
-        max_delay=0.2,
-        jitter=False
+        flaky_function, max_retries=2, base_delay=0.05, max_delay=0.2, jitter=False
     )
     assert result == "recovered"
     assert calls == 2
@@ -79,13 +75,19 @@ def test_empirical_fact_grounding_numerical_verification():
         "rows": [
             ["Health & Beauty", 1450, 245000.0, 4.25],
             ["Electronics", 890, 185200.5, 6.10],
-        ]
+        ],
     }
 
     # 1. Exact & tolerance matched claim
     claims_supported = [
-        {"claim_id": "c1", "text": "Health & Beauty delivered 1450 orders totaling $245,000 in revenue."},
-        {"claim_id": "c2", "text": "Electronics experienced a 6.1% late delivery rate across 890 orders."},
+        {
+            "claim_id": "c1",
+            "text": "Health & Beauty delivered 1450 orders totaling $245,000 in revenue.",
+        },
+        {
+            "claim_id": "c2",
+            "text": "Electronics experienced a 6.1% late delivery rate across 890 orders.",
+        },
     ]
     res1 = validator.validate_claims(claims_supported, query_data)
     assert len(res1) == 2
@@ -94,7 +96,10 @@ def test_empirical_fact_grounding_numerical_verification():
 
     # 2. Unsupported / hallucinated claim
     claims_unsupported = [
-        {"claim_id": "c3", "text": "Health & Beauty orders reached 999999 with revenue of $99,999,999."},
+        {
+            "claim_id": "c3",
+            "text": "Health & Beauty orders reached 999999 with revenue of $99,999,999.",
+        },
     ]
     res2 = validator.validate_claims(claims_unsupported, query_data)
     assert res2[0]["status"] == "UNSUPPORTED"

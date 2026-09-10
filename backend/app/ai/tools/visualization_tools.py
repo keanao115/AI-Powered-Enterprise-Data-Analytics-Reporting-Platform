@@ -1,5 +1,7 @@
-from typing import Any, Dict
+from typing import Any, Dict, Optional
+
 from pydantic import BaseModel, Field
+
 from app.ai.tools.base import BaseTool
 from app.core.permissions import Permission
 from app.core.tenant import TenantContext
@@ -15,12 +17,15 @@ class GenerateVisualizationInput(BaseModel):
 
 class GenerateVisualizationTool(BaseTool):
     name = "generate_visualization"
-    description = "Generates chart configuration and base64 matplotlib/seaborn plot image from query results."
+    description = (
+        "Generates chart configuration and base64 matplotlib/seaborn plot image from query results."
+    )
     input_schema = GenerateVisualizationInput
     required_permission = Permission.QUERY_EXECUTE
 
     def _execute(self, inputs: GenerateVisualizationInput, ctx: Optional[TenantContext]):
         from app.sandbox.runner import sandbox_runner
+
         chart_code = f"""
 import matplotlib.pyplot as plt
 import pandas as pd

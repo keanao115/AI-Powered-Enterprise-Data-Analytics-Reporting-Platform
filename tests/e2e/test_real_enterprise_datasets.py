@@ -1,18 +1,16 @@
 import os
-import pytest
-import duckdb
-from fastapi.testclient import TestClient
 
-from app.main import app
-from app.core.tenant import TenantContext
-from app.core.database import get_analytics_db_path
-from app.ingestion.run_all_ingestions import run_full_enterprise_ingestion_pipeline
-from app.semantic.dataset_catalog import dataset_catalog, ENTERPRISE_DATASET_CATALOG
-from app.semantic.semantic_layer import semantic_layer
+import duckdb
+import pytest
 from app.ai.agent.analyst_agent import analyst_agent
-from app.reporting.pdf_generator import generate_pdf_report
-from app.reporting.excel_generator import generate_excel_report
+from app.core.database import get_analytics_db_path
+from app.core.tenant import TenantContext
 from app.evaluation.eval_runner import evaluation_runner
+from app.ingestion.run_all_ingestions import run_full_enterprise_ingestion_pipeline
+from app.reporting.excel_generator import generate_excel_report
+from app.reporting.pdf_generator import generate_pdf_report
+from app.semantic.dataset_catalog import dataset_catalog
+from app.semantic.semantic_layer import semantic_layer
 
 
 @pytest.fixture(scope="module")
@@ -27,27 +25,39 @@ def test_enterprise_datasets_ingestion_and_duckdb_tables(seeded_enterprise_db):
     """Verify that all 6 public datasets created their respective curated tables in DuckDB."""
     db_path = get_analytics_db_path()
     conn = duckdb.connect(db_path)
-    
+
     # Check tables existence and row counts
     expected_tables = [
         # Domain 1: Olist E-Commerce
-        "olist_orders", "olist_order_items", "olist_products", "olist_customers",
+        "olist_orders",
+        "olist_order_items",
+        "olist_products",
+        "olist_customers",
         # Domain 2: NYC Taxi
-        "nyc_taxi_trips", "taxi_zones",
+        "nyc_taxi_trips",
+        "taxi_zones",
         # Domain 3: BTS Airlines
-        "bts_flights", "bts_airlines", "bts_airports",
+        "bts_flights",
+        "bts_airlines",
+        "bts_airports",
         # Domain 4: MIMIC-IV Healthcare
-        "mimic_patients", "mimic_admissions", "mimic_icu_stays", "mimic_diagnoses",
+        "mimic_patients",
+        "mimic_admissions",
+        "mimic_icu_stays",
+        "mimic_diagnoses",
         # Domain 5: Chicago Public Safety
-        "chicago_crimes", "chicago_districts",
+        "chicago_crimes",
+        "chicago_districts",
         # Domain 6: SEC Financial Markets
-        "market_securities", "market_daily_prices", "market_financial_facts"
+        "market_securities",
+        "market_daily_prices",
+        "market_financial_facts",
     ]
-    
+
     for table in expected_tables:
         count = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
         assert count > 0, f"Table {table} should have rows, got {count}"
-    
+
     conn.close()
 
 
@@ -55,7 +65,7 @@ def test_dataset_catalog_metadata():
     """Verify all 6 datasets have complete provenance, license, checksums, and citation."""
     datasets = dataset_catalog.list_datasets()
     assert len(datasets) == 6
-    
+
     for d in datasets:
         assert "dataset_id" in d
         assert "publisher" in d
@@ -73,7 +83,7 @@ def test_governed_semantic_layer_metrics():
     """Verify formal governed semantic metrics across all 6 domains."""
     metrics = semantic_layer.list_metrics("tenant-acme")
     assert len(metrics) >= 12
-    
+
     domains_covered = {m["domain"] for m in metrics}
     assert "E-Commerce / Retail" in domains_covered
     assert "Urban Transportation" in domains_covered
@@ -92,22 +102,22 @@ def test_ai_analyst_domain_queries(seeded_enterprise_db):
         user_id="usr-test",
         permissions=["QUERY_EXECUTE", "DATASOURCE_VIEW"],
     )
-    
+
     # 1. E-Commerce Query
     state1 = analyst_agent.execute_pipeline(
         "What are the top product categories by total sales volume?",
         ctx,
-        dataset_id="ecommerce_olist"
+        dataset_id="ecommerce_olist",
     )
     assert state1.grounding_status == "PASSED"
     assert state1.validated_sql is not None
     assert len(state1.claims) > 0
-    
+
     # 2. Transportation Query
     state2 = analyst_agent.execute_pipeline(
         "What is the average fare and trip distance across NYC taxi pickup zones?",
         ctx,
-        dataset_id="transportation_nyc_taxi"
+        dataset_id="transportation_nyc_taxi",
     )
     assert state2.grounding_status == "PASSED"
     assert len(state2.claims) > 0
@@ -122,7 +132,7 @@ def test_180_scenario_benchmark_evaluation():
         user_id="usr-test",
         permissions=["EVALUATION_RUN"],
     )
-    
+
     res = evaluation_runner.run_all_benchmarks(ctx)
     assert res["total_scenarios"] >= 180
     assert res["accuracy_pct"] >= 95.0
@@ -141,17 +151,22 @@ def test_executive_pdf_and_excel_report_generation(tmp_path):
             ["Watches & Gifts", 980, 189000.0],
             ["Computers", 620, 310000.0],
         ],
-        "row_count": 3
+        "row_count": 3,
     }
     insights = [
-        {"text": "Computers generated highest revenue per item.", "metric": "Revenue", "value": "310000.0", "status": "SUPPORTED"}
+        {
+            "text": "Computers generated highest revenue per item.",
+            "metric": "Revenue",
+            "value": "310000.0",
+            "status": "SUPPORTED",
+        }
     ]
-    
+
     pdf_path = os.path.join(tmp_path, "test_report.pdf")
     generate_pdf_report("Executive E-Commerce Analysis", query_data, insights, pdf_path)
     assert os.path.exists(pdf_path)
     assert os.path.getsize(pdf_path) > 1000
-    
+
     excel_path = os.path.join(tmp_path, "test_report.xlsx")
     generate_excel_report("Executive E-Commerce Analysis", query_data, insights, excel_path)
     assert os.path.exists(excel_path)

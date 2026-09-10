@@ -1,10 +1,11 @@
 import time
-from typing import Dict, Any, Optional, List
-from jose import jwt, JWTError
-from jose.exceptions import ExpiredSignatureError, JWTClaimsError
-from fastapi import HTTPException, status
-from app.core.config import settings
+from typing import Any, Dict, List, Optional
 
+from fastapi import HTTPException, status
+from jose import JWTError, jwt
+from jose.exceptions import ExpiredSignatureError, JWTClaimsError
+
+from app.core.config import settings
 
 # Enterprise Demo & Test Public/Private Keypair (RS256 2048-bit)
 # In production, keys are fetched dynamically from IdP JWKS endpoints (Okta, Entra ID, Keycloak)
@@ -84,7 +85,7 @@ class OIDCValidator:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Malformed OIDC token: token string is required.",
-                headers={"WWW-Authenticate": "Bearer error=\"invalid_token\""},
+                headers={"WWW-Authenticate": 'Bearer error="invalid_token"'},
             )
 
         parts = id_token.split(".")
@@ -92,7 +93,7 @@ class OIDCValidator:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Malformed OIDC token: expected standard 3-part JWS (header.payload.signature).",
-                headers={"WWW-Authenticate": "Bearer error=\"invalid_token\""},
+                headers={"WWW-Authenticate": 'Bearer error="invalid_token"'},
             )
 
         # Inspect unverified header to ensure safe algorithm
@@ -103,14 +104,14 @@ class OIDCValidator:
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
                     detail=f"Insecure or unsupported JWS algorithm: '{alg}'. Only RS256 cryptographic signatures accepted.",
-                    headers={"WWW-Authenticate": "Bearer error=\"invalid_token\""},
+                    headers={"WWW-Authenticate": 'Bearer error="invalid_token"'},
                 )
         except JWTError as e:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail=f"Failed to inspect OIDC token header: {str(e)}",
-                headers={"WWW-Authenticate": "Bearer error=\"invalid_token\""},
-            )
+                headers={"WWW-Authenticate": 'Bearer error="invalid_token"'},
+            ) from e
 
         # Cryptographic Signature & Claims Verification
         try:
@@ -128,24 +129,28 @@ class OIDCValidator:
                 algorithms=self.allowed_algorithms,
                 options=options,
             )
-        except ExpiredSignatureError:
+        except ExpiredSignatureError as e:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="OIDC ID token has expired. Please re-authenticate via enterprise IdP.",
-                headers={"WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"token_expired\""},
-            )
+                headers={
+                    "WWW-Authenticate": 'Bearer error="invalid_token", error_description="token_expired"'
+                },
+            ) from e
         except JWTClaimsError as e:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail=f"OIDC token claims verification failed: {str(e)}",
-                headers={"WWW-Authenticate": "Bearer error=\"invalid_token\""},
-            )
+                headers={"WWW-Authenticate": 'Bearer error="invalid_token"'},
+            ) from e
         except JWTError as e:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail=f"OIDC token cryptographic signature verification failed: {str(e)}",
-                headers={"WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"signature_verification_failed\""},
-            )
+                headers={
+                    "WWW-Authenticate": 'Bearer error="invalid_token", error_description="signature_verification_failed"'
+                },
+            ) from e
 
         # Audience verification (if specified or configured in settings)
         aud = expected_client_id or getattr(settings, "OIDC_CLIENT_ID", None)

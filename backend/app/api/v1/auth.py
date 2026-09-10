@@ -1,15 +1,16 @@
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, EmailStr
+
 from app.core.config import settings
-from app.core.security import create_access_token, hash_password, verify_password, get_current_user_context
+from app.core.security import create_access_token, get_current_user_context
 from app.core.tenant import TenantContext
+from app.security.audit import audit_logger
+from app.security.login_limiter import login_rate_limiter
+from app.security.oidc import oidc_validator
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
-
-
-from app.security.login_limiter import login_rate_limiter
-from app.security.audit import audit_logger
 
 
 class LoginRequest(BaseModel):
@@ -62,25 +63,52 @@ async def login(req: LoginRequest):
 
     # 2. Multi-tenant demo users: Acme Corp & Globex Corp
     DEMO_USERS = {
-        "admin@acme.com": {"tenant_id": "tenant-acme", "org_id": "org-acme-corp", "ws_id": "ws-sales-analytics", "role": "ORG_ADMIN"},
-        "analyst@acme.com": {"tenant_id": "tenant-acme", "org_id": "org-acme-corp", "ws_id": "ws-sales-analytics", "role": "ANALYST"},
-        "viewer@acme.com": {"tenant_id": "tenant-acme", "org_id": "org-acme-corp", "ws_id": "ws-sales-analytics", "role": "VIEWER"},
-        "admin@globex.com": {"tenant_id": "tenant-globex", "org_id": "org-globex-intl", "ws_id": "ws-globex-eu", "role": "ORG_ADMIN"},
-        "analyst@globex.com": {"tenant_id": "tenant-globex", "org_id": "org-globex-intl", "ws_id": "ws-globex-eu", "role": "ANALYST"},
+        "admin@acme.com": {
+            "tenant_id": "tenant-acme",
+            "org_id": "org-acme-corp",
+            "ws_id": "ws-sales-analytics",
+            "role": "ORG_ADMIN",
+        },
+        "analyst@acme.com": {
+            "tenant_id": "tenant-acme",
+            "org_id": "org-acme-corp",
+            "ws_id": "ws-sales-analytics",
+            "role": "ANALYST",
+        },
+        "viewer@acme.com": {
+            "tenant_id": "tenant-acme",
+            "org_id": "org-acme-corp",
+            "ws_id": "ws-sales-analytics",
+            "role": "VIEWER",
+        },
+        "admin@globex.com": {
+            "tenant_id": "tenant-globex",
+            "org_id": "org-globex-intl",
+            "ws_id": "ws-globex-eu",
+            "role": "ORG_ADMIN",
+        },
+        "analyst@globex.com": {
+            "tenant_id": "tenant-globex",
+            "org_id": "org-globex-intl",
+            "ws_id": "ws-globex-eu",
+            "role": "ANALYST",
+        },
     }
 
     if email_clean in DEMO_USERS and req.password == "password123":
         user_info = DEMO_USERS[email_clean]
         login_rate_limiter.record_success(email_clean)
         user_id = f"user-{email_clean.split('@')[0]}"
-        token = create_access_token({
-            "sub": user_id,
-            "tenant_id": user_info["tenant_id"],
-            "organization_id": user_info["org_id"],
-            "workspace_id": user_info["ws_id"],
-            "role": user_info["role"],
-            "idp_provider": "local",
-        })
+        token = create_access_token(
+            {
+                "sub": user_id,
+                "tenant_id": user_info["tenant_id"],
+                "organization_id": user_info["org_id"],
+                "workspace_id": user_info["ws_id"],
+                "role": user_info["role"],
+                "idp_provider": "local",
+            }
+        )
         audit_logger.log_event(
             action="LOGIN_SUCCESS",
             resource=email_clean,
@@ -155,8 +183,6 @@ async def list_sso_providers():
         ),
     ]
 
-from app.security.oidc import oidc_validator
-
 
 @router.post("/sso/oidc/callback", response_model=LoginResponse)
 async def oidc_callback(req: OIDCCallbackRequest):
@@ -180,21 +206,28 @@ async def oidc_callback(req: OIDCCallbackRequest):
         groups = [groups]
 
     extracted_role = "ANALYST"
-    if any(g.lower() in ["admin", "org_admin", "org_admin_role", "administrators"] for g in groups) or "admin" in extracted_email.lower():
+    if (
+        any(g.lower() in ["admin", "org_admin", "org_admin_role", "administrators"] for g in groups)
+        or "admin" in extracted_email.lower()
+    ):
         extracted_role = "ORG_ADMIN"
 
-    extracted_tenant = req.tenant_id or payload.get("tid", payload.get("tenant_id", "tenant-enterprise-sso"))
+    extracted_tenant = req.tenant_id or payload.get(
+        "tid", payload.get("tenant_id", "tenant-enterprise-sso")
+    )
     raw_sub = payload.get("sub", extracted_email.split("@")[0])
     user_id = raw_sub if raw_sub.startswith("sso-") else f"sso-{raw_sub}"
 
-    token = create_access_token({
-        "sub": user_id,
-        "tenant_id": extracted_tenant,
-        "organization_id": payload.get("organization_id", "org-enterprise-sso"),
-        "workspace_id": payload.get("workspace_id", "ws-corporate-analytics"),
-        "role": extracted_role,
-        "idp_provider": req.provider,
-    })
+    token = create_access_token(
+        {
+            "sub": user_id,
+            "tenant_id": extracted_tenant,
+            "organization_id": payload.get("organization_id", "org-enterprise-sso"),
+            "workspace_id": payload.get("workspace_id", "ws-corporate-analytics"),
+            "role": extracted_role,
+            "idp_provider": req.provider,
+        }
+    )
 
     return LoginResponse(
         access_token=token,

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
-from app.core.security import require_permission
+
 from app.core.permissions import Permission
+from app.core.security import require_permission
 from app.core.tenant import TenantContext
 
 router = APIRouter(prefix="/audit", tags=["Audit Logs"])

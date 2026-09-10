@@ -1,5 +1,4 @@
-import re
-from typing import Any, Dict, List
+from typing import Any, List
 
 
 class DataMaskingEngine:
@@ -37,7 +36,7 @@ class DataMaskingEngine:
         masked_rows = []
         for row in rows:
             new_row = []
-            for col_name, val in zip(columns, row):
+            for col_name, val in zip(columns, row, strict=False):
                 new_row.append(self.mask_value(val, col_name))
             masked_rows.append(new_row)
         return masked_rows

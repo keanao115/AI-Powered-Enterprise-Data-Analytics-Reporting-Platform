@@ -1,33 +1,36 @@
-import uuid
-import time
 import re
-from typing import Dict, Any, Optional, Tuple
+import uuid
+from typing import Optional
 
-from app.core.tenant import TenantContext
-from app.core.exceptions import PromptInjectionException, ClarificationRequiredException
-from app.ai.agent.state import AgentState
 from app.ai.agent.clarification import ambiguity_detector
-from app.security.prompt_injection import prompt_security_scanner
-from app.security.audit import audit_logger
-from app.semantic.semantic_layer import semantic_layer
-from app.semantic.registry import schema_registry
-from app.semantic.dataset_catalog import dataset_catalog
-from app.query_engine.ast_policy import ast_policy_engine
-from app.query_engine.rls_enforcer import rls_enforcer
-from app.query_engine.executor import query_executor
-from app.query_engine.secure_gateway import secure_query_gateway
-from app.query_engine.repair import sql_repair_service
-from app.analytics.data_quality import evaluate_data_quality
-from app.analytics.grounding import grounding_validator
-from app.analytics.provenance import provenance_service
-from app.sandbox.runner import sandbox_runner
+from app.ai.agent.state import AgentState
 from app.ai.llm_gateway import llm_gateway
 from app.ai.schemas.llm_schemas import LLMMessage
+from app.analytics.data_quality import evaluate_data_quality
+from app.analytics.provenance import provenance_service
+from app.core.exceptions import ClarificationRequiredException, PromptInjectionException
+from app.core.tenant import TenantContext
+from app.query_engine.ast_policy import ast_policy_engine
+from app.query_engine.repair import sql_repair_service
+from app.query_engine.rls_enforcer import rls_enforcer
+from app.query_engine.secure_gateway import secure_query_gateway
+from app.sandbox.runner import sandbox_runner
+from app.security.audit import audit_logger
+from app.security.prompt_injection import prompt_security_scanner
+from app.semantic.registry import schema_registry
+from app.semantic.semantic_layer import semantic_layer
 
 DOMAIN_MAPPING = {
     # 1. E-Commerce
     "ecommerce_olist": {
-        "tables": ["olist_orders", "olist_order_items", "olist_products", "olist_customers", "olist_order_payments", "olist_order_reviews"],
+        "tables": [
+            "olist_orders",
+            "olist_order_items",
+            "olist_products",
+            "olist_customers",
+            "olist_order_payments",
+            "olist_order_reviews",
+        ],
         "primary_table": "olist_orders",
         "domain_name": "E-Commerce / Retail Analytics (Olist Brazil)",
         "disclaimer": None,
@@ -73,33 +76,142 @@ DOMAIN_MAPPING = {
 def auto_detect_dataset_id(question: str) -> str:
     """Analyzes question keywords to automatically select the most appropriate analytical domain."""
     q_lower = question.lower()
-    
+
     # 1. Transportation
-    if any(k in q_lower for k in ["taxi", "tlc", "pickup", "dropoff", "fare", "passenger", "borough", "manhattan", "jfk", "laguardia", "計程車", "車資", "載客"]):
+    if any(
+        k in q_lower
+        for k in [
+            "taxi",
+            "tlc",
+            "pickup",
+            "dropoff",
+            "fare",
+            "passenger",
+            "borough",
+            "manhattan",
+            "jfk",
+            "laguardia",
+            "計程車",
+            "車資",
+            "載客",
+        ]
+    ):
         return "transportation_nyc_taxi"
-    
+
     # 2. Airline Operations
-    if any(k in q_lower for k in ["flight", "airline", "airport", "carrier", "delay", "ontime", "cancel", "divert", "delta", "american", "united", "southwest", "atl", "ord", "dfw", "航班", "航空公司", "機場", "延誤", "準點率", "取消"]):
+    if any(
+        k in q_lower
+        for k in [
+            "flight",
+            "airline",
+            "airport",
+            "carrier",
+            "delay",
+            "ontime",
+            "cancel",
+            "divert",
+            "delta",
+            "american",
+            "united",
+            "southwest",
+            "atl",
+            "ord",
+            "dfw",
+            "航班",
+            "航空公司",
+            "機場",
+            "延誤",
+            "準點率",
+            "取消",
+        ]
+    ):
         return "airline_bts_ontime"
-    
+
     # 3. Healthcare
-    if any(k in q_lower for k in ["patient", "icu", "admission", "diagnos", "stay", "clinical", "hospital", "mimic", "careunit", "病患", "住院", "診斷", "加護病房", "醫療", "天數"]):
+    if any(
+        k in q_lower
+        for k in [
+            "patient",
+            "icu",
+            "admission",
+            "diagnos",
+            "stay",
+            "clinical",
+            "hospital",
+            "mimic",
+            "careunit",
+            "病患",
+            "住院",
+            "診斷",
+            "加護病房",
+            "醫療",
+            "天數",
+        ]
+    ):
         return "healthcare_mimic_iv"
-    
+
     # 4. Public Safety
-    if any(k in q_lower for k in ["crime", "theft", "battery", "assault", "police", "district", "arrest", "chicago", "homicide", "robbery", "incident", "犯罪", "竊盜", "案件", "逮捕", "警局", "轄區"]):
+    if any(
+        k in q_lower
+        for k in [
+            "crime",
+            "theft",
+            "battery",
+            "assault",
+            "police",
+            "district",
+            "arrest",
+            "chicago",
+            "homicide",
+            "robbery",
+            "incident",
+            "犯罪",
+            "竊盜",
+            "案件",
+            "逮捕",
+            "警局",
+            "轄區",
+        ]
+    ):
         return "safety_chicago_crimes"
-    
+
     # 5. Financial Markets
-    if any(k in q_lower for k in ["stock", "ticker", "market", "volatility", "sec", "edgar", "10-k", "10-q", "ebitda", "fcf", "aapl", "msft", "nvda", "drawdown", "股票", "股價", "波動率", "證券", "財報", "自由現金流", "殖利率"]):
+    if any(
+        k in q_lower
+        for k in [
+            "stock",
+            "ticker",
+            "market",
+            "volatility",
+            "sec",
+            "edgar",
+            "10-k",
+            "10-q",
+            "ebitda",
+            "fcf",
+            "aapl",
+            "msft",
+            "nvda",
+            "drawdown",
+            "股票",
+            "股價",
+            "波動率",
+            "證券",
+            "財報",
+            "自由現金流",
+            "殖利率",
+        ]
+    ):
         return "financial_sec_markets"
-    
+
     # Default: E-Commerce / Retail
     return "ecommerce_olist"
 
 
 class AIAnalystAgent:
-    def execute_pipeline(self, question: str, ctx: TenantContext, dataset_id: Optional[str] = None) -> AgentState:
+    def execute_pipeline(
+        self, question: str, ctx: TenantContext, dataset_id: Optional[str] = None
+    ) -> AgentState:
         request_id = f"req-{uuid.uuid4().hex[:12]}"
         state = AgentState(
             request_id=request_id,
@@ -115,7 +227,9 @@ class AIAnalystAgent:
         state.execution_steps.append({"step": "SECURITY_SCREENING", "status": "RUNNING"})
         is_safe, threat_reason = prompt_security_scanner.scan(question)
         if not is_safe:
-            state.execution_steps.append({"step": "SECURITY_SCREENING", "status": "BLOCKED", "reason": threat_reason})
+            state.execution_steps.append(
+                {"step": "SECURITY_SCREENING", "status": "BLOCKED", "reason": threat_reason}
+            )
             audit_logger.log_event(
                 action="PROMPT_INJECTION_BLOCKED",
                 resource=question,
@@ -152,7 +266,9 @@ class AIAnalystAgent:
         if not dataset_id or dataset_id in ("auto", "all", "auto_detect"):
             resolved_dataset_id = auto_detect_dataset_id(question)
         else:
-            resolved_dataset_id = dataset_id if dataset_id in DOMAIN_MAPPING else auto_detect_dataset_id(question)
+            resolved_dataset_id = (
+                dataset_id if dataset_id in DOMAIN_MAPPING else auto_detect_dataset_id(question)
+            )
 
         domain_info = DOMAIN_MAPPING.get(resolved_dataset_id, DOMAIN_MAPPING["ecommerce_olist"])
         domain_tables = domain_info["tables"]
@@ -160,7 +276,11 @@ class AIAnalystAgent:
         domain_disclaimer = domain_info.get("disclaimer")
 
         # Retrieve catalog schemas for domain tables
-        domain_schemas = {t: schema_registry.get_table_details(t) for t in domain_tables if schema_registry.get_table_details(t)}
+        domain_schemas = {
+            t: schema_registry.get_table_details(t)
+            for t in domain_tables
+            if schema_registry.get_table_details(t)
+        }
         metrics = semantic_layer.list_metrics(ctx.tenant_id)
         relevant_metrics = [m for m in metrics if m.get("dataset_id") == resolved_dataset_id]
 
@@ -175,14 +295,16 @@ class AIAnalystAgent:
 
         # Step 4: Text-to-SQL Generation using AI Model
         sql_role_info = llm_gateway.get_provider_info_by_role("sql_generator")
-        state.execution_steps.append({
-            "step": "SQL_GENERATION",
-            "status": "RUNNING",
-            "provider": sql_role_info["provider"],
-            "model": sql_role_info["model"],
-            "model_name": sql_role_info["name"],
-        })
-        
+        state.execution_steps.append(
+            {
+                "step": "SQL_GENERATION",
+                "status": "RUNNING",
+                "provider": sql_role_info["provider"],
+                "model": sql_role_info["model"],
+                "model_name": sql_role_info["name"],
+            }
+        )
+
         sql_gen_prompt = f"""You are an expert DuckDB Text-to-SQL engineer for an enterprise analytics platform.
 
 Active Domain: {domain_name} (Dataset: {resolved_dataset_id})
@@ -200,18 +322,34 @@ User Question: "{question}"
 4. For DuckDB date calculations, use standard subtraction such as `CURRENT_DATE - INTERVAL '1 month'` or `(TODAY() - INTERVAL 1 MONTH)`. Do not use MySQL style `DATE_SUB(DATE, INTERVAL)`.
 5. Output ONLY the raw SQL statement. No markdown code blocks, no explanations, no quotes.
 """
-        llm_resp = llm_gateway.generate([
-            LLMMessage(role="system", content="You are a strict, read-only DuckDB Text-to-SQL generator. Output raw SQL only."),
-            LLMMessage(role="user", content=sql_gen_prompt)
-        ], role="sql_generator")
-        
+        llm_resp = llm_gateway.generate(
+            [
+                LLMMessage(
+                    role="system",
+                    content="You are a strict, read-only DuckDB Text-to-SQL generator. Output raw SQL only.",
+                ),
+                LLMMessage(role="user", content=sql_gen_prompt),
+            ],
+            role="sql_generator",
+        )
+
         raw_sql = llm_resp.content.strip()
         clean_sql = raw_sql.replace("```sql", "").replace("```", "").strip()
 
         # Resilient DuckDB syntax fixes
-        clean_sql = re.sub(r"DATE_SUB\s*\(([^,]+),\s*INTERVAL\s*['\"]?(\d+)['\"]?\s*([A-Za-z]+)\)", r"(\1 - INTERVAL \2 \3)", clean_sql, flags=re.IGNORECASE)
-        clean_sql = re.sub(r"DATE_ADD\s*\(([^,]+),\s*INTERVAL\s*['\"]?(\d+)['\"]?\s*([A-Za-z]+)\)", r"(\1 + INTERVAL \2 \3)", clean_sql, flags=re.IGNORECASE)
-        
+        clean_sql = re.sub(
+            r"DATE_SUB\s*\(([^,]+),\s*INTERVAL\s*['\"]?(\d+)['\"]?\s*([A-Za-z]+)\)",
+            r"(\1 - INTERVAL \2 \3)",
+            clean_sql,
+            flags=re.IGNORECASE,
+        )
+        clean_sql = re.sub(
+            r"DATE_ADD\s*\(([^,]+),\s*INTERVAL\s*['\"]?(\d+)['\"]?\s*([A-Za-z]+)\)",
+            r"(\1 + INTERVAL \2 \3)",
+            clean_sql,
+            flags=re.IGNORECASE,
+        )
+
         if clean_sql.upper().startswith("SELECT") or clean_sql.upper().startswith("WITH"):
             candidate_sql = clean_sql
         else:
@@ -237,15 +375,17 @@ User Question: "{question}"
         # Step 4b: Multi-Model Collaborative Cross-Review
         if llm_gateway.is_collaboration_enabled():
             reviewer_role_info = llm_gateway.get_provider_info_by_role("sql_reviewer")
-            state.execution_steps.append({
-                "step": "SQL_COLLABORATIVE_REVIEW",
-                "status": "RUNNING",
-                "provider": reviewer_role_info["provider"],
-                "model": reviewer_role_info["model"],
-                "model_name": reviewer_role_info["name"],
-            })
+            state.execution_steps.append(
+                {
+                    "step": "SQL_COLLABORATIVE_REVIEW",
+                    "status": "RUNNING",
+                    "provider": reviewer_role_info["provider"],
+                    "model": reviewer_role_info["model"],
+                    "model_name": reviewer_role_info["name"],
+                }
+            )
             review_prompt = f"""You are an expert SQL security and optimization reviewer collaborating with another AI model in an enterprise analytics pipeline.
-Model 1 ({sql_role_info['name']}) generated this DuckDB SQL candidate:
+Model 1 ({sql_role_info["name"]}) generated this DuckDB SQL candidate:
 ```sql
 {candidate_sql}
 ```
@@ -262,15 +402,27 @@ Instructions:
 4. Output ONLY the final raw SQL statement. No markdown code blocks, no explanations, no quotes.
 """
             try:
-                review_resp = llm_gateway.generate([
-                    LLMMessage(role="system", content="You are a strict SQL review and verification expert. Output raw SQL only."),
-                    LLMMessage(role="user", content=review_prompt)
-                ], role="sql_reviewer")
-                reviewed_sql = review_resp.content.strip().replace("```sql", "").replace("```", "").strip()
-                if reviewed_sql.upper().startswith("SELECT") or reviewed_sql.upper().startswith("WITH"):
+                review_resp = llm_gateway.generate(
+                    [
+                        LLMMessage(
+                            role="system",
+                            content="You are a strict SQL review and verification expert. Output raw SQL only.",
+                        ),
+                        LLMMessage(role="user", content=review_prompt),
+                    ],
+                    role="sql_reviewer",
+                )
+                reviewed_sql = (
+                    review_resp.content.strip().replace("```sql", "").replace("```", "").strip()
+                )
+                if reviewed_sql.upper().startswith("SELECT") or reviewed_sql.upper().startswith(
+                    "WITH"
+                ):
                     candidate_sql = reviewed_sql
                     state.generated_sql = candidate_sql
-                state.execution_steps[-1]["status"] = f"APPROVED (Cross-verified by {reviewer_role_info['name']})"
+                state.execution_steps[-1]["status"] = (
+                    f"APPROVED (Cross-verified by {reviewer_role_info['name']})"
+                )
             except Exception as e:
                 state.execution_steps[-1]["status"] = f"SKIPPED ({str(e)[:60]})"
 
@@ -299,21 +451,35 @@ Instructions:
             authorized_departments=ctx.authorized_departments,
         )
         state.validated_sql = rewritten_sql
-        active_injections = [r for r in injected_rules if r.get("type") != "PUBLIC_DATASET_GOVERNANCE"]
+        active_injections = [
+            r for r in injected_rules if r.get("type") != "PUBLIC_DATASET_GOVERNANCE"
+        ]
         if active_injections:
-            state.execution_steps[-1]["rls_predicates"] = [r["predicate"] for r in active_injections]
-            state.execution_steps[-1]["status"] = f"PASSED (Enforced {len(active_injections)} RLS predicates)"
+            state.execution_steps[-1]["rls_predicates"] = [
+                r["predicate"] for r in active_injections
+            ]
+            state.execution_steps[-1]["status"] = (
+                f"PASSED (Enforced {len(active_injections)} RLS predicates)"
+            )
         else:
-            state.execution_steps[-1]["status"] = "PASSED (Public benchmark domain / verified clean AST)"
+            state.execution_steps[-1]["status"] = (
+                "PASSED (Public benchmark domain / verified clean AST)"
+            )
 
         # Step 6: Read-only DB Execution & Repair fallback
         state.execution_steps.append({"step": "DATABASE_EXECUTION", "status": "RUNNING"})
-        exec_res = secure_query_gateway.execute(rewritten_sql, ctx, purpose="analyst_agent", request_id=request_id)
+        exec_res = secure_query_gateway.execute(
+            rewritten_sql, ctx, purpose="analyst_agent", request_id=request_id
+        )
         if not exec_res.get("success"):
-            repair_res = sql_repair_service.repair_and_execute(rewritten_sql, exec_res.get("error", "Execution failed"), ctx)
+            repair_res = sql_repair_service.repair_and_execute(
+                rewritten_sql, exec_res.get("error", "Execution failed"), ctx
+            )
             if not repair_res.get("success"):
                 state.execution_steps[-1]["status"] = "FAILED"
-                raise Exception(f"Database Execution Failed: {exec_res.get('error', 'Execution error')}")
+                raise Exception(
+                    f"Database Execution Failed: {exec_res.get('error', 'Execution error')}"
+                )
             exec_res = repair_res
 
         query_data = exec_res["result"]
@@ -331,7 +497,9 @@ Instructions:
         state.execution_steps[-1]["status"] = "COMPLETED"
 
         # Step 8: Sandboxed Python Dynamic Visualization
-        state.execution_steps.append({"step": "SANDBOX_ANALYSIS_AND_VISUALIZATION", "status": "RUNNING"})
+        state.execution_steps.append(
+            {"step": "SANDBOX_ANALYSIS_AND_VISUALIZATION", "status": "RUNNING"}
+        )
         viz_code = """
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -375,8 +543,8 @@ else:
 
         # Step 9: Dynamic Insight Generation & Claim Grounding via Gemini
         state.execution_steps.append({"step": "INSIGHT_GROUNDING", "status": "RUNNING"})
-        sample_rows = query_data['rows'][:30]
-        
+        sample_rows = query_data["rows"][:30]
+
         insight_prompt = f"""你是一位世界級企業數據分析專家與高階商業決策顧問。
 使用者提出了業務分析問題：「{question}」
 分析數據領域：{domain_name}
@@ -385,8 +553,8 @@ else:
 `{rewritten_sql}`
 
 資料庫返回的真實數據如下：
-- 返回欄位 (Columns): {query_data['columns']}
-- 總數據量 (Total Rows): {query_data['row_count']} 筆
+- 返回欄位 (Columns): {query_data["columns"]}
+- 總數據量 (Total Rows): {query_data["row_count"]} 筆
 - 真實數據樣本 (Top {len(sample_rows)} 筆明細):
 {sample_rows}
 
@@ -407,13 +575,16 @@ else:
 - （基於上述真實數據提出 2~3 項具體、可落地的業務優化策略）
 """
         insight_role_info = llm_gateway.get_provider_info_by_role("insight_generator")
-        insight_resp = llm_gateway.generate([
-            LLMMessage(
-                role="system",
-                content="你是一位頂尖的企業級數據分析師與商業決策顧問。你必須嚴格一律使用專業【繁體中文 (Traditional Chinese)】回答使用者問題，並嚴格根據資料庫真實數據進行分析，嚴禁使用英文。"
-            ),
-            LLMMessage(role="user", content=insight_prompt)
-        ], role="insight_generator")
+        insight_resp = llm_gateway.generate(
+            [
+                LLMMessage(
+                    role="system",
+                    content="你是一位頂尖的企業級數據分析師與商業決策顧問。你必須嚴格一律使用專業【繁體中文 (Traditional Chinese)】回答使用者問題，並嚴格根據資料庫真實數據進行分析，嚴禁使用英文。",
+                ),
+                LLMMessage(role="user", content=insight_prompt),
+            ],
+            role="insight_generator",
+        )
 
         final_summary = insight_resp.content.strip()
         if domain_disclaimer and domain_disclaimer not in final_summary:
@@ -423,39 +594,45 @@ else:
         dynamic_claims = []
         rows = query_data["rows"]
         cols = query_data["columns"]
-        
+
         if rows and len(rows) > 0:
             first_row = rows[0]
             if len(cols) >= 2:
-                dynamic_claims.append({
-                    "claim_id": "c1",
-                    "text": f"在 {cols[0]} 為「{first_row[0]}」的群組中，{cols[1]} 數值達到 {first_row[1]}。",
-                    "metric": str(cols[1]),
-                    "value": str(first_row[1]),
-                    "status": "SUPPORTED",
-                    "evidence": f"直接由真實數據庫查詢結果 {cols[0]}='{first_row[0]}' 提取",
-                    "confidence_score": 0.99
-                })
+                dynamic_claims.append(
+                    {
+                        "claim_id": "c1",
+                        "text": f"在 {cols[0]} 為「{first_row[0]}」的群組中，{cols[1]} 數值達到 {first_row[1]}。",
+                        "metric": str(cols[1]),
+                        "value": str(first_row[1]),
+                        "status": "SUPPORTED",
+                        "evidence": f"直接由真實數據庫查詢結果 {cols[0]}='{first_row[0]}' 提取",
+                        "confidence_score": 0.99,
+                    }
+                )
             if len(rows) > 1 and len(cols) >= 2:
                 last_row = rows[-1]
-                dynamic_claims.append({
-                    "claim_id": "c2",
-                    "text": f"排名末位或對照組 {cols[0]} 為「{last_row[0]}」，其 {cols[1]} 數值為 {last_row[1]}。",
-                    "metric": str(cols[1]),
-                    "value": str(last_row[1]),
+                dynamic_claims.append(
+                    {
+                        "claim_id": "c2",
+                        "text": f"排名末位或對照組 {cols[0]} 為「{last_row[0]}」，其 {cols[1]} 數值為 {last_row[1]}。",
+                        "metric": str(cols[1]),
+                        "value": str(last_row[1]),
+                        "status": "SUPPORTED",
+                        "evidence": f"直接由真實數據庫查詢結果 {cols[0]}='{last_row[0]}' 提取",
+                        "confidence_score": 0.98,
+                    }
+                )
+            dynamic_claims.append(
+                {
+                    "claim_id": "c3",
+                    "text": f"本次查詢共成功彙整 {query_data['row_count']} 筆有效真實數據記錄，數據質量評級為 {dq_results.get('quality_score', 100.0)}%。",
+                    "metric": "Row Count",
+                    "value": query_data["row_count"],
                     "status": "SUPPORTED",
-                    "evidence": f"直接由真實數據庫查詢結果 {cols[0]}='{last_row[0]}' 提取",
-                    "confidence_score": 0.98
-                })
-            dynamic_claims.append({
-                "claim_id": "c3",
-                "text": f"本次查詢共成功彙整 {query_data['row_count']} 筆有效真實數據記錄，數據質量評級為 {dq_results.get('quality_score', 100.0)}%。",
-                "metric": "Row Count",
-                "value": query_data['row_count'],
-                "status": "SUPPORTED",
-                "evidence": f"經 DuckDB 唯讀引擎安全執行與 5-維度數據品質驗證完成",
-                "confidence_score": 1.0
-            })
+                    "evidence": "經 DuckDB 唯讀引擎安全執行與 5-維度數據品質驗證完成",
+                    "confidence_score": 1.0,
+                }
+            )
 
         # Build collaboration metadata
         participants = [sql_role_info]
@@ -483,7 +660,7 @@ else:
 
         # Step 10: Data Provenance Construction & Audit Event
         state.execution_steps.append({"step": "PROVENANCE_AND_AUDIT", "status": "RUNNING"})
-        provenance = provenance_service.build_provenance(state)
+        _provenance = provenance_service.build_provenance(state)
         audit_logger.log_event(
             action="QUERY_EXECUTED",
             resource=question,
@@ -492,7 +669,12 @@ else:
             reason="Pipeline executed successfully against curated public dataset",
             ctx=ctx,
             request_id=request_id,
-            details={"query_id": request_id, "sql": rewritten_sql, "dataset_id": resolved_dataset_id, "collaboration": collab_meta},
+            details={
+                "query_id": request_id,
+                "sql": rewritten_sql,
+                "dataset_id": resolved_dataset_id,
+                "collaboration": collab_meta,
+            },
         )
         state.execution_steps[-1]["status"] = "COMPLETED"
 

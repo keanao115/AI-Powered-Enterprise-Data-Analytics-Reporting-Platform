@@ -6,7 +6,7 @@ enforces progressive lockouts, and emits security events.
 """
 
 import time
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple
 
 
 class LoginRateLimiter:

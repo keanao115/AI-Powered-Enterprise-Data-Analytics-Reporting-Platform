@@ -1,12 +1,16 @@
 from typing import Optional
+
 from pydantic import BaseModel, Field
+
 from app.ai.tools.base import BaseTool
 from app.core.permissions import Permission
 from app.core.tenant import TenantContext
 
 
 class GetSemanticMetricInput(BaseModel):
-    metric_name: str = Field(..., description="Business metric name, e.g. Revenue, Return Rate, MoM Growth")
+    metric_name: str = Field(
+        ..., description="Business metric name, e.g. Revenue, Return Rate, MoM Growth"
+    )
 
 
 class GetSemanticMetricTool(BaseTool):
@@ -17,6 +21,7 @@ class GetSemanticMetricTool(BaseTool):
 
     def _execute(self, inputs: GetSemanticMetricInput, ctx: Optional[TenantContext]):
         from app.semantic.semantic_layer import semantic_layer
+
         return semantic_layer.get_metric(inputs.metric_name)
 
 
@@ -33,4 +38,5 @@ class ExecuteReadOnlyQueryTool(BaseTool):
 
     def _execute(self, inputs: ExecuteReadOnlyQueryInput, ctx: Optional[TenantContext]):
         from app.query_engine.secure_gateway import secure_query_gateway
+
         return secure_query_gateway.execute(inputs.sql_query, ctx=ctx, purpose="sql_tool")

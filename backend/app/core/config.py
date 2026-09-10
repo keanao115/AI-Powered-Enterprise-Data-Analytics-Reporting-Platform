@@ -1,8 +1,7 @@
 import os
 from typing import List, Optional
-from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 _root_env = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".env"))
 _backend_env = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".env"))
@@ -10,9 +9,7 @@ _backend_env = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=(_root_env, _backend_env, ".env"),
-        env_file_encoding="utf-8",
-        extra="ignore"
+        env_file=(_root_env, _backend_env, ".env"), env_file_encoding="utf-8", extra="ignore"
     )
 
     APP_ENV: str = "development"
