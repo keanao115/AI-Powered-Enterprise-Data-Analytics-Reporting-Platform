@@ -8,6 +8,10 @@ from app.core.tenant import TenantContext
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 
+from app.security.login_limiter import login_rate_limiter
+from app.security.audit import audit_logger
+
+
 class LoginRequest(BaseModel):
     email: EmailStr
     password: str
@@ -38,28 +42,87 @@ class OIDCCallbackRequest(BaseModel):
 
 @router.post("/login", response_model=LoginResponse)
 async def login(req: LoginRequest):
-    # Seed demo authentication shortcut for enterprise demo users
-    if req.email in ("analyst@acme.com", "admin@acme.com", "viewer@acme.com") and req.password == "password123":
-        role = "ORG_ADMIN" if "admin" in req.email else ("VIEWER" if "viewer" in req.email else "ANALYST")
+    email_clean = req.email.lower().strip()
+
+    # 1. Check brute-force lockout status
+    is_locked, remaining_lock = login_rate_limiter.is_locked(email_clean)
+    if is_locked:
+        audit_logger.log_event(
+            action="LOGIN_BLOCKED",
+            resource=email_clean,
+            result="BLOCKED",
+            risk_level="HIGH",
+            reason=f"Account locked out. Brute-force threshold exceeded. Retry after {remaining_lock}s.",
+        )
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail=f"Too many failed login attempts. Account temporarily locked for {remaining_lock} seconds to protect against brute-force attacks.",
+            headers={"Retry-After": str(remaining_lock)},
+        )
+
+    # 2. Multi-tenant demo users: Acme Corp & Globex Corp
+    DEMO_USERS = {
+        "admin@acme.com": {"tenant_id": "tenant-acme", "org_id": "org-acme-corp", "ws_id": "ws-sales-analytics", "role": "ORG_ADMIN"},
+        "analyst@acme.com": {"tenant_id": "tenant-acme", "org_id": "org-acme-corp", "ws_id": "ws-sales-analytics", "role": "ANALYST"},
+        "viewer@acme.com": {"tenant_id": "tenant-acme", "org_id": "org-acme-corp", "ws_id": "ws-sales-analytics", "role": "VIEWER"},
+        "admin@globex.com": {"tenant_id": "tenant-globex", "org_id": "org-globex-intl", "ws_id": "ws-globex-eu", "role": "ORG_ADMIN"},
+        "analyst@globex.com": {"tenant_id": "tenant-globex", "org_id": "org-globex-intl", "ws_id": "ws-globex-eu", "role": "ANALYST"},
+    }
+
+    if email_clean in DEMO_USERS and req.password == "password123":
+        user_info = DEMO_USERS[email_clean]
+        login_rate_limiter.record_success(email_clean)
+        user_id = f"user-{email_clean.split('@')[0]}"
         token = create_access_token({
-            "sub": f"user-{req.email.split('@')[0]}",
-            "tenant_id": "tenant-acme",
-            "organization_id": "org-acme-corp",
-            "workspace_id": "ws-sales-analytics",
-            "role": role,
+            "sub": user_id,
+            "tenant_id": user_info["tenant_id"],
+            "organization_id": user_info["org_id"],
+            "workspace_id": user_info["ws_id"],
+            "role": user_info["role"],
             "idp_provider": "local",
         })
+        audit_logger.log_event(
+            action="LOGIN_SUCCESS",
+            resource=email_clean,
+            result="ALLOWED",
+            risk_level="LOW",
+            reason=f"User authenticated successfully into tenant '{user_info['tenant_id']}'",
+        )
         return LoginResponse(
             access_token=token,
-            user_id=f"user-{req.email.split('@')[0]}",
-            tenant_id="tenant-acme",
-            role=role,
+            user_id=user_id,
+            tenant_id=user_info["tenant_id"],
+            role=user_info["role"],
             idp_provider="local",
         )
 
+    # 3. Failed authentication attempt -> record and check threshold
+    is_now_locked, fail_count, lock_time = login_rate_limiter.record_failure(email_clean)
+    if is_now_locked:
+        audit_logger.log_event(
+            action="LOGIN_LOCKED_BRUTE_FORCE",
+            resource=email_clean,
+            result="BLOCKED",
+            risk_level="CRITICAL",
+            reason=f"Brute-force limit reached ({fail_count} failed attempts). Account locked for {lock_time}s.",
+        )
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail=f"Too many failed login attempts ({fail_count}/{login_rate_limiter.max_failed_attempts}). Account temporarily locked for {lock_time} seconds.",
+            headers={"Retry-After": str(lock_time)},
+        )
+
+    remaining_tries = login_rate_limiter.max_failed_attempts - fail_count
+    audit_logger.log_event(
+        action="LOGIN_FAILED",
+        resource=email_clean,
+        result="BLOCKED",
+        risk_level="MEDIUM",
+        reason=f"Invalid credentials. Attempt {fail_count}/{login_rate_limiter.max_failed_attempts}.",
+    )
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Invalid email or password credentials",
+        detail=f"Invalid email or password credentials. Remaining attempts before temporary lockout: {remaining_tries}.",
     )
 
 

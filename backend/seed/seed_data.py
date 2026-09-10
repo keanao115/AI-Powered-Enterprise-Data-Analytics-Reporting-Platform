@@ -37,7 +37,10 @@ def seed_synthetic_analytics_database(db_path: str = "analytics_demo.duckdb"):
             ('cust-1', 'tenant-acme', 'Acme Corp Admin', 'admin@acme.com', '+1-555-0192', '987-65-4321', 'US'),
             ('cust-2', 'tenant-acme', 'Globex Sales', 'sales@globex.com', '+44-20-7946', '123-45-6789', 'EU'),
             ('cust-3', 'tenant-acme', 'Stark Logistics', 'tony@stark.com', '+1-555-0100', '555-44-3322', 'US'),
-            ('cust-4', 'tenant-acme', 'Cyberdyne AI', 'sarah@cyberdyne.com', '+81-3-1234', '999-88-7766', 'APAC');
+            ('cust-4', 'tenant-acme', 'Cyberdyne AI', 'sarah@cyberdyne.com', '+81-3-1234', '999-88-7766', 'APAC'),
+            ('cust-201', 'tenant-globex', 'Globex European HQ', 'ops@globex.eu', '+49-30-1234', '111-22-3333', 'EU'),
+            ('cust-202', 'tenant-globex', 'Globex US Branch', 'us@globex.com', '+1-555-0888', '444-55-6666', 'US'),
+            ('cust-203', 'tenant-globex', 'Globex APAC Logistics', 'apac@globex.com', '+65-6789-0123', '777-88-9999', 'APAC');
     """)
 
     # 3. Products
@@ -72,7 +75,10 @@ def seed_synthetic_analytics_database(db_path: str = "analytics_demo.duckdb"):
             ('ord-1003', 'tenant-acme', 'cust-3', 'reg-1', 310000.00, 'completed', '2026-08-08'),
             ('ord-1004', 'tenant-acme', 'cust-4', 'reg-3', 25000.00, 'completed', '2026-08-10'),
             ('ord-1005', 'tenant-acme', 'cust-1', 'reg-1', 1100000.00, 'completed', '2026-07-15'),
-            ('ord-1006', 'tenant-acme', 'cust-2', 'reg-2', 770000.00, 'completed', '2026-07-20');
+            ('ord-1006', 'tenant-acme', 'cust-2', 'reg-2', 770000.00, 'completed', '2026-07-20'),
+            ('ord-2001', 'tenant-globex', 'cust-201', 'reg-2', 450000.00, 'completed', '2026-08-02'),
+            ('ord-2002', 'tenant-globex', 'cust-202', 'reg-1', 920000.00, 'completed', '2026-08-06'),
+            ('ord-2003', 'tenant-globex', 'cust-203', 'reg-3', 180000.00, 'completed', '2026-08-09');
     """)
 
     # 5. Order Items
@@ -88,7 +94,9 @@ def seed_synthetic_analytics_database(db_path: str = "analytics_demo.duckdb"):
             ('item-1', 'ord-1001', 'prod-101', 200, 4999.00),
             ('item-2', 'ord-1002', 'prod-102', 250, 2999.00),
             ('item-3', 'ord-1003', 'prod-103', 150, 1499.00),
-            ('item-4', 'ord-1004', 'prod-104', 50, 499.00);
+            ('item-4', 'ord-1004', 'prod-104', 50, 499.00),
+            ('item-5', 'ord-2001', 'prod-102', 150, 2999.00),
+            ('item-6', 'ord-2002', 'prod-101', 180, 4999.00);
     """)
 
     # 6. Returns
