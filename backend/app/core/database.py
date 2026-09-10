@@ -69,7 +69,9 @@ class AnalyticsDatabaseAdapter:
         """
         if self.db_url.startswith("duckdb"):
             db_path = get_analytics_db_path()
-            conn = duckdb.connect(db_path, read_only=True)
+            conn = duckdb.connect(
+                db_path, read_only=True, config={"enable_external_access": "false"}
+            )
             try:
                 if params:
                     rel = conn.execute(sql_query, params)

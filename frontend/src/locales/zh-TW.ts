@@ -6,6 +6,13 @@ export const zhTW = {
   portalSubtitle: '企業級 AI 數據分析、SQL AST 安全重寫、權限管控與自動化報告平台',
   tenantLabel: '租戶：',
   userRoleLabel: '使用者角色：',
+  switchPersonaTitle: '切換使用者與租戶身分',
+  personaAdminAcme: 'Acme 管理員 (ORG_ADMIN)',
+  personaAnalystAcme: 'Acme 數據分析師 (ANALYST)',
+  personaViewerAcme: 'Acme 訪客 (VIEWER)',
+  personaAdminGlobex: 'Globex 管理員 (ORG_ADMIN)',
+  personaAnalystGlobex: 'Globex 數據分析師 (ANALYST)',
+
   
   // Navigation Tabs
   navAnalyst: 'AI 分析師 Agent',
@@ -112,6 +119,10 @@ export const zhTW = {
   // Data Dictionary View
   dictionaryTitle: '數據字典與 Catalog (Data Dictionary)',
   dictionarySubtitle: '租戶 Schema 定義、欄位資料型態與 PII 敏態數據動態遮蔽規則',
+  dictSearchPlaceholder: '搜尋資料表名稱、欄位或描述...',
+  dictTotalTables: '個資料表',
+  dictTotalColumns: '個欄位',
+  dictRefreshBtn: '重新整理結構',
   colTableName: '數據表名稱',
   colColumnName: '欄位名稱',
   colDataType: '資料型態',
@@ -128,6 +139,12 @@ export const zhTW = {
   // Audit Log Viewer Component
   auditTitle: '企業審計與安全事件日誌 (Audit Event Logs)',
   auditSubtitle: '全記錄 Text-to-SQL 查詢、Prompt Injection 攔截與非授權存取事件',
+  auditRefreshBtn: '重新整理審計日誌',
+  auditRefreshingBtn: '更新中...',
+  auditFilterAll: '全部記錄',
+  auditFilterBlocked: '僅違規攔截 (BLOCKED)',
+  auditFilterAllowed: '僅放行成功 (ALLOWED)',
+  auditEmptyLogs: '目前尚無審計日誌記錄',
   colEventId: '事件 ID',
   colTimestamp: '時間戳記',
   colUserRole: '使用者 / 角色',

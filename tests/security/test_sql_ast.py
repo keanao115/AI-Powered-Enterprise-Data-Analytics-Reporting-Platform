@@ -39,7 +39,7 @@ def test_sql_ast_policy_engine():
         authorized_departments=["Sales"],
     )
 
-    # 1. Prohibited DDL/DML & system operations
+    # 1. Prohibited DDL/DML & system operations & arbitrary file access
     prohibited_sqls = [
         "DROP TABLE users;",
         "DELETE FROM orders WHERE id = 'ord-1001';",
@@ -48,18 +48,27 @@ def test_sql_ast_policy_engine():
         "ALTER TABLE customers DROP COLUMN ssn;",
         "TRUNCATE TABLE returns;",
         "SELECT * FROM users;",
+        "SELECT * FROM read_csv('/etc/passwd');",
+        "SELECT * FROM read_parquet('s3://secret/data.parquet');",
+        "SELECT * FROM scan_csv('passwords.csv');",
+        "SELECT * FROM glob('C:/*');",
+        "SELECT duckdb_settings();",
+        "SELECT * FROM duckdb_secrets();",
     ]
 
     for sql in prohibited_sqls:
         res = ast_policy_engine.validate(sql, ctx)
-        assert not res["allowed"], f"Failed to block destructive/system query: {sql}"
+        assert not res["allowed"], f"Failed to block destructive/file-system/system query: {sql}"
 
-    # 2. Allowed SELECT analytics queries
+    # 2. Allowed SELECT analytics queries (including UNION and Subqueries)
     allowed_sqls = [
         "SELECT region_name, SUM(amount) FROM orders GROUP BY region_name;",
         "SELECT p.product_name, SUM(oi.quantity) FROM order_items oi JOIN products p ON oi.product_id = p.id GROUP BY p.product_name;",
+        "SELECT region, SUM(total_amount) FROM sales_orders WHERE region = 'US' GROUP BY region UNION ALL SELECT region, SUM(total_amount) FROM sales_orders WHERE region = 'EMEA' GROUP BY region;",
+        "SELECT * FROM (SELECT order_id, total_amount FROM sales_orders WHERE total_amount > 100) sub;",
     ]
 
     for sql in allowed_sqls:
         res = ast_policy_engine.validate(sql, ctx)
         assert res["allowed"], f"Legitimate query blocked unexpectedly: {sql}"
+

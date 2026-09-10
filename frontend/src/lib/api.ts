@@ -1,12 +1,64 @@
-import { QueryResponse, AuditLogItem, SchemaTable, SemanticMetric } from '../types';
+import { QueryResponse, AuditLogItem, SchemaTable, SemanticMetric, CatalogTable } from '../types';
+
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
+let inMemoryToken: string | null = null;
+
+export function getAuthToken(): string | null {
+  if (inMemoryToken) return inMemoryToken;
+  if (typeof window !== 'undefined') {
+    inMemoryToken = localStorage.getItem('access_token');
+  }
+  return inMemoryToken;
+}
+
+export function setAuthToken(token: string | null): void {
+  inMemoryToken = token;
+  if (typeof window !== 'undefined') {
+    if (token) {
+      localStorage.setItem('access_token', token);
+    } else {
+      localStorage.removeItem('access_token');
+    }
+  }
+}
+
+export function getAuthHeaders(): Record<string, string> {
+  const token = getAuthToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
+export async function loginUser(email: string, password: string = 'password123'): Promise<any> {
+  const res = await fetch(`${API_BASE}/api/v1/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err?.detail || '登入失敗');
+  }
+  const data = await res.json();
+  if (data.access_token) {
+    setAuthToken(data.access_token);
+  }
+  return data;
+}
+
+export async function fetchCurrentUser(): Promise<any> {
+  const headers = getAuthHeaders();
+  const res = await fetch(`${API_BASE}/api/v1/auth/me`, { headers });
+  if (!res.ok) return null;
+  return res.json();
+}
 
 export async function submitQuery(question: string, datasetId?: string): Promise<QueryResponse> {
   const res = await fetch(`${API_BASE}/api/v1/queries`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      ...getAuthHeaders(),
     },
     body: JSON.stringify({ question, dataset_id: datasetId || undefined }),
   });
@@ -18,25 +70,42 @@ export async function submitQuery(question: string, datasetId?: string): Promise
 }
 
 export async function fetchAuditLogs(): Promise<AuditLogItem[]> {
-  const res = await fetch(`${API_BASE}/api/v1/audit`);
+  const res = await fetch(`${API_BASE}/api/v1/audit`, {
+    headers: getAuthHeaders(),
+  });
   if (!res.ok) return [];
   return res.json();
 }
 
 export async function fetchSchemas(): Promise<SchemaTable[]> {
-  const res = await fetch(`${API_BASE}/api/v1/schemas`);
+  const res = await fetch(`${API_BASE}/api/v1/schemas`, {
+    headers: getAuthHeaders(),
+  });
   if (!res.ok) return [];
   return res.json();
 }
 
+export async function fetchCatalog(): Promise<CatalogTable[]> {
+  const res = await fetch(`${API_BASE}/api/v1/schemas/catalog`, {
+    headers: getAuthHeaders(),
+  });
+  if (!res.ok) return [];
+  return res.json();
+}
+
+
 export async function fetchMetrics(): Promise<SemanticMetric[]> {
-  const res = await fetch(`${API_BASE}/api/v1/metrics`);
+  const res = await fetch(`${API_BASE}/api/v1/metrics`, {
+    headers: getAuthHeaders(),
+  });
   if (!res.ok) return [];
   return res.json();
 }
 
 export async function triggerReportDownload(queryId: string, format: string): Promise<void> {
-  window.open(`${API_BASE}/api/v1/reports/${queryId}/download?format=${format}`, '_blank');
+  const token = getAuthToken();
+  const url = `${API_BASE}/api/v1/reports/${queryId}/download?format=${format}${token ? `&token=${token}` : ''}`;
+  window.open(url, '_blank');
 }
 
 export async function runEvaluation(): Promise<any> {

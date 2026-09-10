@@ -78,6 +78,14 @@ async def inspect_sql(req: SQLInspectRequest):
             mutation_explanations.append(
                 f"Applied region scope restriction for role '{req.simulated_role}': {rule['predicate']}"
             )
+        elif rule["type"] == "RBAC_DEPARTMENT_SCOPE":
+            mutation_explanations.append(
+                f"Applied department scope restriction for role '{req.simulated_role}': {rule['predicate']}"
+            )
+        elif rule["type"] == "PUBLIC_DATASET_GOVERNANCE":
+            mutation_explanations.append(
+                "Public dataset governance policy applied: Verified clean public access"
+            )
 
     for mask in applied_masks:
         mutation_explanations.append(

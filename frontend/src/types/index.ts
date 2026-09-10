@@ -75,6 +75,19 @@ export interface SchemaTable {
   column_count: number;
 }
 
+export interface CatalogColumn {
+  name: string;
+  type: string;
+  classification: string;
+  description?: string;
+}
+
+export interface CatalogTable {
+  name: string;
+  desc: string;
+  columns: CatalogColumn[];
+}
+
 export interface SemanticMetric {
   name: string;
   aliases?: string[];

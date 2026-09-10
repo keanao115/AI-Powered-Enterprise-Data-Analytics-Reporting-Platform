@@ -38,8 +38,33 @@ class SQLASTPolicyEngine:
         "system",
         "pg_read_file",
         "load_extension",
+        "install_extension",
         "copy",
         "read_blob",
+        # DuckDB / SQLite file reading & export functions
+        "read_csv",
+        "read_csv_auto",
+        "read_parquet",
+        "read_json",
+        "read_json_auto",
+        "read_text",
+        "scan_csv",
+        "scan_parquet",
+        "glob",
+        "to_csv",
+        "to_parquet",
+        "write_csv",
+        # DuckDB internal configuration, extension & secret table functions
+        "duckdb_settings",
+        "duckdb_secrets",
+        "duckdb_extensions",
+        "duckdb_memory",
+        "duckdb_indexes",
+        "duckdb_tables",
+        "current_setting",
+        "checkpoint",
+        "attach",
+        "detach",
     }
 
     PII_KEYWORDS = {"ssn", "credit_card", "password", "secret", "diagnosis", "medical_record"}
@@ -57,27 +82,58 @@ class SQLASTPolicyEngine:
                 "risk_level": "HIGH",
             }
 
-        # 1. Enforce SELECT / CTE only
-        if not isinstance(parsed, exp.Select):
+        # 1. Block multi-statement batches or blocks
+        if isinstance(parsed, exp.Block):
+            return {
+                "allowed": False,
+                "reason": "Multi-statement batch SQL queries are prohibited.",
+                "risk_level": "CRITICAL",
+            }
+
+        # 2. Enforce analytical query root: SELECT, UNION, Subquery, Query
+        if not isinstance(parsed, (exp.Select, exp.Union, exp.Subquery, exp.Query)):
             return {
                 "allowed": False,
                 "reason": "Destructive or non-analytical command detected. Only SELECT statements are permitted.",
                 "risk_level": "CRITICAL",
             }
 
-        # 2. Inspect all table references in AST
-        tables_referenced = set()
-        for table in parsed.find_all(exp.Table):
-            table_name = table.name.lower()
-            tables_referenced.add(table_name)
-            if table_name in self.PROHIBITED_TABLES:
+        # 3. Walk AST tree to block any destructive or file I/O node types
+        for node in parsed.walk():
+            node_type = type(node)
+            if node_type in self.PROHIBITED_COMMANDS:
                 return {
                     "allowed": False,
-                    "reason": f"Access to system/restricted table '{table_name}' is prohibited.",
+                    "reason": f"Prohibited operation '{node_type.__name__.upper()}' detected.",
+                    "risk_level": "CRITICAL",
+                }
+            if getattr(exp, "ReadCSV", None) and isinstance(node, exp.ReadCSV):
+                return {
+                    "allowed": False,
+                    "reason": "Prohibited file system access: 'read_csv' is not permitted.",
+                    "risk_level": "CRITICAL",
+                }
+            if getattr(exp, "ReadParquet", None) and isinstance(node, exp.ReadParquet):
+                return {
+                    "allowed": False,
+                    "reason": "Prohibited file system access: 'read_parquet' is not permitted.",
                     "risk_level": "CRITICAL",
                 }
 
-        # 3. Block destructive function calls or subquery system calls
+        # 4. Inspect all table references in AST
+        tables_referenced = set()
+        for table in parsed.find_all(exp.Table):
+            table_name = table.name.lower()
+            if table_name:
+                tables_referenced.add(table_name)
+                if table_name in self.PROHIBITED_TABLES:
+                    return {
+                        "allowed": False,
+                        "reason": f"Access to system/restricted table '{table_name}' is prohibited.",
+                        "risk_level": "CRITICAL",
+                    }
+
+        # 5. Block destructive or external access function calls
         for func in parsed.find_all(exp.Func):
             func_name = func.name.lower()
             if func_name in self.PROHIBITED_FUNCTIONS:
@@ -118,12 +174,16 @@ class SQLASTPolicyEngine:
         tables: List[str] = []
         columns: List[str] = []
         functions: List[str] = []
-        is_select = False
+        is_analytical = False
         has_pii = False
 
         try:
             parsed = sqlglot.parse_one(sql_query)
-            is_select = isinstance(parsed, exp.Select)
+            if isinstance(parsed, exp.Block):
+                violations.append("Multi-statement batch SQL queries are forbidden.")
+                is_analytical = False
+            else:
+                is_analytical = isinstance(parsed, (exp.Select, exp.Union, exp.Subquery, exp.Query))
         except Exception as e:
             return {
                 "is_valid_sql": False,
@@ -137,17 +197,27 @@ class SQLASTPolicyEngine:
                 "violations": [f"SQL Parsing Exception: {str(e)}"],
             }
 
-        if not is_select:
+        if not is_analytical:
             violations.append(
-                "Non-SELECT statement blocked: Data modification/DDL statements are forbidden."
+                "Non-analytical statement blocked: Data modification/DDL statements are forbidden."
             )
+
+        for node in parsed.walk():
+            node_type = type(node)
+            if node_type in self.PROHIBITED_COMMANDS:
+                violations.append(f"Prohibited operation '{node_type.__name__.upper()}' detected.")
+            if getattr(exp, "ReadCSV", None) and isinstance(node, exp.ReadCSV):
+                violations.append("Prohibited file system access: 'read_csv' is not permitted.")
+            if getattr(exp, "ReadParquet", None) and isinstance(node, exp.ReadParquet):
+                violations.append("Prohibited file system access: 'read_parquet' is not permitted.")
 
         for tbl in parsed.find_all(exp.Table):
             tname = tbl.name.lower()
-            if tname not in tables:
-                tables.append(tname)
-            if tname in self.PROHIBITED_TABLES:
-                violations.append(f"Restricted system table accessed: '{tname}'")
+            if tname:
+                if tname not in tables:
+                    tables.append(tname)
+                if tname in self.PROHIBITED_TABLES:
+                    violations.append(f"Restricted system table accessed: '{tname}'")
 
         for col in parsed.find_all(exp.Column):
             cname = col.name.lower()
@@ -179,7 +249,7 @@ class SQLASTPolicyEngine:
             {
                 "standard": "SOC2_TYPE_II",
                 "rule": "Principle of Least Privilege (SELECT-only)",
-                "passed": is_select,
+                "passed": is_analytical and len(violations) == 0,
                 "details": "Only analytical read-only queries are authorized.",
             },
             {
@@ -206,7 +276,7 @@ class SQLASTPolicyEngine:
 
         # Calculate numeric Risk Score (0 to 100)
         risk_score = 0
-        if not is_select:
+        if not is_analytical:
             risk_score += 85
         if any(t in self.PROHIBITED_TABLES for t in tables):
             risk_score += 30

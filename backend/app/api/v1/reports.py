@@ -1,10 +1,11 @@
 import os
 import re
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
+from app.api.v1.queries import get_cached_query
 from app.core.permissions import Permission, Role
 from app.core.security import require_permission
 from app.core.tenant import TenantContext
@@ -38,11 +39,13 @@ async def create_report(
 @router.get("/{report_id}/download")
 async def download_report(
     report_id: str,
+    format: str = Query("pdf"),
     ctx: TenantContext = Depends(require_permission(Permission.REPORT_DOWNLOAD)),
 ):
     """
     Downloads generated report with resource ownership validation and path traversal defense.
     Guarantees Invariant 2: No report can be downloaded without resource ownership verification.
+    Supports dynamic generation for analytical query IDs.
     """
     # 1. Path Traversal & Identifier Pattern Validation
     if (
@@ -56,7 +59,15 @@ async def download_report(
             detail="Invalid report_id format: Path traversal characters are prohibited.",
         )
 
+    clean_fmt = format.lower().strip()
+    if clean_fmt not in ("pdf", "excel", "xlsx", "csv"):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Unsupported report format '{format}'. Supported formats are: pdf, excel, xlsx, csv.",
+        )
+
     base_dir = os.path.abspath(os.path.join("storage", "reports", ctx.tenant_id))
+
 
     # 2. Check Registry Resource Ownership
     registered = report_service.get_report(report_id)
@@ -78,7 +89,10 @@ async def download_report(
             return FileResponse(path=resolved_path, filename=f"report_{report_id}{ext}")
 
     # 3. Check physical file inside tenant-isolated folder
-    for ext in (".pdf", ".xlsx", ".csv"):
+    target_exts = [".pdf", ".xlsx", ".csv"]
+    if format.lower() in ("excel", "xlsx"):
+        target_exts = [".xlsx", ".pdf", ".csv"]
+    for ext in target_exts:
         target_file = os.path.abspath(os.path.join(base_dir, f"{report_id}{ext}"))
         if not target_file.startswith(base_dir):
             raise HTTPException(
@@ -88,12 +102,31 @@ async def download_report(
         if os.path.exists(target_file):
             return FileResponse(path=target_file, filename=f"report_{report_id}{ext}")
 
-    # 4. Safe demo fallback only for explicit demo query IDs
-    if report_id.startswith("req-demo") or report_id == "rep-demo-001":
+    # 4. Dynamic generation for query requests (e.g. req-...)
+    if report_id.startswith("req-") or report_id.startswith("rep-"):
+        cached = get_cached_query(report_id)
+
+
+        title = "AI Executive Analytical Report"
+        query_data = None
+        if cached:
+            title = f"Report: {cached.get('question', 'Executive Analysis')[:60]}"
+            raw_data = cached.get("data", {})
+            if "columns" in raw_data and "rows" in raw_data:
+                query_data = {
+                    "columns": raw_data["columns"],
+                    "rows": raw_data["rows"],
+                }
+
         res = report_service.create_report(
-            report_id, "Executive Sales & Returns Report", "pdf", ctx
+            query_id=report_id,
+            title=title,
+            fmt=clean_fmt,
+            ctx=ctx,
+            query_data=query_data,
         )
-        return FileResponse(path=res["file_path"], filename=f"report_{report_id}.pdf")
+        file_ext = "xlsx" if clean_fmt in ("excel", "xlsx") else clean_fmt
+        return FileResponse(path=res["file_path"], filename=f"report_{report_id}.{file_ext}")
 
     # If not found, return 404 (do not generate on arbitrary unknown IDs)
     raise HTTPException(

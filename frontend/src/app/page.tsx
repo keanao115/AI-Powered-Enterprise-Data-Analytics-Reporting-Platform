@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Bot,
   Shield,
@@ -9,7 +9,8 @@ import {
   ShieldCheck,
   PlayCircle,
   FileSpreadsheet,
-  Sliders
+  Sliders,
+  UserCheck
 } from 'lucide-react';
 import AIAnalystInterface from '../components/AIAnalystInterface';
 import DatasetExplorer from '../components/DatasetExplorer';
@@ -21,6 +22,48 @@ import EvaluationDashboard from '../components/EvaluationDashboard';
 import SettingsManager from '../components/SettingsManager';
 import LanguageSelector from '../components/LanguageSelector';
 import { useTranslation } from '../locales/LanguageContext';
+import { loginUser, getAuthToken } from '../lib/api';
+
+interface Persona {
+  email: string;
+  nameKey: 'personaAdminAcme' | 'personaAnalystAcme' | 'personaViewerAcme' | 'personaAdminGlobex' | 'personaAnalystGlobex';
+  tenant_id: string;
+  role: 'ORG_ADMIN' | 'ANALYST' | 'VIEWER';
+}
+
+const PERSONAS: Persona[] = [
+  {
+    email: 'admin@acme.com',
+    nameKey: 'personaAdminAcme',
+    tenant_id: 'tenant-acme',
+    role: 'ORG_ADMIN',
+  },
+  {
+    email: 'analyst@acme.com',
+    nameKey: 'personaAnalystAcme',
+    tenant_id: 'tenant-acme',
+    role: 'ANALYST',
+  },
+  {
+    email: 'viewer@acme.com',
+    nameKey: 'personaViewerAcme',
+    tenant_id: 'tenant-acme',
+    role: 'VIEWER',
+  },
+  {
+    email: 'admin@globex.com',
+    nameKey: 'personaAdminGlobex',
+    tenant_id: 'tenant-globex',
+    role: 'ORG_ADMIN',
+  },
+  {
+    email: 'analyst@globex.com',
+    nameKey: 'personaAnalystGlobex',
+    tenant_id: 'tenant-globex',
+    role: 'ANALYST',
+  },
+];
+
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<
@@ -28,7 +71,30 @@ export default function Home() {
   >('analyst');
   const [selectedPrompt, setSelectedPrompt] = useState<string>('');
   const [selectedDataset, setSelectedDataset] = useState<string>('');
+  const [currentPersona, setCurrentPersona] = useState<Persona>(PERSONAS[0]);
+  const [switching, setSwitching] = useState<boolean>(false);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!getAuthToken()) {
+      loginUser(PERSONAS[0].email, 'password123').catch(() => {});
+    }
+  }, []);
+
+  const handleSwitchPersona = async (email: string) => {
+    const found = PERSONAS.find((p) => p.email === email);
+    if (!found) return;
+    setSwitching(true);
+    try {
+      await loginUser(found.email, 'password123');
+      setCurrentPersona(found);
+    } catch (err) {
+      console.error('Persona switch failed:', err);
+    } finally {
+      setSwitching(false);
+    }
+  };
+
 
   const getTabTitle = () => {
     switch (activeTab) {
@@ -183,16 +249,48 @@ export default function Home() {
         </div>
 
         {/* Tenant & User Footer */}
-        <div className="p-3 border-t border-slate-800 bg-slate-950/40 text-xs">
-          <div className="flex items-center justify-between text-slate-400 mb-1">
-            <span>{t.tenantLabel}</span>
-            <span className="font-mono text-slate-200 font-semibold">tenant-acme</span>
-          </div>
-          <div className="flex items-center justify-between text-slate-400">
-            <span>{t.userRoleLabel}</span>
-            <span className="bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-1.5 py-0.5 rounded text-[10px] font-semibold">
-              ORG_ADMIN
+        <div className="p-3 border-t border-slate-800 bg-slate-950/60 text-xs space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-slate-400 font-medium flex items-center gap-1">
+              <UserCheck className="w-3.5 h-3.5 text-sky-400" />
+              {t.switchPersonaTitle}
             </span>
+            {switching && <span className="text-[10px] text-sky-400 animate-pulse">切換中...</span>}
+          </div>
+
+          <select
+            value={currentPersona.email}
+            onChange={(e) => handleSwitchPersona(e.target.value)}
+            disabled={switching}
+            aria-label={t.switchPersonaTitle}
+            className="w-full bg-slate-900 border border-slate-700 hover:border-slate-600 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 font-medium focus:outline-none focus:border-sky-500 transition cursor-pointer"
+          >
+            {PERSONAS.map((p) => (
+              <option key={p.email} value={p.email}>
+                {t[p.nameKey]}
+              </option>
+            ))}
+          </select>
+
+          <div className="pt-1 space-y-1 text-[11px]">
+            <div className="flex items-center justify-between text-slate-400">
+              <span>{t.tenantLabel}</span>
+              <span className="font-mono text-slate-200 font-semibold">{currentPersona.tenant_id}</span>
+            </div>
+            <div className="flex items-center justify-between text-slate-400">
+              <span>{t.userRoleLabel}</span>
+              <span
+                className={`px-1.5 py-0.5 rounded text-[10px] font-semibold border ${
+                  currentPersona.role === 'ORG_ADMIN'
+                    ? 'bg-emerald-950 text-emerald-300 border-emerald-800/60'
+                    : currentPersona.role === 'ANALYST'
+                    ? 'bg-sky-950 text-sky-300 border-sky-800/60'
+                    : 'bg-slate-800 text-slate-300 border-slate-700'
+                }`}
+              >
+                {currentPersona.role}
+              </span>
+            </div>
           </div>
         </div>
       </aside>
@@ -205,6 +303,11 @@ export default function Home() {
             <p className="text-xs text-slate-400">{t.portalSubtitle}</p>
           </div>
           <div className="flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span className="text-slate-300 font-mono">{currentPersona.email}</span>
+              <span className="text-slate-500 font-mono">({currentPersona.tenant_id})</span>
+            </div>
             <LanguageSelector />
             <span className="flex items-center gap-1.5 bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-3 py-1 rounded-full text-xs font-semibold">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -212,6 +315,7 @@ export default function Home() {
             </span>
           </div>
         </header>
+
 
         {activeTab === 'analyst' && (
           <AIAnalystInterface
