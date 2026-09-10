@@ -6,14 +6,28 @@ from typing import Any, Dict, List, Optional, Tuple
 from app.core.config import settings
 
 
-class TokenBudgetExceededException(Exception):
+from app.core.exceptions import PlatformException
+from fastapi import status
+
+
+class TokenBudgetExceededException(PlatformException):
     """Raised when tenant exceeds assigned token or cost allowance."""
-    pass
+    def __init__(self, message: str = "Daily token budget exceeded for tenant."):
+        super().__init__(
+            code="TOKEN_BUDGET_EXCEEDED",
+            message=message,
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+        )
 
 
-class RateLimitExceededException(Exception):
+class RateLimitExceededException(PlatformException):
     """Raised when tenant/user exceeds requests per minute threshold."""
-    pass
+    def __init__(self, message: str = "Request rate limit exceeded. Please slow down."):
+        super().__init__(
+            code="RATE_LIMIT_EXCEEDED",
+            message=message,
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+        )
 
 
 class TokenGovernanceStorageBackend(abc.ABC):

@@ -7,12 +7,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Security Hardening: Non-root execution user (P0-12)
+RUN useradd -r -u 10001 -s /bin/bash appuser
+
 COPY backend/requirements.txt /app/backend/requirements.txt
 RUN pip install --no-cache-dir -r /app/backend/requirements.txt
 
 COPY backend /app/backend
+RUN chown -R appuser:appuser /app
 
 WORKDIR /app/backend
+USER 10001
 
 EXPOSE 8000
 

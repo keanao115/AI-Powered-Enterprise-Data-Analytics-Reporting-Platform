@@ -62,7 +62,11 @@ async def get_current_user_context(
     token: Optional[str] = Depends(oauth2_scheme),
 ) -> TenantContext:
     if not token:
-        # Fallback default tenant for local demo / unauthenticated demo testing if enabled
+        # In Production Mode (DEMO_MODE=False), unauthenticated requests fail closed
+        if not getattr(settings, "DEMO_MODE", True):
+            raise AuthenticationException("Authentication credentials were not provided. Production requires a valid JWT Bearer token.")
+
+        # Fallback default tenant for local demo mode
         ctx = TenantContext(
             tenant_id="tenant-acme",
             organization_id="org-acme-corp",
@@ -84,6 +88,8 @@ async def get_current_user_context(
                 Permission.DATA_RESTRICTED_READ,
                 Permission.SANDBOX_EXECUTE,
                 Permission.EVALUATION_RUN,
+                Permission.SETTINGS_VIEW,
+                Permission.SETTINGS_MANAGE,
             ],
             session_id="sess-demo-local",
         )

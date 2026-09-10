@@ -271,10 +271,54 @@ class LLMGateway:
         tools: List[Dict[str, Any]] = None,
         temperature: float = 0.0,
         role: Optional[str] = None,
+        tenant_id: Optional[str] = None,
     ) -> LLMResponse:
-        """Generates LLM response, optionally routing to role-specific provider."""
+        """Generates LLM response, enforcing Token Governance (RPM & budget quota) and routing to provider."""
+        from app.core.tenant import get_tenant_context
+        from app.security.token_governance import (
+            token_governance,
+            RateLimitExceededException,
+            TokenBudgetExceededException,
+        )
+
+        t_id = tenant_id
+        if not t_id:
+            ctx = get_tenant_context()
+            t_id = ctx.tenant_id if ctx else "tenant-acme"
+
+        # 1. Rate Limit Check (Sliding Window RPM)
+        allowed_rpm, current_rpm = token_governance.check_rate_limit(t_id)
+        if not allowed_rpm:
+            raise RateLimitExceededException(
+                f"Rate limit exceeded: Tenant '{t_id}' reached {current_rpm} requests per minute (limit: {token_governance.rpm_limit} RPM)."
+            )
+
+        # 2. Token Budget Check
+        total_prompt_chars = sum(len(m.content) for m in messages if m.content)
+        estimated_tokens = max(50, total_prompt_chars // 4)
+        budget_ok, budget_stats = token_governance.check_and_deduct_tokens(
+            tenant_id=t_id,
+            estimated_tokens=estimated_tokens,
+            estimated_cost_usd=round(estimated_tokens * 0.000002, 6),
+        )
+        if not budget_ok:
+            raise TokenBudgetExceededException(
+                f"Token budget exceeded: Tenant '{t_id}' reached daily quota ({budget_stats.get('used_tokens', 0)}/{token_governance.daily_token_limit} tokens)."
+            )
+
         provider = self.get_provider_by_role(role) if role else self.get_provider()
-        return provider.generate(messages=messages, tools=tools, temperature=temperature)
+        response = provider.generate(messages=messages, tools=tools, temperature=temperature)
+
+        # 3. Account for response completion tokens
+        if response and response.content:
+            completion_tokens = max(10, len(response.content) // 4)
+            token_governance.check_and_deduct_tokens(
+                tenant_id=t_id,
+                estimated_tokens=completion_tokens,
+                estimated_cost_usd=round(completion_tokens * 0.000002, 6),
+            )
+
+        return response
 
 
 llm_gateway = LLMGateway()

@@ -8,6 +8,12 @@ from app.reporting.excel_generator import generate_excel_report
 
 
 class ReportService:
+    def __init__(self):
+        self._reports: Dict[str, Dict[str, Any]] = {}
+
+    def get_report(self, report_id: str) -> Optional[Dict[str, Any]]:
+        return self._reports.get(report_id)
+
     def create_report(
         self,
         query_id: str,
@@ -45,14 +51,17 @@ class ReportService:
 
         file_size = os.path.getsize(file_path) if os.path.exists(file_path) else 1024
 
-        return {
+        res = {
             "report_id": report_id,
+            "tenant_id": tenant_id,
             "title": title,
             "format": fmt.upper(),
             "file_path": file_path,
             "file_size_bytes": file_size,
             "signed_url": f"/api/v1/reports/{report_id}/download",
         }
+        self._reports[report_id] = res
+        return res
 
 
 report_service = ReportService()

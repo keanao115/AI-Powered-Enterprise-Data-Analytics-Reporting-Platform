@@ -15,6 +15,7 @@ from app.semantic.dataset_catalog import dataset_catalog
 from app.query_engine.ast_policy import ast_policy_engine
 from app.query_engine.rls_enforcer import rls_enforcer
 from app.query_engine.executor import query_executor
+from app.query_engine.secure_gateway import secure_query_gateway
 from app.query_engine.repair import sql_repair_service
 from app.analytics.data_quality import evaluate_data_quality
 from app.analytics.grounding import grounding_validator
@@ -307,12 +308,12 @@ Instructions:
 
         # Step 6: Read-only DB Execution & Repair fallback
         state.execution_steps.append({"step": "DATABASE_EXECUTION", "status": "RUNNING"})
-        exec_res = query_executor.execute(rewritten_sql, ctx)
-        if not exec_res["success"]:
-            repair_res = sql_repair_service.repair_and_execute(rewritten_sql, exec_res["error"], ctx)
-            if not repair_res["success"]:
+        exec_res = secure_query_gateway.execute(rewritten_sql, ctx, purpose="analyst_agent", request_id=request_id)
+        if not exec_res.get("success"):
+            repair_res = sql_repair_service.repair_and_execute(rewritten_sql, exec_res.get("error", "Execution failed"), ctx)
+            if not repair_res.get("success"):
                 state.execution_steps[-1]["status"] = "FAILED"
-                raise Exception(f"Database Execution Failed: {exec_res['error']}")
+                raise Exception(f"Database Execution Failed: {exec_res.get('error', 'Execution error')}")
             exec_res = repair_res
 
         query_data = exec_res["result"]

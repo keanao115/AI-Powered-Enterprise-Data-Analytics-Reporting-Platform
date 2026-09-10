@@ -21,8 +21,21 @@ class MockLLMProvider:
         last_message = messages[-1].content if messages else ""
         system_content = messages[0].content if messages and messages[0].role == "system" else ""
 
+        # If SQL Repair is requested
+        if "Fix the SQL" in system_content or "repair" in system_content.lower():
+            clean_candidate = last_message
+            if "Original Query:" in clean_candidate:
+                clean_candidate = clean_candidate.split("Original Query:")[1].split("\n")[0].strip()
+            elif "original_sql=" in clean_candidate:
+                clean_candidate = clean_candidate.split("original_sql=")[1].split("\n")[0].strip()
+            # Clean common mock error keywords
+            clean_candidate = clean_candidate.replace("WHERE INVALID_SYNTAX", "").replace("INVALID_SYNTAX", "").strip()
+            if not clean_candidate.upper().startswith("SELECT"):
+                clean_candidate = "SELECT * FROM customers"
+            response_content = f"```sql\n{clean_candidate}\n```"
+
         # If Text-to-SQL generation is requested
-        if "Text-to-SQL" in system_content or "SELECT" in last_message or "SQL" in system_content:
+        elif "Text-to-SQL" in system_content or "SELECT" in last_message or "SQL" in system_content:
             q_lower = last_message.lower()
 
             # Prioritize 6 real-world enterprise domain schemas

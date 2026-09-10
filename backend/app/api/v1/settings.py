@@ -2,10 +2,13 @@ import os
 import time
 import uuid
 from typing import Any, Dict, List, Optional
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, status, Depends
 from pydantic import BaseModel, Field
 
 from app.core.config import settings
+from app.core.security import get_current_user_context, require_permission
+from app.core.permissions import Permission
+from app.core.tenant import TenantContext
 from app.ai.llm_gateway import llm_gateway
 from app.ai.schemas.llm_schemas import LLMMessage
 from app.ai.key_detector import KNOWN_PROVIDERS, detect_provider_from_key, DetectedProviderInfo
@@ -139,7 +142,9 @@ class TestLLMConnectionResponse(BaseModel):
 
 
 @router.get("/llm", response_model=LLMConfigResponse)
-async def get_llm_settings():
+async def get_llm_settings(
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_VIEW)),
+):
     """Returns current active LLM provider and safely masked API key indicators."""
     return LLMConfigResponse(
         provider=settings.LLM_PROVIDER,
@@ -153,7 +158,10 @@ async def get_llm_settings():
 
 
 @router.post("/llm", response_model=LLMConfigResponse)
-async def update_llm_settings(req: UpdateLLMConfigRequest):
+async def update_llm_settings(
+    req: UpdateLLMConfigRequest,
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_MANAGE)),
+):
     """
     Updates active LLM configuration in memory and optionally writes to local .env.
     Changes take effect immediately on subsequent queries.
@@ -210,7 +218,10 @@ async def update_llm_settings(req: UpdateLLMConfigRequest):
 
 
 @router.post("/detect-key", response_model=DetectedProviderInfo)
-async def detect_key(req: DetectKeyRequest):
+async def detect_key(
+    req: DetectKeyRequest,
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_VIEW)),
+):
     """
     Analyzes an input API key to identify provider type, recommended models, and default base URL.
     """
@@ -218,7 +229,9 @@ async def detect_key(req: DetectKeyRequest):
 
 
 @router.get("/vault")
-async def get_vault_keys():
+async def get_vault_keys(
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_VIEW)),
+):
     """
     Returns all registered API keys in the multi-provider vault with masked credentials.
     """
@@ -231,7 +244,10 @@ async def get_vault_keys():
 
 
 @router.post("/vault")
-async def add_or_update_vault_key(req: VaultKeyRequest):
+async def add_or_update_vault_key(
+    req: VaultKeyRequest,
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_MANAGE)),
+):
     """
     Adds or updates an API key in the multi-provider vault.
     """
@@ -261,7 +277,10 @@ async def add_or_update_vault_key(req: VaultKeyRequest):
 
 
 @router.delete("/vault/{provider_id}")
-async def delete_vault_key(provider_id: str):
+async def delete_vault_key(
+    provider_id: str,
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_MANAGE)),
+):
     """
     Deletes an API key from the multi-provider vault.
     """
@@ -278,7 +297,10 @@ async def delete_vault_key(provider_id: str):
 
 
 @router.post("/vault/{provider_id}/activate")
-async def activate_vault_key(provider_id: str):
+async def activate_vault_key(
+    provider_id: str,
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_MANAGE)),
+):
     """
     Sets a specific vault key as the active system provider for primary inference.
     """
@@ -297,7 +319,9 @@ async def activate_vault_key(provider_id: str):
 
 
 @router.get("/collaboration")
-async def get_collaboration_settings():
+async def get_collaboration_settings(
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_VIEW)),
+):
     """
     Returns the current multi-model collaboration configuration and role participants.
     """
@@ -317,7 +341,10 @@ async def get_collaboration_settings():
 
 
 @router.post("/collaboration")
-async def update_collaboration_settings(req: CollaborationConfigRequest):
+async def update_collaboration_settings(
+    req: CollaborationConfigRequest,
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_MANAGE)),
+):
     """
     Configures multi-model collaboration pipeline roles and enabled flag.
     """
@@ -343,7 +370,10 @@ async def update_collaboration_settings(req: CollaborationConfigRequest):
 
 
 @router.post("/test-llm", response_model=TestLLMConnectionResponse)
-async def test_llm_connection(req: TestLLMConnectionRequest):
+async def test_llm_connection(
+    req: TestLLMConnectionRequest,
+    ctx: TenantContext = Depends(require_permission(Permission.SETTINGS_MANAGE)),
+):
     """
     Sends a test request to the specified LLM provider and measures latency and connectivity.
     Supports any AI model or custom OpenAI-compatible endpoint.

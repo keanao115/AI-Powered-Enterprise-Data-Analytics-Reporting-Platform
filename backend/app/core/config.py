@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     )
 
     APP_ENV: str = "development"
+    DEMO_MODE: bool = True
     LOG_LEVEL: str = "INFO"
     SECRET_KEY: str = "change-this-super-secret-key-in-production-min-32-chars-long!"
     ALGORITHM: str = "HS256"

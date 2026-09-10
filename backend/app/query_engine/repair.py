@@ -3,8 +3,7 @@ from app.core.tenant import TenantContext
 from app.ai.llm_gateway import llm_gateway
 from app.ai.schemas.llm_schemas import LLMMessage
 from app.ai.prompts.prompts import SQL_REPAIR_PROMPT
-from app.query_engine.ast_policy import ast_policy_engine
-from app.query_engine.executor import query_executor
+from app.query_engine.secure_gateway import secure_query_gateway
 
 
 class SQLRepairService:
@@ -32,21 +31,15 @@ class SQLRepairService:
             if "```sql" in repaired_sql:
                 repaired_sql = repaired_sql.split("```sql")[1].split("```")[0].strip()
 
-            # Validate AST policy again
-            policy_check = ast_policy_engine.validate(repaired_sql, ctx)
-            if not policy_check["allowed"]:
-                current_error = f"Policy violation on repair attempt {attempt}: {policy_check['reason']}"
-                continue
-
-            # Execute
-            exec_res = query_executor.execute(repaired_sql, ctx)
-            if exec_res["success"]:
+            # Execute through Secure Query Gateway (re-applies AST policy, dynamic RLS, CLS, cost guardrails, and timeouts)
+            exec_res = secure_query_gateway.execute(repaired_sql, ctx, purpose="sql_repair")
+            if exec_res.get("success"):
                 exec_res["repaired"] = True
                 exec_res["attempts"] = attempt
                 return exec_res
 
             current_sql = repaired_sql
-            current_error = exec_res["error"]
+            current_error = exec_res.get("error", "Unknown execution error")
 
         return {
             "success": False,

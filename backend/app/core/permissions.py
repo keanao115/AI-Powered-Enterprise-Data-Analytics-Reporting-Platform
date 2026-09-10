@@ -27,6 +27,8 @@ class Permission(str, Enum):
     DATA_RESTRICTED_READ = "data:restricted:read"
     SANDBOX_EXECUTE = "sandbox:execute"
     EVALUATION_RUN = "evaluation:run"
+    SETTINGS_VIEW = "settings:view"
+    SETTINGS_MANAGE = "settings:manage"
 
 
 ROLE_PERMISSIONS: dict[Role, Set[Permission]] = {
@@ -48,6 +50,8 @@ ROLE_PERMISSIONS: dict[Role, Set[Permission]] = {
         Permission.DATA_RESTRICTED_READ,
         Permission.SANDBOX_EXECUTE,
         Permission.EVALUATION_RUN,
+        Permission.SETTINGS_VIEW,
+        Permission.SETTINGS_MANAGE,
     },
     Role.DATA_STEWARD: {
         Permission.QUERY_EXECUTE,
@@ -72,6 +76,7 @@ ROLE_PERMISSIONS: dict[Role, Set[Permission]] = {
         Permission.SEMANTIC_VIEW,
         Permission.SANDBOX_EXECUTE,
         Permission.EVALUATION_RUN,
+        Permission.SETTINGS_VIEW,
     },
     Role.VIEWER: {
         Permission.QUERY_EXECUTE,
@@ -79,6 +84,7 @@ ROLE_PERMISSIONS: dict[Role, Set[Permission]] = {
         Permission.REPORT_DOWNLOAD,
         Permission.DATASOURCE_VIEW,
         Permission.SEMANTIC_VIEW,
+        Permission.SETTINGS_VIEW,
     },
 }
 

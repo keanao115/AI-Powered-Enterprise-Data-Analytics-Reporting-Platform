@@ -32,5 +32,5 @@ class ExecuteReadOnlyQueryTool(BaseTool):
     risk_level = "MEDIUM"
 
     def _execute(self, inputs: ExecuteReadOnlyQueryInput, ctx: Optional[TenantContext]):
-        from app.query_engine.executor import query_executor
-        return query_executor.execute(inputs.sql_query, ctx)
+        from app.query_engine.secure_gateway import secure_query_gateway
+        return secure_query_gateway.execute(inputs.sql_query, ctx=ctx, purpose="sql_tool")
